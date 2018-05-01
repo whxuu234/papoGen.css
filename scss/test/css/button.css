@@ -1,8 +1,14 @@
 /*!
  * # papoGen 0.0.1 - Button
  */
-.btn:hover {
-  opacity: 0.8; }
+.btn {
+  border: none; }
+  .btn:hover {
+    opacity: 0.8; }
+  .btn:active {
+    outline: none; }
+  .btn:focus {
+    outline: 0; }
 
 .primary {
   color: #FFFFFF;
