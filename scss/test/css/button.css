@@ -1,0 +1,60 @@
+/*!
+ * # papoGen 0.0.1 - Button
+ */
+.btn:hover {
+  opacity: 0.8; }
+
+.primary {
+  color: #FFFFFF;
+  background: #1E84D4; }
+
+.secondary {
+  color: #FFFFFF;
+  background: #404040; }
+
+.positive {
+  color: #FFFFFF;
+  background: #49C468; }
+
+.negative {
+  color: #FFFFFF;
+  background: #E65050; }
+
+.grey {
+  color: #FFFFFF;
+  background: #ADADAD; }
+
+.black {
+  color: #FFFFFF;
+  background: #333333; }
+
+.orange {
+  color: #FFFFFF;
+  background: #FE9A76; }
+
+.tiny {
+  width: 0.2em;
+  height: 0.1em;
+  border-radius: 0.025em; }
+
+.small {
+  width: 0.5em;
+  height: 0.25em;
+  border-radius: 0.0625em; }
+
+.medium {
+  width: 1em;
+  height: 0.5em;
+  border-radius: 0.12em; }
+
+.large {
+  width: 2em;
+  height: 1em;
+  border-radius: 0.24em; }
+
+.huge {
+  width: 5em;
+  height: 2.5em;
+  border-radius: 0.6em; }
+
+/*# sourceMappingURL=button.css.map */
