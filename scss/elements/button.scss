@@ -2,5 +2,109 @@
  * # papoGen 0.0.1 - Button
  */
 
-// for testing ....
+// format: <size> <color> <frame> btn
+// ex: normal grey line btn
+
+// !-- body
+.btn {
+  margin: 0;
+  text-align: center;
+  opacity: 0.85;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: 0;
+    opacity: 1;
+  }
+}
+
+// !-- color
+$bg_col: (
+  primary   : #1E84D4,
+  secondary : #404040,
+
+  positive  : #49C468,
+  negative  : #E65050,
+
+  light     : #C9C9C9,
+  grey      : #ADADAD,
+  black     : #333333,
+
+  orange    : #FE9A76
+);
+
+@each $type, $col in $bg_col {
+  .#{$type} {
+    color       : $col;
+    background  : $col;
+    border-color: $col;
+  }
+}
+
+// !-- frame
+$frame: (
+  line: solid,
+  fill: none
+);
+
+@each $type, $val in $frame {
+  .#{$type} {
+    border-style: $val;
+    @if ($type == 'line') {
+      border-width: 0.1rem;
+      background: #FFFFFF;
+    }
+    @else {
+      color: #FFFFFF;
+    }
+  }
+}
+
+// !-- size
+$size: (
+  small     : (4rem , 1.5rem, 0.2rem, 0.1rem),
+  medium    : (6rem , 2.1rem, 0.3rem, 0.5rem),
+  large     : (7rem , 3rem, 0.35rem , 0.9rem),
+);
+
+@each $type, $attr in $size {
+  .#{$type} {
+    width        : nth($attr, 1);
+    height       : nth($attr, 2);
+    border-radius: nth($attr, 3);
+    font-size    : nth($attr, 4);
+  }
+}
+
+// !-- default
+.basic {
+  @extend .medium;
+  @extend .fill;
+  @extend .light;
+  color: #2E2E2E;
+}
+
+// !-- group buttons
+
+// format: <type>
+// ex: vertical
+/*
+.flat {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
+*/
+
+
+
+
+
 
