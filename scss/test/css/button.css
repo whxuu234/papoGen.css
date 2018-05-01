@@ -2,6 +2,7 @@
  * # papoGen 0.0.1 - Button
  */
 .btn {
+  margin: 0;
   text-align: center;
   opacity: 0.85; }
   .btn:hover {
@@ -54,7 +55,7 @@
 
 .line {
   border-style: solid;
-  border-width: 0.06rem;
+  border-width: 0.1rem;
   background: #FFFFFF; }
 
 .fill, .basic {
@@ -81,5 +82,15 @@
 
 .basic {
   color: #2E2E2E; }
+
+/*
+.flat {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
+*/
 
 /*# sourceMappingURL=button.css.map */
