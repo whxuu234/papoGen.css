@@ -1,0 +1,96 @@
+/*!
+ * # papoGen 0.0.1 - Button
+ */
+.btn {
+  margin: 0;
+  text-align: center;
+  opacity: 0.85; }
+  .btn:hover {
+    opacity: 1; }
+  .btn:active {
+    outline: none; }
+  .btn:focus {
+    outline: 0;
+    opacity: 1; }
+
+.primary {
+  color: #1E84D4;
+  background: #1E84D4;
+  border-color: #1E84D4; }
+
+.secondary {
+  color: #404040;
+  background: #404040;
+  border-color: #404040; }
+
+.positive {
+  color: #49C468;
+  background: #49C468;
+  border-color: #49C468; }
+
+.negative {
+  color: #E65050;
+  background: #E65050;
+  border-color: #E65050; }
+
+.light, .basic {
+  color: #C9C9C9;
+  background: #C9C9C9;
+  border-color: #C9C9C9; }
+
+.grey {
+  color: #ADADAD;
+  background: #ADADAD;
+  border-color: #ADADAD; }
+
+.black {
+  color: #333333;
+  background: #333333;
+  border-color: #333333; }
+
+.orange {
+  color: #FE9A76;
+  background: #FE9A76;
+  border-color: #FE9A76; }
+
+.line {
+  border-style: solid;
+  border-width: 0.1rem;
+  background: #FFFFFF; }
+
+.fill, .basic {
+  border-style: none;
+  color: #FFFFFF; }
+
+.small {
+  width: 4rem;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  font-size: 0.1rem; }
+
+.medium, .basic {
+  width: 6rem;
+  height: 2.1rem;
+  border-radius: 0.3rem;
+  font-size: 0.5rem; }
+
+.large {
+  width: 7rem;
+  height: 3rem;
+  border-radius: 0.35rem;
+  font-size: 0.9rem; }
+
+.basic {
+  color: #2E2E2E; }
+
+/*
+.flat {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
+*/
+
+/*# sourceMappingURL=button.css.map */
