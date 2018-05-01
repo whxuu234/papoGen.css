@@ -2,8 +2,7 @@
  * # papoGen 0.0.1 - Button
  */
 .btn {
-  text-align: center;
-  border: none; }
+  text-align: center; }
   .btn:hover {
     opacity: 0.8; }
   .btn:active {
@@ -12,49 +11,64 @@
     outline: 0; }
 
 .primary {
-  color: #FFFFFF;
-  background: #1E84D4; }
+  color: #1E84D4;
+  background: #1E84D4;
+  border-color: #1E84D4; }
 
 .secondary {
-  color: #FFFFFF;
-  background: #404040; }
+  color: #404040;
+  background: #404040;
+  border-color: #404040; }
 
 .positive {
-  color: #FFFFFF;
-  background: #49C468; }
+  color: #49C468;
+  background: #49C468;
+  border-color: #49C468; }
 
 .negative {
-  color: #FFFFFF;
-  background: #E65050; }
+  color: #E65050;
+  background: #E65050;
+  border-color: #E65050; }
 
 .grey {
-  color: #FFFFFF;
-  background: #ADADAD; }
+  color: #ADADAD;
+  background: #ADADAD;
+  border-color: #ADADAD; }
 
 .black {
-  color: #FFFFFF;
-  background: #333333; }
+  color: #333333;
+  background: #333333;
+  border-color: #333333; }
 
 .orange {
-  color: #FFFFFF;
-  background: #FE9A76; }
+  color: #FE9A76;
+  background: #FE9A76;
+  border-color: #FE9A76; }
+
+line {
+  border: solid;
+  background: #FFFFFF; }
+
+fill {
+  border: none;
+  color: #FFFFFF; }
 
 .small {
-  width: 6em;
-  height: 3em;
-  border-radius: 0.72em;
-  font-size: 0.45em; }
+  width: 4rem;
+  height: 2rem;
+  border-radius: 0.48rem;
+  font-size: 0.3rem; }
 
 .medium {
-  width: 8em;
-  height: 4em;
-  border-radius: 0.96em;
-  font-size: 1.2em; }
+  width: 6rem;
+  height: 3rem;
+  border-radius: 0.72rem;
+  font-size: 0.45rem; }
 
 .large {
-  width: 10em;
-  height: 5em;
-  border-radius: 1.2em;
-  font-size: 2.7em; }
+  width: 10rem;
+  height: 5rem;
+  border-radius: 1.2rem;
+  font-size: 0.75rem; }
 
 /*# sourceMappingURL=button.css.map */
