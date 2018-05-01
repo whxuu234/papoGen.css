@@ -39,34 +39,22 @@
   color: #FFFFFF;
   background: #FE9A76; }
 
-.tiny {
-  width: 2em;
-  height: 1em;
-  border-radius: 0.25em;
-  font-size: 0.2em; }
-
 .small {
   width: 5em;
   height: 2.5em;
-  border-radius: 0.625em;
-  font-size: 0.5em; }
+  border-radius: 0.6em;
+  font-size: 0.6em; }
 
 .medium {
-  width: 10em;
-  height: 5em;
-  border-radius: 1.2em;
-  font-size: 1em; }
+  width: 8em;
+  height: 4em;
+  border-radius: 0.96em;
+  font-size: 1.2em; }
 
 .large {
-  width: 20em;
-  height: 10em;
+  width: 12em;
+  height: 6em;
   border-radius: 2.4em;
-  font-size: 2em; }
-
-.huge {
-  width: 50em;
-  height: 25em;
-  border-radius: 6em;
-  font-size: 5em; }
+  font-size: 2.4em; }
 
 /*# sourceMappingURL=button.css.map */
