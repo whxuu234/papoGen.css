@@ -2,6 +2,7 @@
  * # papoGen 0.0.1 - Button
  */
 .btn {
+  text-align: center;
   border: none; }
   .btn:hover {
     opacity: 0.8; }
@@ -39,28 +40,33 @@
   background: #FE9A76; }
 
 .tiny {
-  width: 0.2em;
-  height: 0.1em;
-  border-radius: 0.025em; }
-
-.small {
-  width: 0.5em;
-  height: 0.25em;
-  border-radius: 0.0625em; }
-
-.medium {
-  width: 1em;
-  height: 0.5em;
-  border-radius: 0.12em; }
-
-.large {
   width: 2em;
   height: 1em;
-  border-radius: 0.24em; }
+  border-radius: 0.25em;
+  font-size: 0.2em; }
 
-.huge {
+.small {
   width: 5em;
   height: 2.5em;
-  border-radius: 0.6em; }
+  border-radius: 0.625em;
+  font-size: 0.5em; }
+
+.medium {
+  width: 10em;
+  height: 5em;
+  border-radius: 1.2em;
+  font-size: 1em; }
+
+.large {
+  width: 20em;
+  height: 10em;
+  border-radius: 2.4em;
+  font-size: 2em; }
+
+.huge {
+  width: 50em;
+  height: 25em;
+  border-radius: 6em;
+  font-size: 5em; }
 
 /*# sourceMappingURL=button.css.map */
