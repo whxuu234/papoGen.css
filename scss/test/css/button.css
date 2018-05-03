@@ -2,6 +2,9 @@
  * # papoGen 0.0.1 - Button
  */
 .btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   margin: 0;
   text-align: center;
   opacity: 0.85; }
