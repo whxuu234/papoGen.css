@@ -2,11 +2,20 @@
  * # papoGen 0.0.1 - Button
  */
 
-// format: <size> <color> <frame> btn
-// ex: normal grey line btn
+// global mixins
+@mixin unable_select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// format: <size> <position> <color> <frame> btn
+// ex: normal (center) grey line btn
 
 // !-- body
 .btn {
+  @include unable_select;
+
   margin: 0;
   text-align: center;
   opacity: 0.85;
@@ -69,7 +78,7 @@ $frame: (
 $size: (
   small     : (4rem , 1.5rem, 0.2rem, 0.1rem),
   medium    : (6rem , 2.1rem, 0.3rem, 0.5rem),
-  large     : (7rem , 3rem, 0.35rem , 0.9rem),
+  large     : (7rem , 3rem, 0.35rem , 0.9rem)
 );
 
 @each $type, $attr in $size {
@@ -91,20 +100,40 @@ $size: (
 
 // !-- group buttons
 
-// format: <type>
-// ex: vertical
-/*
-.flat {
-  flex-direction: row;
+.buttons {
+  display: flex;
 }
 
-.vertical {
-  flex-direction: column;
+$direction: (
+  horizontal: row,
+  vertical  : column
+);
+
+@each $type, $var in $direction {
+  .#{$type} {
+    flex-direction: $var;
+  }
 }
-*/
 
+$position: (
+  down  : ('top-left' , 'top-right'),
+  up    : ('bottom-left', 'bottom-right'),
+  right : ('top-left', 'bottom-left'),
+  left  : ('top-right', 'bottom-right'),
+  center: (0)
+);
 
-
+@each $type, $attr in $position {
+  .#{$type} {
+    @if ($type == 'center') {
+      border-radius: 0;
+    }
+    @else {
+      border-#{nth($attr, 1)}-radius: 0;
+      border-#{nth($attr, 2)}-radius: 0;
+    }
+  }
+}
 
 
 
