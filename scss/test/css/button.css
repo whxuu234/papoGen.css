@@ -83,14 +83,32 @@
 .basic {
   color: #2E2E2E; }
 
-/*
-.flat {
-  flex-direction: row;
-}
+.buttons {
+  display: flex; }
+
+.horizontal {
+  flex-direction: row; }
 
 .vertical {
-  flex-direction: column;
-}
-*/
+  flex-direction: column; }
+
+.up {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+.down {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.left {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.center {
+  border-radius: 0; }
 
 /*# sourceMappingURL=button.css.map */
