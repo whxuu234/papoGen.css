@@ -92,19 +92,19 @@
 .vertical {
   flex-direction: column; }
 
-.up {
+.down {
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
 
-.down {
+.up {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; }
 
-.left {
+.right {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
 
-.right {
+.left {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
 
