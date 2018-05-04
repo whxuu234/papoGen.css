@@ -18,17 +18,18 @@
 
   margin: 0;
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.75;
+  cursor: pointer;
 
   &:hover {
-    opacity: 1;
+    opacity: 0.9;
   }
   &:active {
     outline: none;
   }
   &:focus {
     outline: 0;
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
@@ -52,6 +53,27 @@ $bg_col: (
     color       : $col;
     background  : $col;
     border-color: $col;
+  }
+}
+
+// !-- state
+$state: (
+  active : 1,
+  disable: 0.4,
+  toggle : (#),
+);
+
+@each $type, $val in $state {
+  .#{$type} {
+    opacity: $val;
+    cursor: initial;
+
+    &:hover {
+      opacity: $val;
+    }
+    &:focus {
+      opacity: $val;
+    }
   }
 }
 
@@ -90,7 +112,7 @@ $size: (
   }
 }
 
-// !-- default
+// !-- extend
 .basic {
   @extend .medium;
   @extend .fill;
@@ -98,8 +120,11 @@ $size: (
   color: #2E2E2E;
 }
 
-// !-- group buttons
+.toggle {
+  @extend .basic;
+}
 
+// !-- group buttons
 .buttons {
   display: flex;
 }
