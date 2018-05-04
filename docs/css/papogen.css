@@ -821,6 +821,41 @@ Global Overrides
 /*!
  * # papoGen 0.0.1 - Header
  */
+.page_header1 {
+  color: #00284d;
+  font-family: sans-serif;
+  font-size: 28px;
+  font-style: oblique;
+}
+
+.page_header2 {
+  color: #00284d;
+  font-family: sans-serif;
+  font-size: 28px;
+  font-style: oblique;
+}
+
+.page_header3 {
+  color: #00284d;
+  font-family: sans-serif;
+  font-size: 28px;
+  font-style: oblique;
+}
+
+.page_header4 {
+  color: #00284d;
+  font-family: sans-serif;
+  font-size: 28px;
+  font-style: oblique;
+}
+
+.page_header5 {
+  color: #00284d;
+  font-family: sans-serif;
+  font-size: 28px;
+  font-style: oblique;
+}
+
 /*!
  * # papoGen 0.0.1 - Image
  */
@@ -3070,4 +3105,4 @@ Horizontally Centered
  * # papoGen 0.0.1 - Tooltips
  */
 
-/*# sourceMappingURL=test/css/papogen.css.map */
+/*# sourceMappingURL=docs/css/papogen.css.map */
