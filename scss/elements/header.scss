@@ -1,3 +1,26 @@
 /*!
  * # papoGen 0.0.1 - Header
  */
+@mixin content($size: 28px){
+  color:#00284d;
+  font:{
+  family:sans-serif;
+  size:$size;
+  style:oblique;
+}
+}
+.page_header1{
+  @include content();
+}
+.page_header2{
+  @include content();
+}
+.page_header3{
+  @include content();
+}
+.page_header4{
+  @include content();
+}
+.page_header5{
+  @include content();
+}
