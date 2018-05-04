@@ -1,0 +1,10 @@
+{
+    "name": "papogen.css-test",
+    "scripts": {
+        "build": "npm install",
+        "gen": "./node_modules/sass/sass.js scss/papogen.scss test/css/papogen.css"
+    },
+    "dependencies": {
+        "sass": "^1.3.2"
+    }
+}
