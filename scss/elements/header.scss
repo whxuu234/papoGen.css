@@ -3,6 +3,7 @@
  */
 @mixin content($size:3rem){
   color:black;
+ cursor:auto;
   font:{
   family:monospace;
   size:$size;
