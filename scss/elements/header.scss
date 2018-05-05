@@ -1,27 +1,47 @@
 /*!
  * # papoGen 0.0.1 - Header
  */
-@mixin content($size:3rem){
-  color:black;
- cursor:auto;
-  font:{
-  family:monospace;
-  size:$size;
-  weight:bold;
+@mixin font_setting($size: 3rem){
+color:black;
+cursor:auto;
+font:{
+family:monospace;
+size:$size;
+weight:bold;
 }
 }
-.first_header{
-  @include content(3rem);
+.H1{
+@include font_setting(3rem);
 }
-.second_header{
-  @include content(2.5rem);
+.sub1{
+@include font_setting(12px);
+margin-top:-12px;
 }
-.third_header{
-  @include content(2rem);
+.H2{
+@include font_setting(2.5rem);
 }
-.fourth_header{
-  @include content(1.5rem);
+.sub2{
+@include font_setting(12px);
+margin-top:-10px;
 }
-.fifth_header{
-  @include content(1rem);
+.H3{
+@include font_setting(2rem);
+}
+.sub3{
+@include font_setting(10.5px);
+margin-top:-8px;
+}
+.H4{
+@include font_setting(1.5rem);
+}
+.sub4{
+@include font_setting(10.5px);
+margin-top:-7px;
+}
+.H5{
+@include font_setting(1rem);
+}
+.sub5{
+@include font_setting(10px);
+margin-top:-5px;
 }

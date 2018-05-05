@@ -821,7 +821,7 @@ Global Overrides
 /*!
  * # papoGen 0.0.1 - Header
  */
-.first_header {
+.H1 {
   color: black;
   cursor: auto;
   font-family: monospace;
@@ -829,7 +829,16 @@ Global Overrides
   font-weight: bold;
 }
 
-.second_header {
+.sub1 {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -12px;
+}
+
+.H2 {
   color: black;
   cursor: auto;
   font-family: monospace;
@@ -837,7 +846,16 @@ Global Overrides
   font-weight: bold;
 }
 
-.third_header {
+.sub2 {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.H3 {
   color: black;
   cursor: auto;
   font-family: monospace;
@@ -845,7 +863,16 @@ Global Overrides
   font-weight: bold;
 }
 
-.fourth_header {
+.sub3 {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 10.5px;
+  font-weight: bold;
+  margin-top: -8px;
+}
+
+.H4 {
   color: black;
   cursor: auto;
   font-family: monospace;
@@ -853,12 +880,30 @@ Global Overrides
   font-weight: bold;
 }
 
-.fifth_header {
+.sub4 {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 10.5px;
+  font-weight: bold;
+  margin-top: -7px;
+}
+
+.H5 {
   color: black;
   cursor: auto;
   font-family: monospace;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.sub5 {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: -5px;
 }
 
 /*!
