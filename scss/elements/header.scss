@@ -8,19 +8,19 @@
   size:$size;
   weight:bold;
 }
-}
+
 .first_header{
-  @include content(32);
+  @include content(36);
 }
 .second_header{
-  @include content(28);
+  @include content(32);
 }
 .third_header{
-  @include content(24);
+  @include content(28);
 }
 .fourth_header{
-  @include content(20);
+  @include content(24);
 }
 .fifth_header{
-  @include content(16);
+  @include content(20);
 }
