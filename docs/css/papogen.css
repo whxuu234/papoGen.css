@@ -821,39 +821,39 @@ Global Overrides
 /*!
  * # papoGen 0.0.1 - Header
  */
-.page_header1 {
-  color: #00284d;
-  font-family: sans-serif;
-  font-size: 28px;
-  font-style: oblique;
+.first_header {
+  color: black;
+  font-family: monospace;
+  font-size: 32;
+  font-weight: bold;
 }
 
-.page_header2 {
-  color: #00284d;
-  font-family: sans-serif;
-  font-size: 28px;
-  font-style: oblique;
+.second_header {
+  color: black;
+  font-family: monospace;
+  font-size: 28;
+  font-weight: bold;
 }
 
-.page_header3 {
-  color: #00284d;
-  font-family: sans-serif;
-  font-size: 28px;
-  font-style: oblique;
+.third_header {
+  color: black;
+  font-family: monospace;
+  font-size: 24;
+  font-weight: bold;
 }
 
-.page_header4 {
-  color: #00284d;
-  font-family: sans-serif;
-  font-size: 28px;
-  font-style: oblique;
+.fourth_header {
+  color: black;
+  font-family: monospace;
+  font-size: 20;
+  font-weight: bold;
 }
 
-.page_header5 {
-  color: #00284d;
-  font-family: sans-serif;
-  font-size: 28px;
-  font-style: oblique;
+.fifth_header {
+  color: black;
+  font-family: monospace;
+  font-size: 16;
+  font-weight: bold;
 }
 
 /*!
