@@ -824,35 +824,35 @@ Global Overrides
 .first_header {
   color: black;
   font-family: monospace;
-  font-size: 36;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .second_header {
   color: black;
   font-family: monospace;
-  font-size: 32;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 .third_header {
   color: black;
   font-family: monospace;
-  font-size: 28;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .fourth_header {
   color: black;
   font-family: monospace;
-  font-size: 24;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .fifth_header {
   color: black;
   font-family: monospace;
-  font-size: 20;
+  font-size: 1rem;
   font-weight: bold;
 }
 
