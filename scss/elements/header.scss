@@ -1,7 +1,7 @@
 /*!
  * # papoGen 0.0.1 - Header
  */
-@mixin content($size){
+@mixin content($size:3rem){
   color:black;
   font:{
   family:monospace;
@@ -10,17 +10,17 @@
 }
 
 .first_header{
-  @include content(36);
+  @include content(3rem);
 }
 .second_header{
-  @include content(32);
+  @include content(2.5rem);
 }
 .third_header{
-  @include content(28);
+  @include content(2rem);
 }
 .fourth_header{
-  @include content(24);
+  @include content(1.5rem);
 }
 .fifth_header{
-  @include content(20);
+  @include content(1rem);
 }
