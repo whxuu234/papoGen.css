@@ -8,7 +8,7 @@
   size:$size;
   weight:bold;
 }
-
+}
 .first_header{
   @include content(3rem);
 }
@@ -20,7 +20,7 @@
 }
 .fourth_header{
   @include content(1.5rem);
-
+}
 .fifth_header{
   @include content(1rem);
 }
