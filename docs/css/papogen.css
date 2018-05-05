@@ -876,7 +876,7 @@ papoGen page Header
 }
 
 .sub1 {
-  color: black;
+  color: rgba(115, 115, 115, 0.9);
   cursor: auto;
   font-family: monospace;
   font-size: 12px;
@@ -893,7 +893,7 @@ papoGen page Header
 }
 
 .sub2 {
-  color: black;
+  color: rgba(115, 115, 115, 0.9);
   cursor: auto;
   font-family: monospace;
   font-size: 12px;
@@ -910,7 +910,7 @@ papoGen page Header
 }
 
 .sub3 {
-  color: black;
+  color: rgba(115, 115, 115, 0.9);
   cursor: auto;
   font-family: monospace;
   font-size: 10.5px;
@@ -927,7 +927,7 @@ papoGen page Header
 }
 
 .sub4 {
-  color: black;
+  color: rgba(115, 115, 115, 0.9);
   cursor: auto;
   font-family: monospace;
   font-size: 10.5px;
@@ -944,7 +944,7 @@ papoGen page Header
 }
 
 .sub5 {
-  color: black;
+  color: rgba(115, 115, 115, 0.9);
   cursor: auto;
   font-family: monospace;
   font-size: 10px;

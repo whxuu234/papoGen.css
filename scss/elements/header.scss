@@ -33,8 +33,8 @@ weight:bold;
 /*
  papoGen sub Header
  */
-@mixin font_setting($size: 3rem){
-color:black;
+@mixin font_setting($size: 3rem,$color){
+color:$color;
 cursor:auto;
 font:{
 family:monospace;
@@ -43,37 +43,37 @@ weight:bold;
 }
 }
 .H1{
-@include font_setting(3rem);
+@include font_setting(3rem,black);
 }
 .sub1{
-@include font_setting(12px);
+@include font_setting(12px,rgba(#737373,.9));
 margin-top:-12px;
 }
 .H2{
-@include font_setting(2.5rem);
+@include font_setting(2.5rem,black);
 }
 .sub2{
-@include font_setting(12px);
+@include font_setting(12px,rgba(#737373,.9));
 margin-top:-10px;
 }
 .H3{
-@include font_setting(2rem);
+@include font_setting(2rem,black);
 }
 .sub3{
-@include font_setting(10.5px);
+@include font_setting(10.5px,rgba(#737373,.9));
 margin-top:-8px;
 }
 .H4{
-@include font_setting(1.5rem);
+@include font_setting(1.5rem,black);
 }
 .sub4{
-@include font_setting(10.5px);
+@include font_setting(10.5px,rgba(#737373,.9));
 margin-top:-7px;
 }
 .H5{
-@include font_setting(1rem);
+@include font_setting(1rem,black);
 }
 .sub5{
-@include font_setting(10px);
+@include font_setting(10px,rgba(#737373,.9));
 margin-top:-5px;
 }
