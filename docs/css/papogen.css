@@ -821,6 +821,52 @@ Global Overrides
 /*!
  * # papoGen 0.0.1 - Header
  */
+/*
+papoGen page Header
+ */
+.first-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.second-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.third-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.fourth-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.fifth-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/*
+ papoGen sub Header
+ */
 .H1 {
   color: black;
   cursor: auto;

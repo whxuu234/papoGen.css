@@ -1,6 +1,38 @@
 /*!
  * # papoGen 0.0.1 - Header
  */
+/*
+papoGen page Header
+ */
+@mixin font_setting($size: 3rem){
+color:black;
+cursor:auto;
+font:{
+family:monospace;
+size:$size;
+weight:bold;
+}
+}
+
+.first-header{
+@include font_setting(3em);
+}
+.second-header{
+@include font_setting(2.5em);
+}
+.third-header{
+@include font_setting(2em);
+}
+.fourth-header{
+@include font_setting(1.5em);
+}
+.fifth-header{
+@include font_setting(1em);
+}
+
+/*
+ papoGen sub Header
+ */
 @mixin font_setting($size: 3rem){
 color:black;
 cursor:auto;
