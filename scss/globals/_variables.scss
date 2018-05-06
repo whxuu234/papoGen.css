@@ -3,6 +3,26 @@
  */
 
 
+/*** Positions ***/
+
+$align-self-order: flex-start,
+center,
+flex-end;
+$aligned-order: top,
+middle,
+bottom;
+$flex-aligned-order: start,
+center,
+end;
+$text-align-order: left,
+center,
+right,
+justify;
+$position-order: top,
+bottom,
+left,
+right;
+
 /*** Colors ***/
 
 $red: #DB2828 !important;

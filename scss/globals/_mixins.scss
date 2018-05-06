@@ -3,7 +3,63 @@
  */
 
 
-/*** htext mixin ***/
+/*** Global ***/
+
+@mixin display($value) {
+    @if ($value==flex) {
+        display: $value;
+        display: -webkit-box;
+        display: -ms-flexbox;
+    }
+    @else if ($value==inline-flex) {
+        display: $value !important;
+        display: -webkit-inline-box !important;
+        display: -ms-inline-flexbox !important;
+    }
+}
+
+@mixin flex-direction($value: col) {
+    flex-direction: $value;
+    -webkit-flex-direction: $value;
+    -ms-flex-direction: $value;
+    -moz-flex-direction: $value;
+}
+
+@mixin hyphens($value: auto) {
+    hyphens: $value;
+    -webkit-hyphens: $value;
+    -moz-hyphens: $value;
+    -ms-hyphens: $value;
+}
+
+@mixin margin-h($left: 0rem, $right: 0rem) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+@mixin margin-v($top: 0rem, $bottom: 0rem) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+
+@mixin padding-h($left: 1rem, $right: 1rem) {
+    padding-left: $left;
+    padding-right: $right;
+}
+
+@mixin padding-v($top: 1rem, $bottom: 1rem) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+@mixin box-shadow($value: none) {
+    box-shadow: $value;
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+}
+
+
+/*** htext ***/
 
 @mixin htext-default {
     font-family: $font-family;
@@ -15,21 +71,6 @@
 
 
 /*** Grid ***/
-
-@mixin grid-padding-h($top: 1rem, $bottom: 1rem) {
-    padding-left: $top;
-    padding-right: $bottom;
-}
-
-@mixin grid-padding-v($top: 1rem, $bottom: 1rem) {
-    padding-top: $top;
-    padding-bottom: $bottom;
-}
-
-@mixin grid-margin-v($top: 0rem, $bottom: 0rem) {
-    margin-top: $top;
-    margin-bottom: $bottom;
-}
 
 @mixin grid-ms-flex($align: stretch, $direction: row, $pack: inherit, $wrap: wrap) {
     -ms-flex-align: $align;
