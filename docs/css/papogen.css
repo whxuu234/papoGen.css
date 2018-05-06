@@ -1032,6 +1032,25 @@ content image header
   height: 0;
 }
 
+/*
+variation divide header
+*/
+.divide-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #cccccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 /*!
  * # papoGen 0.0.1 - Image
  */

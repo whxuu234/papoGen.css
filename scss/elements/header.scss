@@ -134,3 +134,29 @@ margin-top:-3px;
 }
 @include block;
 }
+/*
+variation divide header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin divider-setting(){
+  border:0;
+  height:1px;
+  background:#cccccc;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.divide-header {
+  @include font_setting(1rem,black);
+}
+.divider{
+@include divider-setting;
+}
