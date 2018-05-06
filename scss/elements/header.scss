@@ -187,3 +187,52 @@ variation block header
   @include font_setting(2rem,black);
   @include border_setting; 
 }
+/*
+content icon header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin icon_setting($size,$radius){
+  border-radius:$radius;
+  width:$size;
+  height:auto; 
+}
+@mixin block(){
+&::after{
+  visibility:hidden;
+display:block;
+font-size:0;
+content:"";
+clear:both;
+height:0;
+}
+}
+.icon {
+  @include icon_setting(50px,0);
+  float:left; 
+}
+.icon-header{
+@include font_setting(2rem,black);
+@include block;
+}
+.icon-account{
+@include icon_setting(50px,0);
+float:left;
+}
+.container{
+.account-header{
+@include font_setting(2rem,black);
+}
+.account-subheader{
+@include font_setting(10.5px,rgba(#737373,.9));
+margin-top:-3px;
+}
+@include block;
+}

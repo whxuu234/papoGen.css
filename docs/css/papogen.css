@@ -1065,6 +1065,63 @@ variation block header
   border-radius: 4px;
 }
 
+/*
+content icon header
+*/
+.icon {
+  border-radius: 0;
+  width: 50px;
+  height: auto;
+  float: left;
+}
+
+.icon-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.icon-header::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.icon-account {
+  border-radius: 0;
+  width: 50px;
+  height: auto;
+  float: left;
+}
+
+.container .account-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container .account-subheader {
+  color: rgba(115, 115, 115, 0.9);
+  cursor: auto;
+  font-family: monospace;
+  font-size: 10.5px;
+  font-weight: bold;
+  margin-top: -3px;
+}
+.container::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
 /*!
  * # papoGen 0.0.1 - Image
  */
