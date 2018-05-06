@@ -160,3 +160,26 @@ variation divide header
 .divider{
 @include divider-setting;
 }
+/*
+variation block header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin border_setting{
+   padding:1rem 1rem 1rem 1.5rem;
+   background:rgba(#e6e6e6,.7);
+   border-radius:4px;
+}
+
+
+.content-header {
+  @include font_setting(2rem,black);
+  @include border_setting; 
+}

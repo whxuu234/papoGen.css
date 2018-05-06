@@ -1051,6 +1051,20 @@ variation divide header
   margin-bottom: 5px;
 }
 
+/*
+variation block header
+*/
+.content-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem 1rem 1rem 1.5rem;
+  background: rgba(230, 230, 230, 0.7);
+  border-radius: 4px;
+}
+
 /*!
  * # papoGen 0.0.1 - Image
  */
