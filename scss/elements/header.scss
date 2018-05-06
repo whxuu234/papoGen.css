@@ -46,36 +46,36 @@ weight:bold;
 @include font_setting(3rem,black);
 }
 .sub1{
-@include font_setting(12px,rgba(#737373,.9));
-margin-top:-12px;
+@include font_setting(0.92rem,rgba(#737373,.9));
+margin-top:-0.92rem;
 }
 .H2{
 @include font_setting(2.5rem,black);
 }
 .sub2{
-@include font_setting(12px,rgba(#737373,.9));
-margin-top:-10px;
+@include font_setting(0.92rem,rgba(#737373,.9));
+margin-top:-0.76rem;
 }
 .H3{
 @include font_setting(2rem,black);
 }
 .sub3{
-@include font_setting(10.5px,rgba(#737373,.9));
-margin-top:-8px;
+@include font_setting(0.8rem,rgba(#737373,.9));
+margin-top:-0.62rem;
 }
 .H4{
 @include font_setting(1.5rem,black);
 }
 .sub4{
-@include font_setting(10.5px,rgba(#737373,.9));
-margin-top:-7px;
+@include font_setting(0.8rem,rgba(#737373,.9));
+margin-top:-0.56rem;
 }
 .H5{
 @include font_setting(1rem,black);
 }
 .sub5{
-@include font_setting(10px,rgba(#737373,.9));
-margin-top:-5px;
+@include font_setting(0.76rem,rgba(#737373,.9));
+margin-top:-0.4rem;
 }
 /*
 content image header
