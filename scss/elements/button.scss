@@ -60,7 +60,6 @@ $bg_col: (
 $state: (
   active : 1,
   disable: 0.4,
-  toggle : (#),
 );
 
 @each $type, $val in $state {
