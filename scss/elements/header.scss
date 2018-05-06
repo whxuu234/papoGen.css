@@ -2,7 +2,7 @@
  * # papoGen 0.0.1 - Header
  */
 /*
-papoGen page Header
+papoGen type  page Header
  */
 @mixin font_setting($size: 3rem){
 color:black;
@@ -31,7 +31,7 @@ weight:bold;
 }
 
 /*
- papoGen sub Header
+ papoGen content sub Header
  */
 @mixin font_setting($size: 3rem,$color){
 color:$color;
@@ -76,4 +76,61 @@ margin-top:-7px;
 .sub5{
 @include font_setting(10px,rgba(#737373,.9));
 margin-top:-5px;
+}
+/*
+content image header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin image_setting($size,$radius){
+  border-radius:$radius;
+  width:$size;
+  height:auto; 
+}
+@mixin block(){
+&::after{
+  visibility:hidden;
+display:block;
+font-size:0;
+content:"";
+clear:both;
+height:0;
+}
+}
+.image {
+  @include image_setting(50px,0);
+  float:left; 
+}
+.image-header{
+@include font_setting(2rem,black);
+@include block;
+}
+.picture{
+@include image_setting(40px,50%);
+float:left;
+}
+.picture-header{
+@include font_setting(2rem,black);
+@include block;
+}
+.plugin{
+@include image_setting(50px,0);
+float:left;
+}
+.container{
+.plugin-header{
+@include font_setting(2rem,black);
+}
+.plugin-subheader{
+@include font_setting(10.5px,rgba(#737373,.9));
+margin-top:-3px;
+}
+@include block;
 }

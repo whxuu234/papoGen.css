@@ -822,7 +822,7 @@ Global Overrides
  * # papoGen 0.0.1 - Header
  */
 /*
-papoGen page Header
+papoGen type  page Header
  */
 .first-header {
   color: black;
@@ -865,7 +865,7 @@ papoGen page Header
 }
 
 /*
- papoGen sub Header
+ papoGen content sub Header
  */
 .H1 {
   color: black;
@@ -950,6 +950,86 @@ papoGen page Header
   font-size: 10px;
   font-weight: bold;
   margin-top: -5px;
+}
+
+/*
+content image header
+*/
+.image {
+  border-radius: 0;
+  width: 50px;
+  height: auto;
+  float: left;
+}
+
+.image-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.image-header::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.picture {
+  border-radius: 50%;
+  width: 40px;
+  height: auto;
+  float: left;
+}
+
+.picture-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.picture-header::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.plugin {
+  border-radius: 0;
+  width: 50px;
+  height: auto;
+  float: left;
+}
+
+.container .plugin-header {
+  color: black;
+  cursor: auto;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container .plugin-subheader {
+  color: rgba(115, 115, 115, 0.9);
+  cursor: auto;
+  font-family: monospace;
+  font-size: 10.5px;
+  font-weight: bold;
+  margin-top: -3px;
+}
+.container::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
 }
 
 /*!
