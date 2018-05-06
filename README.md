@@ -25,5 +25,5 @@ npm run gen
 
 # Test 
 
-* Open the `test/index.html` under `test/` by your browser
+* Open the `docs/index.html` by your browser
     * Mostly recommend using `google-chrome`

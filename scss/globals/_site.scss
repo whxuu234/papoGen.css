@@ -7,7 +7,7 @@
 Page
 *******************************/
 
-@if $import-google-fonts {
+@if $import-fonts {
     @import url($font-url);
 }
 
@@ -41,13 +41,13 @@ h2,
 h3,
 h4,
 h5 {
-    @include header-default;
     &:first-child {
         margin-top: 0em;
     }
     &:last-child {
         margin-bottom: 0em;
     }
+    @include htext-default;
 }
 
 h1 {

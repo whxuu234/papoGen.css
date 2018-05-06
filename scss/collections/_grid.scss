@@ -1,50 +1,41 @@
 /*!
  * # papoGen 0.0.1 - Grid
+ * - Prefix: grid
  *
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
- *
  */
 
 
-/*******************************
-            Standard
-*******************************/
+/*** Grid default ***/
 
-.ui.grid {
+.grid {
+    align-items: stretch;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    padding: 0em;
-}
-
-
-/*----------------------
-    Remove Gutters
------------------------*/
-
-.ui.grid {
     margin-top: -1rem;
     margin-bottom: -1rem;
     margin-left: -1rem;
     margin-right: -1rem;
+    padding: 0em;
+    @include grid-ms-flex;
+    @include grid-webkit-box;
 }
 
-.ui.relaxed.grid {
+
+/* Remove Gutters */
+
+.grid-relaxed {
+    @extend .grid;
     margin-left: -1.5rem;
     margin-right: -1.5rem;
 }
 
-.ui[class*="very relaxed"].grid {
+.grid-ex_relaxed {
+    @extend .grid;
     margin-left: -2.5rem;
     margin-right: -2.5rem;
 }
@@ -52,83 +43,66 @@
 
 /* Preserve Rows Spacing on Consecutive Grids */
 
-.ui.grid+.grid {
+.grid+.grid {
     margin-top: 1rem;
 }
 
 
-/*-------------------
-        Columns
---------------------*/
+/*** Columns ***/
 
 
 /* Standard 16 column */
 
-.ui.grid>.column:not(.row),
-.ui.grid>.row>.column {
-    position: relative;
+.grid>.col:not(.row),
+.grid>.row>.col {
     display: inline-block;
-    width: 6.25%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    vertical-align: top;
-}
-
-.ui.grid>* {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-
-/*-------------------
-        Rows
---------------------*/
-
-.ui.grid>.row {
     position: relative;
+    vertical-align: top;
+    width: 6.25%;
+    @include grid-padding;
+}
+
+.grid>* {
+    @include grid-padding;
+}
+
+
+/*** Rows ***/
+
+.grid>.row {
+    align-items: stretch;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-pack: inherit;
-    -ms-flex-pack: inherit;
     justify-content: inherit;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    width: 100% !important;
+    position: relative;
     padding: 0rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    width: 100% !important;
+    @include grid-padding;
+    @include grid-ms-flex($pack: default);
+    @include grid-webkit-box($pack: default);
 }
 
 
-/*-------------------
-        Columns
---------------------*/
+/*** Columns ***/
 
 
 /* Vertical padding when no rows */
 
-.ui.grid>.column:not(.row) {
+.grid>.column:not(.row) {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-.ui.grid>.row>.column {
+.grid>.row>.column {
     margin-top: 0em;
     margin-bottom: 0em;
 }
 
 
-/*-------------------
-    Content
---------------------*/
+/*** Content ***/
 
 .ui.grid>.row>img,
 .ui.grid>.row>.column>img {
