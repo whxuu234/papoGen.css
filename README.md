@@ -6,10 +6,10 @@ CSS template for papoGen.
 * global
 
 ```
-# install sass on your develop env.
+# Install sass on your develop env.
 [sudo] npm install -g sass
 
-# then run the compile script.
+# Run the compile script.
 ./scss.sh
 ```
 
@@ -25,5 +25,5 @@ npm run gen
 
 # Test 
 
-* Open the `app.html` under `test/` by your browser
+* Open the `test/index.html` under `test/` by your browser
     * Mostly recommend using `google-chrome`
