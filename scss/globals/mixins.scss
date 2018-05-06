@@ -1,0 +1,14 @@
+/*!
+ * # papoGen 0.0.1 - Mixins
+ */
+
+
+/* Header mixin */
+
+@mixin header-default {
+    font-family: $font-family;
+    line-height: 1.28571429em;
+    margin: calc(2rem - 0.14285714em) 0em 1rem;
+    font-weight: bold;
+    padding: 0em;
+}
