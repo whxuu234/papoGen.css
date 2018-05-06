@@ -25,6 +25,11 @@ right;
 
 /*** Colors ***/
 
+$primary: #2185D0 !important;
+$secondary: #1B1C1D !important;
+$link: #4183C4;
+$link-hover: #1e70bf;
+$color-order: (red: #DB2828, orange: #F2711C, yellow: #FBBD08, olive: #B5CC18, green: #21BA45, teal: #00B5AD, blue: #2185D0, violet: #6435C9, purple: #A333C8, pink: #E03997, brown: #A5673F, grey: #767676, black: #1B1C1D, white: #FFFFFF);
 $red: #DB2828 !important;
 $orange: #F2711C !important;
 $yellow: #FBBD08 !important;
@@ -39,7 +44,6 @@ $brown: #A5673F !important;
 $grey: #767676 !important;
 $black: #1B1C1D !important;
 $white: #FFFFFF !important;
-$color-order: (red: #DB2828, orange: #F2711C, yellow: #FBBD08, olive: #B5CC18, green: #21BA45, teal: #00B5AD, blue: #2185D0, violet: #6435C9, purple: #A333C8, pink: #E03997, brown: #A5673F, grey: #767676, black: #1B1C1D, white: #FFFFFF);
 
 /*** Font ***/
 
@@ -47,3 +51,8 @@ $import-fonts: true !default;
 $font-url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext' !default;
 $font-name: 'Quicksand' !default;
 $font-family: $font-name 'Helvetica Neue' Arial Helvetica sans-serif !default;
+$h1-size: 2rem;
+$h2-size: 1.71428571rem;
+$h3-size: 1.28571429rem;
+$h4-size: 1.07142857rem;
+$h5-size: 1rem;

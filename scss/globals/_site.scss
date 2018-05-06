@@ -42,46 +42,46 @@ h3,
 h4,
 h5 {
     &:first-child {
-        margin-top: 0em;
+        margin-top: 0rem;
     }
     &:last-child {
-        margin-bottom: 0em;
+        margin-bottom: 0rem;
     }
     @include htext-default;
 }
 
 h1 {
     min-height: 1rem;
-    font-size: 2rem;
+    font-size: $h1-size;
 }
 
 h2 {
-    font-size: 1.71428571rem;
+    font-size: $h2-size;
 }
 
 h3 {
-    font-size: 1.28571429rem;
+    font-size: $h3-size;
 }
 
 h4 {
-    font-size: 1.07142857rem;
+    font-size: $h4-size;
 }
 
 h5 {
-    font-size: 1rem;
+    font-size: $h5-size;
 }
 
 
 /* Text */
 
 p {
-    margin: 0em 0em 1em;
-    line-height: 1.4285em;
+    margin: 0rem 0rem 1rem;
+    line-height: 1.4285rem;
     &:first-child {
-        margin-top: 0em;
+        margin-top: 0rem;
     }
     &:last-child {
-        margin-bottom: 0em;
+        margin-bottom: 0rem;
     }
 }
 
@@ -89,23 +89,13 @@ p {
 /* Links */
 
 a {
-    color: #4183C4;
+    color: $link;
     text-decoration: none;
     &:hover {
-        color: #1e70bf;
+        color: $link-hover;
         text-decoration: none;
     }
 }
-
-
-/*******************************
-Scrollbars
-*******************************/
-
-
-/*******************************
-Highlighting
-*******************************/
 
 
 /* Site */
@@ -143,9 +133,9 @@ input {
 
 body {
     &::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 10px;
         height: 10px;
+        width: 10px;
+        -webkit-appearance: none;
     }
     &::-webkit-scrollbar-track {
         background: rgba(0, 0, 0, 0.1);
@@ -153,10 +143,9 @@ body {
     }
     &::-webkit-scrollbar-thumb {
         cursor: pointer;
-        border-radius: 5px;
         background: rgba(0, 0, 0, 0.25);
-        -webkit-transition: color 0.2s ease;
-        transition: color 0.2s ease;
+        border-radius: 5px;
+        @include transition(color 0.2s ease);
     }
     &::-webkit-scrollbar-thumb {
         &:window-inactive {
@@ -182,13 +171,3 @@ body {
         }
     }
 }
-
-
-/*******************************
-Site Overrides
-*******************************/
-
-
-/*******************************
-Global Overrides
-*******************************/

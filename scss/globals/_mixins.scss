@@ -5,6 +5,12 @@
 
 /*** Global ***/
 
+@mixin box-shadow($value: none) {
+    box-shadow: $value;
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+}
+
 @mixin display($value) {
     @if ($value==flex) {
         display: $value;
@@ -52,10 +58,12 @@
     padding-bottom: $bottom;
 }
 
-@mixin box-shadow($value: none) {
-    box-shadow: $value;
-    -webkit-box-shadow: $value;
-    -moz-box-shadow: $value;
+@mixin transition($value) {
+    transition: $value;
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
 }
 
 
