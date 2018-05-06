@@ -16,9 +16,19 @@
 
 /*** Grid ***/
 
-@mixin grid-padding {
-    padding-left: 1rem;
-    padding-right: 1rem;
+@mixin grid-padding-h($top: 1rem, $bottom: 1rem) {
+    padding-left: $top;
+    padding-right: $bottom;
+}
+
+@mixin grid-padding-v($top: 1rem, $bottom: 1rem) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+@mixin grid-margin-v($top: 0rem, $bottom: 0rem) {
+    margin-top: $top;
+    margin-bottom: $bottom;
 }
 
 @mixin grid-ms-flex($align: stretch, $direction: row, $pack: inherit, $wrap: wrap) {
