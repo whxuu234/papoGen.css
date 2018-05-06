@@ -146,19 +146,23 @@ variation divide header
   weight:bold;
    }
 }
-@mixin divider-setting(){
-  border:0;
-  height:1px;
-  background:#cccccc;
-  margin-top:5px;
+@mixin divider-setting{
+  border:{
+  style:solid;
+  top:0;
+  left:0;
+  right:0;
+  width:1px;
+  color:rgba(#cccccc,.7);
+}
+  padding-bottom:5px;
   margin-bottom:5px;
+  
 }
 
 .divide-header {
   @include font_setting(1rem,black);
-}
-.divider{
-@include divider-setting;
+  @include divider-setting;
 }
 /*
 variation block header

@@ -1041,13 +1041,13 @@ variation divide header
   font-family: monospace;
   font-size: 1rem;
   font-weight: bold;
-}
-
-.divider {
-  border: 0;
-  height: 1px;
-  background: #cccccc;
-  margin-top: 5px;
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-width: 1px;
+  border-color: rgba(204, 204, 204, 0.7);
+  padding-bottom: 5px;
   margin-bottom: 5px;
 }
 
