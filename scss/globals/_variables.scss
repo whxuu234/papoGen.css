@@ -50,7 +50,11 @@ $white: #FFFFFF !important;
 $import-fonts: true !default;
 $font-url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext' !default;
 $font-name: 'Quicksand' !default;
-$font-family: $font-name 'Helvetica Neue' Arial Helvetica sans-serif !default;
+$font-family: $font-name,
+'Helvetica Neue',
+Arial,
+Helvetica,
+sans-serif !default;
 $h1-size: 2rem;
 $h2-size: 1.71428571rem;
 $h3-size: 1.28571429rem;

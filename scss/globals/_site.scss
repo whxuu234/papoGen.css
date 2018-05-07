@@ -21,16 +21,16 @@ html {
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-    min-width: 320px;
     background: #FFFFFF;
-    font-family: $font-family;
-    font-size: 14px;
-    line-height: 1.4285em;
     color: rgba(0, 0, 0, 0.87);
+    font-family: $font-family;
     font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.4285rem;
+    margin: 0px;
+    min-width: 320px;
+    overflow-x: hidden;
+    padding: 0px;
 }
 
 

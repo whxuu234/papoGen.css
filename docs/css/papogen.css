@@ -476,16 +476,16 @@ html {
   font-size: 14px; }
 
 body {
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
-  min-width: 320px;
   background: #FFFFFF;
-  font-family: "Quicksand" "Helvetica Neue" Arial Helvetica sans-serif;
-  font-size: 14px;
-  line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
-  font-smoothing: antialiased; }
+  font-family: "Quicksand", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.4285rem;
+  margin: 0px;
+  min-width: 320px;
+  overflow-x: hidden;
+  padding: 0px; }
 
 /* Headers */
 h1,
@@ -493,7 +493,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Quicksand" "Helvetica Neue" Arial Helvetica sans-serif;
+  font-family: "Quicksand", "Helvetica Neue", Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem - 0.14285714em) 0em 1rem;
   font-weight: bold;
@@ -8172,155 +8172,155 @@ body {
   -ms-hyphens: auto; }
 
 /*** Colored ***/
-.grid > .row.red,
-.grid > .col.col-red,
-.grid > .row > .col.col-red {
+.grid > .row-red,
+.grid > .col-red,
+.grid > .row > .col-red {
   background-color: #DB2828 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-red {
+.grid > .row > .col-red {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.orange,
-.grid > .col.col-orange,
-.grid > .row > .col.col-orange {
+.grid > .row-orange,
+.grid > .col-orange,
+.grid > .row > .col-orange {
   background-color: #F2711C !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-orange {
+.grid > .row > .col-orange {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.yellow,
-.grid > .col.col-yellow,
-.grid > .row > .col.col-yellow {
+.grid > .row-yellow,
+.grid > .col-yellow,
+.grid > .row > .col-yellow {
   background-color: #FBBD08 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-yellow {
+.grid > .row > .col-yellow {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.olive,
-.grid > .col.col-olive,
-.grid > .row > .col.col-olive {
+.grid > .row-olive,
+.grid > .col-olive,
+.grid > .row > .col-olive {
   background-color: #B5CC18 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-olive {
+.grid > .row > .col-olive {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.green,
-.grid > .col.col-green,
-.grid > .row > .col.col-green {
+.grid > .row-green,
+.grid > .col-green,
+.grid > .row > .col-green {
   background-color: #21BA45 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-green {
+.grid > .row > .col-green {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.teal,
-.grid > .col.col-teal,
-.grid > .row > .col.col-teal {
+.grid > .row-teal,
+.grid > .col-teal,
+.grid > .row > .col-teal {
   background-color: #00B5AD !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-teal {
+.grid > .row > .col-teal {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.blue,
-.grid > .col.col-blue,
-.grid > .row > .col.col-blue {
+.grid > .row-blue,
+.grid > .col-blue,
+.grid > .row > .col-blue {
   background-color: #2185D0 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-blue {
+.grid > .row > .col-blue {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.violet,
-.grid > .col.col-violet,
-.grid > .row > .col.col-violet {
+.grid > .row-violet,
+.grid > .col-violet,
+.grid > .row > .col-violet {
   background-color: #6435C9 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-violet {
+.grid > .row > .col-violet {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.purple,
-.grid > .col.col-purple,
-.grid > .row > .col.col-purple {
+.grid > .row-purple,
+.grid > .col-purple,
+.grid > .row > .col-purple {
   background-color: #A333C8 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-purple {
+.grid > .row > .col-purple {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.pink,
-.grid > .col.col-pink,
-.grid > .row > .col.col-pink {
+.grid > .row-pink,
+.grid > .col-pink,
+.grid > .row > .col-pink {
   background-color: #E03997 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-pink {
+.grid > .row > .col-pink {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.brown,
-.grid > .col.col-brown,
-.grid > .row > .col.col-brown {
+.grid > .row-brown,
+.grid > .col-brown,
+.grid > .row > .col-brown {
   background-color: #A5673F !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-brown {
+.grid > .row > .col-brown {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.grey,
-.grid > .col.col-grey,
-.grid > .row > .col.col-grey {
+.grid > .row-grey,
+.grid > .col-grey,
+.grid > .row > .col-grey {
   background-color: #767676 !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-grey {
+.grid > .row > .col-grey {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.black,
-.grid > .col.col-black,
-.grid > .row > .col.col-black {
+.grid > .row-black,
+.grid > .col-black,
+.grid > .row > .col-black {
   background-color: #1B1C1D !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-black {
+.grid > .row > .col-black {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;
   padding-right: 1rem; }
 
-.grid > .row.white,
-.grid > .col.col-white,
-.grid > .row > .col.col-white {
+.grid > .row-white,
+.grid > .col-white,
+.grid > .row > .col-white {
   background-color: #FFFFFF !important;
   color: #FFFFFF !important; }
-.grid > .row > .col.col-white {
+.grid > .row > .col-white {
   margin-top: -1rem;
   margin-bottom: -1rem;
   padding-left: 1rem;

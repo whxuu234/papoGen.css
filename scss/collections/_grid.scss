@@ -556,13 +556,13 @@
 @each $index,
 $value in $color-order {
     .grid {
-        >.row.#{$index},
-        >.col.col-#{$index},
-        >.row>.col.col-#{$index} {
+        >.row-#{$index},
+        >.col-#{$index},
+        >.row>.col-#{$index} {
             background-color: $value !important;
             color: $white;
         }
-        >.row>.col.col-#{$index} {
+        >.row>.col-#{$index} {
             @include margin-v(-1rem, -1rem);
             @include padding-h;
         }
