@@ -59,8 +59,17 @@ $h5-size: 1rem;
 
 /*** RWD Design ***/
 
-$RWD: sm,
+
+/* Definition
+ * - Mobile (576px - 767px): xs
+ * - Tablet (768px - 991px): sm
+ * - Computer (992px - 1199px): md
+ * - Large Monitor (1200px - 1919px): lg
+ * - Widescreen (1920px -): xl
+ */
+
+$RWD: xs,
+sm,
 md,
 lg,
-xl,
-xxl;
+xl;

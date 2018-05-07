@@ -69,28 +69,34 @@
 
 /*** RWD Design ***/
 
+
+/*
+ * - Breakpoint1: For all devices (xs / sm / md / lg / xl)
+ * - Breakpoint2: For smaller devices (xs / sm / md)
+ */
+
 @mixin breakpoint1($point) {
-    @if ($point==sm) {
+    @if ($point==xs) {
         @media only screen and (max-width: 767px) {
             @content;
         }
     }
-    @else if ($point==md) {
+    @else if ($point==sm) {
         @media only screen and (min-width: 768px) and (max-width: 991px) {
             @content;
         }
     }
-    @else if ($point==lg) {
+    @else if ($point==md) {
         @media only screen and (min-width: 992px) {
             @content;
         }
     }
-    @else if ($point==xl) {
+    @else if ($point==lg) {
         @media only screen and (min-width: 1200px) and (max-width: 1919px) {
             @content;
         }
     }
-    @else if ($point==xll) {
+    @else if ($point==xl) {
         @media only screen and (min-width: 1920px) {
             @content;
         }
@@ -98,17 +104,17 @@
 }
 
 @mixin breakpoint2($point) {
-    @if ($point==sm) {
+    @if ($point==xs) {
         @media only screen and (max-width: 767px) {
             @content;
         }
     }
-    @else if ($point==md) {
+    @else if ($point==sm) {
         @media only screen and (min-width: 768px) and (max-width: 991px) {
             @content;
         }
     }
-    @else if ($point==lg) {
+    @else if ($point==md) {
         @media only screen and (min-width: 992px) {
             @content;
         }
