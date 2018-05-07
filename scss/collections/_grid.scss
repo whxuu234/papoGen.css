@@ -671,16 +671,16 @@ $value in $color-order {
             @else if ($i>=5 and $i<=7) {
                 width: 100% / 3 !important;
             }
-            @else if ($i==8 or $i=9) {
+            @else if ($i==8 or $i==9) {
                 width: 100% / 4 !important;
             }
-            @else if ($i==10 or $i=11) {
+            @else if ($i==10 or $i==11) {
                 width: 100% / 5 !important;
             }
-            @else if ($i==12 or $i=13) {
+            @else if ($i==12 or $i==13) {
                 width: 100% / 6 !important;
             }
-            @else if ($i==14 or $i=15) {
+            @else if ($i==14 or $i==15) {
                 width: 100% / 7 !important;
             }
             @else if ($i==16) {
