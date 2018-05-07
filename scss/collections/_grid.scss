@@ -158,7 +158,7 @@
 /** Page Grid **/
 
 @media only screen and (max-width: 767px) {
-    .page.grid {
+    .grid.grid-page {
         width: auto;
         @include margin-h;
         @include padding-h;
@@ -166,7 +166,7 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .page.grid {
+    .grid.grid-paged {
         width: auto;
         @include margin-h;
         @include padding-h(2rem, 2rem);
@@ -174,7 +174,7 @@
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .page.grid {
+    .grid.grid-page {
         width: auto;
         @include margin-h;
         @include padding-h(3%, 3%);
@@ -182,7 +182,7 @@
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
-    .page.grid {
+    .grid.grid-page {
         width: auto;
         @include margin-h;
         @include padding-h(15%, 15%);
@@ -190,7 +190,7 @@
 }
 
 @media only screen and (min-width: 1920px) {
-    .page.grid {
+    .grid.grid-page {
         width: auto;
         @include margin-h;
         @include padding-h(23%, 23%);
@@ -232,7 +232,7 @@
 
 /* Celled Page */
 
-.celled.page.grid {
+.grid.grid-page.grid-celled {
     @include box-shadow;
 }
 
@@ -251,86 +251,18 @@
             width: 100% / 16 * $i !important;
         }
     }
-}
-
-
-/** Width per Device **/
-
-
-/* Mobile Sizing Combinations */
-
-@media only screen and (min-width: 320px) and (max-width: 767px) {
-    @for $i from 1 to 16 {
-        .grid,
-        .grid>.row,
-        .grid>.col.row,
-        .grid.col {
-            >.col[class*="col-sm-#{i}-span"] {
-                width: 100% / 16 * $i !important;
-            }
-        }
-    }
-}
-
-
-/* Tablet Sizing Combinations */
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    @for $i from 1 to 16 {
-        .grid,
-        .grid>.row,
-        .grid>.col.row,
-        .grid.col {
-            >.col[class*="col-md-#{i}-span"] {
-                width: 100% / 16 * $i !important;
-            }
-        }
-    }
-}
-
-
-/* Computer/Desktop Sizing Combinations */
-
-@media only screen and (min-width: 992px) {
-    @for $i from 1 to 16 {
-        .grid,
-        .grid>.row,
-        .grid>.col.row,
-        .grid.col {
-            >.col[class*="col-lg-#{i}-span"] {
-                width: 100% / 16 * $i !important;
-            }
-        }
-    }
-}
-
-
-/* Large Monitor Sizing Combinations */
-
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
-    @for $i from 1 to 16 {
-        .grid,
-        .grid>.row,
-        .grid>.col.row,
-        .grid.col {
-            >.col[class*="col-xl-#{i}-span"] {
-                width: 100% / 16 * $i !important;
-            }
-        }
-    }
-}
-
-
-/* Widescreen Sizing Combinations */
-
-@media only screen and (min-width: 1920px) {
-    @for $i from 1 to 16 {
-        .grid,
-        .grid>.row,
-        .grid>.col.row,
-        .grid.col {
-            >.col[class*="col-xll-#{i}-span"] {
-                width: 100% / 16 * $i !important;
+    /* RWD Design: Mobile / Tablet / Computer / Large Monitor / Widescreen */
+    @each $item in $RWD {
+        @include breakpoint1($item) {
+            @for $i from 1 to 16 {
+                .grid,
+                .grid>.row,
+                .grid>.col.row,
+                .grid.col {
+                    >.col[class*="col-#{item}-#{i}-span"] {
+                        width: 100% / 16 * $i !important;
+                    }
+                }
             }
         }
     }
@@ -508,7 +440,7 @@
     }
 }
 
-.inverted[class*="vertically divided"].grid>.row:before {
+.grid.grid-inverted.grid-divided.grid-v>.row:before {
     -webkit-box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
     box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
 }
@@ -670,132 +602,55 @@ $value in $color-order {
 /** Reverse **/
 
 
-/* Mobile */
+/* RWD Design: Mobile / Tablet / Computer */
 
-@media only screen and (max-width: 767px) {
-    [class*="mobile reversed"].grid,
-    [class*="mobile reversed"].grid>.row,
-    .grid>[class*="mobile reversed"].row {
-        -webkit-box-direction: reverse;
-        -webkit-box-orient: horizontal;
-        @include flex-direction(row-reverse);
-    }
-    [class*="mobile vertically reversed"].grid,
-    .stackable[class*="mobile reversed"] {
-        -webkit-box-direction: reverse;
-        -webkit-box-orient: vertical;
-        @include flex-direction(col-reverse);
-    }
-    /* Divided Reversed */
-    [class*="mobile reversed"].divided.grid:not([class*="vertically divided"])>.col:first-child,
-    [class*="mobile reversed"].divided.grid:not([class*="vertically divided"])>.row>.col:first-child {
-        @include box-shadow(-1px 0px 0px 0px rgba(34, 36, 38, 0.15));
-    }
-    [class*="mobile reversed"].divided.grid:not([class*="vertically divided"])>.col:last-child,
-    [class*="mobile reversed"].divided.grid:not([class*="vertically divided"])>.row>.col:last-child {
-        @include box-shadow;
-    }
-    /* Vertically Divided Reversed */
-    .grid[class*="vertically divided"][class*="mobile vertically reversed"]>.row:first-child:before {
-        @include box-shadow(0px -1px 0px 0px rgba(34, 36, 38, 0.15));
-    }
-    .grid[class*="vertically divided"][class*="mobile vertically reversed"]>.row:last-child:before {
-        @include box-shadow;
-    }
-    /* Celled Reversed */
-    [class*="mobile reversed"].celled.grid>.row>.col:first-child {
-        @include box-shadow(-1px 0px 0px 0px #D4D4D5);
-    }
-    [class*="mobile reversed"].celled.grid>.row>.col:last-child {
-        @include box-shadow;
-    }
-}
-
-
-/* Tablet */
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    [class*="tablet reversed"].grid,
-    [class*="tablet reversed"].grid>.row,
-    .grid>[class*="tablet reversed"].row {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: reverse;
-        @include flex-direction(row-reverse);
-    }
-    [class*="tablet vertically reversed"].grid {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: reverse;
-        @include flex-direction(col-reverse);
-    }
-    /* Divided Reversed */
-    [class*="tablet reversed"].divided.grid:not([class*="vertically divided"])>.col:first-child,
-    [class*="tablet reversed"].divided.grid:not([class*="vertically divided"])>.row>.col:first-child {
-        -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
-        box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
-    }
-    [class*="tablet reversed"].divided.grid:not([class*="vertically divided"])>.col:last-child,
-    [class*="tablet reversed"].divided.grid:not([class*="vertically divided"])>.row>.col:last-child {
-        @include box-shadow;
-    }
-    /* Vertically Divided Reversed */
-    .grid[class*="vertically divided"][class*="tablet vertically reversed"]>.row:first-child:before {
-        -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-        box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-    }
-    .grid[class*="vertically divided"][class*="tablet vertically reversed"]>.row:last-child:before {
-        @include box-shadow;
-    }
-    /* Celled Reversed */
-    [class*="tablet reversed"].celled.grid>.row>.col:first-child {
-        -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
-        box-shadow: -1px 0px 0px 0px #D4D4D5;
-    }
-    [class*="tablet reversed"].celled.grid>.row>.col:last-child {
-        @include box-shadow;
-    }
-}
-
-
-/* Computer */
-
-@media only screen and (min-width: 992px) {
-    [class*="computer reversed"].grid,
-    [class*="computer reversed"].grid>.row,
-    .grid>[class*="computer reversed"].row {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: reverse;
-        @include flex-direction(row-reverse);
-    }
-    [class*="computer vertically reversed"].grid {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: reverse;
-        @include flex-direction(col-reverse);
-    }
-    /* Divided Reversed */
-    [class*="computer reversed"].divided.grid:not([class*="vertically divided"])>.col:first-child,
-    [class*="computer reversed"].divided.grid:not([class*="vertically divided"])>.row>.col:first-child {
-        -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
-        box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
-    }
-    [class*="computer reversed"].divided.grid:not([class*="vertically divided"])>.col:last-child,
-    [class*="computer reversed"].divided.grid:not([class*="vertically divided"])>.row>.col:last-child {
-        @include box-shadow;
-    }
-    /* Vertically Divided Reversed */
-    .grid[class*="vertically divided"][class*="computer vertically reversed"]>.row:first-child:before {
-        -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-        box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-    }
-    .grid[class*="vertically divided"][class*="computer vertically reversed"]>.row:last-child:before {
-        @include box-shadow;
-    }
-    /* Celled Reversed */
-    [class*="computer reversed"].celled.grid>.row>.col:first-child {
-        -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
-        box-shadow: -1px 0px 0px 0px #D4D4D5;
-    }
-    [class*="computer reversed"].celled.grid>.row>.col:last-child {
-        @include box-shadow;
+@each $item in $RWD {
+    @include breakpoint2($item) {
+        .grid.grid-#{$item}.grid-reversed,
+        .grid.grid-#{$item}.grid-reversed>.row,
+        .grid>.row.row-sm.row-reversed {
+            -webkit-box-direction: reverse;
+            -webkit-box-orient: horizontal;
+            @include flex-direction(row-reverse);
+        }
+        .grid.grid-#{$item}.grid-reversed.grid-v,
+        .grid-#{$item}.grid-reversed.grid-stackable {
+            -webkit-box-direction: reverse;
+            -webkit-box-orient: vertical;
+            @include flex-direction(col-reverse);
+        }
+        /* Divided Reversed */
+        .grid.grid-#{$item}.grid-reversed.grid-divided {
+            &:not(.grid-v) {
+                >.col,
+                >.row>.col {
+                    &:first-child {
+                        @include box-shadow(-1px 0px 0px 0px rgba(34, 36, 38, 0.15));
+                    }
+                    &:last-child {
+                        @include box-shadow;
+                    }
+                }
+            }
+            /* Vertically Divided Reversed */
+            &.grid-v>.row {
+                &:first-child:before {
+                    @include box-shadow(0px -1px 0px 0px rgba(34, 36, 38, 0.15));
+                }
+                &:last-child:before {
+                    @include box-shadow;
+                }
+            }
+            /* Celled Reversed */
+            &.grid-celled>.row>.col {
+                &:first-child {
+                    @include box-shadow(-1px 0px 0px 0px #D4D4D5);
+                }
+                &:last-child {
+                    @include box-shadow;
+                }
+            }
+        }
     }
 }
 
@@ -806,100 +661,49 @@ $value in $color-order {
 /* Tablet Only */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .doubling.grid {
+    .grid.grid-double {
         width: auto;
     }
-    .grid>.doubling.row,
-    .doubling.grid>.row {
-        margin: 0em !important;
-        padding: 0em !important;
+    .grid>.row.row-double,
+    .grid.grid-double>.row {
+        margin: 0rem !important;
+        padding: 0rem !important;
+        >.col {
+            display: inline-block !important;
+            margin: 0rem;
+            @include box-shadow(none !important);
+            @include padding-v(1rem !important, 1rem !important);
+        }
     }
-    .grid>.doubling.row>.col,
-    .doubling.grid>.row>.col {
-        display: inline-block !important;
-        margin: 0em;
-        @include box-shadow(none !important);
-        @include padding-v(1rem !important, 1rem !important);
-    }
-    .grid.col-double[class*="two col"]>.row>.col,
-    .grid.col-double[class*="two col"]>.col:not(.row),
-    .grid>[class*="two col"].doubling.row.row>.col {
-        width: 100% !important;
-    }
-    [class*="two col"].doubling.grid>.row>.col,
-    [class*="two col"].doubling.grid>.col:not(.row),
-    .grid>[class*="two col"].doubling.row.row>.col {
-        width: 100% !important;
-    }
-    [class*="three col"].doubling.grid>.row>.col,
-    [class*="three col"].doubling.grid>.col:not(.row),
-    .grid>[class*="three col"].doubling.row.row>.col {
-        width: 50% !important;
-    }
-    [class*="four col"].doubling.grid>.row>.col,
-    [class*="four col"].doubling.grid>.col:not(.row),
-    .grid>[class*="four col"].doubling.row.row>.col {
-        width: 50% !important;
-    }
-    [class*="five col"].doubling.grid>.row>.col,
-    [class*="five col"].doubling.grid>.col:not(.row),
-    .grid>[class*="five col"].doubling.row.row>.col {
-        width: 33.33333333% !important;
-    }
-    [class*="six col"].doubling.grid>.row>.col,
-    [class*="six col"].doubling.grid>.col:not(.row),
-    .grid>[class*="six col"].doubling.row.row>.col {
-        width: 33.33333333% !important;
-    }
-    [class*="seven col"].doubling.grid>.row>.col,
-    [class*="seven col"].doubling.grid>.col:not(.row),
-    .grid>[class*="seven col"].doubling.row.row>.col {
-        width: 33.33333333% !important;
-    }
-    [class*="eight col"].doubling.grid>.row>.col,
-    [class*="eight col"].doubling.grid>.col:not(.row),
-    .grid>[class*="eight col"].doubling.row.row>.col {
-        width: 25% !important;
-    }
-    [class*="nine col"].doubling.grid>.row>.col,
-    [class*="nine col"].doubling.grid>.col:not(.row),
-    .grid>[class*="nine col"].doubling.row.row>.col {
-        width: 25% !important;
-    }
-    [class*="ten col"].doubling.grid>.row>.col,
-    [class*="ten col"].doubling.grid>.col:not(.row),
-    .grid>[class*="ten col"].doubling.row.row>.col {
-        width: 20% !important;
-    }
-    [class*="eleven col"].doubling.grid>.row>.col,
-    [class*="eleven col"].doubling.grid>.col:not(.row),
-    .grid>[class*="eleven col"].doubling.row.row>.col {
-        width: 20% !important;
-    }
-    [class*="twelve col"].doubling.grid>.row>.col,
-    [class*="twelve col"].doubling.grid>.col:not(.row),
-    .grid>[class*="twelve col"].doubling.row.row>.col {
-        width: 16.66666667% !important;
-    }
-    [class*="thirteen col"].doubling.grid>.row>.col,
-    [class*="thirteen col"].doubling.grid>.col:not(.row),
-    .grid>[class*="thirteen col"].doubling.row.row>.col {
-        width: 16.66666667% !important;
-    }
-    [class*="fourteen col"].doubling.grid>.row>.col,
-    [class*="fourteen col"].doubling.grid>.col:not(.row),
-    .grid>[class*="fourteen col"].doubling.row.row>.col {
-        width: 14.28571429% !important;
-    }
-    [class*="fifteen col"].doubling.grid>.row>.col,
-    [class*="fifteen col"].doubling.grid>.col:not(.row),
-    .grid>[class*="fifteen col"].doubling.row.row>.col {
-        width: 14.28571429% !important;
-    }
-    [class*="sixteen col"].doubling.grid>.row>.col,
-    [class*="sixteen col"].doubling.grid>.col:not(.row),
-    .grid>[class*="sixteen col"].doubling.row.row>.col {
-        width: 12.5% !important;
+    @for $i from 2 to 16 {
+        .grid.grid-double[class*="col-#{$i}"]>.row>.col,
+        .grid.grid-double[class*="col-#{$i}"]>.col:not(.row),
+        .grid>[class*="col-#{$i}"].doubling.row.row>.col {
+            @if ($i==2) {
+                width: 100% !important;
+            }
+            @else if ($i==3 or $i==4) {
+                width: 100% / 2 !important;
+            }
+            @else if ($i==5 or $i==6 or $i==7) {
+                width: 100% / 3 !important;
+            }
+            @else if ($i==8 or $i=9) {
+                width: 100% / 4 !important;
+            }
+            @else if ($i==10 or $i=11) {
+                width: 100% / 5 !important;
+            }
+            @else if ($i==12 or $i=13) {
+                width: 100% / 6 !important;
+            }
+            @else if ($i==14 or $i=15) {
+                width: 100% / 7 !important;
+            }
+            @else if ($i==16) {
+                width: 100% / 8 !important;
+            }
+        }
     }
 }
 
@@ -918,9 +722,9 @@ $value in $color-order {
         @include box-shadow(none !important);
         @include padding-v(1rem !important, 1rem !important);
     }
-    [class*="two col"].doubling:not(.stackable).grid>.row>.col,
-    [class*="two col"].doubling:not(.stackable).grid>.col:not(.row),
-    .grid>[class*="two col"].doubling:not(.stackable).row.row>.col {
+    [class*="col-2"].doubling:not(.stackable).grid>.row>.col,
+    [class*="col-2"].doubling:not(.stackable).grid>.col:not(.row),
+    .grid>[class*="col-2"].doubling:not(.stackable).row.row>.col {
         width: 100% !important;
     }
     [class*="three col"].doubling:not(.stackable).grid>.row>.col,

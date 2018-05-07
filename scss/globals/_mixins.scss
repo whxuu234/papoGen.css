@@ -67,6 +67,55 @@
 }
 
 
+/*** RWD Design ***/
+
+@mixin breakpoint1($point) {
+    @if ($point==sm) {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if ($point==md) {
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+    @else if ($point==lg) {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if ($point==xl) {
+        @media only screen and (min-width: 1200px) and (max-width: 1919px) {
+            @content;
+        }
+    }
+    @else if ($point==xll) {
+        @media only screen and (min-width: 1920px) {
+            @content;
+        }
+    }
+}
+
+@mixin breakpoint2($point) {
+    @if ($point==sm) {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if ($point==md) {
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+    @else if ($point==lg) {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+
 /*** htext ***/
 
 @mixin htext-default {
