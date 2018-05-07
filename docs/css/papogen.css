@@ -787,11 +787,6 @@ body {
  */
 /*** Grid default ***/
 .grid, .grid.relaxed, .grid.exrelaxed {
-  align-items: stretch;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: -1rem;
-  padding: 0rem;
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -801,6 +796,11 @@ body {
   -webkit-box-align: stretch;
   -webkit-box-direction: normal;
   -webkit-box-orient: horizontal;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -1rem;
+  padding: 0rem;
   /* Remove Gutters */
   /* Preserve Rows Spacing on Consecutive Grids */ }
   .grid.relaxed {
@@ -817,12 +817,12 @@ body {
   /* Vertical padding when no rows */ }
   .grid > .col:not(.row),
   .grid > .row > .col {
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: inline-block;
     position: relative;
     vertical-align: top;
-    width: 6.25%;
-    padding-left: 1rem;
-    padding-right: 1rem; }
+    width: 100% / 16; }
   .grid > *, .grid.relaxed > *, .grid.exrelaxed > * {
     padding-left: 1rem;
     padding-right: 1rem; }
@@ -835,12 +835,6 @@ body {
 
 /*** Rows ***/
 .grid > .row {
-  align-items: stretch;
-  flex-wrap: wrap;
-  justify-content: inherit;
-  position: relative;
-  padding: 0rem;
-  width: 100% !important;
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -858,6 +852,12 @@ body {
   -ms-flex-direction: row;
   -ms-flex-wrap: wrap;
   -ms-flex-pack: default;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: inherit;
+  position: relative;
+  padding: 0rem;
+  width: 100% !important;
   /* Content */ }
   .grid > .row > .col {
     margin-top: 0rem;
@@ -7890,9 +7890,9 @@ body {
 
 .grid > .col.centered,
 .grid > .row > .col.centered {
-  display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  display: block; }
 
 /** Relaxed & Extra-relaxed **/
 .grid, .grid.relaxed, .grid.exrelaxed {
@@ -7971,16 +7971,16 @@ body {
       position: relative;
       /* First Row Vertically Divided */ }
       .grid.divided.grid-v > .row:before {
+        box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+        -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+        -moz-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
         content: "";
         height: 1px;
         position: absolute;
         top: 0rem;
         left: 0px;
         margin: 0% 1rem;
-        width: calc(100% - 2rem);
-        box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-        -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-        -moz-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15); }
+        width: calc(100% - 2rem); }
       .grid.divided.grid-v > .row:first-child:before {
         box-shadow: none;
         -webkit-box-shadow: none;
@@ -7994,13 +7994,13 @@ body {
   .grid.divided.grid-h, .grid.divided.padded:not(.grid-v):not(.grid-h) {
     width: 100%; }
   .grid.divided.relaxed.grid-v > .row:before {
-    width: calc(100% - 3rem);
     margin-left: 1.5rem;
-    margin-right: 1.5rem; }
+    margin-right: 1.5rem;
+    width: calc(100% - 3rem); }
   .grid.divided.exrelaxed.grid-v > .row:before {
-    width: calc(100% - 5rem);
     margin-left: 5rem;
-    margin-right: 5rem; }
+    margin-right: 5rem;
+    width: calc(100% - 5rem); }
   .grid.divided.inverted:not(.grid-v) > .col:not(.row),
   .grid.divided.inverted:not(.grid-v) > .row > .col {
     box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
@@ -8029,7 +8029,6 @@ body {
 
 /** Celled **/
 .grid.celled {
-  width: 100%;
   box-shadow: 0px 0px 0px 1px #D4D4D5;
   -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5;
   -moz-box-shadow: 0px 0px 0px 1px #D4D4D5;
@@ -8037,6 +8036,7 @@ body {
   margin-right: 0rem;
   margin-top: 0rem;
   margin-bottom: 0rem;
+  width: 100%;
   /* Internally Celled */ }
   .grid.celled.relaxed > .col:not(.row),
   .grid.celled.relaxed > .row > .col {
@@ -8065,19 +8065,19 @@ body {
     -webkit-box-shadow: 0px -1px 0px 0px #D4D4D5;
     -moz-box-shadow: 0px -1px 0px 0px #D4D4D5; }
     .grid.celled > .row > .col {
-      padding: 1rem;
       box-shadow: -1px 0px 0px 0px #D4D4D5;
       -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
-      -moz-box-shadow: -1px 0px 0px 0px #D4D4D5; }
+      -moz-box-shadow: -1px 0px 0px 0px #D4D4D5;
+      padding: 1rem; }
       .grid.celled > .row > .col:first-child {
         box-shadow: none;
         -webkit-box-shadow: none;
         -moz-box-shadow: none; }
   .grid.celled > .col:not(.row) {
-    padding: 1rem;
     box-shadow: -1px 0px 0px 0px #D4D4D5;
     -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
-    -moz-box-shadow: -1px 0px 0px 0px #D4D4D5; }
+    -moz-box-shadow: -1px 0px 0px 0px #D4D4D5;
+    padding: 1rem; }
   .grid.celled > .col:first-child {
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -8089,30 +8089,30 @@ body {
 .grid > .row.aligned.aligned-top > .col,
 .grid > .col.aligned.aligned-top:not(.row),
 .grid > .row > .col.aligned.aligned-top {
+  flex-direction: col;
+  -webkit-flex-direction: col;
+  -ms-flex-direction: col;
+  -moz-flex-direction: col;
   align-self: flex-start !important;
   vertical-align: top;
   -webkit-box-direction: normal;
   -webkit-box-orient: vertical;
-  -ms-flex-item-align: start !important;
-  flex-direction: col;
-  -webkit-flex-direction: col;
-  -ms-flex-direction: col;
-  -moz-flex-direction: col; }
+  -ms-flex-item-align: start !important; }
 
 .grid.aligned.aligned-middle > .col:not(.row),
 .grid.aligned.aligned-middle > .row > .col,
 .grid > .row.aligned.aligned-middle > .col,
 .grid > .col.aligned.aligned-middle:not(.row),
 .grid > .row > .col.aligned.aligned-middle {
+  flex-direction: col;
+  -webkit-flex-direction: col;
+  -ms-flex-direction: col;
+  -moz-flex-direction: col;
   align-self: center !important;
   vertical-align: middle;
   -webkit-box-direction: normal;
   -webkit-box-orient: vertical;
-  -ms-flex-item-align: center !important;
-  flex-direction: col;
-  -webkit-flex-direction: col;
-  -ms-flex-direction: col;
-  -moz-flex-direction: col; }
+  -ms-flex-item-align: center !important; }
 
 /* Stretched */
 .grid.stretched > .row > .col,
@@ -8120,17 +8120,17 @@ body {
 .grid > .row.stretched > .col,
 .grid > .col.stretched:not(.row),
 .grid > .row > .col.stretched {
-  align-self: stretch;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -ms-flex-item-align: stretch;
   display: inline-flex !important;
   display: -webkit-inline-box !important;
   display: -ms-inline-flexbox !important;
   flex-direction: col;
   -webkit-flex-direction: col;
   -ms-flex-direction: col;
-  -moz-flex-direction: col; }
+  -moz-flex-direction: col;
+  align-self: stretch;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -ms-flex-item-align: stretch; }
   .grid.stretched > .row > .col > *,
   .grid.stretched > .col > *,
   .grid > .row.stretched > .col > *,
@@ -8165,11 +8165,11 @@ body {
   -ms-flex-pack: center; }
 
 .grid.justified {
-  text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  -ms-hyphens: auto; }
+  -ms-hyphens: auto;
+  text-align: justify; }
 
 /*** Colored ***/
 .grid > .row-red,
@@ -8341,21 +8341,21 @@ body {
   .grid.grid-xs.reversed,
   .grid.grid-xs.reversed > .row,
   .grid > .grid-xs.reversed.row {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: horizontal;
     flex-direction: row-reverse;
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
-    -moz-flex-direction: row-reverse; }
+    -moz-flex-direction: row-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal; }
 
   .grid.grid-xs.reversed.grid-v,
   .grid-xs.reversed.stackable {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: vertical;
     flex-direction: col-reverse;
     -webkit-flex-direction: col-reverse;
     -ms-flex-direction: col-reverse;
-    -moz-flex-direction: col-reverse; }
+    -moz-flex-direction: col-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical; }
 
   /* Divided Reversed */
   .grid.grid-xs.reversed.divided {
@@ -8391,21 +8391,21 @@ body {
   .grid.grid-sm.reversed,
   .grid.grid-sm.reversed > .row,
   .grid > .grid-sm.reversed.row {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: horizontal;
     flex-direction: row-reverse;
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
-    -moz-flex-direction: row-reverse; }
+    -moz-flex-direction: row-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal; }
 
   .grid.grid-sm.reversed.grid-v,
   .grid-sm.reversed.stackable {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: vertical;
     flex-direction: col-reverse;
     -webkit-flex-direction: col-reverse;
     -ms-flex-direction: col-reverse;
-    -moz-flex-direction: col-reverse; }
+    -moz-flex-direction: col-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical; }
 
   /* Divided Reversed */
   .grid.grid-sm.reversed.divided {
@@ -8441,21 +8441,21 @@ body {
   .grid.grid-md.reversed,
   .grid.grid-md.reversed > .row,
   .grid > .grid-md.reversed.row {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: horizontal;
     flex-direction: row-reverse;
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
-    -moz-flex-direction: row-reverse; }
+    -moz-flex-direction: row-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal; }
 
   .grid.grid-md.reversed.grid-v,
   .grid-md.reversed.stackable {
-    -webkit-box-direction: reverse;
-    -webkit-box-orient: vertical;
     flex-direction: col-reverse;
     -webkit-flex-direction: col-reverse;
     -ms-flex-direction: col-reverse;
-    -moz-flex-direction: col-reverse; }
+    -moz-flex-direction: col-reverse;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical; }
 
   /* Divided Reversed */
   .grid.grid-md.reversed.divided {
@@ -8499,13 +8499,13 @@ body {
     padding: 0rem !important; }
     .grid > .row.double > .col,
     .grid.double > .row > .col {
-      display: inline-block !important;
-      margin: 0rem;
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
       padding-top: 1rem !important;
-      padding-bottom: 1rem !important; }
+      padding-bottom: 1rem !important;
+      display: inline-block !important;
+      margin: 0rem; }
 
   .grid.double[class*="col-2"] > .row > .col,
   .grid.double[class*="col-2"] > .col:not(.row),
@@ -8584,12 +8584,12 @@ body {
     padding: 0rem !important; }
     .grid > .row.double > .col,
     .grid.double > .row > .col {
-      margin: 0rem !important;
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
       padding-top: 1rem !important;
-      padding-bottom: 1rem !important; }
+      padding-bottom: 1rem !important;
+      margin: 0rem !important; }
 
   .grid.double[class*="col-2"]:not(.stackable) > .row > .col,
   .grid.double[class*="col-2"]:not(.stackable) > .col:not(.row),
@@ -8663,9 +8663,9 @@ body {
 /** Stackable **/
 @media only screen and (max-width: 767px) {
   .grid.stackable {
-    width: auto;
     margin-left: 0rem !important;
-    margin-right: 0rem !important; }
+    margin-right: 0rem !important;
+    width: auto; }
 
   .grid.stackable > .row > .col.col-span,
   .grid.stackable > .col.col-span,
@@ -8674,12 +8674,12 @@ body {
   .grid.stackable > .row > .col,
   .grid.stackable > .col:not(.row),
   .grid > .stackable.row > .col {
-    margin: 0rem !important;
-    padding: 1rem !important;
-    width: 100% !important;
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important; }
+    -moz-box-shadow: none !important;
+    margin: 0rem !important;
+    padding: 1rem !important;
+    width: 100% !important; }
 
   .grid.stackable:not(.grid-v) > .row {
     margin: 0rem;
@@ -8705,21 +8705,21 @@ body {
   .grid.stackable.celled > .col:not(.row),
   .grid.stackable.celled > .row > .col, .grid.stackable.divided > .col:not(.row),
   .grid.stackable.divided > .row > .col {
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     padding-top: 2rem !important;
-    padding-bottom: 2rem !important; }
+    padding-bottom: 2rem !important;
+    border-top: 1px solid rgba(34, 36, 38, 0.15); }
   .grid.stackable.celled:not(.grid-v) > .col:not(.row),
   .grid.stackable.celled:not(.grid-v) > .row > .col, .grid.stackable.divided:not(.grid-v) > .col:not(.row),
   .grid.stackable.divided:not(.grid-v) > .row > .col {
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     padding-top: 2rem !important;
-    padding-bottom: 2rem !important; }
+    padding-bottom: 2rem !important;
+    border-top: 1px solid rgba(34, 36, 38, 0.15); }
   .grid.stackable.inverted.celled > .col:not(.row),
   .grid.stackable.inverted.celled > .row > .col, .grid.stackable.inverted.divided > .col:not(.row),
   .grid.stackable.inverted.divided > .row > .col {

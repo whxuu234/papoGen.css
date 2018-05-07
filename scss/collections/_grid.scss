@@ -10,14 +10,14 @@
 /*** Grid default ***/
 
 .grid {
+    @include display(flex);
+    @include grid-ms-flex;
+    @include grid-webkit-box;
     align-items: stretch;
     flex-direction: row;
     flex-wrap: wrap;
     margin: -1rem;
     padding: 0rem;
-    @include display(flex);
-    @include grid-ms-flex;
-    @include grid-webkit-box;
     /* Remove Gutters */
     &.relaxed {
         @extend .grid;
@@ -39,11 +39,11 @@
 .grid {
     >.col:not(.row),
     >.row>.col {
+        @include padding-h;
         display: inline-block;
         position: relative;
         vertical-align: top;
-        width: 6.25%;
-        @include padding-h;
+        width: 100% / 16;
     }
     >* {
         @include padding-h;
@@ -61,17 +61,17 @@
 /*** Rows ***/
 
 .grid>.row {
+    @include display(flex);
+    @include flex-direction(row);
+    @include padding-h(1rem, 1rem);
+    @include grid-webkit-box($pack: default);
+    @include grid-ms-flex($pack: default);
     align-items: stretch;
     flex-wrap: wrap;
     justify-content: inherit;
     position: relative;
     padding: 0rem;
     width: 100% !important;
-    @include display(flex);
-    @include flex-direction(row);
-    @include padding-h(1rem, 1rem);
-    @include grid-webkit-box($pack: default);
-    @include grid-ms-flex($pack: default);
     >.col {
         @include margin-v;
         /* Content */
@@ -269,8 +269,8 @@
 .grid {
     >.col.centered,
     >.row>.col.centered {
-        display: block;
         @include margin-h(auto, auto);
+        display: block;
     }
 }
 
@@ -367,6 +367,7 @@
         >.row {
             position: relative;
             &:before {
+                @include box-shadow(0px -1px 0px 0px rgba(34, 36, 38, 0.15));
                 content: "";
                 height: 1px;
                 position: absolute;
@@ -374,7 +375,6 @@
                 left: 0px;
                 margin: 0% 1rem;
                 width: calc(100% - 2rem);
-                @include box-shadow(0px -1px 0px 0px rgba(34, 36, 38, 0.15));
             }
             /* First Row Vertically Divided */
             &:first-child:before {
@@ -395,12 +395,12 @@
     }
     /* Relaxed */
     &.relaxed.grid-v>.row:before {
-        width: calc(100% - 3rem);
         @include margin-h(1.5rem, 1.5rem);
+        width: calc(100% - 3rem);
     }
     &.exrelaxed.grid-v>.row:before {
-        width: calc(100% - 5rem);
         @include margin-h(5rem, 5rem);
+        width: calc(100% - 5rem);
     }
     /* Inverted Divided */
     &.inverted:not(.grid-v) {
@@ -432,10 +432,10 @@
 /** Celled **/
 
 .grid.celled {
-    width: 100%;
     @include box-shadow(0px 0px 0px 1px #D4D4D5);
     @include margin-h;
     @include margin-v(0rem, 0rem);
+    width: 100%;
     &.relaxed {
         >.col:not(.row),
         >.row>.col {
@@ -467,8 +467,8 @@
         width: 100% !important;
         @include box-shadow(0px -1px 0px 0px #D4D4D5);
         >.col {
-            padding: 1rem;
             @include box-shadow(-1px 0px 0px 0px #D4D4D5);
+            padding: 1rem;
             &:first-child {
                 @include box-shadow;
             }
@@ -476,8 +476,8 @@
     }
     >.col {
         &:not(.row) {
-            padding: 1rem;
             @include box-shadow(-1px 0px 0px 0px #D4D4D5);
+            padding: 1rem;
         }
         &:first-child {
             @include box-shadow;
@@ -494,12 +494,12 @@
     .grid>.row.aligned.aligned-#{nth($aligned-order, $i)}>.col,
     .grid>.col.aligned.aligned-#{nth($aligned-order, $i)}:not(.row),
     .grid>.row>.col.aligned.aligned-#{nth($aligned-order, $i)} {
+        @include flex-direction;
         align-self: nth($align-self-order, $i) !important;
         vertical-align: nth($aligned-order, $i);
         -webkit-box-direction: normal;
         -webkit-box-orient: vertical;
         -ms-flex-item-align: nth($flex-aligned-order, $i) !important;
-        @include flex-direction;
     }
 }
 
@@ -511,12 +511,12 @@
 .grid>.row.stretched>.col,
 .grid>.col.stretched:not(.row),
 .grid>.row>.col.stretched {
+    @include display(inline-flex);
+    @include flex-direction;
     align-self: stretch;
     -webkit-box-direction: normal;
     -webkit-box-orient: vertical;
     -ms-flex-item-align: stretch;
-    @include display(inline-flex);
-    @include flex-direction;
     >* {
         flex-grow: 1;
         -webkit-box-flex: 1;
@@ -546,8 +546,8 @@
 }
 
 .grid.justified {
-    text-align: justify;
     @include hyphens;
+    text-align: justify;
 }
 
 
@@ -592,15 +592,15 @@ $value in $color-order {
         .grid.grid-#{$item}.reversed,
         .grid.grid-#{$item}.reversed>.row,
         .grid>.grid-#{$item}.reversed.row {
+            @include flex-direction(row-reverse);
             -webkit-box-direction: reverse;
             -webkit-box-orient: horizontal;
-            @include flex-direction(row-reverse);
         }
         .grid.grid-#{$item}.reversed.grid-v,
         .grid-#{$item}.reversed.stackable {
+            @include flex-direction(col-reverse);
             -webkit-box-direction: reverse;
             -webkit-box-orient: vertical;
-            @include flex-direction(col-reverse);
         }
         /* Divided Reversed */
         .grid.grid-#{$item}.reversed.divided {
@@ -652,10 +652,10 @@ $value in $color-order {
         margin: 0rem !important;
         padding: 0rem !important;
         >.col {
-            display: inline-block !important;
-            margin: 0rem;
             @include box-shadow(none !important);
             @include padding-v(1rem !important, 1rem !important);
+            display: inline-block !important;
+            margin: 0rem;
         }
     }
     @for $i from 2 to 16 {
@@ -699,9 +699,9 @@ $value in $color-order {
         margin: 0rem !important;
         padding: 0rem !important;
         >.col {
-            margin: 0rem !important;
             @include box-shadow(none !important);
             @include padding-v(1rem !important, 1rem !important);
+            margin: 0rem !important;
         }
     }
     @for $i from 2 to 16 {
@@ -729,8 +729,8 @@ $value in $color-order {
 
 @media only screen and (max-width: 767px) {
     .grid.stackable {
-        width: auto;
         @include margin-h(0rem !important, 0rem !important);
+        width: auto;
     }
     .grid.stackable>.row>.col.col-span,
     .grid.stackable>.col.col-span,
@@ -739,10 +739,10 @@ $value in $color-order {
     .grid.stackable>.row>.col,
     .grid.stackable>.col:not(.row),
     .grid>.stackable.row>.col {
+        @include box-shadow(none !important);
         margin: 0rem !important;
         padding: 1rem !important;
         width: 100% !important;
-        @include box-shadow(none !important);
     }
     .grid.stackable:not(.grid-v)>.row {
         margin: 0rem;
@@ -772,16 +772,16 @@ $value in $color-order {
             }
             >.col:not(.row),
             >.row>.col {
-                border-top: 1px solid rgba(34, 36, 38, 0.15);
                 @include box-shadow(none !important);
                 @include padding-v(2rem !important, 2rem !important);
+                border-top: 1px solid rgba(34, 36, 38, 0.15);
             }
             &:not(.grid-v) {
                 >.col:not(.row),
                 >.row>.col {
-                    border-top: 1px solid rgba(34, 36, 38, 0.15);
                     @include box-shadow(none !important);
                     @include padding-v(2rem !important, 2rem !important);
+                    border-top: 1px solid rgba(34, 36, 38, 0.15);
                 }
             }
         }
