@@ -1,5 +1,8 @@
 /*!
  * # papoGen 0.0.1 - Site
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
  */
 
 
@@ -9,6 +12,10 @@ Page
 
 @if $import-fonts {
     @import url($font-url);
+}
+
+@if $import-icons {
+    @import url($icon-url);
 }
 
 html,

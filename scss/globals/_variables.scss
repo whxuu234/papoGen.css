@@ -47,6 +47,8 @@ $white: #FFFFFF !important;
 
 /*** Font ***/
 
+$import-icons: true !default;
+$icon-url: 'https://use.fontawesome.com/releases/v5.0.12/css/all.css';
 $import-fonts: true !default;
 $font-url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext' !default;
 $font-name: 'Quicksand' !default;
@@ -77,3 +79,9 @@ sm,
 md,
 lg,
 xl;
+$RWD-container-width: 723px,
+933px,
+1127px;
+$RWD-container-width-inc: 2rem,
+3rem,
+5rem;

@@ -24,11 +24,24 @@
     }
 }
 
+@mixin flex-align($value: stretch) {
+    align-items: $value;
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+}
+
 @mixin flex-direction($value: col) {
     flex-direction: $value;
     -webkit-flex-direction: $value;
-    -ms-flex-direction: $value;
     -moz-flex-direction: $value;
+    -ms-flex-direction: $value;
+}
+
+@mixin flex-wrap($value: wrap) {
+    flex-wrap: $value;
+    -webkit-flex-wrap: $value;
+    -moz-flex-wrap: $value;
+    -ms-flex-wrap: $value;
 }
 
 @mixin hyphens($value: auto) {
@@ -134,21 +147,3 @@
 
 
 /*** Grid ***/
-
-@mixin grid-ms-flex($align: stretch, $direction: row, $pack: inherit, $wrap: wrap) {
-    -ms-flex-align: $align;
-    -ms-flex-direction: $direction;
-    -ms-flex-wrap: $wrap;
-    @if ($pack==default) {
-        -ms-flex-pack: $pack;
-    }
-}
-
-@mixin grid-webkit-box($align: stretch, $direction: normal, $orient: horizontal, $pack: inherit) {
-    -webkit-box-align: $align;
-    -webkit-box-direction: $direction;
-    -webkit-box-orient: $orient;
-    @if ($pack==default) {
-        -webkit-box-pack: $pack;
-    }
-}

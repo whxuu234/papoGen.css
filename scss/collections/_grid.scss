@@ -7,15 +7,15 @@
  */
 
 
-/*** Grid default ***/
+/** Grid default **/
 
 .grid {
     @include display(flex);
-    @include grid-ms-flex;
-    @include grid-webkit-box;
-    align-items: stretch;
-    flex-direction: row;
-    flex-wrap: wrap;
+    @include flex-align;
+    @include flex-direction(row);
+    @include flex-wrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
     margin: -1rem;
     padding: 0rem;
     /* Remove Gutters */
@@ -34,7 +34,7 @@
 }
 
 
-/*** Columns ***/
+/** Columns **/
 
 .grid {
     >.col:not(.row),
@@ -58,16 +58,18 @@
 }
 
 
-/*** Rows ***/
+/** Rows **/
 
 .grid>.row {
     @include display(flex);
+    @include flex-align;
     @include flex-direction(row);
+    @include flex-wrap;
     @include padding-h(1rem, 1rem);
-    @include grid-webkit-box($pack: default);
-    @include grid-ms-flex($pack: default);
-    align-items: stretch;
-    flex-wrap: wrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: inherit;
+    -ms-flex-pack: inherit;
     justify-content: inherit;
     position: relative;
     padding: 0rem;
@@ -86,7 +88,7 @@
 }
 
 
-/*** Loose Coupling ***/
+/** Loose Coupling **/
 
 
 /* Collapse Margin on Consecutive Grid */
@@ -186,8 +188,8 @@
 /* Grid Based */
 
 @for $i from 1 to 16 {
-    .grid.col[class*="col-#{$i}"]>.row.col,
-    .grid.col[class*="col-#{$i}"]>.col:not(.row) {
+    .grid[class*="col-#{$i}"]>.row.col,
+    .grid[class*="col-#{$i}"]>.col:not(.row) {
         width: 100% / $i;
     }
 }
@@ -196,7 +198,7 @@
 /* Row Based Overrides */
 
 @for $i from 1 to 16 {
-    .grid>.row.col[class*="col-#{$i}"]>.col {
+    .grid>.row[class*="col-#{$i}"]>.col {
         width: 100% / $i !important;
     }
 }
@@ -219,7 +221,7 @@
     .grid>.row,
     .grid>.col.row,
     .grid.col {
-        >.col.col-span[class*="col-#{$i}-span"] {
+        >.col-span[class*="col-span-#{$i}"] {
             width: 100% / 16 * $i !important;
         }
     }
@@ -231,7 +233,7 @@
                 .grid>.row,
                 .grid>.col.row,
                 .grid.col {
-                    >.col.col-span[class*="grid-#{$item} col-#{$i}-span"] {
+                    >.col-span[class*="grid-#{$item} col-span-#{$i}"] {
                         width: 100% / 16 * $i !important;
                     }
                 }
@@ -564,7 +566,7 @@ $value in $color-order {
         }
         >.row>.col-#{$index} {
             @include margin-v(-1rem, -1rem);
-            @include padding-h;
+            @include padding-v;
         }
     }
 }
@@ -731,22 +733,27 @@ $value in $color-order {
     .grid.stackable {
         @include margin-h(0rem !important, 0rem !important);
         width: auto;
+        >.grid.col>.col,
+        >.row.col>.col,
+        >.row>.col,
+        >.row>.col.col-span,
+        >.col.col-span,
+        >.col:not(.row) {
+            @include box-shadow(none !important);
+            margin: 0rem !important;
+            padding: 1rem !important;
+            width: 100% !important;
+        }
+        &:not(.grid-v)>.row {
+            margin: 0rem;
+            padding: 0rem;
+        }
     }
-    .grid.stackable>.row>.col.col-span,
-    .grid.stackable>.col.col-span,
-    .grid.stackable>.grid.col>.col,
-    .grid.stackable>.col.row>.col,
-    .grid.stackable>.row>.col,
-    .grid.stackable>.col:not(.row),
     .grid>.stackable.row>.col {
         @include box-shadow(none !important);
         margin: 0rem !important;
         padding: 1rem !important;
         width: 100% !important;
-    }
-    .grid.stackable:not(.grid-v)>.row {
-        margin: 0rem;
-        padding: 0rem;
     }
     /* Coupling */
     .container>.grid.stackable {
@@ -818,11 +825,13 @@ $value in $color-order {
 @media only screen and (max-width: 767px) {
     @each $item in RWD {
         @if ($item !=xs) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].col:not(.grid-xs),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-xs) {
-                display: none !important;
+            .grid[class*="grid-only-#{$item}"],
+            .grid>[class*="grid-only-#{$item}"].row,
+            .grid>[class*="grid-only-#{$item}"].col,
+            .grid>.row>[class*="grid-only-#{$item}"].col {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
             }
         }
     }
@@ -831,22 +840,21 @@ $value in $color-order {
 
 /* grid-only-sm Hide */
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@include breakpoint1(sm) {
     @each $item in RWD {
-        @if ($item==xs or $item==md) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-sm),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-sm),
-            .grid>[class*="grid-only-#{$item}"].col:not(.col-sm),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.col-sm) {
-                display: none !important;
+        .grid[class*="grid-only-#{$item}"],
+        .grid>[class*="grid-only-#{$item}"].row,
+        .grid>[class*="grid-only-#{$item}"].col,
+        .grid>.row>[class*="grid-only-#{$item}"].col {
+            @if ($item==xs or $item==md) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
             }
-        }
-        @else if ($item==lg or $item==xl) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].col:not(.grid-xs),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-xs) {
-                display: none !important;
+            @else if ($item==lg or $item==xl) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
             }
         }
     }
@@ -855,22 +863,21 @@ $value in $color-order {
 
 /* grid-only-md Hide */
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@include breakpoint1(md) {
     @each $item in RWD {
-        @if ($item==xs or $item==sm) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-md),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-md),
-            .grid>[class*="grid-only-#{$item}"].col:not(.grid-md),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-md) {
-                display: none !important;
+        .grid[class*="grid-only-#{$item}"],
+        .grid>[class*="grid-only-#{$item}"].row,
+        .grid>[class*="grid-only-#{$item}"].col,
+        .grid>.row>[class*="grid-only-#{$item}"].col {
+            @if ($item==xs or $item==sm) {
+                &:not(.grid-md) {
+                    display: none !important;
+                }
             }
-        }
-        @else if ($item==lg or $item==xl) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].col:not(.grid-xs),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-xs) {
-                display: none !important;
+            @else if ($item==lg or $item==xl) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
             }
         }
     }
@@ -879,22 +886,21 @@ $value in $color-order {
 
 /* grid-only-lg Hide */
 
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+@include breakpoint1(lg) {
     @each $item in RWD {
-        @if ($item==xs and $item !=sm) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-md),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-md),
-            .grid>[class*="grid-only-#{$item}"].col:not(.grid-md),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-md) {
-                display: none !important;
+        .grid[class*="grid-only-#{$item}"],
+        .grid>[class*="grid-only-#{$item}"].row,
+        .grid>[class*="grid-only-#{$item}"].col,
+        .grid>.row>[class*="grid-only-#{$item}"].col {
+            @if ($item==xs and $item !=sm) {
+                &:not(.grid-md) {
+                    display: none !important;
+                }
             }
-        }
-        @else if ($item==xl) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-xs),
-            .grid>[class*="grid-only-#{$item}"].col:not(.grid-xs),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-xs) {
-                display: none !important;
+            @else if ($item==xl) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
             }
         }
     }
@@ -903,15 +909,20 @@ $value in $color-order {
 
 /* grid-only-xl Hide */
 
-@media only screen and (min-width: 1920px) {
+@include breakpoint1(xl) {
     @each $item in RWD {
-        @if ($item !=xl and $item !=lg and $item !=xs) {
-            .grid[class*="grid-only-#{$item}"]:not(.grid-md),
-            .grid>[class*="grid-only-#{$item}"].row:not(.grid-md),
-            .grid>[class*="grid-only-#{$item}"].col:not(.grid-md),
-            .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-md) {
-                display: none !important;
+        .grid[class*="grid-only-#{$item}"]:not(.grid-md),
+        .grid>[class*="grid-only-#{$item}"].row:not(.grid-md),
+        .grid>[class*="grid-only-#{$item}"].col:not(.grid-md),
+        .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-md) {
+            @if ($item !=xl and $item !=lg and $item !=xs) {
+                &:not(.grid-md) {
+                    display: none !important;
+                }
             }
         }
     }
 }
+
+
+/*** Theme Overrides ***/

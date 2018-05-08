@@ -1,0 +1,117 @@
+/*!
+ * # papoGen 0.0.1 - Container
+ * - Prefix: container
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ */
+
+
+/* All Sizes */
+
+.container {
+    display: block;
+    max-width: 100% !important;
+}
+
+
+/* RWD Design: Mobile / Tablet / Computer / Large Monitor */
+
+@each $item in $RWD {
+    @include breakpoint1($item) {
+        .container {
+            @if ($item==xs) {
+                @include margin-h(1rem !important, 1rem !important);
+                width: auto !important;
+            }
+            @else {
+                @include margin-h(auto !important, auto !important);
+                @if ($item==sm) {
+                    width: nth($RWD-container-width, 1);
+                }
+                @else if ($item==md) {
+                    width: nth($RWD-container-width, 2);
+                }
+                @else if ($item==lg) {
+                    width: nth($RWD-container-width, 3);
+                }
+            }
+        }
+        .grid.container {
+            @if ($item==sm) {
+                width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 1)) !important;
+            }
+            @else if ($item==md) {
+                width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 1)) !important;
+            }
+            @else if ($item==lg) {
+                width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 1)) !important;
+            }
+        }
+        .relaxed.grid.container {
+            @if ($item==sm) {
+                width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 2)) !important;
+            }
+            @else if ($item==md) {
+                width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 2)) !important;
+            }
+            @else if ($item==lg) {
+                width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 2)) !important;
+            }
+        }
+        .exrelaxed.grid.container {
+            @if ($item==sm) {
+                width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 3)) !important;
+            }
+            @else if ($item==md) {
+                width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 3)) !important;
+            }
+            @else if ($item==lg) {
+                width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 3)) !important;
+            }
+        }
+    }
+}
+
+
+/*** Types ***/
+
+
+/* Text Container */
+
+.text.container {
+    font-family: $font-family;
+    font-size: 1.14285714rem;
+    line-height: 1.5;
+    max-width: 700px !important;
+}
+
+
+/* Fluid */
+
+.fluid.container {
+    width: 100%;
+}
+
+
+/*** Variations ***/
+
+.container[class*="aligned-left"] {
+    text-align: left;
+}
+
+.container[class*="aligned-center"] {
+    text-align: center;
+}
+
+.container[class*="aligned-right"] {
+    text-align: right;
+}
+
+.container.justified {
+    @include hyphens;
+    text-align: justify;
+}
+
+
+/*** Theme Overrides ***/
