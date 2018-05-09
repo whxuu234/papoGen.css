@@ -6,5 +6,5 @@
  * http://opensource.org/licenses/MIT
  *
  */
-
-require('../js/state');
+import * as state from '../js/state.js'
+//require('../js/state');
