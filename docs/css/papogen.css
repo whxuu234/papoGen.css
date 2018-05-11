@@ -642,7 +642,7 @@ body {
   background: #E65050;
   border-color: #E65050; }
 
-.light, .basic, .toggle {
+.light, .basic {
   color: #C9C9C9;
   background: #C9C9C9;
   border-color: #C9C9C9; }
@@ -683,7 +683,7 @@ body {
   border-width: 0.1rem;
   background: #FFFFFF; }
 
-.fill, .basic, .toggle {
+.fill, .basic {
   border-style: none;
   color: #FFFFFF; }
 
@@ -693,7 +693,7 @@ body {
   border-radius: 0.2rem;
   font-size: 0.1rem; }
 
-.medium, .basic, .toggle {
+.medium, .basic {
   width: 6rem;
   height: 2.1rem;
   border-radius: 0.3rem;
@@ -705,7 +705,11 @@ body {
   border-radius: 0.35rem;
   font-size: 0.9rem; }
 
-.basic, .toggle {
+.fit {
+  width: fit-content;
+  height: auto; }
+
+.basic {
   color: #2E2E2E; }
 
 .buttons {
@@ -736,17 +740,6 @@ body {
 .center {
   border-radius: 0; }
 
-/*
-  toggle
-
-  inherit parent size / color etc.
-
-  fit container
-
-  equal width
-
-  icon
-*/
 /*!
  * # papoGen 0.0.1 - Container
  * - Prefix: container

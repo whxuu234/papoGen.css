@@ -112,6 +112,11 @@ $size: (
   }
 }
 
+.fit {
+  width: fit-content;
+  height: auto;
+}
+
 // !-- extend
 .basic {
   @extend .medium;
@@ -155,28 +160,6 @@ $position: (
     }
   }
 }
-
-
-// NEEDS JS
-
-/*
-  toggle
-
-  inherit parent size / color etc.
-
-  fit container
-
-  equal width
-
-  icon
-*/
-.toggle {
-  @extend .basic;
-}
-
-
-
-
 
 
 
