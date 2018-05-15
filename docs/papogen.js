@@ -6,10 +6,25 @@
  * http://opensource.org/licenses/MIT
  *
  */
-//import * as state from '../js/state.js'
 //require('../js/state');
 
 // button
-//$('')
+
+
+for (let i in $('.buttons')) {
+  let curr = $('.buttons')[i]
+  let curr_class = curr.classList.value
+  let child_class = curr.replace('horizontal', '')
+                        .replace('vertical', '')
+                        .replace('buttons', '')
+                        .trim().replace(/  +/g, ' ')
+  // add child class
+  $(curr.children).addClass(child_class)
+
+  // remove child class from parent
+  for (let name of child_class.split(' ')) {
+    curr.removeClass(name)
+  }
+}
 
 
