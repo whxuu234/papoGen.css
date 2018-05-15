@@ -16,10 +16,10 @@
 for (let i = 0; i < $('.buttons').length; i++) {
   let curr = $('.buttons')[i]
   let curr_class = curr.classList.value
-  let child_class = curr.replace('horizontal', '')
-                        .replace('vertical', '')
-                        .replace('buttons', '')
-                        .trim().replace(/  +/g, ' ')
+  let child_class = curr_class.replace('horizontal', '')
+                              .replace('vertical', '')
+                              .replace('buttons', '')
+                              .trim().replace(/  +/g, ' ')
   // add child class
   $(curr.children).addClass(child_class)
 
