@@ -5,6 +5,13 @@
 
 /*** Global ***/
 
+@mixin animation($value) {
+    animation: $value;
+    -webkit-animation: $value;
+    -moz-animation: $value;
+    -ms-animation: $value;
+}
+
 @mixin box-shadow($value: none) {
     box-shadow: $value;
     -webkit-box-shadow: $value;
@@ -44,6 +51,12 @@
     -ms-flex-wrap: $value;
 }
 
+@mixin font-smoothing($value) {
+    font-smoothing: $value;
+    -webkit-font-smoothing: $value;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 @mixin hyphens($value: auto) {
     hyphens: $value;
     -webkit-hyphens: $value;
@@ -69,6 +82,14 @@
 @mixin padding-v($top: 1rem, $bottom: 1rem) {
     padding-top: $top;
     padding-bottom: $bottom;
+}
+
+@mixin transform($value) {
+    transform: $value;
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    -o-transform: $value;
 }
 
 @mixin transition($value) {
@@ -146,4 +167,10 @@
 }
 
 
-/*** Grid ***/
+/*** Icon ***/
+
+@mixin icon-font($style: normal, $variant: normal, $weight: normal) {
+    font-style: $style;
+    font-variant: $variant;
+    font-weight: $weight;
+}

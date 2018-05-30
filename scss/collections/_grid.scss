@@ -7,7 +7,7 @@
  */
 
 
-/** Grid default **/
+/*** Grid ***/
 
 .grid {
     @include display(flex);
@@ -107,8 +107,8 @@
 
 .grid .aligned.row>.col,
 .grid.aligned .col {
-    >.seg {
-        &:not(.seg-compact):not(.seg-attached) {
+    >.section {
+        &:not(.section-compact):not(.section-attached) {
             width: 100%;
         }
     }
@@ -135,7 +135,7 @@
 .grid>.row,
 .grid {
     >.col:last-child {
-        >.seg-horizontal {
+        >.section-horizontal {
             @include box-shadow;
         }
     }
@@ -529,14 +529,14 @@
 
 /** Horizontally Centered: Left / Center / Right / Justify **/
 
-@for $i from 1 to 3 {
-    .grid.aligned.aligned-#{nth($text-align-order, $i)}>.col,
-    .grid.aligned.aligned-#{nth($text-align-order, $i)}>.row>.col,
-    .grid>.row.aligned.aligned-#{nth($text-align-order, $i)}>.col,
-    .grid>.col.aligned.aligned-#{nth($text-align-order, $i)},
-    .grid>.row>.col.aligned.aligned-#{nth($text-align-order, $i)} {
+@each $item in $text-align-order {
+    .grid.aligned.aligned-#{$item}>.col,
+    .grid.aligned.aligned-#{$item}>.row>.col,
+    .grid>.row.aligned.aligned-#{$item}>.col,
+    .grid>.col.aligned.aligned-#{$item},
+    .grid>.row>.col.aligned.aligned-#{$item} {
         align-self: inherit;
-        text-align: nth($text-align-order, $i);
+        text-align: $item;
         -ms-flex-item-align: inherit;
     }
 }
@@ -764,7 +764,7 @@ $value in $color-order {
     }
     /* Don't pad inside segment or nested grid */
     .grid .grid.stackable,
-    .seg:not(.grid-v) .grid.stackable.page {
+    .section:not(.grid-v) .grid.stackable.page {
         @include margin-h(-1rem !important, -1rem !important);
     }
     /* Divided Stackable */

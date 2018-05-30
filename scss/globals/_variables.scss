@@ -16,20 +16,28 @@ center,
 end;
 $text-align-order: left,
 center,
-right,
-justify;
+right;
 $position-order: top,
 bottom,
 left,
 right;
 
+/*** Size ***/
+
+$size-order: mini,
+tiny,
+small,
+normal,
+big,
+large,
+huge,
+massive
 /*** Colors ***/
 
 $primary: #2185D0 !important;
 $secondary: #1B1C1D !important;
 $link: #4183C4;
 $link-hover: #1e70bf;
-$color-order: (red: #DB2828, orange: #F2711C, yellow: #FBBD08, olive: #B5CC18, green: #21BA45, teal: #00B5AD, blue: #2185D0, violet: #6435C9, purple: #A333C8, pink: #E03997, brown: #A5673F, grey: #767676, black: #1B1C1D, white: #FFFFFF);
 $red: #DB2828 !important;
 $orange: #F2711C !important;
 $yellow: #FBBD08 !important;
@@ -44,11 +52,24 @@ $brown: #A5673F !important;
 $grey: #767676 !important;
 $black: #1B1C1D !important;
 $white: #FFFFFF !important;
+$color-order: (red: $red, orange: $orange, yellow: $yellow, olive: $olive, green: $green, teal: $teal, blue: $blue, violet: $violet, purple: $purple, pink: $pink, brown: $brown, grey: $grey, black: $black, white: $white);
+$inv-red: #FF695E !important;
+$inv-orange: #FF851B !important;
+$inv-yellow: #FFE21F !important;
+$inv-olive: #D9E778 !important;
+$inv-green: #2ECC40 !important;
+$inv-teal: #6DFFFF !important;
+$inv-blue: #54C8FF !important;
+$inv-violet: #A291FB !important;
+$inv-purple: #DC73FF !important;
+$inv-pink: #FF8EDF !important;
+$inv-brown: #D67C1C !important;
+$inv-grey: #DCDDDE !important;
+$inv-black: #545454 !important;
+$inv-color-order: (red: $inv-red, orange: $inv-orange, yellow: $inv-yellow, olive: $inv-olive, green: $inv-green, teal: $inv-teal, blue: $inv-blue, violet: $inv-violet, purple: $inv-purple, pink: $inv-pink, brown: $inv-brown, grey: $inv-grey, black: $inv-black);
 
 /*** Font ***/
 
-$import-icons: true !default;
-$icon-url: 'https://use.fontawesome.com/releases/v5.0.12/css/all.css';
 $import-fonts: true !default;
 $font-url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext' !default;
 $font-name: 'Quicksand' !default;
@@ -62,6 +83,13 @@ $h2-size: 1.71428571rem;
 $h3-size: 1.28571429rem;
 $h4-size: 1.07142857rem;
 $h5-size: 1rem;
+
+/*** Icon ***/
+
+$icons-path: '../../docs/icons' !default;
+$icons-style: normal;
+$icons-weight: normal;
+$icons-variant: normal;
 
 /*** RWD Design ***/
 
@@ -85,3 +113,18 @@ $RWD-container-width: 723px,
 $RWD-container-width-inc: 2rem,
 3rem,
 5rem;
+
+/*** Container ***/
+
+$container-font-size: 1.14285714rem;
+
+/*** Icon ***/
+
+$icon-font-size: 0.4rem,
+0.5rem,
+0.75rem,
+1rem,
+1.5rem,
+2rem,
+4rem,
+8rem;
