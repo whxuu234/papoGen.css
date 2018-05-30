@@ -34,6 +34,7 @@ Reset
 *******************************/
 /* Border-Box */
 @import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext");
+@import url("https://use.fontawesome.com/releases/v5.0.12/css/all.css");
 *,
 *:before,
 *:after {
@@ -464,6 +465,9 @@ Site Overrides
 /*** Grid ***/
 /*!
  * # papoGen 0.0.1 - Site
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
  */
 /*******************************
 Page
@@ -516,13 +520,13 @@ h1 {
   font-size: 2rem; }
 
 h2 {
-  font-size: 1.71428571rem; }
+  font-size: 1.71429rem; }
 
 h3 {
-  font-size: 1.28571429rem; }
+  font-size: 1.28571rem; }
 
 h4 {
-  font-size: 1.07142857rem; }
+  font-size: 1.07143rem; }
 
 h5 {
   font-size: 1rem; }
@@ -611,12 +615,12 @@ body {
   opacity: 0.75;
   cursor: pointer; }
   .btn:hover {
-    opacity: 0.9; }
+    opacity: 0.95; }
   .btn:active {
     outline: none; }
   .btn:focus {
     outline: 0;
-    opacity: 0.9; }
+    opacity: 0.95; }
 
 .primary {
   color: #1E84D4;
@@ -638,7 +642,7 @@ body {
   background: #E65050;
   border-color: #E65050; }
 
-.light, .basic, .toggle {
+.light, .basic {
   color: #C9C9C9;
   background: #C9C9C9;
   border-color: #C9C9C9; }
@@ -679,7 +683,7 @@ body {
   border-width: 0.1rem;
   background: #FFFFFF; }
 
-.fill, .basic, .toggle {
+.fill, .basic {
   border-style: none;
   color: #FFFFFF; }
 
@@ -689,7 +693,7 @@ body {
   border-radius: 0.2rem;
   font-size: 0.1rem; }
 
-.medium, .basic, .toggle {
+.medium, .basic {
   width: 6rem;
   height: 2.1rem;
   border-radius: 0.3rem;
@@ -701,7 +705,11 @@ body {
   border-radius: 0.35rem;
   font-size: 0.9rem; }
 
-.basic, .toggle {
+.fit {
+  width: fit-content;
+  height: auto; }
+
+.basic {
   color: #2E2E2E; }
 
 .buttons {
@@ -1014,7 +1022,7 @@ body {
 
 .grid[class*="col-3"] > .row.col,
 .grid[class*="col-3"] > .col:not(.row) {
-  width: 33.3333333333%; }
+  width: 33.33333%; }
 
 .grid[class*="col-4"] > .row.col,
 .grid[class*="col-4"] > .col:not(.row) {
@@ -1026,11 +1034,11 @@ body {
 
 .grid[class*="col-6"] > .row.col,
 .grid[class*="col-6"] > .col:not(.row) {
-  width: 16.6666666667%; }
+  width: 16.66667%; }
 
 .grid[class*="col-7"] > .row.col,
 .grid[class*="col-7"] > .col:not(.row) {
-  width: 14.2857142857%; }
+  width: 14.28571%; }
 
 .grid[class*="col-8"] > .row.col,
 .grid[class*="col-8"] > .col:not(.row) {
@@ -1038,7 +1046,7 @@ body {
 
 .grid[class*="col-9"] > .row.col,
 .grid[class*="col-9"] > .col:not(.row) {
-  width: 11.1111111111%; }
+  width: 11.11111%; }
 
 .grid[class*="col-10"] > .row.col,
 .grid[class*="col-10"] > .col:not(.row) {
@@ -1046,23 +1054,23 @@ body {
 
 .grid[class*="col-11"] > .row.col,
 .grid[class*="col-11"] > .col:not(.row) {
-  width: 9.0909090909%; }
+  width: 9.09091%; }
 
 .grid[class*="col-12"] > .row.col,
 .grid[class*="col-12"] > .col:not(.row) {
-  width: 8.3333333333%; }
+  width: 8.33333%; }
 
 .grid[class*="col-13"] > .row.col,
 .grid[class*="col-13"] > .col:not(.row) {
-  width: 7.6923076923%; }
+  width: 7.69231%; }
 
 .grid[class*="col-14"] > .row.col,
 .grid[class*="col-14"] > .col:not(.row) {
-  width: 7.1428571429%; }
+  width: 7.14286%; }
 
 .grid[class*="col-15"] > .row.col,
 .grid[class*="col-15"] > .col:not(.row) {
-  width: 6.6666666667%; }
+  width: 6.66667%; }
 
 /* Row Based Overrides */
 .grid > .row[class*="col-1"] > .col {
@@ -1072,7 +1080,7 @@ body {
   width: 50% !important; }
 
 .grid > .row[class*="col-3"] > .col {
-  width: 33.3333333333% !important; }
+  width: 33.33333% !important; }
 
 .grid > .row[class*="col-4"] > .col {
   width: 25% !important; }
@@ -1081,34 +1089,34 @@ body {
   width: 20% !important; }
 
 .grid > .row[class*="col-6"] > .col {
-  width: 16.6666666667% !important; }
+  width: 16.66667% !important; }
 
 .grid > .row[class*="col-7"] > .col {
-  width: 14.2857142857% !important; }
+  width: 14.28571% !important; }
 
 .grid > .row[class*="col-8"] > .col {
   width: 12.5% !important; }
 
 .grid > .row[class*="col-9"] > .col {
-  width: 11.1111111111% !important; }
+  width: 11.11111% !important; }
 
 .grid > .row[class*="col-10"] > .col {
   width: 10% !important; }
 
 .grid > .row[class*="col-11"] > .col {
-  width: 9.0909090909% !important; }
+  width: 9.09091% !important; }
 
 .grid > .row[class*="col-12"] > .col {
-  width: 8.3333333333% !important; }
+  width: 8.33333% !important; }
 
 .grid > .row[class*="col-13"] > .col {
-  width: 7.6923076923% !important; }
+  width: 7.69231% !important; }
 
 .grid > .row[class*="col-14"] > .col {
-  width: 7.1428571429% !important; }
+  width: 7.14286% !important; }
 
 .grid > .row[class*="col-15"] > .col {
-  width: 6.6666666667% !important; }
+  width: 6.66667% !important; }
 
 /* Celled Page */
 .grid.page.celled {
