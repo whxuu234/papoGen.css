@@ -42,10 +42,10 @@ i.icon {
 }
 
 
-/*** States ***/
+/** States **/
 
 
-/** Loading **/
+/* States: Loading */
 
 i.icon.loading {
     @include animation(icon-loading 2s linear infinite);
@@ -75,6 +75,9 @@ i.icon.loading {
     }
 }
 
+
+/* States: Active & Disabled */
+
 i.icon {
     &.active,
     &.emphasized,
@@ -87,33 +90,10 @@ i.icon {
 }
 
 
-/*** Variations ***/
+/** Variations **/
 
 
-/* Fitted */
-
-i.fitted.icon {
-    width: auto;
-    margin: 0rem;
-}
-
-
-/* Link */
-
-i.link {
-    &.icon,
-    &.icons {
-        @include transition(opacity 0.1s ease);
-        cursor: pointer;
-        opacity: 0.8;
-        &:hover {
-            opacity: 1 !important;
-        }
-    }
-}
-
-
-/* Circular */
+/* Variations: Circular */
 
 i.icon.circular {
     border-radius: 500rem !important;
@@ -129,44 +109,35 @@ i.icon.circular {
 }
 
 
-/* Flipped */
+/* Variations: Fitted */
 
-i.icon.flipped {
-    &,
-    &.horizontally {
-        @include transform(scale(-1,
-        1));
-    }
-    &.vertically {
-        @include transform(scale(1,
-        -1));
+i.icon.fitted {
+    margin: 0rem;
+    width: auto;
+}
+
+
+/* Variations: Link */
+
+i.icon.ink {
+    @include transition(opacity 0.1s ease);
+    cursor: pointer;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1 !important;
     }
 }
 
 
-/* Rotated */
+/* Variations: Squared */
 
-i.icon.rotated {
-    &.right,
-    &.clockwise {
-        @include transform(rotate(90deg));
-    }
-    &.left,
-    &.counterclockwise {
-        @include transform(rotate(-90deg));
-    }
-}
-
-
-/* Bordered */
-
-i.icon.bordered {
+i.icon.squared {
+    box-shadow: 0rem 0rem 0rem 0.1rem rgba(0, 0, 0, 0.1) inset;
+    height: 2rem;
     line-height: 1;
+    padding: 0.5rem 0.41rem !important;
     vertical-align: baseline;
     width: 2rem;
-    height: 2rem;
-    padding: 0.5rem 0.41rem !important;
-    box-shadow: 0rem 0rem 0rem 0.1rem rgba(0, 0, 0, 0.1) inset;
     &.inverted {
         border: none;
         box-shadow: none;
@@ -174,10 +145,7 @@ i.icon.bordered {
 }
 
 
-/* Inverted */
-
-
-/* Inverted Shapes */
+/* Variations: Inverted */
 
 i.icon.inverted {
     color: $white;
@@ -189,7 +157,7 @@ i.icon.inverted {
 }
 
 
-/* Colors */
+/* Variations: Colored */
 
 @each $index,
 $value in $color-order {
@@ -209,111 +177,30 @@ $value in $color-order {
 }
 
 
-/* Sizes */
+/* Variations: Size */
 
 @each $item in $size-order {
-    i.#{$item} {
-        &.icon,
-        &.icons {
-            font-size: nth($icon-font-size, nth($size-order, $item));
-            @if ($item !=normal) {
-                line-height: 1;
-            }
-            @if ($item==big or $item==large or $item==huge or $item==massive) {
-                vertical-align: middle;
-            }
+    i.icon.#{$item} {
+        font-size: nth($icon-font-size, nth($size-order, $item));
+        @if ($item !=normal) {
+            line-height: 1;
+        }
+        @if ($item==big or $item==large or $item==huge or $item==massive) {
+            vertical-align: middle;
         }
     }
 }
 
 
-/*** Groups ***/
-
-i.icons {
-    display: inline-block;
-    position: relative;
-    line-height: 1;
-    .icon {
-        @include transform(translateX(-50%) translateY(-50%));
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: 0rem;
-        &:first-child {
-            @include transform(none);
-            position: static;
-            width: auto;
-            height: auto;
-            margin-right: 0.25rem;
-            vertical-align: top;
-        }
-    }
-    /* Corner Icon */
-    .corner.icon {
-        @include transform(none);
-        top: auto;
-        left: auto;
-        right: 0;
-        bottom: 0;
-        font-size: 0.45em;
-        text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
-    }
-    .top.right.corner.icon {
-        top: 0;
-        left: auto;
-        right: 0;
-        bottom: auto;
-    }
-    .top.left.corner.icon {
-        top: 0;
-        left: 0;
-        right: auto;
-        bottom: auto;
-    }
-    .bottom.left.corner.icon {
-        top: auto;
-        left: 0;
-        right: auto;
-        bottom: 0;
-    }
-    .bottom.right.corner.icon {
-        top: auto;
-        left: auto;
-        right: 0;
-        bottom: 0;
-    }
-    .inverted.corner.icon {
-        text-shadow: -1px -1px 0 #1B1C1D, 1px -1px 0 #1B1C1D, -1px 1px 0 #1B1C1D, 1px 1px 0 #1B1C1D;
-    }
-}
+/*** Plugin: Font Awesome 4.7.0 ***/
 
 
-/*
-   * Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
-   * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
-   */
-
-
-/*******************************
-  
-  paperCSS integration of font-awesome :
-  
-  ///class names are separated
-  i.icon.circle => i.icon.circle
-  i.icon.circle-o => i.icon.circle.outline
-  
-  //abbreviation are replaced by full letters:
-  .alpha => .i.icon.alphabet
-  .asc => .i.icon.ascend
-  .desc => .i.icon.descend
-  .alt =>.alternate
-  
-  ASCII order is conserved for easier maintenance.
-  
-  Icons that only have one style 'outline', 'square' etc do not require this class
-  for instance `lemon icon` not `lemon outline icon` since there is only one lemon
-  
-  *******************************/
+/**
+    Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+    License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+    > papoGen.css integration of font-awesome: 
+    * ASCII order is conserved for easier maintenance.
+**/
 
 
 /*** Icons ***/
@@ -325,7 +212,7 @@ i.icon.search:before {
     content: "\f002";
 }
 
-i.icon.mail.outline:before {
+i.icon.mail-o:before {
     content: "\f003";
 }
 
@@ -409,7 +296,7 @@ i.icon.feed:before {
     content: "\f09e";
 }
 
-i.icon.alarm.outline:before {
+i.icon.alarm-o:before {
     content: "\f0a2";
 }
 
@@ -433,11 +320,11 @@ i.icon.dashboard:before {
     content: "\f0e4";
 }
 
-i.icon.comment.outline:before {
+i.icon.comment-o:before {
     content: "\f0e5";
 }
 
-i.icon.comments.outline:before {
+i.icon.comments-o:before {
     content: "\f0e6";
 }
 
@@ -465,7 +352,7 @@ i.icon.protect:before {
     content: "\f132";
 }
 
-i.icon.calendar.outline:before {
+i.icon.calendar-o:before {
     content: "\f133";
 }
 
@@ -505,7 +392,7 @@ i.icon.alarm.mute:before {
     content: "\f1f6";
 }
 
-i.icon.alarm.mute.outline:before {
+i.icon.alarm.mute-o:before {
     content: "\f1f7";
 }
 
@@ -613,7 +500,7 @@ i.icon.open.envelope:before {
     content: "\f2b6";
 }
 
-i.icon.open.envelope.outline:before {
+i.icon.open.envelope-o:before {
     content: "\f2b7";
 }
 
@@ -621,7 +508,7 @@ i.icon.address.book:before {
     content: "\f2b9";
 }
 
-i.icon.address.book.outline:before {
+i.icon.address.book-o:before {
     content: "\f2ba";
 }
 
@@ -629,7 +516,7 @@ i.icon.address.card:before {
     content: "\f2bb";
 }
 
-i.icon.address.card.outline:before {
+i.icon.address.card-o:before {
     content: "\f2bc";
 }
 
@@ -641,7 +528,7 @@ i.icon.id.card:before {
     content: "\f2c2";
 }
 
-i.icon.id.card.outline:before {
+i.icon.id.card-o:before {
     content: "\f2c3";
 }
 
@@ -665,7 +552,7 @@ i.icon.window.close:before {
     content: "\f2d3";
 }
 
-i.icon.window.close.outline:before {
+i.icon.window.close-o:before {
     content: "\f2d4";
 }
 
@@ -828,7 +715,7 @@ i.icon.erase:before {
     content: "\f12d";
 }
 
-i.icon.unlock.alternate:before {
+i.icon.unlock.alt:before {
     content: "\f13e";
 }
 
@@ -856,15 +743,15 @@ i.icon.send:before {
     content: "\f1d8";
 }
 
-i.icon.send.outline:before {
+i.icon.send-o:before {
     content: "\f1d9";
 }
 
-i.icon.share.alternate:before {
+i.icon.share.alt:before {
     content: "\f1e0";
 }
 
-i.icon.share.alternate.square:before {
+i.icon.share.alt.square:before {
     content: "\f1e1";
 }
 
@@ -900,7 +787,7 @@ i.icon.talk:before {
     content: "\f27a";
 }
 
-i.icon.talk.outline:before {
+i.icon.talk-o:before {
     content: "\f27b";
 }
 
@@ -943,7 +830,7 @@ i.icon.birthday:before {
     content: "\f1fd";
 }
 
-i.icon.help.circle.outline:before {
+i.icon.help.circle-o:before {
     content: "\f29c";
 }
 
@@ -982,11 +869,11 @@ i.icon.user.circle:before {
     content: "\f2bd";
 }
 
-i.icon.user.circle.outline:before {
+i.icon.user.circle-o:before {
     content: "\f2be";
 }
 
-i.icon.user.outline:before {
+i.icon.user-o:before {
     content: "\f2c0";
 }
 
@@ -1222,7 +1109,7 @@ i.icon.bar:before {
     content: "\f0fc";
 }
 
-i.icon.flag.outline:before {
+i.icon.flag-o:before {
     content: "\f11d";
 }
 
@@ -1286,7 +1173,7 @@ i.icon.sticky.note:before {
     content: "\f249";
 }
 
-i.icon.sticky.note.outline:before {
+i.icon.sticky.note-o:before {
     content: "\f24a";
 }
 
@@ -1365,7 +1252,7 @@ i.icon.asterisk:before {
     content: "\f069";
 }
 
-i.icon.square.outline:before {
+i.icon.square-o:before {
     content: "\f096";
 }
 
@@ -1452,11 +1339,11 @@ i.icon.check.circle:before {
     content: "\f058";
 }
 
-i.icon.remove.circle.outline:before {
+i.icon.remove.circle-o:before {
     content: "\f05c";
 }
 
-i.icon.check.circle.outline:before {
+i.icon.check.circle-o:before {
     content: "\f05d";
 }
 
@@ -1480,7 +1367,7 @@ i.icon.minus.square:before {
     content: "\f146";
 }
 
-i.icon.minus.square.outline:before {
+i.icon.minus.square-o:before {
     content: "\f147";
 }
 
@@ -1492,7 +1379,7 @@ i.icon.selected.radio:before {
     content: "\f192";
 }
 
-i.icon.plus.square.outline:before {
+i.icon.plus.square-o:before {
     content: "\f196";
 }
 
@@ -1546,11 +1433,11 @@ i.icon.line.chart:before {
 
 /* Pointers */
 
-i.icon.arrow.circle.outline.down:before {
+i.icon.arrow.circle-o.down:before {
     content: "\f01a";
 }
 
-i.icon.arrow.circle.outline.up:before {
+i.icon.arrow.circle-o.up:before {
     content: "\f01b";
 }
 
@@ -1710,11 +1597,11 @@ i.icon.long.arrow.right:before {
     content: "\f178";
 }
 
-i.icon.arrow.circle.outline.right:before {
+i.icon.arrow.circle-o.right:before {
     content: "\f18e";
 }
 
-i.icon.arrow.circle.outline.left:before {
+i.icon.arrow.circle-o.left:before {
     content: "\f190";
 }
 
@@ -1760,11 +1647,11 @@ i.icon.power:before {
     content: "\f011";
 }
 
-i.icon.trash.outline:before {
+i.icon.trash-o:before {
     content: "\f014";
 }
 
-i.icon.disk.outline:before {
+i.icon.disk-o:before {
     content: "\f0a0";
 }
 
@@ -1795,7 +1682,7 @@ i.icon.trash:before {
     content: "\f1f8";
 }
 
-i.icon.file.outline:before {
+i.icon.file-o:before {
     content: "\f016";
 }
 
@@ -1807,15 +1694,15 @@ i.icon.folder.open:before {
     content: "\f07c";
 }
 
-i.icon.file.text.outline:before {
+i.icon.file.text-o:before {
     content: "\f0f6";
 }
 
-i.icon.folder.outline:before {
+i.icon.folder-o:before {
     content: "\f114";
 }
 
-i.icon.folder.open.outline:before {
+i.icon.folder.open-o:before {
     content: "\f115";
 }
 
@@ -1835,39 +1722,39 @@ i.icon.file.text:before {
     content: "\f15c";
 }
 
-i.icon.file.pdf.outline:before {
+i.icon.file.pdf-o:before {
     content: "\f1c1";
 }
 
-i.icon.file.word.outline:before {
+i.icon.file.word-o:before {
     content: "\f1c2";
 }
 
-i.icon.file.excel.outline:before {
+i.icon.file.excel-o:before {
     content: "\f1c3";
 }
 
-i.icon.file.powerpoint.outline:before {
+i.icon.file.powerpoint-o:before {
     content: "\f1c4";
 }
 
-i.icon.file.image.outline:before {
+i.icon.file.image-o:before {
     content: "\f1c5";
 }
 
-i.icon.file.archive.outline:before {
+i.icon.file.archive-o:before {
     content: "\f1c6";
 }
 
-i.icon.file.audio.outline:before {
+i.icon.file.audio-o:before {
     content: "\f1c7";
 }
 
-i.icon.file.video.outline:before {
+i.icon.file.video-o:before {
     content: "\f1c8";
 }
 
-i.icon.file.code.outline:before {
+i.icon.file.code-o:before {
     content: "\f1c9";
 }
 
@@ -1949,11 +1836,11 @@ i.icon.empty.star:before {
     content: "\f006";
 }
 
-i.icon.thumbs.outline.up:before {
+i.icon.thumbs-o.up:before {
     content: "\f087";
 }
 
-i.icon.thumbs.outline.down:before {
+i.icon.thumbs-o.down:before {
     content: "\f088";
 }
 
@@ -1996,7 +1883,7 @@ i.icon.music:before {
     content: "\f001";
 }
 
-i.icon.video.play.outline:before {
+i.icon.video.play-o:before {
     content: "\f01d";
 }
 
@@ -2076,7 +1963,7 @@ i.icon.pause.circle:before {
     content: "\f28b";
 }
 
-i.icon.pause.circle.outline:before {
+i.icon.pause.circle-o:before {
     content: "\f28c";
 }
 
@@ -2084,7 +1971,7 @@ i.icon.stop.circle:before {
     content: "\f28d";
 }
 
-i.icon.stop.circle.outline:before {
+i.icon.stop.circle-o:before {
     content: "\f28e";
 }
 
@@ -2103,7 +1990,7 @@ i.icon.food:before {
     content: "\f0f5";
 }
 
-i.icon.building.outline:before {
+i.icon.building-o:before {
     content: "\f0f7";
 }
 
@@ -2207,7 +2094,7 @@ i.icon.map.signs:before {
     content: "\f277";
 }
 
-i.icon.map.outline:before {
+i.icon.map-o:before {
     content: "\f278";
 }
 
@@ -2230,35 +2117,35 @@ i.icon.sort:before {
     content: "\f0dc";
 }
 
-i.icon.sort.descend:before {
+i.icon.sort.desc:before {
     content: "\f0dd";
 }
 
-i.icon.sort.ascend:before {
+i.icon.sort.asc:before {
     content: "\f0de";
 }
 
-i.icon.sort.alphabet.ascend:before {
+i.icon.sort.alpha.asc:before {
     content: "\f15d";
 }
 
-i.icon.sort.alphabet.descend:before {
+i.icon.sort.alpha.desc:before {
     content: "\f15e";
 }
 
-i.icon.sort.content.ascend:before {
+i.icon.sort.content.asc:before {
     content: "\f160";
 }
 
-i.icon.sort.content.descend:before {
+i.icon.sort.content.desc:before {
     content: "\f161";
 }
 
-i.icon.sort.numeric.ascend:before {
+i.icon.sort.numeric.asc:before {
     content: "\f162";
 }
 
-i.icon.sort.numeric.descend:before {
+i.icon.sort.numeric.desc:before {
     content: "\f163";
 }
 
@@ -2522,7 +2409,7 @@ i.icon.linkedin:before {
     content: "\f0e1";
 }
 
-i.icon.github.alternate:before {
+i.icon.github.alt:before {
     content: "\f113";
 }
 
@@ -2690,7 +2577,7 @@ i.icon.pied.piper:before {
     content: "\f1a7";
 }
 
-i.icon.pied.piper.alternate:before {
+i.icon.pied.piper.alt:before {
     content: "\f1a8";
 }
 
@@ -3163,7 +3050,7 @@ i.icon.time:before {
     content: "\f017";
 }
 
-i.icon.play.circle.outline:before {
+i.icon.play.circle-o:before {
     content: "\f01d";
 }
 
@@ -3271,15 +3158,15 @@ i.icon.discussions:before {
     content: "\f086";
 }
 
-i.icon.like.outline:before {
+i.icon.like-o:before {
     content: "\f087";
 }
 
-i.icon.dislike.outline:before {
+i.icon.dislike-o:before {
     content: "\f088";
 }
 
-i.icon.heart.outline:before {
+i.icon.heart-o:before {
     content: "\f08a";
 }
 
@@ -3299,7 +3186,7 @@ i.icon.phone:before {
     content: "\f095";
 }
 
-i.icon.bookmark.outline:before {
+i.icon.bookmark-o:before {
     content: "\f097";
 }
 
@@ -3311,7 +3198,7 @@ i.icon.credit.card:before {
     content: "\f09d";
 }
 
-i.icon.hdd.outline:before {
+i.icon.hdd-o:before {
     content: "\f0a0";
 }
 
@@ -3319,23 +3206,23 @@ i.icon.bullhorn:before {
     content: "\f0a1";
 }
 
-i.icon.bell.outline:before {
+i.icon.bell-o:before {
     content: "\f0a2";
 }
 
-i.icon.hand.outline.right:before {
+i.icon.hand-o.right:before {
     content: "\f0a4";
 }
 
-i.icon.hand.outline.left:before {
+i.icon.hand-o.left:before {
     content: "\f0a5";
 }
 
-i.icon.hand.outline.up:before {
+i.icon.hand-o.up:before {
     content: "\f0a6";
 }
 
-i.icon.hand.outline.down:before {
+i.icon.hand-o.down:before {
     content: "\f0a7";
 }
 
@@ -3467,7 +3354,7 @@ i.icon.computer:before {
     content: "\f108";
 }
 
-i.icon.circle.outline:before {
+i.icon.circle-o:before {
     content: "\f10c";
 }
 
@@ -3571,7 +3458,7 @@ i.icon.zip:before {
     content: "\f187";
 }
 
-i.icon.dot.circle.outline:before {
+i.icon.dot.circle-o:before {
     content: "\f192";
 }
 
@@ -3583,7 +3470,7 @@ i.icon.graduation:before {
     content: "\f19d";
 }
 
-i.icon.circle.outline:before {
+i.icon.circle-o:before {
     content: "\f1db";
 }
 
@@ -3643,7 +3530,7 @@ i.icon.bell.slash:before {
     content: "\f1f6";
 }
 
-i.icon.bell.slash.outline:before {
+i.icon.bell.slash-o:before {
     content: "\f1f7";
 }
 
@@ -3723,7 +3610,7 @@ i.icon.mars.stroke:before {
     content: "\f229";
 }
 
-i.icon.mars.alternate:before {
+i.icon.mars.alt:before {
     content: "\f229";
 }
 
@@ -3839,7 +3726,7 @@ i.icon.balance:before {
     content: "\f24e";
 }
 
-i.icon.hourglass.outline:before {
+i.icon.hourglass-o:before {
     content: "\f250";
 }
 
@@ -3911,7 +3798,7 @@ i.icon.commenting:before {
     content: "\f27a";
 }
 
-i.icon.commenting.outline:before {
+i.icon.commenting-o:before {
     content: "\f27b";
 }
 
@@ -3935,7 +3822,7 @@ i.icon.envira:before {
     content: "\f299";
 }
 
-i.icon.question.circle.outline:before {
+i.icon.question.circle-o:before {
     content: "\f29c";
 }
 
@@ -3991,7 +3878,7 @@ i.icon.vcard:before {
     content: "\f2bb";
 }
 
-i.icon.vcard.outline:before {
+i.icon.vcard-o:before {
     content: "\f2bc";
 }
 
@@ -3999,7 +3886,7 @@ i.icon.drivers.license:before {
     content: "\f2c2";
 }
 
-i.icon.drivers.license.outline:before {
+i.icon.drivers.license-o:before {
     content: "\f2c3";
 }
 
@@ -4019,7 +3906,7 @@ i.icon.times.rectangle:before {
     content: "\f2d3";
 }
 
-i.icon.times.rectangle.outline:before {
+i.icon.times.rectangle-o:before {
     content: "\f2d4";
 }
 
