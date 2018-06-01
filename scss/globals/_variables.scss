@@ -27,7 +27,6 @@ right;
 $size-order: mini,
 tiny,
 small,
-normal,
 big,
 large,
 huge,
@@ -124,8 +123,17 @@ $container-font-size: 1.14285714rem;
 $icon-font-size: 0.4rem,
 0.5rem,
 0.75rem,
-1rem,
 1.5rem,
 2rem,
 4rem,
 8rem;
+
+/*** List ***/
+
+$list-font-size:0.78571429rem,
+0.85714286rem,
+0.92857143rem,
+1.14285714em,
+1.28571429em,
+1.42857143em,
+1.71428571em;

@@ -84,22 +84,22 @@
     margin-bottom: $bottom;
 }
 
-@mixin padding-h($left: 1rem, $right: 1rem) {
+@mixin padding-h($left: 0rem, $right: 0rem) {
     padding-left: $left;
     padding-right: $right;
 }
 
-@mixin padding-v($top: 1rem, $bottom: 1rem) {
+@mixin padding-v($top: 0rem, $bottom: 0rem) {
     padding-top: $top;
     padding-bottom: $bottom;
 }
 
-@mixin position-h($left: 0, $right: 0) {
+@mixin position-h($left: 0rem, $right: 0rem) {
     left: $left;
     right: $right;
 }
 
-@mixin position-v($top: 0, $bottom: 0) {
+@mixin position-v($top: 0rem, $bottom: 0rem) {
     top: $top;
     bottom: $bottom;
 }
@@ -120,7 +120,15 @@
     -o-transition: $value;
 }
 
-@mixin user-select($value) {
+@mixin transition-3($value1, $value2, $value3) {
+    transition: $value1, $value2, $value3;
+    -webkit-transition: $value1, $value2, $value3;
+    -moz-transition: $value1, $value2, $value3;
+    -ms-transition: $value1, $value2, $value3;
+    -o-transition: $value1, $value2, $value3;
+}
+
+@mixin user-select($value: none) {
     user-select: $value;
     -webkit-user-select: $value;
     -moz-user-select: $value;

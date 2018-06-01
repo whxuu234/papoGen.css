@@ -79,6 +79,7 @@ i.icon.loading {
 /* States: Active & Disabled */
 
 i.icon {
+    line-height: 1;
     &.active,
     &.emphasized,
     &.hover {
@@ -181,10 +182,7 @@ $value in $color-order {
 
 @each $item in $size-order {
     i.icon.#{$item} {
-        font-size: nth($icon-font-size, nth($size-order, $item));
-        @if ($item !=normal) {
-            line-height: 1;
-        }
+        font-size: nth($icon-font-size, index($size-order, $item));
         @if ($item==big or $item==large or $item==huge or $item==massive) {
             vertical-align: middle;
         }

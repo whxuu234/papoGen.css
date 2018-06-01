@@ -9,8 +9,10 @@
 .divider {
     @include user-select(none);
     color: rgba(0, 0, 0, 0.85);
-    font-size: 1rem;
-    font-weight: bold;
+    font: {
+        size: 1rem;
+        weight: bold;
+    }
     height: 0rem;
     letter-spacing: 0.05rem;
     line-height: 1;
@@ -18,10 +20,7 @@
     text-transform: uppercase;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     &:not(.vertical):not(.horizontal) {
-        border: {
-            top: 1px solid rgba(34, 36, 38, 0.15);
-            bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        @include border-v(1px solid rgba(34, 36, 38, 0.15), 1px solid rgba(255, 255, 255, 0.1));
     }
     /* Allow text in divider with icon */
     >.icon {
@@ -41,10 +40,10 @@
 }
 
 
-/** Types **/
+/*** Types ***/
 
 
-/* Types: Horizontal */
+/** Types: Horizontal **/
 
 .divider.horizontal {
     display: table;
@@ -71,7 +70,7 @@
 }
 
 
-/* Types: Vertical */
+/** Types: Vertical **/
 
 .divider.vertical {
     @include transform(translateX(-50%));
@@ -87,10 +86,7 @@
     z-index: 2;
     &:before,
     &:after {
-        border: {
-            left: 1px solid rgba(34, 36, 38, 0.15);
-            right: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        @include border-h(1px solid rgba(34, 36, 38, 0.15), 1px solid rgba(255, 255, 255, 0.1));
         content: '';
         height: calc(100% - 1rem);
         position: absolute;
