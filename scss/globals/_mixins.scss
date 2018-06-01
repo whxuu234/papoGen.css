@@ -19,13 +19,13 @@
 }
 
 @mixin border-h($left: none, $right: none) {
-    border-left: $value;
-    border-right: $value;
+    border-left: $left;
+    border-right: $right;
 }
 
-@mixin border-v($left: none, $right: none) {
-    border-top: $value;
-    border-bottom: $value;
+@mixin border-v($top: none, $bottom: none) {
+    border-top: $top;
+    border-bottom: $bottom;
 }
 
 @mixin display($value) {

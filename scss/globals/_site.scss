@@ -1,21 +1,12 @@
 /*!
  * # papoGen 0.0.1 - Site
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
  */
 
 
-/*******************************
-Page
-*******************************/
+/** Site **/
 
 @if $import-fonts {
     @import url($font-url);
-}
-
-@if $import-icons {
-    @import url($icon-url);
 }
 
 html,
@@ -30,9 +21,11 @@ html {
 body {
     background: #FFFFFF;
     color: rgba(0, 0, 0, 0.87);
-    font-family: $font-family;
-    font-smoothing: antialiased;
-    font-size: 14px;
+    font: {
+        family: $font-family;
+        smoothing: antialiased;
+        size: 14px;
+    }
     line-height: 1.4285rem;
     margin: 0px;
     min-width: 320px;
@@ -48,13 +41,13 @@ h2,
 h3,
 h4,
 h5 {
+    @include htext-default;
     &:first-child {
         margin-top: 0rem;
     }
     &:last-child {
         margin-bottom: 0rem;
     }
-    @include htext-default;
 }
 
 h1 {
@@ -117,15 +110,7 @@ a {
 
 /* Form */
 
-textarea {
-    &::-webkit-selection,
-    &::-moz-selection,
-    &::selection {
-        background-color: rgba(100, 100, 100, 0.4);
-        color: rgba(0, 0, 0, 0.87);
-    }
-}
-
+textarea,
 input {
     &::-webkit-selection,
     &::-moz-selection,
@@ -149,12 +134,10 @@ body {
         border-radius: 0px;
     }
     &::-webkit-scrollbar-thumb {
-        cursor: pointer;
+        @include transition(color 0.2s ease);
         background: rgba(0, 0, 0, 0.25);
         border-radius: 5px;
-        @include transition(color 0.2s ease);
-    }
-    &::-webkit-scrollbar-thumb {
+        cursor: pointer;
         &:window-inactive {
             background: rgba(0, 0, 0, 0.15);
         }
