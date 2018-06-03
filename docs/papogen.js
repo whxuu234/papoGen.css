@@ -17,6 +17,7 @@ function inherit () {
     let child_class = curr_class.replace('horizontal', '')
                                 .replace('vertical', '')
                                 .replace('buttons', '')
+                                .replace('labeled', '')
                                 .trim().replace(/  +/g, ' ')
     // add child class
     $(curr.children).addClass(child_class)
