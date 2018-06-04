@@ -2,3 +2,242 @@
  * # papoGen 0.0.1 - Header
  * - Prefix: hdr
  */
+/*
+papoGen type  page Header
+ */
+@mixin font_setting($size: 3rem){
+color:black;
+cursor:auto;
+font:{
+family:monospace;
+size:$size;
+weight:bold;
+}
+}
+
+.first-header{
+@include font_setting(3em);
+}
+.second-header{
+@include font_setting(2.5em);
+}
+.third-header{
+@include font_setting(2em);
+}
+.fourth-header{
+@include font_setting(1.5em);
+}
+.fifth-header{
+@include font_setting(1em);
+}
+
+/*
+ papoGen content sub Header
+ */
+@mixin font_setting($size: 3rem,$color){
+color:$color;
+cursor:auto;
+font:{
+family:monospace;
+size:$size;
+weight:bold;
+}
+}
+.H1{
+@include font_setting(3rem,black);
+}
+.sub1{
+@include font_setting(0.92rem,rgba(#737373,.9));
+margin-top:-0.92rem;
+}
+.H2{
+@include font_setting(2.5rem,black);
+}
+.sub2{
+@include font_setting(0.92rem,rgba(#737373,.9));
+margin-top:-0.76rem;
+}
+.H3{
+@include font_setting(2rem,black);
+}
+.sub3{
+@include font_setting(0.8rem,rgba(#737373,.9));
+margin-top:-0.62rem;
+}
+.H4{
+@include font_setting(1.5rem,black);
+}
+.sub4{
+@include font_setting(0.8rem,rgba(#737373,.9));
+margin-top:-0.56rem;
+}
+.H5{
+@include font_setting(1rem,black);
+}
+.sub5{
+@include font_setting(0.76rem,rgba(#737373,.9));
+margin-top:-0.4rem;
+}
+/*
+content image header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin image_setting($size,$radius){
+  border-radius:$radius;
+  width:$size;
+  height:auto; 
+}
+@mixin block(){
+&::after{
+  visibility:hidden;
+display:block;
+font-size:0;
+content:"";
+clear:both;
+height:0;
+}
+}
+.image {
+  @include image_setting(50px,0);
+  float:left; 
+}
+.image-header{
+@include font_setting(2rem,black);
+@include block;
+}
+.picture{
+@include image_setting(40px,50%);
+float:left;
+}
+.picture-header{
+@include font_setting(2rem,black);
+@include block;
+}
+.plugin{
+@include image_setting(50px,0);
+float:left;
+}
+.container{
+.plugin-header{
+@include font_setting(2rem,black);
+}
+.plugin-subheader{
+@include font_setting(10.5px,rgba(#737373,.9));
+margin-top:-3px;
+}
+@include block;
+}
+/*
+variation divide header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin divider-setting{
+  border:{
+  style:solid;
+  top:0;
+  left:0;
+  right:0;
+  width:1px;
+  color:rgba(#cccccc,.7);
+}
+  padding-bottom:5px;
+  margin-bottom:5px;
+  
+}
+
+.divide-header {
+  @include font_setting(1rem,black);
+  @include divider-setting;
+}
+/*
+variation block header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin border_setting{
+   padding:1rem 1rem 1rem 1.5rem;
+   background:rgba(#e6e6e6,.7);
+   border-radius:4px;
+}
+
+
+.content-header {
+  @include font_setting(2rem,black);
+  @include border_setting; 
+}
+/*
+content icon header
+*/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+}
+@mixin icon_setting($size,$radius){
+  border-radius:$radius;
+  width:$size;
+  height:auto; 
+}
+@mixin block(){
+&::after{
+  visibility:hidden;
+display:block;
+font-size:0;
+content:"";
+clear:both;
+height:0;
+}
+}
+.icon {
+  @include icon_setting(50px,0);
+  float:left; 
+}
+.icon-header{
+@include font_setting(2rem,black);
+@include block;
+}
+.icon-account{
+@include icon_setting(50px,0);
+float:left;
+}
+.container{
+.account-header{
+@include font_setting(2rem,black);
+}
+.account-subheader{
+@include font_setting(10.5px,rgba(#737373,.9));
+margin-top:-3px;
+}
+@include block;
+}
+=======
+ * - Prefix: hdr
+ */
+>>>>>>> upstream/master:scss/elements/_header.scss
