@@ -1,0 +1,904 @@
+/*!
+ * # papoGen 0.0.1 - List
+ * - Prefix: list
+ */
+
+
+/*** List ***/
+
+ol.list,
+ul.list,
+.list {
+    font-size: 1rem;
+    list-style-type: none;
+    margin: 1rem 0rem;
+    padding: 0rem;
+    &:first-child {
+        margin-top: 0rem;
+        padding-top: 0rem;
+    }
+    &:last-child {
+        margin-bottom: 0rem;
+        padding-bottom: 0rem;
+    }
+}
+
+
+/* Child List */
+
+ol.list ol,
+ul.list ul,
+.list .list {
+    clear: both;
+    margin: 0rem;
+    padding: 0.75rem 0rem 0.25rem 0.5rem;
+}
+
+
+/*** Types ***/
+
+
+/** Types: Bulleted **/
+
+ul.list {
+    margin-left: 1.25rem;
+    li {
+        position: relative;
+        &:before {
+            @include user-select;
+            color: rgba(0, 0, 0, 0.87);
+            content: '•';
+            font-weight: normal;
+            margin-left: -1.25rem;
+            opacity: 1;
+            pointer-events: none;
+            position: absolute;
+            top: auto;
+            left: auto;
+            vertical-align: top;
+        }
+    }
+    ul {
+        padding-left: 1.25rem;
+    }
+    /* Bulleted horizontal */
+    .horizontal.bulleted {
+        margin-left: 0rem;
+        li {
+            margin-left: 1.75rem;
+            &:first-child {
+                margin-left: 0rem;
+                &::before {
+                    display: none;
+                }
+            }
+            &::before {
+                color: rgba(0, 0, 0, 0.87);
+            }
+        }
+    }
+}
+
+.list.bulleted {
+    margin-left: 1.25rem;
+    >.item,
+    .list>.item {
+        position: relative;
+        &:before {
+            @include user-select;
+            color: inherit;
+            content: '•';
+            font-weight: normal;
+            margin-left: -1.25rem;
+            opacity: 1;
+            pointer-events: none;
+            position: absolute;
+            top: auto;
+            left: auto;
+            vertical-align: top;
+        }
+        &a:before {
+            color: rgba(0, 0, 0, 0.87);
+        }
+    }
+    .list {
+        padding-left: 1.25rem;
+    }
+    /* Bulleted horizontal*/
+    .horizontal {
+        margin-left: 0rem;
+        >.item {
+            margin-left: 1.75rem;
+            &:first-child {
+                margin-left: 0rem;
+                &::before {
+                    display: none;
+                }
+            }
+            &::before {
+                color: rgba(0, 0, 0, 0.87);
+            }
+        }
+    }
+}
+
+
+/** Types: Ordered **/
+
+ol.list {
+    &,
+    ol {
+        counter-reset: ordered;
+        list-style-type: none;
+        margin-left: 1.25rem;
+    }
+    /* Child lists */
+    ol {
+        margin-left: 1rem;
+        &:before {
+            margin-left: -2rem;
+        }
+    }
+    /* Ordered inverted */
+    &.inverted {
+        li:before {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+    /* Ordered horizontal */
+    &.horizontal {
+        margin-left: 0rem;
+        li:before {
+            margin: 0rem 0.5rem 0rem 0rem;
+            position: static;
+        }
+    }
+    li {
+        list-style-type: none;
+        position: relative;
+        &:before {
+            @include user-select;
+            color: rgba(0, 0, 0, 0.87);
+            content: counters(ordered, ".") " ";
+            counter-increment: ordered;
+            margin-left: -1.25rem;
+            opacity: 0.8;
+            pointer-events: none;
+            position: absolute;
+            top: auto;
+            left: auto;
+            text-align: right;
+            vertical-align: middle;
+        }
+        &[value]:before {
+            content: attr(value);
+        }
+    }
+}
+
+.list.ordered {
+    &,
+    .list {
+        counter-reset: ordered;
+        list-style-type: none;
+        margin-left: 1.25rem;
+    }
+    /* Child lists */
+    .list {
+        margin-left: 1rem;
+        &:before {
+            margin-left: -2rem;
+        }
+    }
+    /* Ordered inverted */
+    &.inverted {
+        li:before {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+    /* Ordered horizontal */
+    &.horizontal {
+        margin-left: 0rem;
+        >.item,
+        .list>.item {
+            &:before {
+                margin: 0rem 0.5rem 0rem 0rem;
+                position: static;
+            }
+        }
+    }
+    >.item,
+    .list>.item {
+        list-style-type: none;
+        position: relative;
+        &:before {
+            @include user-select;
+            color: rgba(0, 0, 0, 0.87);
+            content: counters(ordered, ".") " ";
+            counter-increment: ordered;
+            margin-left: -1.25rem;
+            opacity: 0.8;
+            pointer-events: none;
+            position: absolute;
+            top: auto;
+            left: auto;
+            text-align: right;
+            vertical-align: middle;
+        }
+    }
+    /* Value */
+    >.list,
+    >.item {
+        >.item[data-value] {
+            content: attr(data-value);
+        }
+    }
+}
+
+
+/*** Content ***/
+
+
+/** Content: Item **/
+
+ol.list,
+ul.list {
+    >li:first-child:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0rem;
+        visibility: hidden;
+    }
+    li {
+        display: list-item;
+        line-height: 1.14285714rem;
+        list-style: {
+            type: none;
+            position: outside;
+        }
+        padding: 0.21428571rem 0rem;
+        table-layout: fixed;
+        &:first-child {
+            padding-top: 0rem;
+        }
+        &:last-child {
+            padding-bottom: 0rem;
+        }
+    }
+    /* Child item */
+    ol,
+    ul {
+        li {
+            line-height: inherit;
+            padding: 0.14285714rem 0rem;
+        }
+    }
+}
+
+.list>.item,
+.list .list>.item {
+    display: list-item;
+    line-height: 1.14285714rem;
+    list-style: {
+        type: none;
+        position: outside;
+    }
+    padding: 0.21428571rem 0rem;
+    table-layout: fixed;
+    &:first-child {
+        padding-top: 0rem;
+    }
+    &:last-child {
+        padding-bottom: 0rem;
+    }
+}
+
+.list {
+    >.list>.item,
+    >.item:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0rem;
+        visibility: hidden;
+    }
+    /* Child item */
+    .list>.item {
+        line-height: inherit;
+        padding: 0.14285714rem 0rem;
+    }
+}
+
+
+/** Content: Icon **/
+
+.list>.item,
+.list .list>.item {
+    >i.icon {
+        @include transition(color 0.1s ease);
+        display: table-cell;
+        margin: 0rem;
+        padding-top: 0.07142857rem;
+        padding-right: 0.28571429rem;
+        vertical-align: top;
+        &:only-child {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+    &a:hover i.icon {
+        color: rgba(0, 0, 0, 0.87);
+    }
+}
+
+
+/** Content: Image **/
+
+.list>.item,
+.list .list>.item {
+    >.image {
+        background-color: transparent;
+        display: table-cell;
+        margin: 0rem;
+        vertical-align: top;
+        &:not(:only-child):not(img) {
+            padding-right: 0.5rem;
+        }
+        &:only-child {
+            display: inline-block;
+        }
+        img {
+            vertical-align: top;
+        }
+    }
+    >img.image {
+        display: inline-block;
+    }
+}
+
+
+/* Content: Content */
+
+.list>.item,
+.list .list>.item {
+    >.content {
+        line-height: 1.14285714rem;
+        >.list {
+            margin-left: 0rem;
+            padding-left: 0rem;
+        }
+    }
+    >.image,
+    >.icon {
+        +.content {
+            display: table-cell;
+            padding: 0rem 0rem 0rem 0.5rem;
+            vertical-align: top;
+        }
+    }
+    >img.image {
+        +.content {
+            display: inline-block;
+        }
+    }
+}
+
+
+/* Content: Header */
+
+.list>.item,
+.list .list>.item {
+    .header {
+        color: rgba(0, 0, 0, 0.87);
+        display: block;
+        font: {
+            family: $font-family;
+            weight: bold;
+        }
+        margin: 0rem;
+    }
+}
+
+
+/* Content: Detail */
+
+.list>.item,
+.list .list>.item {
+    .detail {
+        color: rgba(0, 0, 0, 0.7);
+        display: block;
+    }
+}
+
+
+/* Content: Link */
+
+.list>.item,
+.list .list>.item {
+    a {
+        cursor: pointer;
+        /* Link in header */
+        &.header {
+            cursor: pointer;
+            color: $link !important;
+        }
+    }
+}
+
+.list>a.item,
+.list .list>a.item {
+    color: $link;
+    cursor: pointer;
+    &:hover {
+        color: $link-hover;
+    }
+    /* Link with icons */
+    i.icon {
+        color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+
+/*** Variations ***/
+
+
+/** Variations: Horizontal **/
+
+.list.horizontal {
+    display: inline-block;
+    font-size: 0rem;
+    &:not(.celled)>.item:first-child {
+        margin-left: 0rem !important;
+        padding-left: 0rem !important;
+    }
+    >.item,
+    .list>.item {
+        font-size: 1rem;
+        >.content,
+        >.image,
+        >i.icon {
+            vertical-align: middle;
+        }
+    }
+    >.item {
+        display: inline-block;
+        font-size: 1rem;
+        margin-left: 1rem;
+        /* Padding on all elements */
+        &:first-child,
+        &:last-child {
+            padding-top: 0.21428571rem;
+            padding-bottom: 0.21428571rem;
+        }
+        >i.icon {
+            margin: 0rem;
+            padding: 0rem 0.25rem 0rem 0rem;
+            &,
+            &+.content {
+                display: inline-block;
+                float: none;
+            }
+        }
+    }
+    .list {
+        padding-left: 0rem;
+        padding-bottom: 0rem;
+    }
+}
+
+
+/** Content: Link **/
+
+.list.link {
+    a.item,
+    .item a:not() {
+        @include transition(0.1s color ease);
+        color: rgba(0, 0, 0, 0.4);
+        &:hover {
+            color: rgba(0, 0, 0, 0.8);
+        }
+        &:active {
+            color: rgba(0, 0, 0, 0.9);
+        }
+    }
+    .item {
+        @include transition(0.1s color ease);
+        color: rgba(0, 0, 0, 0.4);
+        &.active,
+        &.active a:not() {
+            color: rgba(0, 0, 0, 0.95);
+        }
+    }
+    /* Link inverted */
+    .inverted {
+        a.item,
+        .item a:not() {
+            color: rgba(255, 255, 255, 0.5);
+            &:hover,
+            &:active {
+                color: $white;
+            }
+        }
+        .item {
+            color: rgba(255, 255, 255, 0.5);
+            &.active,
+            &.active a:not() {
+                color: $white;
+            }
+        }
+    }
+}
+
+
+/** Variations: Inverted **/
+
+.list.inverted {
+    >a.item,
+    .list>a.item {
+        color: rgba(255, 255, 255, 0.9);
+        cursor: pointer;
+        &:hover {
+            color: $link-hover;
+        }
+        >.icon {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+    >.item,
+    .list>.item {
+        color: rgba(255, 255, 255, 0.9);
+        .detail {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+    /* Inverted link */
+    .item a:not() {
+        color: rgba(255, 255, 255, 0.9) !important;
+        &:hover {
+            color: $link-hover !important;
+        }
+    }
+}
+
+
+/** Variations: Selection **/
+
+.list.selection {
+    >.item,
+    .list>.item {
+        @include transition-3(0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease);
+        background: transparent;
+        border-radius: 0.5rem;
+        color: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        margin: 0rem;
+        padding: 0.5rem;
+        &:last-child {
+            margin-bottom: 0rem;
+        }
+        &:hover {
+            background: rgba(0, 0, 0, 0.03);
+            color: rgba(0, 0, 0, 0.8);
+        }
+        &:active {
+            background: rgba(0, 0, 0, 0.05);
+            color: rgba(0, 0, 0, 0.95);
+        }
+    }
+    /* Selection inverted */
+    .inverted {
+        >.item {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.5);
+            &:hover {
+                background: rgba(255, 255, 255, 0.02);
+                color: $white;
+            }
+            &:active,
+            &.active {
+                background: rgba(255, 255, 255, 0.08);
+                color: $white;
+            }
+        }
+    }
+    /* Selection celled / divided */
+    .celled,
+    .selection {
+        >.item,
+        .list>.item {
+            border-radius: 0rem;
+        }
+    }
+    /* Selection fitted */
+    .fitted {
+        >.item,
+        .list>.item {
+            @include margin-h(-0.5rem);
+        }
+        &:not(.selection) {
+            >.item,
+            .list>.item {
+                @include padding-h(0rem);
+            }
+        }
+    }
+}
+
+
+/** Varitations: Relaxed **/
+
+.list.relaxed {
+    &:not(.horizontal)>.item {
+        &:not(:first-child) {
+            padding-top: 0.42857143rem;
+        }
+        &:not(:last-child) {
+            padding-bottom: 0.42857143rem;
+        }
+    }
+    &.horizontal {
+        >.item,
+        .list>.item {
+            &:not(:first-child) {
+                padding-left: 1rem;
+            }
+            &:not(:last-child) {
+                padding-right: 1rem;
+            }
+        }
+    }
+}
+
+
+/** Variations: Extra-relaxed **/
+
+.list.exrelaxed {
+     :not(.horizontal)>.item {
+        &:not(:first-child) {
+            padding-top: 0.85714286rem;
+        }
+        &:not(:last-child) {
+            padding-bottom: 0.85714286rem;
+        }
+    }
+    &.horizontal {
+        >.item,
+        .list>.item {
+            &:not(:first-child) {
+                padding-left: 1.5rem;
+            }
+            &:not(:last-child) {
+                padding-right: 1.5rem;
+            }
+        }
+    }
+}
+
+
+/** Variations: Divided ***/
+
+.divided.list {
+    >.item {
+        border-top: 1px solid rgba(34, 36, 38, 0.15);
+    }
+    >.item,
+    .list>.item {
+        &:first-child {
+            border-top: none;
+        }
+    }
+    .list>.item,
+    .item .list>.item {
+        border-top: none;
+    }
+    /* Sublist */
+    &:not(.horizontal) .list>.item:first-child {
+        border-top-width: 1px;
+    }
+    /* Divided bulleted */
+    &.bulleted {
+        &:not(.horizontal),
+        .list {
+            margin-left: 0rem;
+            padding-left: 0rem;
+        }
+        >.item:not(.horizontal) {
+            padding-left: 1.25rem;
+        }
+    }
+    /* Divided ordered */
+    .ordered {
+        margin-left: 0rem;
+        >.item,
+        .list>.item {
+            padding-left: 1.25rem;
+        }
+        .item.list {
+            @include margin-h(0rem);
+            padding-bottom: 0.21428571rem;
+        }
+        .item .list>.item {
+            padding-left: 1rem;
+        }
+    }
+    /* Divided selection */
+    .selection {
+        >.item,
+        .list>.item {
+            border-radius: 0rem;
+            margin: 0rem;
+        }
+    }
+    /* Divided horizontal */
+    .horizontal {
+        margin-left: 0rem;
+        >.item {
+            border: {
+                top: none;
+                left: 1px solid rgba(34, 36, 38, 0.15);
+            }
+            line-height: 0.6;
+            margin: 0rem;
+            &:first-child {
+                border-left: none;
+            }
+            &:not(:first-child) {
+                padding-left: 0.5rem;
+            }
+            &:not(:last-child) {
+                padding-right: 0.5rem;
+            }
+        }
+    }
+    /* Divided inverted */
+    .inverted {
+        >.item,
+        >.list,
+        &.horizontal>.item {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+
+/** Varitations: Celled **/
+
+.list.celled {
+    >.item,
+    >.list {
+        @include padding-h(0.5rem);
+        border-top: 1px solid rgba(34, 36, 38, 0.15);
+    }
+    >.item {
+        /* Padding on all elements */
+        &:first-child,
+        &:last-child {
+            @include padding-v(0.21428571rem);
+        }
+        &:last-child {
+            border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+        }
+    }
+    /* Sublist */
+    .item .list>.item {
+        border-width: 0rem;
+    }
+    .list>.item:first-child {
+        border-top-width: 0rem;
+    }
+    /* Celled bulleted */
+    &.bulleted {
+        margin-left: 0rem;
+        >.item,
+        .list>.item {
+            padding-left: 1.25rem;
+        }
+        .item .list {
+            @include margin-h(-1.25rem);
+            padding-bottom: 0.21428571rem;
+        }
+    }
+    /* Celled ordered */
+    &.ordered {
+        margin-left: 0rem;
+        >.item,
+        .list>.item {
+            padding-left: 1rem;
+        }
+        .item .list {
+            @include margin-h(0rem);
+            padding-bottom: 0.21428571rem;
+        }
+    }
+    /* Celled horizontal */
+    &.horizontal {
+        margin-left: 0rem;
+        >.item,
+        .list>.item {
+            @include padding-h(0.5rem);
+            border-top: none;
+            border-left: 1px solid rgba(34, 36, 38, 0.15);
+            line-height: 0.6;
+            margin: 0rem;
+            &:last-child {
+                border-bottom: none;
+                border-right: 1px solid rgba(34, 36, 38, 0.15);
+            }
+        }
+        .item .list {
+            @include margin-h(0rem);
+            padding-bottom: 0.21428571rem;
+        }
+    }
+    /* Celled inverted */
+    &.inverted {
+        >.item,
+        >.list {
+            border-color: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        &.horizontal {
+            >.item,
+            .list>.item {
+                border-color: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+}
+
+
+/** Variations: Size **/
+
+@each $item in $size-order {
+    .list.#{$item} {
+        font-size: nth($list-font-size, index($size-order, $item));
+        &.horizontal {
+            >.item,
+            .list>.item {
+                font-size: nth($list-font-size, index($size-order, $item));
+            }
+        }
+    }
+}
+
+
+/*** Content Variations ***/
+
+
+/** Content Variations: Vertically Aligned **/
+
+@each $item in $aligned-order {
+    .list[class*="aligned-#{$item}"],
+    .list [class*="aligned-#{$item}"] {
+        .content,
+        .image {
+            vertical-align: $item !important;
+        }
+    }
+}
+
+
+/** Content Variations: Floated **/
+
+.list {
+    &[class*="left floated"] {
+        float: left;
+    }
+    &[class*="right floated"] {
+        float: right;
+    }
+    >.item,
+    .list>.item {
+        &[class*="left floated"] {
+            float: left;
+            margin: 0rem 1rem 0rem 0rem;
+        }
+        &[class*="right floated"] {
+            float: right;
+            margin: 0rem 0rem 0rem 1rem;
+        }
+    }
+}
+
+
+/** Overrides **/

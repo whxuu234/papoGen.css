@@ -1,0 +1,925 @@
+/*!
+ * # papoGen 0.0.1 - Grid
+ * - Prefix: grid
+ */
+
+
+/*** Grid ***/
+
+.grid {
+    @include display(flex);
+    @include flex-align;
+    @include flex-direction(row);
+    @include flex-wrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    margin: -1rem;
+    padding: 0rem;
+    /* Remove Gutters */
+    &.relaxed {
+        @extend .grid;
+        @include margin-h(-1.5rem, -1.5rem);
+    }
+    &.exrelaxed {
+        @extend .grid;
+        @include margin-h(-2.5rem, -2.5rem);
+    }
+    /* Preserve Rows Spacing on Consecutive Grids */
+    +.grid {
+        margin-top: 1rem;
+    }
+}
+
+
+/*** Columns ***/
+
+.grid {
+    >.col:not(.row),
+    >.row>.col {
+        @include padding-h;
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+        width: 100% / 16;
+    }
+    >* {
+        @include padding-h;
+    }
+    /* Vertical padding when no rows */
+    >.col:not(.row) {
+        @include padding-v(1rem, 1rem);
+    }
+    >.row>.col {
+        @include margin-v;
+    }
+}
+
+
+/*** Rows ***/
+
+.grid>.row {
+    @include display(flex);
+    @include flex-align;
+    @include flex-direction(row);
+    @include flex-wrap;
+    @include padding-h(1rem, 1rem);
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: inherit;
+    -ms-flex-pack: inherit;
+    justify-content: inherit;
+    position: relative;
+    padding: 0rem;
+    width: 100% !important;
+    >.col {
+        @include margin-v;
+        /* Content */
+        >img {
+            max-width: 100%;
+        }
+    }
+    /* Content */
+    >img {
+        max-width: 100%;
+    }
+}
+
+
+/** Loose Coupling **/
+
+
+/* Collapse Margin on Consecutive Grid */
+
+.grid>.grid {
+    &:first-child {
+        margin-top: 0rem;
+    }
+    &:last-child {
+        margin-bottom: 0rem;
+    }
+}
+
+
+/* Segment inside Aligned Grid */
+
+.grid .aligned.row>.col,
+.grid.aligned .col {
+    >.section {
+        &:not(.section-compact):not(.section-attached) {
+            width: 100%;
+        }
+    }
+}
+
+
+/* Align Dividers with Gutter */
+
+.grid {
+    .row+.divider {
+        flex-grow: 1;
+        margin: 1rem;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+    }
+    .col+.grid-v.divider {
+        height: calc(50% - 1rem);
+    }
+}
+
+
+/* Remove Border on Last Horizontal Segment */
+
+.grid>.row,
+.grid {
+    >.col:last-child {
+        >.section-horizontal {
+            @include box-shadow;
+        }
+    }
+}
+
+
+/*** Variations ***/
+
+
+/** Page Grid **/
+
+@each $item in RWD {
+    @include breakpoint1($item) {
+        .grid.page {
+            width: auto;
+            @include margin-h;
+            @if ($item==xs) {
+                @include padding-h;
+            }
+            @else if ($item==sm) {
+                @include padding-h(2rem, 2rem);
+            }
+            @else if ($item==md) {
+                @include padding-h(3%, 3%);
+            }
+            @else if ($item==lg) {
+                @include padding-h(15%, 15%);
+            }
+            @else if ($item==xl) {
+                @include padding-h(23%, 23%);
+            }
+        }
+    }
+}
+
+
+/** Column Count **/
+
+
+/* Assume full width with one col */
+
+.grid>.col,
+.grid>.row>.col {
+    &:only-child {
+        width: 100%;
+    }
+}
+
+
+/* Grid Based */
+
+@for $i from 1 to 16 {
+    .grid[class*="col-#{$i}"]>.row.col,
+    .grid[class*="col-#{$i}"]>.col:not(.row) {
+        width: 100% / $i;
+    }
+}
+
+
+/* Row Based Overrides */
+
+@for $i from 1 to 16 {
+    .grid>.row[class*="col-#{$i}"]>.col {
+        width: 100% / $i !important;
+    }
+}
+
+
+/* Celled Page */
+
+.grid.page.celled {
+    @include box-shadow;
+}
+
+
+/** Column Width **/
+
+
+/* Sizing Combinations */
+
+@for $i from 1 to 16 {
+    .grid,
+    .grid>.row,
+    .grid>.col.row,
+    .grid.col {
+        >.col-span[class*="col-span-#{$i}"] {
+            width: 100% / 16 * $i !important;
+        }
+    }
+    /* RWD Design */
+    @each $item in $RWD {
+        @include breakpoint1($item) {
+            @for $i from 1 to 16 {
+                .grid,
+                .grid>.row,
+                .grid>.col.row,
+                .grid.col {
+                    >.col-span[class*="grid-#{$item} col-span-#{$i}"] {
+                        width: 100% / 16 * $i !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/** Centered **/
+
+.grid {
+    &.centered,
+    &.centered>.row,
+    >.row.centered {
+        text-align: center;
+        justify-content: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+    }
+    &.centered,
+    &.centered>.row {
+        >.col:not(.aligned):not(.justified) {
+            text-align: left;
+            &:not(.row) {
+                text-align: left;
+            }
+        }
+    }
+    .row.centered>.col:not(.aligned):not(.justified) {
+        text-align: left;
+    }
+}
+
+.grid {
+    >.col.centered,
+    >.row>.col.centered {
+        @include margin-h(auto, auto);
+        display: block;
+    }
+}
+
+
+/** Relaxed & Extra-relaxed **/
+
+.grid {
+    /* Relaxed */
+    &.relaxed {
+        >.col:not(.row),
+        >.row>.col {
+            @include padding-h(1.5rem, 1.5rem);
+        }
+        .row+.divider {
+            @include margin-h(1.5rem, 1.5rem);
+        }
+    }
+    >.row.relaxed>.col {
+        @include padding-h(1.5rem, 1.5rem);
+    }
+    /* Coupling with UI Divider */
+    .grid.relaxed.row+.divider {
+        @include margin-h(1.5rem, 1.5rem);
+    }
+    /* Extra-relaxed */
+    &.exrelaxed {
+        >.col:not(.row),
+        >.row>.col {
+            @include padding-h(2.5rem, 2.5rem);
+        }
+        .row+.divider {
+            @include margin-h(2.5rem, 2.5rem);
+        }
+    }
+    >.row.exrelaxed>.col {
+        @include padding-h(2.5rem, 2.5rem);
+    }
+    /* Coupling with UI Divider */
+    .grid.exrelaxed.row+.divider {
+        @include margin-h(2.5rem, 2.5rem);
+    }
+}
+
+
+/** Padded **/
+
+.grid.padded {
+    &:not(.grid-h):not(.grid-v) {
+        margin: 0rem !important;
+    }
+    &.grid-h {
+        @include margin-h(0rem !important, 0rem !important);
+    }
+    &.grid-v {
+        @include margin-v(0rem !important, 0rem !important);
+    }
+}
+
+
+/** Floated **/
+
+@for $i from 3 to 4 {
+    .grid .col.col-floated-#{nth($position-order, $i)} {
+        margin-#{nth($position-order, $i)}: auto;
+    }
+}
+
+
+/** Divided **/
+
+.grid.divided {
+    &:not(.grid-v) {
+        >.row {
+            @include margin-v;
+            /* No space on top of first row */
+            &:first-child.col {
+                margin-top: 0rem;
+            }
+        }
+        >.col:not(.row),
+        >.row>.col {
+            @include box-shadow(-1px 0px 0px 0px rgba(2, 3, 3, 0.15));
+        }
+        /* No divider on first col on row */
+        >.col,
+        >.row>.col {
+            &:first-child {
+                @include box-shadow;
+            }
+        }
+    }
+    /* Vertically Divided */
+    &.grid-v {
+        >.row {
+            position: relative;
+            &:before {
+                @include box-shadow(0px -1px 0px 0px rgba(34, 36, 38, 0.15));
+                content: "";
+                height: 1px;
+                position: absolute;
+                top: 0rem;
+                left: 0px;
+                margin: 0% 1rem;
+                width: calc(100% - 2rem);
+            }
+            /* First Row Vertically Divided */
+            &:first-child:before {
+                @include box-shadow;
+            }
+        }
+        /* Swap from padding to margin on columns to have dividers align */
+        >.col:not(.row),
+        >.row>.col {
+            @include margin-v($top: 1rem, $bottom: 1rem);
+            @include padding-v($top: 0rem, $bottom: 0rem);
+        }
+    }
+    /* Padded Horizontally Divided */
+    &.grid-h,
+    &.padded:not(.grid-v):not(.grid-h) {
+        width: 100%;
+    }
+    /* Relaxed */
+    &.relaxed.grid-v>.row:before {
+        @include margin-h(1.5rem, 1.5rem);
+        width: calc(100% - 3rem);
+    }
+    &.exrelaxed.grid-v>.row:before {
+        @include margin-h(5rem, 5rem);
+        width: calc(100% - 5rem);
+    }
+    /* Inverted Divided */
+    &.inverted:not(.grid-v) {
+        >.col:not(.row),
+        >.row>.col {
+            @include box-shadow(-1px 0px 0px 0px rgba(255, 255, 255, 0.1));
+            &:first-child {
+                @include box-shadow;
+            }
+        }
+    }
+}
+
+
+/* Divided Row */
+
+.grid>.divided>.col {
+    @include box-shadow(-1px 0px 0px 0px rgba(34, 36, 38, 0.15));
+    &:first-child {
+        @include box-shadow;
+    }
+}
+
+.grid.inverted.divided.grid-v>.row:before {
+    @include box-shadow(0px -1px 0px 0px rgba(255, 255, 255, 0.1));
+}
+
+
+/** Celled **/
+
+.grid.celled {
+    @include box-shadow(0px 0px 0px 1px #D4D4D5);
+    @include margin-h;
+    @include margin-v(0rem, 0rem);
+    width: 100%;
+    &.relaxed {
+        >.col:not(.row),
+        >.row>.col {
+            padding: 1.5rem;
+        }
+    }
+    &.exrelaxed {
+        >.col:not(.row),
+        >.row>.col {
+            padding: 2rem;
+        }
+    }
+    /* Internally Celled */
+    &.internally.celled {
+        margin: 0rem;
+        @include box-shadow;
+        >.row {
+            &:first-child {
+                @include box-shadow;
+            }
+            >.col:first-child {
+                @include box-shadow;
+            }
+        }
+    }
+    >.row {
+        margin: 0rem;
+        padding: 0rem;
+        width: 100% !important;
+        @include box-shadow(0px -1px 0px 0px #D4D4D5);
+        >.col {
+            @include box-shadow(-1px 0px 0px 0px #D4D4D5);
+            padding: 1rem;
+            &:first-child {
+                @include box-shadow;
+            }
+        }
+    }
+    >.col {
+        &:not(.row) {
+            @include box-shadow(-1px 0px 0px 0px #D4D4D5);
+            padding: 1rem;
+        }
+        &:first-child {
+            @include box-shadow;
+        }
+    }
+}
+
+
+/** Vertically Aligned: Top / Middel / Bottom **/
+
+@for $i from 1 to 3 {
+    .grid.aligned.aligned-#{nth($aligned-order, $i)}>.col:not(.row),
+    .grid.aligned.aligned-#{nth($aligned-order, $i)}>.row>.col,
+    .grid>.row.aligned.aligned-#{nth($aligned-order, $i)}>.col,
+    .grid>.col.aligned.aligned-#{nth($aligned-order, $i)}:not(.row),
+    .grid>.row>.col.aligned.aligned-#{nth($aligned-order, $i)} {
+        @include flex-direction;
+        align-self: nth($align-self-order, $i) !important;
+        vertical-align: nth($aligned-order, $i);
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -ms-flex-item-align: nth($flex-aligned-order, $i) !important;
+    }
+}
+
+
+/* Stretched */
+
+.grid.stretched>.row>.col,
+.grid.stretched>.col,
+.grid>.row.stretched>.col,
+.grid>.col.stretched:not(.row),
+.grid>.row>.col.stretched {
+    @include display(inline-flex);
+    @include flex-direction;
+    align-self: stretch;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -ms-flex-item-align: stretch;
+    >* {
+        flex-grow: 1;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+    }
+}
+
+
+/** Horizontally Centered: Left / Center / Right / Justify **/
+
+@each $item in $text-align-order {
+    .grid.aligned.aligned-#{$item}>.col,
+    .grid.aligned.aligned-#{$item}>.row>.col,
+    .grid>.row.aligned.aligned-#{$item}>.col,
+    .grid>.col.aligned.aligned-#{$item},
+    .grid>.row>.col.aligned.aligned-#{$item} {
+        align-self: inherit;
+        text-align: $item;
+        -ms-flex-item-align: inherit;
+    }
+}
+
+.grid.aligned.aligned-center {
+    justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+}
+
+.grid.justified {
+    @include hyphens;
+    text-align: justify;
+}
+
+
+/*** Colored ***/
+
+@each $index,
+$value in $color-order {
+    .grid {
+        >.row-#{$index},
+        >.col-#{$index},
+        >.row>.col-#{$index} {
+            background-color: $value !important;
+            color: $white;
+        }
+        >.row>.col-#{$index} {
+            @include margin-v(-1rem, -1rem);
+            @include padding-v;
+        }
+    }
+}
+
+
+/** Equal Width **/
+
+.grid.equal>.col:not(.row),
+.grid.equal>.row>.col,
+.grid>.row.equal>.col {
+    display: inline-block;
+    flex-grow: 1;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+}
+
+
+/** Reverse **/
+
+
+/* RWD Design: Mobile / Tablet / Computer */
+
+@each $item in $RWD {
+    @include breakpoint2($item) {
+        .grid.grid-#{$item}.reversed,
+        .grid.grid-#{$item}.reversed>.row,
+        .grid>.grid-#{$item}.reversed.row {
+            @include flex-direction(row-reverse);
+            -webkit-box-direction: reverse;
+            -webkit-box-orient: horizontal;
+        }
+        .grid.grid-#{$item}.reversed.grid-v,
+        .grid-#{$item}.reversed.stackable {
+            @include flex-direction(col-reverse);
+            -webkit-box-direction: reverse;
+            -webkit-box-orient: vertical;
+        }
+        /* Divided Reversed */
+        .grid.grid-#{$item}.reversed.divided {
+            &:not(.grid-v) {
+                >.col,
+                >.row>.col {
+                    &:first-child {
+                        @include box-shadow(-1px 0px 0px 0px rgba(34, 36, 38, 0.15));
+                    }
+                    &:last-child {
+                        @include box-shadow;
+                    }
+                }
+            }
+            /* Vertically Divided Reversed */
+            &.grid-v>.row {
+                &:first-child:before {
+                    @include box-shadow(0px -1px 0px 0px rgba(34, 36, 38, 0.15));
+                }
+                &:last-child:before {
+                    @include box-shadow;
+                }
+            }
+            /* Celled Reversed */
+            &.celled>.row>.col {
+                &:first-child {
+                    @include box-shadow(-1px 0px 0px 0px #D4D4D5);
+                }
+                &:last-child {
+                    @include box-shadow;
+                }
+            }
+        }
+    }
+}
+
+
+/** Doubling **/
+
+
+/* grid-only-sm */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .grid.double {
+        width: auto;
+    }
+    .grid>.row.double,
+    .grid.double>.row {
+        margin: 0rem !important;
+        padding: 0rem !important;
+        >.col {
+            @include box-shadow(none !important);
+            @include padding-v(1rem !important, 1rem !important);
+            display: inline-block !important;
+            margin: 0rem;
+        }
+    }
+    @for $i from 2 to 16 {
+        .grid.double[class*="col-#{$i}"]>.row>.col,
+        .grid.double[class*="col-#{$i}"]>.col:not(.row),
+        .grid>[class*="col-#{$i}"].double.row>.col {
+            @if ($i==2) {
+                width: 100% !important;
+            }
+            @else if ($i==3 or $i==4) {
+                width: 100% / 2 !important;
+            }
+            @else if ($i>=5 and $i<=7) {
+                width: 100% / 3 !important;
+            }
+            @else if ($i==8 or $i==9) {
+                width: 100% / 4 !important;
+            }
+            @else if ($i==10 or $i==11) {
+                width: 100% / 5 !important;
+            }
+            @else if ($i==12 or $i==13) {
+                width: 100% / 6 !important;
+            }
+            @else if ($i==14 or $i==15) {
+                width: 100% / 7 !important;
+            }
+            @else if ($i==16) {
+                width: 100% / 8 !important;
+            }
+        }
+    }
+}
+
+
+/* grid-only-md */
+
+@media only screen and (max-width: 767px) {
+    .grid>.row.double,
+    .grid.double>.row {
+        margin: 0rem !important;
+        padding: 0rem !important;
+        >.col {
+            @include box-shadow(none !important);
+            @include padding-v(1rem !important, 1rem !important);
+            margin: 0rem !important;
+        }
+    }
+    @for $i from 2 to 16 {
+        .grid.double[class*="col-#{$i}"]:not(.stackable)>.row>.col,
+        .grid.double[class*="col-#{$i}"]:not(.stackable)>.col:not(.row),
+        .grid>.double[class*="col-#{$i}"]:not(.stackable).row>.col {
+            @if ($i==2) {
+                width: 100% !important;
+            }
+            @else if ($i >=3 and $i <=8) {
+                width: 100% / 2 !important;
+            }
+            @else if ($i >=9 and $i <=13) {
+                width: 100% / 3 !important;
+            }
+            @else if ($i >=14 and $i <=16) {
+                width: 100% / 4 !important;
+            }
+        }
+    }
+}
+
+
+/** Stackable **/
+
+@media only screen and (max-width: 767px) {
+    .grid.stackable {
+        @include margin-h(0rem !important, 0rem !important);
+        width: auto;
+        >.grid.col>.col,
+        >.row.col>.col,
+        >.row>.col,
+        >.row>.col.col-span,
+        >.col.col-span,
+        >.col:not(.row) {
+            @include box-shadow(none !important);
+            margin: 0rem !important;
+            padding: 1rem !important;
+            width: 100% !important;
+        }
+        &:not(.grid-v)>.row {
+            margin: 0rem;
+            padding: 0rem;
+        }
+    }
+    .grid>.stackable.row>.col {
+        @include box-shadow(none !important);
+        margin: 0rem !important;
+        padding: 1rem !important;
+        width: 100% !important;
+    }
+    /* Coupling */
+    .container>.grid.stackable {
+        >.col,
+        >.row>.col {
+            @include padding-h(0rem !important, 0rem !important);
+        }
+    }
+    /* Don't pad inside segment or nested grid */
+    .grid .grid.stackable,
+    .section:not(.grid-v) .grid.stackable.page {
+        @include margin-h(-1rem !important, -1rem !important);
+    }
+    /* Divided Stackable */
+    .grid.stackable {
+        &.celled,
+        &.divided {
+            >.col:not(.row),
+            >.row:first-child>.col {
+                &:first-child {
+                    border-top: none !important;
+                }
+            }
+            >.col:not(.row),
+            >.row>.col {
+                @include box-shadow(none !important);
+                @include padding-v(2rem !important, 2rem !important);
+                border-top: 1px solid rgba(34, 36, 38, 0.15);
+            }
+            &:not(.grid-v) {
+                >.col:not(.row),
+                >.row>.col {
+                    @include box-shadow(none !important);
+                    @include padding-v(2rem !important, 2rem !important);
+                    border-top: 1px solid rgba(34, 36, 38, 0.15);
+                }
+            }
+        }
+        &.inverted {
+            &.celled,
+            &.divided {
+                >.col:not(.row),
+                >.row>.col {
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+    }
+    .grid.stackable.celled>.row {
+        @include box-shadow(none !important);
+    }
+    .grid.stackable.divided:not(.grid-v) {
+        >.col:not(.row),
+        >.row>.col {
+            @include padding-h(0rem !important, 0rem !important);
+        }
+    }
+}
+
+
+/** Only (Device) **/
+
+
+/* These include arbitrary class repetitions for forced specificity */
+
+
+/* grid-only-xs Hide */
+
+@media only screen and (max-width: 767px) {
+    @each $item in RWD {
+        @if ($item !=xs) {
+            .grid[class*="grid-only-#{$item}"],
+            .grid>[class*="grid-only-#{$item}"].row,
+            .grid>[class*="grid-only-#{$item}"].col,
+            .grid>.row>[class*="grid-only-#{$item}"].col {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+
+
+/* grid-only-sm Hide */
+
+@include breakpoint1(sm) {
+    @each $item in RWD {
+        .grid[class*="grid-only-#{$item}"],
+        .grid>[class*="grid-only-#{$item}"].row,
+        .grid>[class*="grid-only-#{$item}"].col,
+        .grid>.row>[class*="grid-only-#{$item}"].col {
+            @if ($item==xs or $item==md) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
+            }
+            @else if ($item==lg or $item==xl) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+
+
+/* grid-only-md Hide */
+
+@include breakpoint1(md) {
+    @each $item in RWD {
+        .grid[class*="grid-only-#{$item}"],
+        .grid>[class*="grid-only-#{$item}"].row,
+        .grid>[class*="grid-only-#{$item}"].col,
+        .grid>.row>[class*="grid-only-#{$item}"].col {
+            @if ($item==xs or $item==sm) {
+                &:not(.grid-md) {
+                    display: none !important;
+                }
+            }
+            @else if ($item==lg or $item==xl) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+
+
+/* grid-only-lg Hide */
+
+@include breakpoint1(lg) {
+    @each $item in RWD {
+        .grid[class*="grid-only-#{$item}"],
+        .grid>[class*="grid-only-#{$item}"].row,
+        .grid>[class*="grid-only-#{$item}"].col,
+        .grid>.row>[class*="grid-only-#{$item}"].col {
+            @if ($item==xs and $item !=sm) {
+                &:not(.grid-md) {
+                    display: none !important;
+                }
+            }
+            @else if ($item==xl) {
+                &:not(.grid-xs) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+
+
+/* grid-only-xl Hide */
+
+@include breakpoint1(xl) {
+    @each $item in RWD {
+        .grid[class*="grid-only-#{$item}"]:not(.grid-md),
+        .grid>[class*="grid-only-#{$item}"].row:not(.grid-md),
+        .grid>[class*="grid-only-#{$item}"].col:not(.grid-md),
+        .grid>.row>[class*="grid-only-#{$item}"].col:not(.grid-md) {
+            @if ($item !=xl and $item !=lg and $item !=xs) {
+                &:not(.grid-md) {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
+
+
+/*** Theme Overrides ***/
