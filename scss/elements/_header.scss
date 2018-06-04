@@ -1,11 +1,12 @@
 /*!
  * # papoGen 0.0.1 - Header
-<<<<<<< HEAD:scss/elements/header.scss
+ * - Prefix: hdr
  */
-/*
-papoGen type  page Header
- */
-@mixin font_setting($size: 3rem){
+/*!
+ /*** Types ***/
+ 
+ /** Types:Page **/
+ @mixin font_setting($size: 3rem){
 color:black;
 cursor:auto;
 font:{
@@ -30,10 +31,116 @@ weight:bold;
 .fifth-header{
 @include font_setting(1em);
 }
+/** Types:icon **/
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+   font:{
+   family:monospace;
+   size:$size;
+  weight:bold;
+   }
+ }
+.icon{
+font-size:4rem;
+text-align:center;
+}
+.first-header{
+@include font_setting(1.5rem,black);
+margin-top:-.5rem;
+text-align:center;
+}
+.second-header{
+@include font_setting(1rem,rgba(#cccccc,.7));
+margin-top:-1.2rem;
+text-align:center;
+}
 
-/*
- papoGen content sub Header
- */
+/** Types:SubHeader **/
+
+@mixin font_setting($size: 3rem,$color){
+   color:$color;
+   cursor:auto;
+    font:{
+   family:monospace;
+  size:$size;
+   weight:bold;
+  }
+}
+@mixin image_setting($size,$radius){
+border-radius:$radius;
+  width:$size;
+    height:auto;
+    margin-right:.6rem;
+  }
+ @mixin block(){
+ &::after{
+  visibility:hidden;
+  display:block;
+    font-size:0;
+  content:"";
+   clear:both;
+    height:0;
+      }
+   }
+ .m {
+   @include image_setting(3rem,50%);
+         float:left; 
+        }
+    .container1{
+    .m-header{
+   @include font_setting(1.5rem,black);
+    margin:{
+    top:.9rem;
+    bottom:-1.2rem;
+    }
+       }
+      .m-subheader{
+      @include font_setting(1.5rem,rgba(115, 115, 115, 0.9));
+      }
+      @include block;
+      
+    }
+
+      .el {
+   @include image_setting(3rem,50%);
+         float:left; 
+        }
+    .container2{
+    .el-header{
+   @include font_setting(1.5rem,black);
+    margin:{
+    top:.9rem;
+    bottom:-1.2rem;
+    }
+        }
+      .el-subheader{
+      @include font_setting(1.5rem,rgba(115, 115, 115, 0.9));
+      }
+      @include block;
+    }
+ .e {
+   @include image_setting(3rem,50%);
+         float:left; 
+        }
+    .container3{
+    .e-header{
+   @include font_setting(1.5rem,black);
+    margin:{
+    top:.9rem;
+    bottom:-1.2rem;
+    }
+        }
+      .e-subheader{
+      @include font_setting(1.5rem,rgba(115, 115, 115, 0.9));
+      }
+      @include block;
+    }
+
+
+/*** Content ***/
+
+/** Content:SubHeader **/
 @mixin font_setting($size: 3rem,$color){
 color:$color;
 cursor:auto;
@@ -78,9 +185,7 @@ margin-top:-0.56rem;
 @include font_setting(0.76rem,rgba(#737373,.9));
 margin-top:-0.4rem;
 }
-/*
-content image header
-*/
+/** Content:Image **/
 @mixin font_setting($size: 3rem,$color){
    color:$color;
    cursor:auto;
@@ -135,9 +240,60 @@ margin-top:-3px;
 }
 @include block;
 }
-/*
-variation divide header
-*/
+/** Content:Icon **/
+@mixin font_setting($size: 3rem,$color){
+color:$color;
+  cursor:auto;
+   font:{
+  family:monospace;
+  size:$size;
+  weight:bold;
+  }
+ }
+  @mixin block(){
+  &::after{
+  visibility:hidden;
+   display:block;
+font-size:0;
+ content:"";
+ clear:both;
+ height:0;
+ }
+}
+.icon1{
+font-size:3rem;
+float:left;
+}
+.i1-header{
+ @include font_setting(2rem,black);
+ @include block;
+ padding:{
+ top:0.5rem;
+ left:3rem;
+ }
+ }
+ .icon2{
+ font-size:3rem;
+ float:left;
+ margin-right:.8rem;
+ }
+ .container{
+.i2-header{
+@include font_setting(2rem,black);
+ margin:{
+ top:-.3rem;
+ bottom:-1.5rem;
+ } 
+   }
+ .i2-subheader{
+   @include font_setting(1.8rem,rgba(#737373,.9));
+     }
+  @include block;
+ }
+
+/*** Variations ***/
+
+/** Variations:Dividing **/
 @mixin font_setting($size: 3rem,$color){
    color:$color;
    cursor:auto;
@@ -165,9 +321,7 @@ variation divide header
   @include font_setting(1rem,black);
   @include divider-setting;
 }
-/*
-variation block header
-*/
+/** Variations:Block **/
 @mixin font_setting($size: 3rem,$color){
    color:$color;
    cursor:auto;
@@ -188,56 +342,3 @@ variation block header
   @include font_setting(2rem,black);
   @include border_setting; 
 }
-/*
-content icon header
-*/
-@mixin font_setting($size: 3rem,$color){
-   color:$color;
-   cursor:auto;
-   font:{
-   family:monospace;
-   size:$size;
-  weight:bold;
-   }
-}
-@mixin icon_setting($size,$radius){
-  border-radius:$radius;
-  width:$size;
-  height:auto; 
-}
-@mixin block(){
-&::after{
-  visibility:hidden;
-display:block;
-font-size:0;
-content:"";
-clear:both;
-height:0;
-}
-}
-.icon {
-  @include icon_setting(50px,0);
-  float:left; 
-}
-.icon-header{
-@include font_setting(2rem,black);
-@include block;
-}
-.icon-account{
-@include icon_setting(50px,0);
-float:left;
-}
-.container{
-.account-header{
-@include font_setting(2rem,black);
-}
-.account-subheader{
-@include font_setting(10.5px,rgba(#737373,.9));
-margin-top:-3px;
-}
-@include block;
-}
-=======
- * - Prefix: hdr
- */
->>>>>>> upstream/master:scss/elements/_header.scss

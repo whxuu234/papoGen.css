@@ -492,7 +492,7 @@ ul.list {
 
 .list.link {
     a.item,
-    .item a:not() {
+    .item a:not(){
         @include transition(0.1s color ease);
         color: rgba(0, 0, 0, 0.4);
         &:hover {
