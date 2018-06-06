@@ -53,20 +53,20 @@ $grey: #767676 !important;
 $black: #1B1C1D !important;
 $white: #FFFFFF !important;
 $color-order: (red: $red, orange: $orange, yellow: $yellow, olive: $olive, green: $green, teal: $teal, blue: $blue, violet: $violet, purple: $purple, pink: $pink, brown: $brown, grey: $grey, black: $black, white: $white);
-$inv-red: #FF695E !important;
-$inv-orange: #FF851B !important;
-$inv-yellow: #FFE21F !important;
-$inv-olive: #D9E778 !important;
-$inv-green: #2ECC40 !important;
-$inv-teal: #6DFFFF !important;
-$inv-blue: #54C8FF !important;
-$inv-violet: #A291FB !important;
-$inv-purple: #DC73FF !important;
-$inv-pink: #FF8EDF !important;
-$inv-brown: #D67C1C !important;
-$inv-grey: #DCDDDE !important;
-$inv-black: #545454 !important;
-$inv-color-order: (red: $inv-red, orange: $inv-orange, yellow: $inv-yellow, olive: $inv-olive, green: $inv-green, teal: $inv-teal, blue: $inv-blue, violet: $inv-violet, purple: $inv-purple, pink: $inv-pink, brown: $inv-brown, grey: $inv-grey, black: $inv-black);
+$inv_red: #FF695E !important;
+$inv_orange: #FF851B !important;
+$inv_yellow: #FFE21F !important;
+$inv_olive: #D9E778 !important;
+$inv_green: #2ECC40 !important;
+$inv_teal: #6DFFFF !important;
+$inv_blue: #54C8FF !important;
+$inv_violet: #A291FB !important;
+$inv_purple: #DC73FF !important;
+$inv_pink: #FF8EDF !important;
+$inv_brown: #D67C1C !important;
+$inv_grey: #DCDDDE !important;
+$inv_black: #545454 !important;
+$inv_color-order: (inv_red: $inv_red, inv_orange: $inv_orange, inv_yellow: $inv_yellow, inv_olive: $inv_olive, inv_green: $inv_green, inv_teal: $inv_teal, inv_blue: $inv_blue, inv_violet: $inv_violet, inv_purple: $inv_purple, inv_pink: $inv_pink, inv_brown: $inv_brown, inv_grey: $inv_grey, inv_black: $inv_black);
 
 /*** Font ***/
 

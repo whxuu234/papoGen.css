@@ -166,7 +166,7 @@ $value in $color-order {
         i.icon.#{$index} {
             color: $value !important;
             &.inverted {
-                color: $inv-#{$index} !important;
+                color: #{$index} !important;
                 &.bordered,
                 &.circular {
                     background-color: $value !important;

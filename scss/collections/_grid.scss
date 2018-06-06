@@ -18,11 +18,11 @@
     /* Remove Gutters */
     &.relaxed {
         @extend .grid;
-        @include margin-h(-1.5rem, -1.5rem);
+        @include margin-h(-1.5rem);
     }
     &.exrelaxed {
         @extend .grid;
-        @include margin-h(-2.5rem, -2.5rem);
+        @include margin-h(-2.5rem);
     }
     /* Preserve Rows Spacing on Consecutive Grids */
     +.grid {
@@ -47,7 +47,7 @@
     }
     /* Vertical padding when no rows */
     >.col:not(.row) {
-        @include padding-v(1rem, 1rem);
+        @include padding-v(1rem);
     }
     >.row>.col {
         @include margin-v;
@@ -62,7 +62,7 @@
     @include flex-align;
     @include flex-direction(row);
     @include flex-wrap;
-    @include padding-h(1rem, 1rem);
+    @include padding-h(1rem);
     -webkit-box-direction: normal;
     -webkit-box-orient: horizontal;
     -webkit-box-pack: inherit;
@@ -268,7 +268,7 @@
 .grid {
     >.col.centered,
     >.row>.col.centered {
-        @include margin-h(auto, auto);
+        @include margin-h(auto);
         display: block;
     }
 }
@@ -281,35 +281,35 @@
     &.relaxed {
         >.col:not(.row),
         >.row>.col {
-            @include padding-h(1.5rem, 1.5rem);
+            @include padding-h(1.5rem);
         }
         .row+.divider {
-            @include margin-h(1.5rem, 1.5rem);
+            @include margin-h(1.5rem);
         }
     }
     >.row.relaxed>.col {
-        @include padding-h(1.5rem, 1.5rem);
+        @include padding-h(1.5rem);
     }
     /* Coupling with UI Divider */
     .grid.relaxed.row+.divider {
-        @include margin-h(1.5rem, 1.5rem);
+        @include margin-h(1.5rem);
     }
     /* Extra-relaxed */
     &.exrelaxed {
         >.col:not(.row),
         >.row>.col {
-            @include padding-h(2.5rem, 2.5rem);
+            @include padding-h(2.5rem);
         }
         .row+.divider {
-            @include margin-h(2.5rem, 2.5rem);
+            @include margin-h(2.5rem);
         }
     }
     >.row.exrelaxed>.col {
-        @include padding-h(2.5rem, 2.5rem);
+        @include padding-h(2.5rem);
     }
     /* Coupling with UI Divider */
     .grid.exrelaxed.row+.divider {
-        @include margin-h(2.5rem, 2.5rem);
+        @include margin-h(2.5rem);
     }
 }
 
@@ -321,10 +321,10 @@
         margin: 0rem !important;
     }
     &.grid-h {
-        @include margin-h(0rem !important, 0rem !important);
+        @include margin-h(0rem !important);
     }
     &.grid-v {
-        @include margin-v(0rem !important, 0rem !important);
+        @include margin-v(0rem !important);
     }
 }
 
@@ -383,8 +383,8 @@
         /* Swap from padding to margin on columns to have dividers align */
         >.col:not(.row),
         >.row>.col {
-            @include margin-v($top: 1rem, $bottom: 1rem);
-            @include padding-v($top: 0rem, $bottom: 0rem);
+            @include margin-v(1rem);
+            @include padding-v(0rem);
         }
     }
     /* Padded Horizontally Divided */
@@ -394,11 +394,11 @@
     }
     /* Relaxed */
     &.relaxed.grid-v>.row:before {
-        @include margin-h(1.5rem, 1.5rem);
+        @include margin-h(1.5rem);
         width: calc(100% - 3rem);
     }
     &.exrelaxed.grid-v>.row:before {
-        @include margin-h(5rem, 5rem);
+        @include margin-h(5rem);
         width: calc(100% - 5rem);
     }
     /* Inverted Divided */
@@ -433,7 +433,7 @@
 .grid.celled {
     @include box-shadow(0px 0px 0px 1px #D4D4D5);
     @include margin-h;
-    @include margin-v(0rem, 0rem);
+    @include margin-v(0rem);
     width: 100%;
     &.relaxed {
         >.col:not(.row),
@@ -562,7 +562,7 @@ $value in $color-order {
             color: $white;
         }
         >.row>.col-#{$index} {
-            @include margin-v(-1rem, -1rem);
+            @include margin-v(-1rem);
             @include padding-v;
         }
     }
@@ -652,7 +652,7 @@ $value in $color-order {
         padding: 0rem !important;
         >.col {
             @include box-shadow(none !important);
-            @include padding-v(1rem !important, 1rem !important);
+            @include padding-v(1rem !important);
             display: inline-block !important;
             margin: 0rem;
         }
@@ -699,7 +699,7 @@ $value in $color-order {
         padding: 0rem !important;
         >.col {
             @include box-shadow(none !important);
-            @include padding-v(1rem !important, 1rem !important);
+            @include padding-v(1rem !important);
             margin: 0rem !important;
         }
     }
@@ -728,7 +728,7 @@ $value in $color-order {
 
 @media only screen and (max-width: 767px) {
     .grid.stackable {
-        @include margin-h(0rem !important, 0rem !important);
+        @include margin-h(0rem !important);
         width: auto;
         >.grid.col>.col,
         >.row.col>.col,
@@ -756,13 +756,13 @@ $value in $color-order {
     .container>.grid.stackable {
         >.col,
         >.row>.col {
-            @include padding-h(0rem !important, 0rem !important);
+            @include padding-h(0rem !important);
         }
     }
     /* Don't pad inside segment or nested grid */
     .grid .grid.stackable,
     .section:not(.grid-v) .grid.stackable.page {
-        @include margin-h(-1rem !important, -1rem !important);
+        @include margin-h(-1rem !important);
     }
     /* Divided Stackable */
     .grid.stackable {
@@ -777,14 +777,14 @@ $value in $color-order {
             >.col:not(.row),
             >.row>.col {
                 @include box-shadow(none !important);
-                @include padding-v(2rem !important, 2rem !important);
+                @include padding-v(2rem !important);
                 border-top: 1px solid rgba(34, 36, 38, 0.15);
             }
             &:not(.grid-v) {
                 >.col:not(.row),
                 >.row>.col {
                     @include box-shadow(none !important);
-                    @include padding-v(2rem !important, 2rem !important);
+                    @include padding-v(2rem !important);
                     border-top: 1px solid rgba(34, 36, 38, 0.15);
                 }
             }
@@ -805,7 +805,7 @@ $value in $color-order {
     .grid.stackable.divided:not(.grid-v) {
         >.col:not(.row),
         >.row>.col {
-            @include padding-h(0rem !important, 0rem !important);
+            @include padding-h(0rem !important);
         }
     }
 }
