@@ -1391,7 +1391,7 @@ ul.list {
 .list.link {
   /* Link inverted */ }
   .list.link a.item,
-  .list.link .item a:not {
+  .list.link .item a {
     transition: 0.1s color ease;
     -webkit-transition: 0.1s color ease;
     -moz-transition: 0.1s color ease;
@@ -1399,10 +1399,10 @@ ul.list {
     -o-transition: 0.1s color ease;
     color: rgba(0, 0, 0, 0.4); }
     .list.link a.item:hover,
-    .list.link .item a:not:hover {
+    .list.link .item a:hover {
       color: rgba(0, 0, 0, 0.8); }
     .list.link a.item:active,
-    .list.link .item a:not:active {
+    .list.link .item a:active {
       color: rgba(0, 0, 0, 0.9); }
   .list.link .item {
     transition: 0.1s color ease;
@@ -1411,14 +1411,14 @@ ul.list {
     -ms-transition: 0.1s color ease;
     -o-transition: 0.1s color ease;
     color: rgba(0, 0, 0, 0.4); }
-    .list.link .item.active, .list.link .item.active a:not {
+    .list.link .item.active, .list.link .item.active a {
       color: rgba(0, 0, 0, 0.95); }
   .list.link .inverted a.item,
-  .list.link .inverted .item a:not {
+  .list.link .inverted .item a {
     color: rgba(255, 255, 255, 0.5); }
     .list.link .inverted a.item:hover, .list.link .inverted a.item:active,
-    .list.link .inverted .item a:not:hover,
-    .list.link .inverted .item a:not:active {
+    .list.link .inverted .item a:hover,
+    .list.link .inverted .item a:active {
       color: #FFFFFF !important; }
   .list.link .inverted .item {
     color: rgba(255, 255, 255, 0.5); }

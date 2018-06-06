@@ -492,7 +492,7 @@ ul.list {
 
 .list.link {
     a.item,
-    .item a:not() {
+    .item a {
         @include transition(0.1s color ease);
         color: rgba(0, 0, 0, 0.4);
         &:hover {
@@ -506,14 +506,14 @@ ul.list {
         @include transition(0.1s color ease);
         color: rgba(0, 0, 0, 0.4);
         &.active,
-        &.active a:not() {
+        &.active a {
             color: rgba(0, 0, 0, 0.95);
         }
     }
     /* Link inverted */
     .inverted {
         a.item,
-        .item a:not() {
+        .item a {
             color: rgba(255, 255, 255, 0.5);
             &:hover,
             &:active {
