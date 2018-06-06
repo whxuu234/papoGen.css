@@ -3,9 +3,9 @@
  * # papoGen 0.0.1
  * - Globals
  * - Elements
- * - Collections
- * - Views
+ * - Layouts
  * - Modules
+ * - Displays
  */
 /*!
  * # papoGen 0.0.1 - Globals
@@ -737,97 +737,6 @@ body {
 .center {
   border-radius: 0; }
 
-/*!
- * # papoGen 0.0.1 - Container
- * - Prefix: container
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- */
-/*** Container ***/
-.container {
-  display: block;
-  max-width: 100% !important; }
-
-/* RWD Design: Mobile / Tablet / Computer / Large Monitor */
-@media only screen and (max-width: 767px) {
-  .container {
-    margin-left: 1rem !important;
-    margin-right: 1rem !important;
-    width: auto !important; } }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .container {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 723px; }
-
-  .grid.container {
-    width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 1)) !important; }
-
-  .relaxed.grid.container {
-    width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 2)) !important; }
-
-  .exrelaxed.grid.container {
-    width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 3)) !important; } }
-@media only screen and (min-width: 992px) {
-  .container {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 933px; }
-
-  .grid.container {
-    width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 1)) !important; }
-
-  .relaxed.grid.container {
-    width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 2)) !important; }
-
-  .exrelaxed.grid.container {
-    width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 3)) !important; } }
-@media only screen and (min-width: 1200px) and (max-width: 1919px) {
-  .container {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 1127px; }
-
-  .grid.container {
-    width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 1)) !important; }
-
-  .relaxed.grid.container {
-    width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 2)) !important; }
-
-  .exrelaxed.grid.container {
-    width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 3)) !important; } }
-@media only screen and (min-width: 1920px) {
-  .container {
-    margin-left: auto !important;
-    margin-right: auto !important; } }
-/*** Types ***/
-.container {
-  /* Text Container */
-  /* Fluid */ }
-  .container.text {
-    font-family: "Quicksand", "Helvetica Neue", Arial, Helvetica, sans-serif;
-    font-size: 1.14285714rem;
-    line-height: 1.5;
-    max-width: 700px !important; }
-  .container.fluid {
-    width: 100%; }
-
-/*** Variations ***/
-.container.aligned-left {
-  text-align: left; }
-.container.aligned-center {
-  text-align: center; }
-.container.aligned-right {
-  text-align: right; }
-.container.justified {
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  text-align: justify; }
-
-/*** Overrides ***/
 /*!
  * # papoGen 0.0.1 - Divider
  * - Prefix: divider
@@ -5226,23 +5135,106 @@ ul.list {
   padding: 1rem; }
 
 /*!
- * # papoGen 0.0.1 - Step
- * - Prefix: step
+ * # papoGen 0.0.1 - Steps
+ * - Prefix: steps
  */
 /*!
- * # papoGen 0.0.1 - Collections
+ * # papoGen 0.0.1 - Layouts
  *
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  */
 /*!
- * # papoGen 0.0.1 - Breadcrumb
- * - Prefix: bread
+ * # papoGen 0.0.1 - Container
+ * - Prefix: container
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
  */
-/*!
- * # papoGen 0.0.1 - Form
- * - Prefix: form
- */
+/*** Container ***/
+.container {
+  display: block;
+  max-width: 100% !important; }
+
+/* RWD Design: Mobile / Tablet / Computer / Large Monitor */
+@media only screen and (max-width: 767px) {
+  .container {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    width: auto !important; } }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 723px; }
+
+  .grid.container {
+    width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 1)) !important; }
+
+  .relaxed.grid.container {
+    width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 2)) !important; }
+
+  .exrelaxed.grid.container {
+    width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 3)) !important; } }
+@media only screen and (min-width: 992px) {
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 933px; }
+
+  .grid.container {
+    width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 1)) !important; }
+
+  .relaxed.grid.container {
+    width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 2)) !important; }
+
+  .exrelaxed.grid.container {
+    width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 3)) !important; } }
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 1127px; }
+
+  .grid.container {
+    width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 1)) !important; }
+
+  .relaxed.grid.container {
+    width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 2)) !important; }
+
+  .exrelaxed.grid.container {
+    width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 3)) !important; } }
+@media only screen and (min-width: 1920px) {
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important; } }
+/*** Types ***/
+.container {
+  /* Text Container */
+  /* Fluid */ }
+  .container.text {
+    font-family: "Quicksand", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 1.14285714rem;
+    line-height: 1.5;
+    max-width: 700px !important; }
+  .container.fluid {
+    width: 100%; }
+
+/*** Variations ***/
+.container.aligned-left {
+  text-align: left; }
+.container.aligned-center {
+  text-align: center; }
+.container.aligned-right {
+  text-align: right; }
+.container.justified {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  text-align: justify; }
+
+/*** Overrides ***/
 /*!
  * # papoGen 0.0.1 - Grid
  * - Prefix: grid
@@ -13236,17 +13228,6 @@ ul.list {
     display: none !important; } }
 /*** Theme Overrides ***/
 /*!
- * # papoGen 0.0.1 - Message
- * - Prefix: msg
- */
-/*!
- * # papoGen 0.0.1 - Table
- * - Prefix: table
- */
-/*!
- * # papoGen 0.0.1 - Views
- */
-/*!
  * # papoGen 0.0.1 - Modules
  *
  * Released under the MIT license
@@ -13255,6 +13236,10 @@ ul.list {
 /*!
  * # papoGen 0.0.1 - Accordion
  * - Prefix: accordion
+ */
+/*!
+ * # papoGen 0.0.1 - Breadcrumb
+ * - Prefix: bread
  */
 /*!
  * # papoGen 0.0.1 - Carousel
@@ -13291,6 +13276,24 @@ ul.list {
 /*!
  * # papoGen 0.0.1 - Tooltips
  * - Prefix: tips
+ */
+/*!
+ * # papoGen 0.0.1 - Display
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ */
+/*!
+ * # papoGen 0.0.1 - Alert
+ * - Prefix: alert
+ */
+/*!
+ * # papoGen 0.0.1 - Form
+ * - Prefix: form
+ */
+/*!
+ * # papoGen 0.0.1 - Table
+ * - Prefix: table
  */
 
 /*# sourceMappingURL=papogen.css.map */
