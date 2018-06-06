@@ -47,7 +47,7 @@
     -ms-flex-align: $value;
 }
 
-@mixin flex-direction($value: col) {
+@mixin flex-direction($value: column) {
     flex-direction: $value;
     -webkit-flex-direction: $value;
     -moz-flex-direction: $value;
