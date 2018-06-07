@@ -21,11 +21,11 @@
     @include breakpoint1($item) {
         .container {
             @if ($item==xs) {
-                @include margin-h(1rem !important, 1rem !important);
+                @include margin-h(1rem !important);
                 width: auto !important;
             }
             @else {
-                @include margin-h(auto !important, auto !important);
+                @include margin-h(auto !important);
                 @if ($item==sm) {
                     width: nth($RWD-container-width, 1);
                 }

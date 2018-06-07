@@ -12,6 +12,12 @@
     -ms-animation: $value;
 }
 
+@mixin backface-visibility($value) {
+    backface-visibility: $value;
+    -webkit-backface-visibility: $value;
+    -moz-backface-visibility: $value;
+}
+
 @mixin box-shadow($value: none) {
     box-shadow: $value;
     -webkit-box-shadow: $value;
@@ -47,7 +53,7 @@
     -ms-flex-align: $value;
 }
 
-@mixin flex-direction($value: col) {
+@mixin flex-direction($value: column) {
     flex-direction: $value;
     -webkit-flex-direction: $value;
     -moz-flex-direction: $value;
@@ -74,34 +80,34 @@
     -ms-hyphens: $value;
 }
 
-@mixin margin-h($left: 0rem, $right: 0rem) {
-    margin-left: $left;
-    margin-right: $right;
+@mixin margin-h($value: 0rem) {
+    margin-left: $value;
+    margin-right: $value;
 }
 
-@mixin margin-v($top: 0rem, $bottom: 0rem) {
-    margin-top: $top;
-    margin-bottom: $bottom;
+@mixin margin-v($value: 0rem) {
+    margin-top: $value;
+    margin-bottom: $value;
 }
 
-@mixin padding-h($left: 0rem, $right: 0rem) {
-    padding-left: $left;
-    padding-right: $right;
+@mixin padding-h($value: 0rem) {
+    padding-left: $value;
+    padding-right: $value;
 }
 
-@mixin padding-v($top: 0rem, $bottom: 0rem) {
-    padding-top: $top;
-    padding-bottom: $bottom;
+@mixin padding-v($value: 0rem) {
+    padding-top: $value;
+    padding-bottom: $value;
 }
 
-@mixin position-h($left: 0rem, $right: 0rem) {
-    left: $left;
-    right: $right;
+@mixin position-h($value: 0rem) {
+    left: $value;
+    right: $value;
 }
 
-@mixin position-v($top: 0rem, $bottom: 0rem) {
-    top: $top;
-    bottom: $bottom;
+@mixin position-v($value: 0rem) {
+    top: $value;
+    bottom: $value;
 }
 
 @mixin transform($value) {

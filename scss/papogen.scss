@@ -2,13 +2,13 @@
  * # papoGen 0.0.1
  * - Globals
  * - Elements
- * - Collections
- * - Views
+ * - Layouts
  * - Modules
+ * - Displays
  */
 
 @import 'globals/globals';
 @import 'elements/elements';
-@import 'collections/collections';
-@import 'views/views';
+@import 'layouts/layouts';
 @import 'modules/modules';
+@import 'displays/displays';
