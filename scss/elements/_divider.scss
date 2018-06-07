@@ -19,7 +19,7 @@
     margin: 1rem 0rem;
     text-transform: uppercase;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    &:not(.vertical):not(.horizontal) {
+    &:not(.divider-horizontal):not(.divider-vertical) {
         @include border-v(1px solid rgba(34, 36, 38, 0.15), 1px solid rgba(255, 255, 255, 0.1));
     }
     /* Allow text in divider with icon */
@@ -45,7 +45,7 @@
 
 /** Types: Horizontal **/
 
-.divider.horizontal {
+.divider.divider-horizontal {
     display: table;
     white-space: nowrap;
     height: auto;
@@ -72,7 +72,7 @@
 
 /** Types: Vertical **/
 
-.divider.vertical {
+.divider.divider-vertical {
     @include transform(translateX(-50%));
     height: 50%;
     line-height: 0rem;
@@ -107,8 +107,8 @@
 /* RWD */
 
 @include breakpoint1(xs) {
-    .grid.stackable .divider.vertical,
-    .grid .stackable.row .divider.vertical {
+    .grid.stackable .divider.divider-vertical,
+    .grid .stackable.row .divider.divider-vertical {
         @include transform(none);
         display: table;
         height: auto;
@@ -145,23 +145,23 @@
 /** Variations **/
 
 
-/* Variations: Clearing */
+/* Variations: Cleared */
 
-.divider.clearing {
+.divider.divider-cleared {
     clear: both;
 }
 
 
-/* Variations: Fitted */
+/* Variations: Compact */
 
-.divider.fitted {
+.divider.divider-compact {
     margin: 0rem;
 }
 
 
 /* Variations: Hidden */
 
-.divider.hidden {
+.divider.divider-hidden {
     border-color: transparent !important;
     &:before,
     &:after {
@@ -172,10 +172,10 @@
 
 /* Variations: Inverted */
 
-.divider.inverted {
+.divider.divider-inverted {
     &,
-    &.horizontal,
-    &.vertical {
+    &.divider-horizontal,
+    &.divider-vertical {
         color: $white;
     }
     &,
@@ -193,7 +193,7 @@
 
 /* Variations: Section */
 
-.divider.section {
+.divider.divider-section {
     @include margin-v(2rem);
 }
 

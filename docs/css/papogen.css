@@ -757,7 +757,7 @@ body {
   text-transform: uppercase;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   /* Allow text in divider with icon */ }
-  .divider:not(.vertical):not(.horizontal) {
+  .divider:not(.divider-horizontal):not(.divider-vertical) {
     border-top: 1px solid rgba(34, 36, 38, 0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
   .divider > .icon {
@@ -773,27 +773,27 @@ body {
 
 /*** Types ***/
 /** Types: Horizontal **/
-.divider.horizontal {
+.divider.divider-horizontal {
   display: table;
   white-space: nowrap;
   height: auto;
   margin: 0rem;
   line-height: 1;
   text-align: center; }
-  .divider.horizontal:before, .divider.horizontal:after {
+  .divider.divider-horizontal:before, .divider.divider-horizontal:after {
     background-repeat: no-repeat;
     content: '';
     display: table-cell;
     position: relative;
     top: 50%;
     width: 50%; }
-  .divider.horizontal:before {
+  .divider.divider-horizontal:before {
     background-position: right 1rem top 50%; }
-  .divider.horizontal:after {
+  .divider.divider-horizontal:after {
     background-position: left 1rem top 50%; }
 
 /** Types: Vertical **/
-.divider.vertical {
+.divider.divider-vertical {
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -809,7 +809,7 @@ body {
   text-align: center;
   width: auto;
   z-index: 2; }
-  .divider.vertical:before, .divider.vertical:after {
+  .divider.divider-vertical:before, .divider.divider-vertical:after {
     border-left: 1px solid rgba(34, 36, 38, 0.15);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     content: '';
@@ -818,16 +818,16 @@ body {
     left: 50%;
     width: 0%;
     z-index: 3; }
-  .divider.vertical:before {
+  .divider.divider-vertical:before {
     top: -100%; }
-  .divider.vertical:after {
+  .divider.divider-vertical:after {
     top: auto;
     bottom: 0rem; }
 
 /* RWD */
 @media only screen and (max-width: 767px) {
-  .grid.stackable .divider.vertical,
-  .grid .stackable.row .divider.vertical {
+  .grid.stackable .divider.divider-vertical,
+  .grid .stackable.row .divider.divider-vertical {
     transform: none;
     -webkit-transform: none;
     -moz-transform: none;
@@ -843,9 +843,9 @@ body {
     top: 0;
     left: 0;
     white-space: nowrap; }
-    .grid.stackable .divider.vertical:before, .grid.stackable .divider.vertical:after,
-    .grid .stackable.row .divider.vertical:before,
-    .grid .stackable.row .divider.vertical:after {
+    .grid.stackable .divider.divider-vertical:before, .grid.stackable .divider.divider-vertical:after,
+    .grid .stackable.row .divider.divider-vertical:before,
+    .grid .stackable.row .divider.divider-vertical:after {
       border-left: none;
       border-right: none;
       background-repeat: no-repeat;
@@ -856,38 +856,38 @@ body {
       position: relative;
       top: 50%;
       width: 50%; }
-    .grid.stackable .divider.vertical:before,
-    .grid .stackable.row .divider.vertical:before {
+    .grid.stackable .divider.divider-vertical:before,
+    .grid .stackable.row .divider.divider-vertical:before {
       background-position: right 1em top 50%; }
-    .grid.stackable .divider.vertical:after,
-    .grid .stackable.row .divider.vertical:after {
+    .grid.stackable .divider.divider-vertical:after,
+    .grid .stackable.row .divider.divider-vertical:after {
       background-position: left 1em top 50%; } }
 /** Variations **/
-/* Variations: Clearing */
-.divider.clearing {
+/* Variations: Cleared */
+.divider.divider-cleared {
   clear: both; }
 
-/* Variations: Fitted */
-.divider.fitted {
+/* Variations: Compact */
+.divider.divider-compact {
   margin: 0rem; }
 
 /* Variations: Hidden */
-.divider.hidden {
+.divider.divider-hidden {
   border-color: transparent !important; }
-  .divider.hidden:before, .divider.hidden:after {
+  .divider.divider-hidden:before, .divider.divider-hidden:after {
     display: none; }
 
 /* Variations: Inverted */
-.divider.inverted, .divider.inverted.horizontal, .divider.inverted.vertical {
+.divider.divider-inverted, .divider.divider-inverted.divider-horizontal, .divider.divider-inverted.divider-vertical {
   color: #FFFFFF !important; }
-.divider.inverted, .divider.inverted:before, .divider.inverted.after {
+.divider.divider-inverted, .divider.divider-inverted:before, .divider.divider-inverted.after {
   border-top-color: rgba(34, 36, 38, 0.15) !important;
   border-left-color: rgba(34, 36, 38, 0.15) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
   border-right-color: rgba(255, 255, 255, 0.15) !important; }
 
 /* Variations: Section */
-.divider.section {
+.divider.divider-section {
   margin-top: 2rem;
   margin-bottom: 2rem; }
 
