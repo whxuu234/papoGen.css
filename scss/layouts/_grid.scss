@@ -16,11 +16,11 @@
     margin: -1rem;
     padding: 0rem;
     /* Remove Gutters */
-    &.relaxed {
+    &.grid-relaxed {
         @extend .grid;
         @include margin-h(-1.5rem);
     }
-    &.exrelaxed {
+    &.grid-exrelaxed {
         @extend .grid;
         @include margin-h(-2.5rem);
     }

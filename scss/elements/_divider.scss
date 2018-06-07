@@ -19,7 +19,7 @@
     margin: 1rem 0rem;
     text-transform: uppercase;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    &:not(.divider-horizontal):not(.divider-vertical) {
+    &:not(.divider-h):not(.divider-v) {
         @include border-v(1px solid rgba(34, 36, 38, 0.15), 1px solid rgba(255, 255, 255, 0.1));
     }
     /* Allow text in divider with icon */
@@ -45,7 +45,7 @@
 
 /** Types: Horizontal **/
 
-.divider.divider-horizontal {
+.divider.divider-h {
     display: table;
     white-space: nowrap;
     height: auto;
@@ -72,7 +72,7 @@
 
 /** Types: Vertical **/
 
-.divider.divider-vertical {
+.divider.divider-v {
     @include transform(translateX(-50%));
     height: 50%;
     line-height: 0rem;
@@ -107,8 +107,8 @@
 /* RWD */
 
 @include breakpoint1(xs) {
-    .grid.stackable .divider.divider-vertical,
-    .grid .stackable.row .divider.divider-vertical {
+    .grid.stackable .divider.divider-v,
+    .grid .stackable.row .divider.divider-v {
         @include transform(none);
         display: table;
         height: auto;
@@ -174,8 +174,8 @@
 
 .divider.divider-inverted {
     &,
-    &.divider-horizontal,
-    &.divider-vertical {
+    &.divider-h,
+    &.divider-v {
         color: $white;
     }
     &,

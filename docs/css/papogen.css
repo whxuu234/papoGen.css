@@ -757,7 +757,7 @@ body {
   text-transform: uppercase;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   /* Allow text in divider with icon */ }
-  .divider:not(.divider-horizontal):not(.divider-vertical) {
+  .divider:not(.divider-h):not(.divider-v) {
     border-top: 1px solid rgba(34, 36, 38, 0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
   .divider > .icon {
@@ -773,27 +773,27 @@ body {
 
 /*** Types ***/
 /** Types: Horizontal **/
-.divider.divider-horizontal {
+.divider.divider-h {
   display: table;
   white-space: nowrap;
   height: auto;
   margin: 0rem;
   line-height: 1;
   text-align: center; }
-  .divider.divider-horizontal:before, .divider.divider-horizontal:after {
+  .divider.divider-h:before, .divider.divider-h:after {
     background-repeat: no-repeat;
     content: '';
     display: table-cell;
     position: relative;
     top: 50%;
     width: 50%; }
-  .divider.divider-horizontal:before {
+  .divider.divider-h:before {
     background-position: right 1rem top 50%; }
-  .divider.divider-horizontal:after {
+  .divider.divider-h:after {
     background-position: left 1rem top 50%; }
 
 /** Types: Vertical **/
-.divider.divider-vertical {
+.divider.divider-v {
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -809,7 +809,7 @@ body {
   text-align: center;
   width: auto;
   z-index: 2; }
-  .divider.divider-vertical:before, .divider.divider-vertical:after {
+  .divider.divider-v:before, .divider.divider-v:after {
     border-left: 1px solid rgba(34, 36, 38, 0.15);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     content: '';
@@ -818,16 +818,16 @@ body {
     left: 50%;
     width: 0%;
     z-index: 3; }
-  .divider.divider-vertical:before {
+  .divider.divider-v:before {
     top: -100%; }
-  .divider.divider-vertical:after {
+  .divider.divider-v:after {
     top: auto;
     bottom: 0rem; }
 
 /* RWD */
 @media only screen and (max-width: 767px) {
-  .grid.stackable .divider.divider-vertical,
-  .grid .stackable.row .divider.divider-vertical {
+  .grid.stackable .divider.divider-v,
+  .grid .stackable.row .divider.divider-v {
     transform: none;
     -webkit-transform: none;
     -moz-transform: none;
@@ -843,9 +843,9 @@ body {
     top: 0;
     left: 0;
     white-space: nowrap; }
-    .grid.stackable .divider.divider-vertical:before, .grid.stackable .divider.divider-vertical:after,
-    .grid .stackable.row .divider.divider-vertical:before,
-    .grid .stackable.row .divider.divider-vertical:after {
+    .grid.stackable .divider.divider-v:before, .grid.stackable .divider.divider-v:after,
+    .grid .stackable.row .divider.divider-v:before,
+    .grid .stackable.row .divider.divider-v:after {
       border-left: none;
       border-right: none;
       background-repeat: no-repeat;
@@ -856,11 +856,11 @@ body {
       position: relative;
       top: 50%;
       width: 50%; }
-    .grid.stackable .divider.divider-vertical:before,
-    .grid .stackable.row .divider.divider-vertical:before {
+    .grid.stackable .divider.divider-v:before,
+    .grid .stackable.row .divider.divider-v:before {
       background-position: right 1em top 50%; }
-    .grid.stackable .divider.divider-vertical:after,
-    .grid .stackable.row .divider.divider-vertical:after {
+    .grid.stackable .divider.divider-v:after,
+    .grid .stackable.row .divider.divider-v:after {
       background-position: left 1em top 50%; } }
 /** Variations **/
 /* Variations: Cleared */
@@ -878,7 +878,7 @@ body {
     display: none; }
 
 /* Variations: Inverted */
-.divider.divider-inverted, .divider.divider-inverted.divider-horizontal, .divider.divider-inverted.divider-vertical {
+.divider.divider-inverted, .divider.divider-inverted.divider-h, .divider.divider-inverted.divider-v {
   color: #FFFFFF !important; }
 .divider.divider-inverted, .divider.divider-inverted:before, .divider.divider-inverted.after {
   border-top-color: rgba(34, 36, 38, 0.15) !important;
@@ -5240,7 +5240,7 @@ ul.list {
  * - Prefix: grid
  */
 /*** Grid ***/
-.grid, .grid.relaxed, .grid.exrelaxed {
+.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5261,17 +5261,17 @@ ul.list {
   padding: 0rem;
   /* Remove Gutters */
   /* Preserve Rows Spacing on Consecutive Grids */ }
-  .grid.relaxed {
+  .grid.grid-relaxed {
     margin-left: -1.5rem;
     margin-right: -1.5rem; }
-  .grid.exrelaxed {
+  .grid.grid-exrelaxed {
     margin-left: -2.5rem;
     margin-right: -2.5rem; }
   .grid + .grid {
     margin-top: 1rem; }
 
 /*** Columns ***/
-.grid, .grid.relaxed, .grid.exrelaxed {
+.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
   /* Vertical padding when no rows */ }
   .grid > .col:not(.row),
   .grid > .row > .col {
@@ -5281,7 +5281,7 @@ ul.list {
     position: relative;
     vertical-align: top;
     width: 100% / 16; }
-  .grid > *, .grid.relaxed > *, .grid.exrelaxed > * {
+  .grid > *, .grid.grid-relaxed > *, .grid.grid-exrelaxed > * {
     padding-left: 0rem;
     padding-right: 0rem; }
   .grid > .col:not(.row) {
@@ -12354,7 +12354,7 @@ ul.list {
   display: block; }
 
 /** Relaxed & Extra-relaxed **/
-.grid, .grid.relaxed, .grid.exrelaxed {
+.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
   /* Relaxed */
   /* Coupling with UI Divider */
   /* Extra-relaxed */
@@ -13290,6 +13290,14 @@ ul.list {
 /*!
  * # papoGen 0.0.1 - Form
  * - Prefix: form
+ */
+/*!
+ * # papoGen 0.0.1 - Item
+ * - Prefix: item
+ */
+/*!
+ * # papoGen 0.0.1 - Statistic
+ * - Prefix: stat
  */
 /*!
  * # papoGen 0.0.1 - Table
