@@ -259,6 +259,18 @@
 }
 
 
+/* Remove border on last horizontal section */
+
+.grid>.row,
+.grid {
+    >.col:last-child {
+        >.section-h {
+            @include box-shadow;
+        }
+    }
+}
+
+
 /*** Variations ***/
 
 
@@ -283,7 +295,7 @@
 }
 
 
-/* Row Based Overrides */
+/* Row Based */
 
 @for $i from 1 to 16 {
     .grid>.row[class*="col-#{$i}"]>.col {
@@ -754,7 +766,7 @@ $value in $color-order {
 }
 
 
-/** Types: Device Visibility **/
+/** Responsive Variations: Device Visibility **/
 
 
 /* grid-only-xs */
@@ -863,15 +875,3 @@ $value in $color-order {
 
 
 /*** Overrides ***/
-
-
-/* Remove border on last horizontal section */
-
-.grid>.row,
-.grid {
-    >.col:last-child {
-        >.section-h {
-            @include box-shadow;
-        }
-    }
-}
