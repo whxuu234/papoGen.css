@@ -89,17 +89,7 @@ $attr in $size {
 }
 
 // !-- color
-$bg_col: (
-  primary   : #1E84D4,
-  secondary : #404040,
-  positive  : #49C468,
-  negative  : #E65050,
-  light     : #C9C9C9,
-  grey      : #ADADAD,
-  black     : #333333,
-  orange    : #FE9A76
-);
-
+$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, light: #C9C9C9, grey: #ADADAD, black: #333333, orange: #FE9A76);
 @each $type, $col in $bg_col {
   .#{$type} {
     color       : $col;
@@ -121,10 +111,6 @@ $var in $direction {
     }
 }
 
-<<<<<<< HEAD
-//
-
-=======
 $position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
 @each $type,
 $attr in $position {
@@ -138,4 +124,3 @@ $attr in $position {
         }
     }
 }
->>>>>>> upstream/master
