@@ -9,9 +9,10 @@
  */
 /*!
  * # papoGen 0.0.1 - Globals
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
+ * - Variables
+ * - Reset
+ * - Mixins
+ * - Site
  */
 /*!
  * # papoGen 0.0.1 - Variables
@@ -595,9 +596,16 @@ body {
 
 /*!
  * # papoGen 0.0.1 - Elements
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
+ * - Button
+ * - Divider
+ * - Header
+ * - Icon
+ * - Image
+ * - Input
+ * - Label
+ * - List
+ * - Section
+ * - Steps
  */
 /*!
  * # papoGen 0.0.1 - Button
@@ -5098,9 +5106,8 @@ ul.list {
  */
 /*!
  * # papoGen 0.0.1 - Layouts
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
+ * - Container
+ * - Grid
  */
 /*!
  * # papoGen 0.0.1 - Container
@@ -5218,8 +5225,9 @@ ul.list {
   margin: -1rem;
   padding: 0rem;
   /* Remove Gutters */
-  /* Preserve Rows Spacing on Consecutive Grids */
-  /* Collapse Margin on Consecutive Grid */ }
+  /* Preserve rows spacing on consecutive grids */
+  /* Collapse margin on consecutive grid */
+  /* Align dividers */ }
   .grid.grid-relaxed {
     margin-left: -1.5rem;
     margin-right: -1.5rem; }
@@ -5232,8 +5240,158 @@ ul.list {
     margin-top: 0rem; }
   .grid > .grid:last-child {
     margin-bottom: 0rem; }
+  .grid .row + .divider {
+    flex-grow: 1;
+    margin: 1rem;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1; }
+  .grid .col + .grid-v.divider {
+    height: calc(50% - 1rem); }
 
-/*** Columns ***/
+/*** Typs ***/
+/** Types: Divided **/
+.grid.grid-divided {
+  /* Divided Row */ }
+  .grid.grid-divided.grid-divided {
+    /* Vertically Divided */
+    /* Padded Horizontally Divided */
+    /* Relaxed */
+    /* Inverted Divided */ }
+    .grid.grid-divided.grid-divided:not(.grid-v) {
+      /* No divider on first col on row */ }
+      .grid.grid-divided.grid-divided:not(.grid-v) > .row {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        /* No space on top of first row */ }
+        .grid.grid-divided.grid-divided:not(.grid-v) > .row:first-child.col {
+          margin-top: 0rem; }
+      .grid.grid-divided.grid-divided:not(.grid-v) > .col:not(.row),
+      .grid.grid-divided.grid-divided:not(.grid-v) > .row > .col {
+        box-shadow: -1px 0px 0px 0px rgba(2, 3, 3, 0.15);
+        -webkit-box-shadow: -1px 0px 0px 0px rgba(2, 3, 3, 0.15);
+        -moz-box-shadow: -1px 0px 0px 0px rgba(2, 3, 3, 0.15); }
+      .grid.grid-divided.grid-divided:not(.grid-v) > .col:first-child,
+      .grid.grid-divided.grid-divided:not(.grid-v) > .row > .col:first-child {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none; }
+    .grid.grid-divided.grid-divided.grid-v {
+      /* Swap from padding to margin on columns to have dividers align */ }
+      .grid.grid-divided.grid-divided.grid-v > .row {
+        position: relative;
+        /* First Row Vertically Divided */ }
+        .grid.grid-divided.grid-divided.grid-v > .row:before {
+          box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+          -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+          -moz-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+          content: "";
+          height: 1px;
+          margin: 0rem 1rem;
+          position: absolute;
+          top: 0rem;
+          left: 0rem;
+          width: calc(100% - 2rem); }
+        .grid.grid-divided.grid-divided.grid-v > .row:first-child:before {
+          box-shadow: none;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none; }
+      .grid.grid-divided.grid-divided.grid-v > .col:not(.row),
+      .grid.grid-divided.grid-divided.grid-v > .row > .col {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: 0rem;
+        padding-bottom: 0rem; }
+    .grid.grid-divided.grid-divided.grid-h, .grid.grid-divided.grid-divided.grid-padded:not(.grid-v):not(.grid-h) {
+      width: 100%; }
+    .grid.grid-divided.grid-divided.grid-relaxed.grid-v > .row:before {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+      width: calc(100% - 3rem); }
+    .grid.grid-divided.grid-divided.grid-exrelaxed.grid-v > .row:before {
+      margin-left: 5rem;
+      margin-right: 5rem;
+      width: calc(100% - 5rem); }
+    .grid.grid-divided.grid-divided.inverted:not(.grid-v) > .col:not(.row),
+    .grid.grid-divided.grid-divided.inverted:not(.grid-v) > .row > .col {
+      box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
+      -webkit-box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
+      -moz-box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1); }
+      .grid.grid-divided.grid-divided.inverted:not(.grid-v) > .col:not(.row):first-child,
+      .grid.grid-divided.grid-divided.inverted:not(.grid-v) > .row > .col:first-child {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none; }
+    .grid.grid-divided.grid-divided.inverted.grid-v > .row:before {
+      box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
+      -webkit-box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
+      -moz-box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1); }
+  .grid.grid-divided > .grid-divided > .col {
+    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    -moz-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15); }
+    .grid.grid-divided > .grid-divided > .col:first-child {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none; }
+
+/** Types: Celled **/
+.grid.grid-celled {
+  box-shadow: 0px 0px 0px 1px #D4D4D5;
+  -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5;
+  -moz-box-shadow: 0px 0px 0px 1px #D4D4D5;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  width: 100%;
+  /* Celled Internal */ }
+  .grid.grid-celled.grid-relaxed > .col:not(.row),
+  .grid.grid-celled.grid-relaxed > .row > .col {
+    padding: 1.5rem; }
+  .grid.grid-celled.grid-exrelaxed > .col:not(.row),
+  .grid.grid-celled.grid-exrelaxed > .row > .col {
+    padding: 2rem; }
+  .grid.grid-celled.grid-internal {
+    margin: 0rem;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none; }
+    .grid.grid-celled.grid-internal > .row:first-child {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none; }
+    .grid.grid-celled.grid-internal > .row > .col:first-child {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none; }
+  .grid.grid-celled > .row {
+    box-shadow: 0px -1px 0px 0px #D4D4D5;
+    -webkit-box-shadow: 0px -1px 0px 0px #D4D4D5;
+    -moz-box-shadow: 0px -1px 0px 0px #D4D4D5;
+    margin: 0rem;
+    padding: 0rem;
+    width: 100% !important; }
+    .grid.grid-celled > .row > .col {
+      box-shadow: -1px 0px 0px 0px #D4D4D5;
+      -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
+      -moz-box-shadow: -1px 0px 0px 0px #D4D4D5;
+      padding: 1rem; }
+      .grid.grid-celled > .row > .col:first-child {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none; }
+  .grid.grid-celled > .col:not(.row) {
+    box-shadow: -1px 0px 0px 0px #D4D4D5;
+    -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
+    -moz-box-shadow: -1px 0px 0px 0px #D4D4D5;
+    padding: 1rem; }
+  .grid.grid-celled > .col:first-child {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none; }
+
+/*** Content ***/
+/** Content: Columns **/
 .grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
   /* Vertical padding when no rows */ }
   .grid > .col:not(.row),
@@ -5254,7 +5412,7 @@ ul.list {
     margin-top: 0rem;
     margin-bottom: 0rem; }
 
-/*** Rows ***/
+/** Content: Rows **/
 .grid > .row {
   display: flex;
   display: -webkit-box;
@@ -5290,78 +5448,14 @@ ul.list {
   .grid > .row > img {
     max-width: 100%; }
 
-/*** Grid Variations ***/
-/** Grid Variations: Page **/
-/** Grid Variations: Relaxed & Extra-relaxed **/
-.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
-  /* Relaxed */
-  /* Coupling with UI Divider */
-  /* Extra-relaxed */
-  /* Coupling with UI Divider */ }
-  .grid.grid-relaxed > .col:not(.row),
-  .grid.grid-relaxed > .row > .col {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem; }
-  .grid.grid-relaxed .row + .divider {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem; }
-  .grid > .row.grid-relaxed > .col {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem; }
-  .grid .grid.grid-relaxed.row + .divider {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem; }
-  .grid.grid-exrelaxed > .col:not(.row),
-  .grid.grid-exrelaxed > .row > .col {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem; }
-  .grid.grid-exrelaxed .row + .divider {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem; }
-  .grid > .row.grid-exrelaxed > .col {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem; }
-  .grid .grid.grid-exrelaxed.row + .divider {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem; }
-
-/** Grid Variations: Padded **/
-.grid.grid-padded:not(.grid-h):not(.grid-v) {
-  margin: 0rem !important; }
-.grid.grid-padded.grid-h {
-  margin-left: 0rem !important;
-  margin-right: 0rem !important; }
-.grid.grid-padded.grid-v {
-  margin-top: 0rem !important;
-  margin-bottom: 0rem !important; }
-
-/* Align Dividers with Gutter */
-.grid .row + .divider {
-  flex-grow: 1;
-  margin: 1rem;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1; }
-.grid .col + .grid-v.divider {
-  height: calc(50% - 1rem); }
-
-/* Segment inside Aligned Grid */
-.grid .aligned.row > .col > .section:not(.section-compact):not(.section-attached),
-.grid.aligned .col > .section:not(.section-compact):not(.section-attached) {
-  width: 100%; }
-
-/* Remove Border on Last Horizontal Section */
-.grid > .row > .col:last-child > .section-h,
-.grid > .col:last-child > .section-h {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none; }
-
-/*** Columns Variations ***/
-/** Columns Variations: Count **/
-/* Assume full width with one col */
-.grid > .col:only-child,
-.grid > .row > .col:only-child {
-  width: 100%; }
+/*** Variations ***/
+/** Variations: Column Count **/
+.grid > .col,
+.grid > .row > .col {
+  /* Full width with one column */ }
+  .grid > .col:only-child,
+  .grid > .row > .col:only-child {
+    width: 100%; }
 
 /* Grid Based */
 .grid[class*="col-1"] > .row.col,
@@ -5470,7 +5564,7 @@ ul.list {
 .grid > .row[class*="col-15"] > .col {
   width: 6.6666666667% !important; }
 
-/** Columns: Width **/
+/** Variations: Column Width **/
 /* Sizing Combinations */
 .grid > .col-span[class*="col-span-1"],
 .grid > .row > .col-span[class*="col-span-1"],
@@ -5929,6 +6023,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-2"],
 .grid > .row > .col-span[class*="col-span-2"],
 .grid > .col.row > .col-span[class*="col-span-2"],
@@ -6386,6 +6481,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-3"],
 .grid > .row > .col-span[class*="col-span-3"],
 .grid > .col.row > .col-span[class*="col-span-3"],
@@ -6843,6 +6939,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-4"],
 .grid > .row > .col-span[class*="col-span-4"],
 .grid > .col.row > .col-span[class*="col-span-4"],
@@ -7300,6 +7397,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-5"],
 .grid > .row > .col-span[class*="col-span-5"],
 .grid > .col.row > .col-span[class*="col-span-5"],
@@ -7757,6 +7855,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-6"],
 .grid > .row > .col-span[class*="col-span-6"],
 .grid > .col.row > .col-span[class*="col-span-6"],
@@ -8214,6 +8313,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-7"],
 .grid > .row > .col-span[class*="col-span-7"],
 .grid > .col.row > .col-span[class*="col-span-7"],
@@ -8671,6 +8771,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-8"],
 .grid > .row > .col-span[class*="col-span-8"],
 .grid > .col.row > .col-span[class*="col-span-8"],
@@ -9128,6 +9229,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-9"],
 .grid > .row > .col-span[class*="col-span-9"],
 .grid > .col.row > .col-span[class*="col-span-9"],
@@ -9585,6 +9687,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-10"],
 .grid > .row > .col-span[class*="col-span-10"],
 .grid > .col.row > .col-span[class*="col-span-10"],
@@ -10042,6 +10145,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-11"],
 .grid > .row > .col-span[class*="col-span-11"],
 .grid > .col.row > .col-span[class*="col-span-11"],
@@ -10499,6 +10603,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-12"],
 .grid > .row > .col-span[class*="col-span-12"],
 .grid > .col.row > .col-span[class*="col-span-12"],
@@ -10956,6 +11061,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-13"],
 .grid > .row > .col-span[class*="col-span-13"],
 .grid > .col.row > .col-span[class*="col-span-13"],
@@ -11413,6 +11519,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-14"],
 .grid > .row > .col-span[class*="col-span-14"],
 .grid > .col.row > .col-span[class*="col-span-14"],
@@ -11870,6 +11977,7 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
+/* Sizing Combinations */
 .grid > .col-span[class*="col-span-15"],
 .grid > .row > .col-span[class*="col-span-15"],
 .grid > .col.row > .col-span[class*="col-span-15"],
@@ -12327,273 +12435,6 @@ ul.list {
   .grid > .col.row > .col-span[class*="grid-xl col-span-15"],
   .grid.col > .col-span[class*="grid-xl col-span-15"] {
     width: 93.75% !important; } }
-/** Variations: Centered **/
-.grid.centered, .grid.centered > .row,
-.grid > .row.centered {
-  text-align: center;
-  justify-content: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center; }
-.grid.centered > .col:not(.aligned):not(.justified), .grid.centered > .row > .col:not(.aligned):not(.justified) {
-  text-align: left; }
-  .grid.centered > .col:not(.aligned):not(.justified):not(.row), .grid.centered > .row > .col:not(.aligned):not(.justified):not(.row) {
-    text-align: left; }
-.grid > .col.centered,
-.grid > .row > .col.centered {
-  margin-left: auto;
-  margin-right: auto;
-  display: block; }
-.grid .row.centered > .col:not(.aligned):not(.justified) {
-  text-align: left; }
-
-/** Floated **/
-.grid .col.col-floated-left {
-  margin-left: auto; }
-
-/** Divided **/
-.grid.divided {
-  /* Vertically Divided */
-  /* Padded Horizontally Divided */
-  /* Relaxed */
-  /* Inverted Divided */ }
-  .grid.divided:not(.grid-v) {
-    /* No divider on first col on row */ }
-    .grid.divided:not(.grid-v) > .row {
-      margin-top: 0rem;
-      margin-bottom: 0rem;
-      /* No space on top of first row */ }
-      .grid.divided:not(.grid-v) > .row:first-child.col {
-        margin-top: 0rem; }
-    .grid.divided:not(.grid-v) > .col:not(.row),
-    .grid.divided:not(.grid-v) > .row > .col {
-      box-shadow: -1px 0px 0px 0px rgba(2, 3, 3, 0.15);
-      -webkit-box-shadow: -1px 0px 0px 0px rgba(2, 3, 3, 0.15);
-      -moz-box-shadow: -1px 0px 0px 0px rgba(2, 3, 3, 0.15); }
-    .grid.divided:not(.grid-v) > .col:first-child,
-    .grid.divided:not(.grid-v) > .row > .col:first-child {
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none; }
-  .grid.divided.grid-v {
-    /* Swap from padding to margin on columns to have dividers align */ }
-    .grid.divided.grid-v > .row {
-      position: relative;
-      /* First Row Vertically Divided */ }
-      .grid.divided.grid-v > .row:before {
-        box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-        -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-        -moz-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
-        content: "";
-        height: 1px;
-        position: absolute;
-        top: 0rem;
-        left: 0px;
-        margin: 0% 1rem;
-        width: calc(100% - 2rem); }
-      .grid.divided.grid-v > .row:first-child:before {
-        box-shadow: none;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none; }
-    .grid.divided.grid-v > .col:not(.row),
-    .grid.divided.grid-v > .row > .col {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      padding-top: 0rem;
-      padding-bottom: 0rem; }
-  .grid.divided.grid-h, .grid.divided.grid-padded:not(.grid-v):not(.grid-h) {
-    width: 100%; }
-  .grid.divided.grid-relaxed.grid-v > .row:before {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    width: calc(100% - 3rem); }
-  .grid.divided.grid-exrelaxed.grid-v > .row:before {
-    margin-left: 5rem;
-    margin-right: 5rem;
-    width: calc(100% - 5rem); }
-  .grid.divided.inverted:not(.grid-v) > .col:not(.row),
-  .grid.divided.inverted:not(.grid-v) > .row > .col {
-    box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
-    -webkit-box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
-    -moz-box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1); }
-    .grid.divided.inverted:not(.grid-v) > .col:not(.row):first-child,
-    .grid.divided.inverted:not(.grid-v) > .row > .col:first-child {
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none; }
-
-/* Divided Row */
-.grid > .divided > .col {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
-  -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
-  -moz-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15); }
-  .grid > .divided > .col:first-child {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none; }
-
-.grid.inverted.divided.grid-v > .row:before {
-  box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
-  -webkit-box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
-  -moz-box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1); }
-
-/** Rows: Celled **/
-.grid.grid-celled {
-  box-shadow: 0px 0px 0px 1px #D4D4D5;
-  -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5;
-  -moz-box-shadow: 0px 0px 0px 1px #D4D4D5;
-  margin-left: 0rem;
-  margin-right: 0rem;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  width: 100%;
-  /* Celled Internal*/
-  /* Celled Page */ }
-  .grid.grid-celled.grid-relaxed > .col:not(.row),
-  .grid.grid-celled.grid-relaxed > .row > .col {
-    padding: 1.5rem; }
-  .grid.grid-celled.grid-exrelaxed > .col:not(.row),
-  .grid.grid-celled.grid-exrelaxed > .row > .col {
-    padding: 2rem; }
-  .grid.grid-celled.grid-internal {
-    margin: 0rem;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none; }
-    .grid.grid-celled.grid-internal > .row:first-child {
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none; }
-    .grid.grid-celled.grid-internal > .row > .col:first-child {
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none; }
-  .grid.grid-celled.grid-page {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none; }
-  .grid.grid-celled > .row {
-    margin: 0rem;
-    padding: 0rem;
-    width: 100% !important;
-    box-shadow: 0px -1px 0px 0px #D4D4D5;
-    -webkit-box-shadow: 0px -1px 0px 0px #D4D4D5;
-    -moz-box-shadow: 0px -1px 0px 0px #D4D4D5; }
-    .grid.grid-celled > .row > .col {
-      box-shadow: -1px 0px 0px 0px #D4D4D5;
-      -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
-      -moz-box-shadow: -1px 0px 0px 0px #D4D4D5;
-      padding: 1rem; }
-      .grid.grid-celled > .row > .col:first-child {
-        box-shadow: none;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none; }
-  .grid.grid-celled > .col:not(.row) {
-    box-shadow: -1px 0px 0px 0px #D4D4D5;
-    -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
-    -moz-box-shadow: -1px 0px 0px 0px #D4D4D5;
-    padding: 1rem; }
-  .grid.grid-celled > .col:first-child {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none; }
-
-/** Vertically Aligned: Top / Middel / Bottom **/
-.grid.aligned.aligned-top > .col:not(.row),
-.grid.aligned.aligned-top > .row > .col,
-.grid > .row.aligned.aligned-top > .col,
-.grid > .col.aligned.aligned-top:not(.row),
-.grid > .row > .col.aligned.aligned-top {
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  align-self: flex-start !important;
-  vertical-align: top;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -ms-flex-item-align: start !important; }
-
-.grid.aligned.aligned-middle > .col:not(.row),
-.grid.aligned.aligned-middle > .row > .col,
-.grid > .row.aligned.aligned-middle > .col,
-.grid > .col.aligned.aligned-middle:not(.row),
-.grid > .row > .col.aligned.aligned-middle {
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  align-self: center !important;
-  vertical-align: middle;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -ms-flex-item-align: center !important; }
-
-/* Stretched */
-.grid.stretched > .row > .col,
-.grid.stretched > .col,
-.grid > .row.stretched > .col,
-.grid > .col.stretched:not(.row),
-.grid > .row > .col.stretched {
-  display: inline-flex !important;
-  display: -webkit-inline-box !important;
-  display: -ms-inline-flexbox !important;
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  align-self: stretch;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -ms-flex-item-align: stretch; }
-  .grid.stretched > .row > .col > *,
-  .grid.stretched > .col > *,
-  .grid > .row.stretched > .col > *,
-  .grid > .col.stretched:not(.row) > *,
-  .grid > .row > .col.stretched > * {
-    flex-grow: 1;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1; }
-
-/** Variations: Text Alignment **/
-.grid.aligned.aligned-left > .col,
-.grid.aligned.aligned-left > .row > .col,
-.grid > .row.aligned.aligned-left > .col,
-.grid > .col.aligned.aligned-left,
-.grid > .row > .col.aligned.aligned-left {
-  align-self: inherit;
-  text-align: left;
-  -ms-flex-item-align: inherit; }
-
-.grid.aligned.aligned-center > .col,
-.grid.aligned.aligned-center > .row > .col,
-.grid > .row.aligned.aligned-center > .col,
-.grid > .col.aligned.aligned-center,
-.grid > .row > .col.aligned.aligned-center {
-  align-self: inherit;
-  text-align: center;
-  -ms-flex-item-align: inherit; }
-
-.grid.aligned.aligned-right > .col,
-.grid.aligned.aligned-right > .row > .col,
-.grid > .row.aligned.aligned-right > .col,
-.grid > .col.aligned.aligned-right,
-.grid > .row > .col.aligned.aligned-right {
-  align-self: inherit;
-  text-align: right;
-  -ms-flex-item-align: inherit; }
-
-.grid.aligned.aligned-center {
-  justify-content: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center; }
-
-.grid.justified {
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  text-align: justify; }
-
 /** Variations: Colored **/
 .grid > .row-red,
 .grid > .col-red,
@@ -12749,17 +12590,187 @@ ul.list {
   padding-top: 0rem;
   padding-bottom: 0rem; }
 
-/** Variations: Equal **/
-.grid.equal > .col:not(.row),
-.grid.equal > .row > .col,
-.grid > .row.equal > .col {
+/** Variations: Centered **/
+.grid.centered, .grid.centered > .row,
+.grid > .row.centered {
+  text-align: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center; }
+.grid.centered > .col:not(.aligned):not(.justified), .grid.centered > .row > .col:not(.aligned):not(.justified) {
+  text-align: left; }
+  .grid.centered > .col:not(.aligned):not(.justified):not(.row), .grid.centered > .row > .col:not(.aligned):not(.justified):not(.row) {
+    text-align: left; }
+.grid > .col.centered,
+.grid > .row > .col.centered {
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+.grid .row.centered > .col:not(.aligned):not(.justified) {
+  text-align: left; }
+
+/** Variations: Floated **/
+.grid .col.col-floated-left {
+  margin-left: auto; }
+
+/** Variations: Equal Width **/
+.grid.grid-equal > .col:not(.row),
+.grid.grid-equal > .row > .col,
+.grid > .row.grid-equal > .col {
   display: inline-block;
   flex-grow: 1;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1; }
 
-/*** Types ***/
-/** Types: Reverse **/
+/** Variations: Stretched **/
+.grid.grid-stretched > .row > .col,
+.grid.grid-stretched > .col,
+.grid > .row.grid-stretched > .col,
+.grid > .col.grid-stretched:not(.row),
+.grid > .row > .col.grid-stretched {
+  display: inline-flex !important;
+  display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  align-self: stretch;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -ms-flex-item-align: stretch; }
+  .grid.grid-stretched > .row > .col > *,
+  .grid.grid-stretched > .col > *,
+  .grid > .row.grid-stretched > .col > *,
+  .grid > .col.grid-stretched:not(.row) > *,
+  .grid > .row > .col.grid-stretched > * {
+    flex-grow: 1;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1; }
+
+/** Variations: Padded **/
+.grid.grid-padded:not(.grid-h):not(.grid-v) {
+  margin: 0rem !important; }
+.grid.grid-padded.grid-h {
+  margin-left: 0rem !important;
+  margin-right: 0rem !important; }
+.grid.grid-padded.grid-v {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important; }
+
+/** Variations: Relaxed & Extra-relaxed**/
+.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
+  /* Relaxed */
+  /* Coupling with UI Divider */
+  /* Extra-relaxed */
+  /* Divider */ }
+  .grid.grid-relaxed > .col:not(.row),
+  .grid.grid-relaxed > .row > .col {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; }
+  .grid.grid-relaxed .row + .divider {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem; }
+  .grid > .row.grid-relaxed > .col {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; }
+  .grid .grid.grid-relaxed.row + .divider {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem; }
+  .grid.grid-exrelaxed > .col:not(.row),
+  .grid.grid-exrelaxed > .row > .col {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem; }
+  .grid.grid-exrelaxed .row + .divider {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem; }
+  .grid > .row.grid-exrelaxed > .col {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem; }
+  .grid .grid.grid-exrelaxed.row + .divider {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem; }
+
+/** Variations: Text Alignment **/
+.grid.aligned.aligned-left > .col,
+.grid.aligned.aligned-left > .row > .col,
+.grid > .row.aligned.aligned-left > .col,
+.grid > .col.aligned.aligned-left,
+.grid > .row > .col.aligned.aligned-left {
+  align-self: inherit;
+  text-align: left;
+  -ms-flex-item-align: inherit; }
+
+.grid.aligned.aligned-center > .col,
+.grid.aligned.aligned-center > .row > .col,
+.grid > .row.aligned.aligned-center > .col,
+.grid > .col.aligned.aligned-center,
+.grid > .row > .col.aligned.aligned-center {
+  align-self: inherit;
+  text-align: center;
+  -ms-flex-item-align: inherit; }
+
+.grid.aligned.aligned-right > .col,
+.grid.aligned.aligned-right > .row > .col,
+.grid > .row.aligned.aligned-right > .col,
+.grid > .col.aligned.aligned-right,
+.grid > .row > .col.aligned.aligned-right {
+  align-self: inherit;
+  text-align: right;
+  -ms-flex-item-align: inherit; }
+
+.grid.aligned.aligned-center {
+  justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center; }
+
+.grid.justified {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  text-align: justify; }
+
+.grid .aligned.row > .col,
+.grid.aligned .col {
+  /* Section inside aligned grid */ }
+  .grid .aligned.row > .col > .section:not(.section-compact):not(.section-attached),
+  .grid.aligned .col > .section:not(.section-compact):not(.section-attached) {
+    width: 100%; }
+
+/** Variations: Vertical Alignment **/
+.grid.aligned.aligned-top > .col:not(.row),
+.grid.aligned.aligned-top > .row > .col,
+.grid > .row.aligned.aligned-top > .col,
+.grid > .col.aligned.aligned-top:not(.row),
+.grid > .row > .col.aligned.aligned-top {
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  align-self: flex-start !important;
+  vertical-align: top;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -ms-flex-item-align: start !important; }
+
+.grid.aligned.aligned-middle > .col:not(.row),
+.grid.aligned.aligned-middle > .row > .col,
+.grid > .row.aligned.aligned-middle > .col,
+.grid > .col.aligned.aligned-middle:not(.row),
+.grid > .row > .col.aligned.aligned-middle {
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  align-self: center !important;
+  vertical-align: middle;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -ms-flex-item-align: center !important; }
+
+/*** Responsive Variations ***/
+/** Responsive Variations: Reversed **/
 /* RWD Design: Mobile / Tablet / Computer */
 @media only screen and (max-width: 767px) {
   .grid.grid-xs.grid-reversed,
@@ -12773,7 +12784,7 @@ ul.list {
     -webkit-box-orient: horizontal; }
 
   .grid.grid-xs.grid-reversed.grid-v,
-  .grid-xs.grid-reversed.stackable {
+  .grid-xs.grid-reversed.grid-stacked {
     flex-direction: col-reverse;
     -webkit-flex-direction: col-reverse;
     -moz-flex-direction: col-reverse;
@@ -12782,32 +12793,32 @@ ul.list {
     -webkit-box-orient: vertical; }
 
   /* Divided Reversed */
-  .grid.grid-xs.grid-reversed.divided {
+  .grid.grid-xs.grid-reversed.grid-divided {
     /* Vertically Divided Reversed */
     /* Celled Reversed */ }
-    .grid.grid-xs.grid-reversed.divided:not(.grid-v) > .col:first-child,
-    .grid.grid-xs.grid-reversed.divided:not(.grid-v) > .row > .col:first-child {
+    .grid.grid-xs.grid-reversed.grid-divided:not(.grid-v) > .col:first-child,
+    .grid.grid-xs.grid-reversed.grid-divided:not(.grid-v) > .row > .col:first-child {
       box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
       -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
       -moz-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15); }
-    .grid.grid-xs.grid-reversed.divided:not(.grid-v) > .col:last-child,
-    .grid.grid-xs.grid-reversed.divided:not(.grid-v) > .row > .col:last-child {
+    .grid.grid-xs.grid-reversed.grid-divided:not(.grid-v) > .col:last-child,
+    .grid.grid-xs.grid-reversed.grid-divided:not(.grid-v) > .row > .col:last-child {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; }
-    .grid.grid-xs.grid-reversed.divided.grid-v > .row:first-child:before {
+    .grid.grid-xs.grid-reversed.grid-divided.grid-v > .row:first-child:before {
       box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
       -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
       -moz-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15); }
-    .grid.grid-xs.grid-reversed.divided.grid-v > .row:last-child:before {
+    .grid.grid-xs.grid-reversed.grid-divided.grid-v > .row:last-child:before {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; }
-    .grid.grid-xs.grid-reversed.divided.grid-celled > .row > .col:first-child {
+    .grid.grid-xs.grid-reversed.grid-divided.grid-celled > .row > .col:first-child {
       box-shadow: -1px 0px 0px 0px #D4D4D5;
       -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
       -moz-box-shadow: -1px 0px 0px 0px #D4D4D5; }
-    .grid.grid-xs.grid-reversed.divided.grid-celled > .row > .col:last-child {
+    .grid.grid-xs.grid-reversed.grid-divided.grid-celled > .row > .col:last-child {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; } }
@@ -12824,7 +12835,7 @@ ul.list {
     -webkit-box-orient: horizontal; }
 
   .grid.grid-sm.grid-reversed.grid-v,
-  .grid-sm.grid-reversed.stackable {
+  .grid-sm.grid-reversed.grid-stacked {
     flex-direction: col-reverse;
     -webkit-flex-direction: col-reverse;
     -moz-flex-direction: col-reverse;
@@ -12833,32 +12844,32 @@ ul.list {
     -webkit-box-orient: vertical; }
 
   /* Divided Reversed */
-  .grid.grid-sm.grid-reversed.divided {
+  .grid.grid-sm.grid-reversed.grid-divided {
     /* Vertically Divided Reversed */
     /* Celled Reversed */ }
-    .grid.grid-sm.grid-reversed.divided:not(.grid-v) > .col:first-child,
-    .grid.grid-sm.grid-reversed.divided:not(.grid-v) > .row > .col:first-child {
+    .grid.grid-sm.grid-reversed.grid-divided:not(.grid-v) > .col:first-child,
+    .grid.grid-sm.grid-reversed.grid-divided:not(.grid-v) > .row > .col:first-child {
       box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
       -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
       -moz-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15); }
-    .grid.grid-sm.grid-reversed.divided:not(.grid-v) > .col:last-child,
-    .grid.grid-sm.grid-reversed.divided:not(.grid-v) > .row > .col:last-child {
+    .grid.grid-sm.grid-reversed.grid-divided:not(.grid-v) > .col:last-child,
+    .grid.grid-sm.grid-reversed.grid-divided:not(.grid-v) > .row > .col:last-child {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; }
-    .grid.grid-sm.grid-reversed.divided.grid-v > .row:first-child:before {
+    .grid.grid-sm.grid-reversed.grid-divided.grid-v > .row:first-child:before {
       box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
       -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
       -moz-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15); }
-    .grid.grid-sm.grid-reversed.divided.grid-v > .row:last-child:before {
+    .grid.grid-sm.grid-reversed.grid-divided.grid-v > .row:last-child:before {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; }
-    .grid.grid-sm.grid-reversed.divided.grid-celled > .row > .col:first-child {
+    .grid.grid-sm.grid-reversed.grid-divided.grid-celled > .row > .col:first-child {
       box-shadow: -1px 0px 0px 0px #D4D4D5;
       -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
       -moz-box-shadow: -1px 0px 0px 0px #D4D4D5; }
-    .grid.grid-sm.grid-reversed.divided.grid-celled > .row > .col:last-child {
+    .grid.grid-sm.grid-reversed.grid-divided.grid-celled > .row > .col:last-child {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; } }
@@ -12875,7 +12886,7 @@ ul.list {
     -webkit-box-orient: horizontal; }
 
   .grid.grid-md.grid-reversed.grid-v,
-  .grid-md.grid-reversed.stackable {
+  .grid-md.grid-reversed.grid-stacked {
     flex-direction: col-reverse;
     -webkit-flex-direction: col-reverse;
     -moz-flex-direction: col-reverse;
@@ -12884,49 +12895,49 @@ ul.list {
     -webkit-box-orient: vertical; }
 
   /* Divided Reversed */
-  .grid.grid-md.grid-reversed.divided {
+  .grid.grid-md.grid-reversed.grid-divided {
     /* Vertically Divided Reversed */
     /* Celled Reversed */ }
-    .grid.grid-md.grid-reversed.divided:not(.grid-v) > .col:first-child,
-    .grid.grid-md.grid-reversed.divided:not(.grid-v) > .row > .col:first-child {
+    .grid.grid-md.grid-reversed.grid-divided:not(.grid-v) > .col:first-child,
+    .grid.grid-md.grid-reversed.grid-divided:not(.grid-v) > .row > .col:first-child {
       box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
       -webkit-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
       -moz-box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15); }
-    .grid.grid-md.grid-reversed.divided:not(.grid-v) > .col:last-child,
-    .grid.grid-md.grid-reversed.divided:not(.grid-v) > .row > .col:last-child {
+    .grid.grid-md.grid-reversed.grid-divided:not(.grid-v) > .col:last-child,
+    .grid.grid-md.grid-reversed.grid-divided:not(.grid-v) > .row > .col:last-child {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; }
-    .grid.grid-md.grid-reversed.divided.grid-v > .row:first-child:before {
+    .grid.grid-md.grid-reversed.grid-divided.grid-v > .row:first-child:before {
       box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
       -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
       -moz-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15); }
-    .grid.grid-md.grid-reversed.divided.grid-v > .row:last-child:before {
+    .grid.grid-md.grid-reversed.grid-divided.grid-v > .row:last-child:before {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; }
-    .grid.grid-md.grid-reversed.divided.grid-celled > .row > .col:first-child {
+    .grid.grid-md.grid-reversed.grid-divided.grid-celled > .row > .col:first-child {
       box-shadow: -1px 0px 0px 0px #D4D4D5;
       -webkit-box-shadow: -1px 0px 0px 0px #D4D4D5;
       -moz-box-shadow: -1px 0px 0px 0px #D4D4D5; }
-    .grid.grid-md.grid-reversed.divided.grid-celled > .row > .col:last-child {
+    .grid.grid-md.grid-reversed.grid-divided.grid-celled > .row > .col:last-child {
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-box-shadow: none; } }
 /* RWD Design: Mobile / Tablet / Computer */
 /* RWD Design: Mobile / Tablet / Computer */
-/** Types: Double **/
+/** Responsive Variations: Doubled **/
 /* grid-only-sm */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .grid.double {
+  .grid.grid-doubled {
     width: auto; }
 
-  .grid > .row.double,
-  .grid.double > .row {
+  .grid > .row.grid-doubled,
+  .grid.grid-doubled > .row {
     margin: 0rem !important;
     padding: 0rem !important; }
-    .grid > .row.double > .col,
-    .grid.double > .row > .col {
+    .grid > .row.grid-doubled > .col,
+    .grid.grid-doubled > .row > .col {
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
@@ -12935,83 +12946,83 @@ ul.list {
       display: inline-block !important;
       margin: 0rem; }
 
-  .grid.double[class*="col-2"] > .row > .col,
-  .grid.double[class*="col-2"] > .col:not(.row),
-  .grid > [class*="col-2"].double.row > .col {
+  .grid.grid-doubled[class*="col-2"] > .row > .col,
+  .grid.grid-doubled[class*="col-2"] > .col:not(.row),
+  .grid > [class*="col-2"].grid-doubled.row > .col {
     width: 100% !important; }
 
-  .grid.double[class*="col-3"] > .row > .col,
-  .grid.double[class*="col-3"] > .col:not(.row),
-  .grid > [class*="col-3"].double.row > .col {
+  .grid.grid-doubled[class*="col-3"] > .row > .col,
+  .grid.grid-doubled[class*="col-3"] > .col:not(.row),
+  .grid > [class*="col-3"].grid-doubled.row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-4"] > .row > .col,
-  .grid.double[class*="col-4"] > .col:not(.row),
-  .grid > [class*="col-4"].double.row > .col {
+  .grid.grid-doubled[class*="col-4"] > .row > .col,
+  .grid.grid-doubled[class*="col-4"] > .col:not(.row),
+  .grid > [class*="col-4"].grid-doubled.row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-5"] > .row > .col,
-  .grid.double[class*="col-5"] > .col:not(.row),
-  .grid > [class*="col-5"].double.row > .col {
+  .grid.grid-doubled[class*="col-5"] > .row > .col,
+  .grid.grid-doubled[class*="col-5"] > .col:not(.row),
+  .grid > [class*="col-5"].grid-doubled.row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-6"] > .row > .col,
-  .grid.double[class*="col-6"] > .col:not(.row),
-  .grid > [class*="col-6"].double.row > .col {
+  .grid.grid-doubled[class*="col-6"] > .row > .col,
+  .grid.grid-doubled[class*="col-6"] > .col:not(.row),
+  .grid > [class*="col-6"].grid-doubled.row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-7"] > .row > .col,
-  .grid.double[class*="col-7"] > .col:not(.row),
-  .grid > [class*="col-7"].double.row > .col {
+  .grid.grid-doubled[class*="col-7"] > .row > .col,
+  .grid.grid-doubled[class*="col-7"] > .col:not(.row),
+  .grid > [class*="col-7"].grid-doubled.row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-8"] > .row > .col,
-  .grid.double[class*="col-8"] > .col:not(.row),
-  .grid > [class*="col-8"].double.row > .col {
+  .grid.grid-doubled[class*="col-8"] > .row > .col,
+  .grid.grid-doubled[class*="col-8"] > .col:not(.row),
+  .grid > [class*="col-8"].grid-doubled.row > .col {
     width: 100% / 4 !important; }
 
-  .grid.double[class*="col-9"] > .row > .col,
-  .grid.double[class*="col-9"] > .col:not(.row),
-  .grid > [class*="col-9"].double.row > .col {
+  .grid.grid-doubled[class*="col-9"] > .row > .col,
+  .grid.grid-doubled[class*="col-9"] > .col:not(.row),
+  .grid > [class*="col-9"].grid-doubled.row > .col {
     width: 100% / 4 !important; }
 
-  .grid.double[class*="col-10"] > .row > .col,
-  .grid.double[class*="col-10"] > .col:not(.row),
-  .grid > [class*="col-10"].double.row > .col {
+  .grid.grid-doubled[class*="col-10"] > .row > .col,
+  .grid.grid-doubled[class*="col-10"] > .col:not(.row),
+  .grid > [class*="col-10"].grid-doubled.row > .col {
     width: 100% / 5 !important; }
 
-  .grid.double[class*="col-11"] > .row > .col,
-  .grid.double[class*="col-11"] > .col:not(.row),
-  .grid > [class*="col-11"].double.row > .col {
+  .grid.grid-doubled[class*="col-11"] > .row > .col,
+  .grid.grid-doubled[class*="col-11"] > .col:not(.row),
+  .grid > [class*="col-11"].grid-doubled.row > .col {
     width: 100% / 5 !important; }
 
-  .grid.double[class*="col-12"] > .row > .col,
-  .grid.double[class*="col-12"] > .col:not(.row),
-  .grid > [class*="col-12"].double.row > .col {
+  .grid.grid-doubled[class*="col-12"] > .row > .col,
+  .grid.grid-doubled[class*="col-12"] > .col:not(.row),
+  .grid > [class*="col-12"].grid-doubled.row > .col {
     width: 100% / 6 !important; }
 
-  .grid.double[class*="col-13"] > .row > .col,
-  .grid.double[class*="col-13"] > .col:not(.row),
-  .grid > [class*="col-13"].double.row > .col {
+  .grid.grid-doubled[class*="col-13"] > .row > .col,
+  .grid.grid-doubled[class*="col-13"] > .col:not(.row),
+  .grid > [class*="col-13"].grid-doubled.row > .col {
     width: 100% / 6 !important; }
 
-  .grid.double[class*="col-14"] > .row > .col,
-  .grid.double[class*="col-14"] > .col:not(.row),
-  .grid > [class*="col-14"].double.row > .col {
+  .grid.grid-doubled[class*="col-14"] > .row > .col,
+  .grid.grid-doubled[class*="col-14"] > .col:not(.row),
+  .grid > [class*="col-14"].grid-doubled.row > .col {
     width: 100% / 7 !important; }
 
-  .grid.double[class*="col-15"] > .row > .col,
-  .grid.double[class*="col-15"] > .col:not(.row),
-  .grid > [class*="col-15"].double.row > .col {
+  .grid.grid-doubled[class*="col-15"] > .row > .col,
+  .grid.grid-doubled[class*="col-15"] > .col:not(.row),
+  .grid > [class*="col-15"].grid-doubled.row > .col {
     width: 100% / 7 !important; } }
 /* grid-only-md */
 @media only screen and (max-width: 767px) {
-  .grid > .row.double,
-  .grid.double > .row {
+  .grid > .row.grid-doubled,
+  .grid.grid-doubled > .row {
     margin: 0rem !important;
     padding: 0rem !important; }
-    .grid > .row.double > .col,
-    .grid.double > .row > .col {
+    .grid > .row.grid-doubled > .col,
+    .grid.grid-doubled > .row > .col {
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
@@ -13019,98 +13030,98 @@ ul.list {
       padding-bottom: 1rem !important;
       margin: 0rem !important; }
 
-  .grid.double[class*="col-2"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-2"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-2"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-2"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-2"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-2"]:not(.grid-stacked).row > .col {
     width: 100% !important; }
 
-  .grid.double[class*="col-3"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-3"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-3"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-3"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-3"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-3"]:not(.grid-stacked).row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-4"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-4"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-4"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-4"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-4"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-4"]:not(.grid-stacked).row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-5"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-5"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-5"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-5"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-5"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-5"]:not(.grid-stacked).row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-6"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-6"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-6"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-6"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-6"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-6"]:not(.grid-stacked).row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-7"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-7"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-7"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-7"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-7"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-7"]:not(.grid-stacked).row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-8"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-8"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-8"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-8"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-8"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-8"]:not(.grid-stacked).row > .col {
     width: 100% / 2 !important; }
 
-  .grid.double[class*="col-9"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-9"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-9"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-9"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-9"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-9"]:not(.grid-stacked).row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-10"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-10"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-10"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-10"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-10"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-10"]:not(.grid-stacked).row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-11"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-11"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-11"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-11"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-11"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-11"]:not(.grid-stacked).row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-12"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-12"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-12"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-12"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-12"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-12"]:not(.grid-stacked).row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-13"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-13"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-13"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-13"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-13"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-13"]:not(.grid-stacked).row > .col {
     width: 100% / 3 !important; }
 
-  .grid.double[class*="col-14"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-14"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-14"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-14"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-14"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-14"]:not(.grid-stacked).row > .col {
     width: 100% / 4 !important; }
 
-  .grid.double[class*="col-15"]:not(.stackable) > .row > .col,
-  .grid.double[class*="col-15"]:not(.stackable) > .col:not(.row),
-  .grid > .double[class*="col-15"]:not(.stackable).row > .col {
+  .grid.grid-doubled[class*="col-15"]:not(.grid-stacked) > .row > .col,
+  .grid.grid-doubled[class*="col-15"]:not(.grid-stacked) > .col:not(.row),
+  .grid > .grid-doubled[class*="col-15"]:not(.grid-stacked).row > .col {
     width: 100% / 4 !important; } }
-/** Types: Stackable **/
+/** Responsive Variations: Stacked **/
 @media only screen and (max-width: 767px) {
-  .grid.stackable {
+  .grid.grid-stacked {
     margin-left: 0rem !important;
     margin-right: 0rem !important;
     width: auto; }
-    .grid.stackable > .grid.col > .col,
-    .grid.stackable > .row.col > .col,
-    .grid.stackable > .row > .col,
-    .grid.stackable > .row > .col.col-span,
-    .grid.stackable > .col.col-span,
-    .grid.stackable > .col:not(.row) {
+    .grid.grid-stacked > .grid.col > .col,
+    .grid.grid-stacked > .row.col > .col,
+    .grid.grid-stacked > .row > .col,
+    .grid.grid-stacked > .row > .col.col-span,
+    .grid.grid-stacked > .col.col-span,
+    .grid.grid-stacked > .col:not(.row) {
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
       margin: 0rem !important;
       padding: 1rem !important;
       width: 100% !important; }
-    .grid.stackable:not(.grid-v) > .row {
+    .grid.grid-stacked:not(.grid-v) > .row {
       margin: 0rem;
       padding: 0rem; }
 
-  .grid > .stackable.row > .col {
+  .grid > .grid-stacked.row > .col {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
@@ -13119,55 +13130,55 @@ ul.list {
     width: 100% !important; }
 
   /* Coupling */
-  .container > .grid.stackable > .col,
-  .container > .grid.stackable > .row > .col {
+  .container > .grid.grid-stacked > .col,
+  .container > .grid.grid-stacked > .row > .col {
     padding-left: 0rem !important;
     padding-right: 0rem !important; }
 
-  /* Don't pad inside segment or nested grid */
-  .grid .grid.stackable,
-  .section:not(.grid-v) .grid.stackable.grid-page {
+  /* No padded inside section or nested grid */
+  .grid .grid.grid-stacked,
+  .section:not(.grid-v) .grid.grid-stacked.container {
     margin-left: -1rem !important;
     margin-right: -1rem !important; }
 
   /* Divided Stackable */
-  .grid.stackable.grid-celled > .col:not(.row):first-child,
-  .grid.stackable.grid-celled > .row:first-child > .col:first-child, .grid.stackable.divided > .col:not(.row):first-child,
-  .grid.stackable.divided > .row:first-child > .col:first-child {
+  .grid.grid-stacked.grid-celled > .col:not(.row):first-child,
+  .grid.grid-stacked.grid-celled > .row:first-child > .col:first-child, .grid.grid-stacked.grid-divided > .col:not(.row):first-child,
+  .grid.grid-stacked.grid-divided > .row:first-child > .col:first-child {
     border-top: none !important; }
-  .grid.stackable.grid-celled > .col:not(.row),
-  .grid.stackable.grid-celled > .row > .col, .grid.stackable.divided > .col:not(.row),
-  .grid.stackable.divided > .row > .col {
+  .grid.grid-stacked.grid-celled > .col:not(.row),
+  .grid.grid-stacked.grid-celled > .row > .col, .grid.grid-stacked.grid-divided > .col:not(.row),
+  .grid.grid-stacked.grid-divided > .row > .col {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
     border-top: 1px solid rgba(34, 36, 38, 0.15); }
-  .grid.stackable.grid-celled:not(.grid-v) > .col:not(.row),
-  .grid.stackable.grid-celled:not(.grid-v) > .row > .col, .grid.stackable.divided:not(.grid-v) > .col:not(.row),
-  .grid.stackable.divided:not(.grid-v) > .row > .col {
+  .grid.grid-stacked.grid-celled:not(.grid-v) > .col:not(.row),
+  .grid.grid-stacked.grid-celled:not(.grid-v) > .row > .col, .grid.grid-stacked.grid-divided:not(.grid-v) > .col:not(.row),
+  .grid.grid-stacked.grid-divided:not(.grid-v) > .row > .col {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
     border-top: 1px solid rgba(34, 36, 38, 0.15); }
-  .grid.stackable.inverted.grid-celled > .col:not(.row),
-  .grid.stackable.inverted.grid-celled > .row > .col, .grid.stackable.inverted.divided > .col:not(.row),
-  .grid.stackable.inverted.divided > .row > .col {
+  .grid.grid-stacked.inverted.grid-celled > .col:not(.row),
+  .grid.grid-stacked.inverted.grid-celled > .row > .col, .grid.grid-stacked.inverted.grid-divided > .col:not(.row),
+  .grid.grid-stacked.inverted.grid-divided > .row > .col {
     border-top: 1px solid rgba(255, 255, 255, 0.1); }
 
-  .grid.stackable.grid-celled > .row {
+  .grid.grid-stacked.grid-celled > .row {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important; }
 
-  .grid.stackable.divided:not(.grid-v) > .col:not(.row),
-  .grid.stackable.divided:not(.grid-v) > .row > .col {
+  .grid.grid-stacked.grid-divided:not(.grid-v) > .col:not(.row),
+  .grid.grid-stacked.grid-divided:not(.grid-v) > .row > .col {
     padding-left: 0rem !important;
     padding-right: 0rem !important; } }
-/** Types: Manual **/
+/** Types: Device Visibility **/
 /* grid-only-xs */
 @media only screen and (max-width: 767px) {
   .grid[class*="grid-only-RWD"]:not(.grid-xs),
@@ -13186,6 +13197,13 @@ ul.list {
   .grid > .row > [class*="grid-only-RWD"].col:not(.grid-md):not(.grid-md) {
     display: none !important; } }
 /*** Overrides ***/
+/* Remove border on last horizontal section */
+.grid > .row > .col:last-child > .section-h,
+.grid > .col:last-child > .section-h {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none; }
+
 /*!
  * # papoGen 0.0.1 - Modules
  *
@@ -13238,9 +13256,13 @@ ul.list {
  */
 /*!
  * # papoGen 0.0.1 - Display
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
+ * - Alert
+ * - Card
+ * - Comment
+ * - Form
+ * - Item
+ * - Statistic
+ * - Table
  */
 /*!
  * # papoGen 0.0.1 - Alert
