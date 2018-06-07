@@ -34,29 +34,6 @@
   }
 }
 
-// !-- color
-$bg_col: (
-  primary   : #1E84D4,
-  secondary : #404040,
-
-  positive  : #49C468,
-  negative  : #E65050,
-
-  light     : #C9C9C9,
-  grey      : #ADADAD,
-  black     : #333333,
-
-  orange    : #FE9A76
-);
-
-@each $type, $col in $bg_col {
-  .#{$type} {
-    color       : $col;
-    background  : $col;
-    border-color: $col;
-  }
-}
-
 // !-- state
 $state: (
   active : 1,
@@ -125,6 +102,29 @@ $size: (
   color: #2E2E2E;
 }
 
+// !-- color
+$bg_col: (
+  primary   : #1E84D4,
+  secondary : #404040,
+
+  positive  : #49C468,
+  negative  : #E65050,
+
+  light     : #C9C9C9,
+  grey      : #ADADAD,
+  black     : #333333,
+
+  orange    : #FE9A76
+);
+
+@each $type, $col in $bg_col {
+  .#{$type} {
+    color       : $col;
+    background  : $col;
+    border-color: $col;
+  }
+}
+
 // !-- group buttons
 .buttons {
   display: flex;
@@ -159,10 +159,6 @@ $position: (
       border-#{nth($attr, 2)}-radius: 0;
     }
   }
-}
-
-.labeled {
-
 }
 
 //
