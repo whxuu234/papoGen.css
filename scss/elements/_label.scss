@@ -2,3 +2,48 @@
  * # papoGen 0.0.1 - Label
  * - Prefix: label
  */
+
+.label {
+  margin: 0;
+  text-align: center;
+  opacity: 0.9;
+  cursor: pointer;
+  width: fit-content;
+  height: 2.1rem;
+  font-size: 0.5rem;
+  border-radius: 0.3rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2.1rem;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.circular {
+  border-radius: 0;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  float: left;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.detail {
+
+}
+
+
+
+
+
+
+
+
+
+
+
