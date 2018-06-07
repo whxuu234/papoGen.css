@@ -40,22 +40,22 @@
 /** Types **/
 
 
-/* Types: Raised */
+/** Types: Raised **/
 
-.section.raised,
-.sections.raised {
+.section.section-raised,
+.sections.section-raised {
     box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 }
 
 
-/* Types: Stacked */
+/** Types: Stacked **/
 
-.stacked.section {
+.section.section-stacked {
     padding-bottom: 1.4rem;
 }
 
-.stacked.section,
-.stacked.sections {
+.section.section-stacked,
+.sections.section-stacked {
     &:before,
     &:after {
         background: rgba(0, 0, 0, 0.03);
@@ -80,7 +80,7 @@
         }
     }
     /* Section inverted */
-    &.inverted {
+    &.section-inverted {
         &:before,
         &:after {
             background-color: rgba(0, 0, 0, 0.03);
@@ -90,10 +90,10 @@
 }
 
 
-/* Types: Piled */
+/** Types: Piled **/
 
-.section.piled,
-.section.pileds {
+.section.section-piled,
+.section.section-pileds {
     box-shadow: '';
     margin: 3rem 0rem;
     z-index: auto;
@@ -122,7 +122,7 @@
     }
 }
 
-.section.piled {
+.section.section-piled {
     &:first-child {
         margin-top: 0rem;
     }
@@ -132,9 +132,9 @@
 }
 
 
-/* Types: Vertical */
+/** Types: Vertical **/
 
-.section.vertical {
+.section.section-v {
     @include padding-h(0rem);
     background: none transparent;
     border: none;
@@ -148,10 +148,10 @@
 }
 
 
-/** Groups **/
+/*** Groups ***/
 
 
-/* Groups: Sections */
+/** Groups: Sections **/
 
 .sections {
     @include flex-direction;
@@ -171,7 +171,7 @@
 }
 
 
-/* Groups: Nested Sections */
+/** Groups: Nested Sections **/
 
 .sections {
     >.sections {
@@ -190,12 +190,12 @@
         margin: 0rem;
         width: auto;
         +.sections {
-            &:not(.horizontal) {
+            &:not(.section-h) {
                 margin-top: 0rem;
             }
         }
     }
-    &:not(.horizontal)>.section {
+    &:not(.section-h)>.section {
         /* Top */
         &:first-child {
             @include margin-v(0rem);
@@ -220,10 +220,10 @@
 }
 
 
-/* Groups: Horizontal Sections */
+/** Groups: Horizontal Sections **/
 
 .sections {
-    &.horizontal {
+    &.section-h {
         @include flex-direction(row);
         display: -webkit-box;
         display: -ms-flexbox;
@@ -238,10 +238,6 @@
         padding: 0rem;
         /* Nested */
         >.section {
-            -webkit-box-flex: 1;
-            flex: 1 1 auto;
-            /* Solves #2550 MS Flex */
-            -ms-flex: 1 1 0px;
             background-color: transparent;
             border: none;
             border-radius: 0rem;
@@ -249,13 +245,17 @@
             box-shadow: none;
             margin: 0rem;
             min-width: 0rem;
+            -webkit-box-flex: 1;
+            flex: 1 1 auto;
+            /* Solves #2550 MS Flex */
+            -ms-flex: 1 1 0px;
             &:first-child {
                 border-left: none;
             }
         }
     }
     /* Nested Horizontal */
-    >.sections.horizontal {
+    >.sections.section-h {
         background-color: transparent;
         border: none;
         border-radius: 0rem;
@@ -269,13 +269,13 @@
 }
 
 
-/** Variations **/
+/*** Variations ***/
 
 
-/* Variations: Attached */
+/** Variations: Attached **/
 
 .section {
-    &.attached {
+    &.section-attached {
         @include position-v(0rem);
         border: 1px solid #D4D4D5;
         border-top: none;
@@ -287,7 +287,7 @@
         &:not(.message) {
             border-top: none;
         }
-        &.inverted {
+        &.section-inverted {
             border-color: #555555;
         }
         /* Label */
@@ -309,7 +309,7 @@
         &:first-child {
             margin-top: 0rem;
         }
-        &.piled {
+        &.section-piled {
             @include margin-v(0rem);
             margin-top: 3rem;
             &:first-child {
@@ -332,7 +332,7 @@
         &:last-child {
             margin-bottom: 0rem;
         }
-        &.piled {
+        &.section-piled {
             @include margin-v(0rem);
             margin-bottom: 3rem;
             &:last-child {
@@ -348,21 +348,17 @@
 }
 
 
-/* Variations: Inverted */
+/** Variations: Inverted **/
 
-.section.inverted {
+.section.section-inverted {
     background: $black;
     border: none;
     box-shadow: none;
     color: rgba(255, 255, 255, 0.9);
-    &.primary {
-        background: $black;
-        color: rgba(255, 255, 255, 0.9);
-    }
     /* Nested */
     .section {
         color: rgba(0, 0, 0, 0.87);
-        &.inverted {
+        &.section-inverted {
             color: rgba(255, 255, 255, 0.9);
         }
     }
@@ -373,28 +369,28 @@
 }
 
 
-/* Variations: Padded */
+/** Variations: Padded **/
 
-.section.padded {
+.section.section-padded {
     padding: 1.5rem;
     /* Padded vertical */
-    &.vertical {
+    &.section-v {
         @include padding-h(0rem);
     }
 }
 
-.section.ex-padded {
+.section.section-expadded {
     padding: 3rem;
     /* Padded vertical */
-    &.vertical {
+    &.section-v {
         @include padding-h(0rem);
     }
 }
 
 
-/* Variations: Compact */
+/** Variations: Compact **/
 
-.section.compact {
+.section.section-compact {
     display: table;
 }
 
@@ -402,7 +398,7 @@
 /* Compact Group */
 
 .sections {
-    &.compact {
+    &.section-compact {
         display: inline-flex;
         display: -webkit-inline-box;
         display: -ms-inline-flexbox;
@@ -413,7 +409,7 @@
             -ms-flex: 0 1 auto;
         }
     }
-    .section.compact {
+    .section.section-compact {
         display: block;
         flex: 0 1 auto;
         -webkit-box-flex: 0;
@@ -422,15 +418,15 @@
 }
 
 
-/* Variations: Colored */
+/** Variations: Colored **/
 
 @each $index,
 $value in $color-order {
     .section.#{$index} {
-        &:not(.inverted) {
+        &:not(.section-inverted) {
             border-top: 2px solid $value !important;
         }
-        &.inverted {
+        &.section-inverted {
             background-color: $value !important;
             color: $white !important;
         }
@@ -438,32 +434,9 @@ $value in $color-order {
 }
 
 
-/* Variations: Emphasis */
+/** Variations: Circular **/
 
-.section.secondary {
-    background: #F3F4F5;
-    color: rgba(0, 0, 0, 0.6);
-    &.inverted {
-        background: #4c4f52 -webkit-linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
-        background: #4c4f52 linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
-        color: rgba(255, 255, 255, 0.8);
-    }
-}
-
-.section.tertiary {
-    background: #DCDDDE;
-    color: rgba(0, 0, 0, 0.6);
-    &.inverted {
-        background: #717579 -webkit-linear-gradient(rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.35) 100%);
-        background: #717579 linear-gradient(rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.35) 100%);
-        color: rgba(255, 255, 255, 0.8);
-    }
-}
-
-
-/* Variations: Circular */
-
-.section.circular {
+.section.section-circular {
     border-radius: 500rem;
     display: table-cell;
     padding: 2rem;
@@ -472,9 +445,9 @@ $value in $color-order {
 }
 
 
-/* Variations: Clearing */
+/** Variations: Cleared **/
 
-.section.clearing {
+.section.section-cleared {
     &:after {
         clear: both;
         content: ".";
@@ -485,7 +458,7 @@ $value in $color-order {
 }
 
 
-/* Variations: Floated */
+/** Variations: Floated **/
 
 .section {
     @each $item in $float-order {
@@ -497,7 +470,7 @@ $value in $color-order {
 }
 
 
-/* Variations: Text Alignment */
+/** Variations: Text Alignment **/
 
 .section {
     @each $item in $text-align-order {
@@ -508,23 +481,23 @@ $value in $color-order {
 }
 
 
-/* Variations: Basic */
+/** Variations: Basic **/
 
-.section.basic {
+.section.section-basic {
     background: none transparent;
     border: none;
     border-radius: 0rem;
     box-shadow: none;
     /* Table */
     &.table {
-        background: #FFFFFF;
+        background: $white;
         border: 1px solid rgba(34, 36, 38, 0.15);
         box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
     }
 }
 
 
-/** Overrides **/
+/*** Overrides ***/
 
 .ex-basic.table.section {
     padding: 1rem;

@@ -12,6 +12,12 @@
     -ms-animation: $value;
 }
 
+@mixin backface-visibility($value) {
+    backface-visibility: $value;
+    -webkit-backface-visibility: $value;
+    -moz-backface-visibility: $value;
+}
+
 @mixin box-shadow($value: none) {
     box-shadow: $value;
     -webkit-box-shadow: $value;

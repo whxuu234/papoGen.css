@@ -22,61 +22,33 @@
 }
 
 i.icon {
+    @include backface-visibility(hidden);
     @include font-smoothing(antialiased);
     display: inline-block;
+    font: {
+        family: 'Icons';
+        style: normal;
+        weight: normal;
+    }
+    margin: 0rem 0.25rem 0rem 0rem;
+    height: 1rem;
+    text: {
+        align: center;
+        decoration: inherit;
+    }
     opacity: 1;
-    margin: 0em 0.25rem 0em 0em;
-    width: 1.18em;
-    height: 1em;
-    font-family: 'Icons';
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-    text-align: center;
     speak: none;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    width: 1.18rem;
     &:before {
         background: none !important;
     }
 }
 
 
-/** States **/
+/*** States ***/
 
 
-/* States: Loading */
-
-i.icon.loading {
-    @include animation(icon-loading 2s linear infinite);
-    height: 1rem;
-    line-height: 1;
-}
-
-@-webkit-keyframes icon-loading {
-    from {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes icon-loading {
-    from {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-
-/* States: Active & Disabled */
+/** States: Active & Disabled **/
 
 i.icon {
     line-height: 1;
@@ -91,36 +63,36 @@ i.icon {
 }
 
 
-/** Variations **/
+/*** Variations ***/
 
 
-/* Variations: Circular */
+/** Variations: Circular **/
 
-i.icon.circular {
+i.icon.icon-circular {
     border-radius: 500rem !important;
-    line-height: 1 !important;
-    padding: 0.5rem 0.5rem !important;
     box-shadow: 0rem 0rem 0rem 0.1rem rgba(0, 0, 0, 0.1) inset;
-    width: 2rem !important;
     height: 2rem !important;
-    &.inverted {
+    line-height: 1 !important;
+    padding: 0.5rem !important;
+    width: 2rem !important;
+    &.icon-inverted {
         border: none;
         box-shadow: none;
     }
 }
 
 
-/* Variations: Fitted */
+/** Variations: Compact **/
 
-i.icon.fitted {
+i.icon.icon-compact {
     margin: 0rem;
     width: auto;
 }
 
 
-/* Variations: Link */
+/** Variations: Link **/
 
-i.icon.ink {
+i.icon.icon-link {
     @include transition(opacity 0.1s ease);
     cursor: pointer;
     opacity: 0.8;
@@ -130,7 +102,7 @@ i.icon.ink {
 }
 
 
-/* Variations: Squared */
+/** Variations: Squared **/
 
 i.icon.squared {
     box-shadow: 0rem 0rem 0rem 0.1rem rgba(0, 0, 0, 0.1) inset;
@@ -146,29 +118,29 @@ i.icon.squared {
 }
 
 
-/* Variations: Inverted */
+/** Variations: Inverted **/
 
-i.icon.inverted {
+i.icon.icon-inverted {
     color: $white;
-    &.bordered,
-    &.circular {
+    &.icon-bordered,
+    &.icon-circular {
         background-color: $black !important;
         color: $white !important;
     }
 }
 
 
-/* Variations: Colored */
+/** Variations: Colored **/
 
 @each $index,
 $value in $color-order {
     @if ($value !=$white) {
         i.icon.#{$index} {
             color: $value !important;
-            &.inverted {
+            &.icon-inverted {
                 color: #{$index} !important;
-                &.bordered,
-                &.circular {
+                &.icon-bordered,
+                &.icon-circular {
                     background-color: $value !important;
                     color: $white !important;
                 }
