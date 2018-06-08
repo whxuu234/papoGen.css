@@ -5137,9 +5137,6 @@ ul.list {
 /*!
  * # papoGen 0.0.1 - Container
  * - Prefix: container
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
  */
 /*** Container ***/
 .container {
@@ -5158,13 +5155,13 @@ ul.list {
     margin-right: auto !important;
     width: 723px; }
 
-  .grid.container {
+  .container.grid {
     width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 1)) !important; }
 
-  .relaxed.grid.container {
+  .container.grid.grid-relaxed {
     width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 2)) !important; }
 
-  .exrelaxed.grid.container {
+  .container.grid.grid-exrelaxed {
     width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 3)) !important; } }
 @media only screen and (min-width: 992px) {
   .container {
@@ -5172,13 +5169,13 @@ ul.list {
     margin-right: auto !important;
     width: 933px; }
 
-  .grid.container {
+  .container.grid {
     width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 1)) !important; }
 
-  .relaxed.grid.container {
+  .container.grid.grid-relaxed {
     width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 2)) !important; }
 
-  .exrelaxed.grid.container {
+  .container.grid.grid-exrelaxed {
     width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 3)) !important; } }
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .container {
@@ -5186,13 +5183,13 @@ ul.list {
     margin-right: auto !important;
     width: 1127px; }
 
-  .grid.container {
+  .container.grid {
     width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 1)) !important; }
 
-  .relaxed.grid.container {
+  .container.grid.grid-relaxed {
     width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 2)) !important; }
 
-  .exrelaxed.grid.container {
+  .container.grid.grid-exrelaxed {
     width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 3)) !important; } }
 @media only screen and (min-width: 1920px) {
   .container {
@@ -5200,14 +5197,14 @@ ul.list {
     margin-right: auto !important; } }
 /*** Types ***/
 .container {
-  /* Text Container */
-  /* Fluid */ }
-  .container.text {
+  /** Types: Text Container **/
+  /** Types: Fluid **/ }
+  .container.container-text {
     font-family: "Quicksand", "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 1.14285714rem;
     line-height: 1.5;
     max-width: 700px !important; }
-  .container.fluid {
+  .container.container-fluid {
     width: 100%; }
 
 /*** Variations ***/
@@ -5230,7 +5227,7 @@ ul.list {
  * - Prefix: grid
  */
 /*** Grid ***/
-.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
+.grid {
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5251,7 +5248,7 @@ ul.list {
   padding: 0rem;
   /* Remove Gutters */
   /* Preserve rows spacing on consecutive grids */
-  /* Collapse margin on consecutive grid */
+  /* Collapse margin on consecutive grids */
   /* Align dividers */ }
   .grid.grid-relaxed {
     margin-left: -1.5rem;
@@ -5272,6 +5269,72 @@ ul.list {
     -ms-flex-positive: 1; }
   .grid .col + .grid-v.divider {
     height: calc(50% - 1rem); }
+
+/*** Content ***/
+/** Content: Columns **/
+.grid {
+  /* Vertical padding when no rows */ }
+  .grid > .col:not(.row),
+  .grid > .row > .col {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 100% / 16; }
+  .grid > * {
+    padding-left: 1rem;
+    padding-right: 1rem; }
+  .grid > .col:not(.row) {
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+  .grid > .row > .col {
+    margin-top: 0rem;
+    margin-bottom: 0rem; }
+
+/** Content: Rows **/
+.grid > .row {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: inherit;
+  -ms-flex-pack: inherit;
+  justify-content: inherit;
+  position: relative;
+  width: 100% !important;
+  /* Content */ }
+  .grid > .row > .col {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    /* Content */ }
+    .grid > .row > .col > img {
+      max-width: 100%; }
+  .grid > .row > img {
+    max-width: 100%; }
+
+/* Remove border on last horizontal section */
+.grid > .row > .col:last-child > .section-h,
+.grid > .col:last-child > .section-h {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none; }
 
 /*** Typs ***/
 /** Types: Divided **/
@@ -5414,71 +5477,6 @@ ul.list {
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none; }
-
-/*** Content ***/
-/** Content: Columns **/
-.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
-  /* Vertical padding when no rows */ }
-  .grid > .col:not(.row),
-  .grid > .row > .col {
-    padding-left: 0rem;
-    padding-right: 0rem;
-    display: inline-block;
-    position: relative;
-    vertical-align: top;
-    width: 100% / 16; }
-  .grid > *, .grid.grid-relaxed > *, .grid.grid-exrelaxed > * {
-    padding-left: 0rem;
-    padding-right: 0rem; }
-  .grid > .col:not(.row) {
-    padding-top: 1rem;
-    padding-bottom: 1rem; }
-  .grid > .row > .col {
-    margin-top: 0rem;
-    margin-bottom: 0rem; }
-
-/** Content: Rows **/
-.grid > .row {
-  display: flex;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -webkit-box-pack: inherit;
-  -ms-flex-pack: inherit;
-  justify-content: inherit;
-  position: relative;
-  padding: 0rem;
-  width: 100% !important;
-  /* Content */ }
-  .grid > .row > .col {
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    /* Content */ }
-    .grid > .row > .col > img {
-      max-width: 100%; }
-  .grid > .row > img {
-    max-width: 100%; }
-
-/* Remove border on last horizontal section */
-.grid > .row > .col:last-child > .section-h,
-.grid > .col:last-child > .section-h {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none; }
 
 /*** Variations ***/
 /** Variations: Column Count **/
@@ -12691,7 +12689,7 @@ ul.list {
   margin-bottom: 0rem !important; }
 
 /** Variations: Relaxed & Extra-relaxed**/
-.grid, .grid.grid-relaxed, .grid.grid-exrelaxed {
+.grid {
   /* Relaxed */
   /* Coupling with UI Divider */
   /* Extra-relaxed */

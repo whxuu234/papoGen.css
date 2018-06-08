@@ -6,6 +6,7 @@
 
 /*** Grid ***/
 
+// ok
 .grid {
     @include display(flex);
     @include flex-align;
@@ -17,18 +18,16 @@
     padding: 0rem;
     /* Remove Gutters */
     &.grid-relaxed {
-        @extend .grid;
         @include margin-h(-1.5rem);
     }
     &.grid-exrelaxed {
-        @extend .grid;
         @include margin-h(-2.5rem);
     }
     /* Preserve rows spacing on consecutive grids */
     +.grid {
         margin-top: 1rem;
     }
-    /* Collapse margin on consecutive grid */
+    /* Collapse margin on consecutive grids */
     >.grid {
         &:first-child {
             margin-top: 0rem;
@@ -46,6 +45,78 @@
     }
     .col+.grid-v.divider {
         height: calc(50% - 1rem);
+    }
+}
+
+
+/*** Content ***/
+
+
+/** Content: Columns **/
+
+// ok
+.grid {
+    >.col:not(.row),
+    >.row>.col {
+        @include padding-h(1rem);
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+        width: 100% / 16;
+    }
+    >* {
+        @include padding-h(1rem);
+    }
+    /* Vertical padding when no rows */
+    >.col:not(.row) {
+        @include padding-v(1rem);
+    }
+    >.row>.col {
+        @include margin-v;
+    }
+}
+
+
+/** Content: Rows **/
+
+// ok
+.grid>.row {
+    @include display(flex);
+    @include flex-align;
+    @include flex-direction(row);
+    @include flex-wrap;
+    @include padding-h;
+    @include padding-v(1rem);
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: inherit;
+    -ms-flex-pack: inherit;
+    justify-content: inherit;
+    position: relative;
+    width: 100% !important;
+    >.col {
+        @include margin-v;
+        /* Content */
+        >img {
+            max-width: 100%;
+        }
+    }
+    /* Content */
+    >img {
+        max-width: 100%;
+    }
+}
+
+
+/* Remove border on last horizontal section */
+
+// ok
+.grid>.row,
+.grid {
+    >.col:last-child {
+        >.section-h {
+            @include box-shadow;
+        }
     }
 }
 
@@ -196,75 +267,6 @@
             padding: 1rem;
         }
         &:first-child {
-            @include box-shadow;
-        }
-    }
-}
-
-
-/*** Content ***/
-
-
-/** Content: Columns **/
-
-.grid {
-    >.col:not(.row),
-    >.row>.col {
-        @include padding-h;
-        display: inline-block;
-        position: relative;
-        vertical-align: top;
-        width: 100% / 16;
-    }
-    >* {
-        @include padding-h;
-    }
-    /* Vertical padding when no rows */
-    >.col:not(.row) {
-        @include padding-v(1rem);
-    }
-    >.row>.col {
-        @include margin-v;
-    }
-}
-
-
-/** Content: Rows **/
-
-.grid>.row {
-    @include display(flex);
-    @include flex-align;
-    @include flex-direction(row);
-    @include flex-wrap;
-    @include padding-h(1rem);
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: inherit;
-    -ms-flex-pack: inherit;
-    justify-content: inherit;
-    position: relative;
-    padding: 0rem;
-    width: 100% !important;
-    >.col {
-        @include margin-v;
-        /* Content */
-        >img {
-            max-width: 100%;
-        }
-    }
-    /* Content */
-    >img {
-        max-width: 100%;
-    }
-}
-
-
-/* Remove border on last horizontal section */
-
-.grid>.row,
-.grid {
-    >.col:last-child {
-        >.section-h {
             @include box-shadow;
         }
     }
