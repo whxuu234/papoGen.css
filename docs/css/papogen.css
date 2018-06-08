@@ -914,8 +914,8 @@ body {
   font-variant: normal;
   font-weight: normal;
   font-family: 'Icons';
-  src: url("../docs/icons/icons.eot");
-  src: url("../docs/icons/icons.eot?#iefix") format("embedded-opentype"), url("../docs/icons/icons.woff2") format("woff2"), url("../docs/icons/icons.woff") format("woff"), url("../docs/icons/icons.ttf") format("truetype"), url("../docs/icons/icons.svg#icons") format("svg");
+  src: url("../icons/icons.eot");
+  src: url("../icons/icons.eot?#iefix") format("embedded-opentype"), url("../icons/icons.woff2") format("woff2"), url("../icons/icons.woff") format("woff"), url("../icons/icons.ttf") format("truetype"), url("../icons/icons.svg#icons") format("svg");
   text-decoration: inherit;
   text-transform: none; }
 i.icon {

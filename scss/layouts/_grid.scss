@@ -292,7 +292,7 @@
 @for $i from 1 to 16 {
     .grid[class*="col-#{$i}"]>.row.col,
     .grid[class*="col-#{$i}"]>.col:not(.row) {
-        width: 100% / $i;
+        width: (100% / $i);
     }
 }
 
@@ -301,7 +301,7 @@
 
 @for $i from 1 to 16 {
     .grid>.row[class*="col-#{$i}"]>.col {
-        width: 100% / $i !important;
+        width: (100% / $i) !important;
     }
 }
 
@@ -315,7 +315,7 @@
     .grid>.col.row,
     .grid.col {
         >.col-span[class*="col-span-#{$i}"] {
-            width: 100% / 16 * $i !important;
+            width: (100% / 16 * $i) !important;
         }
     }
     /* RWD Design */
@@ -327,7 +327,7 @@
                 .grid>.col.row,
                 .grid.col {
                     >.col-span[class*="grid-#{$item} col-span-#{$i}"] {
-                        width: 100% / 16 * $i !important;
+                        width: (100% / 16 * $i) !important;
                     }
                 }
             }
