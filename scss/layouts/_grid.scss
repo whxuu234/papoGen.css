@@ -342,7 +342,7 @@ $value in $color-order {
         >.row-#{$index},
         >.col-#{$index},
         >.row>.col-#{$index} {
-            background-color: $value !important;
+            background-color: $value;
             color: $white;
         }
         >.row>.col-#{$index} {
