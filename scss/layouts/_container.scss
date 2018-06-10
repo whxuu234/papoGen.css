@@ -1,0 +1,106 @@
+/*!
+ * # papoGen 0.0.1 - Container
+ * - Prefix: container
+ */
+
+
+/*** Container ***/
+
+.container {
+    display: block;
+    max-width: 100% !important;
+}
+
+
+/* RWD Design: Mobile / Tablet / Computer / Large Monitor */
+
+@each $item in $RWD {
+    @include breakpoint1($item) {
+        .container {
+            @if ($item==xs) {
+                @include margin-h(1rem !important);
+                width: auto !important;
+            }
+            @else {
+                @include margin-h(auto !important);
+                @if ($item==sm) {
+                    width: nth($RWD-container-width, 1);
+                }
+                @else if ($item==md) {
+                    width: nth($RWD-container-width, 2);
+                }
+                @else if ($item==lg) {
+                    width: nth($RWD-container-width, 3);
+                }
+            }
+        }
+        .container.grid {
+            @if ($item==sm) {
+                width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 1)) !important;
+            }
+            @else if ($item==md) {
+                width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 1)) !important;
+            }
+            @else if ($item==lg) {
+                width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 1)) !important;
+            }
+        }
+        .container.grid.grid-relaxed {
+            @if ($item==sm) {
+                width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 2)) !important;
+            }
+            @else if ($item==md) {
+                width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 2)) !important;
+            }
+            @else if ($item==lg) {
+                width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 2)) !important;
+            }
+        }
+        .container.grid.grid-exrelaxed {
+            @if ($item==sm) {
+                width: calc(nth($RWD-container-width, 1) + nth($RWD-container-width-inc, 3)) !important;
+            }
+            @else if ($item==md) {
+                width: calc(nth($RWD-container-width, 2) + nth($RWD-container-width-inc, 3)) !important;
+            }
+            @else if ($item==lg) {
+                width: calc(nth($RWD-container-width, 3) + nth($RWD-container-width-inc, 3)) !important;
+            }
+        }
+    }
+}
+
+
+/*** Types ***/
+
+.container {
+    /** Types: Text Container **/
+    &.container-text {
+        font-family: $font-family;
+        font-size: $container-font-size;
+        line-height: 1.5;
+        max-width: 700px !important;
+    }
+    /** Types: Fluid **/
+    &.container-fluid {
+        width: 100%;
+    }
+}
+
+
+/*** Variations ***/
+
+.container {
+    @each $item in $text-align-order {
+        &.aligned-#{$item} {
+            text-align: $item;
+        }
+    }
+    &.justified {
+        @include hyphens;
+        text-align: justify;
+    }
+}
+
+
+/*** Overrides ***/

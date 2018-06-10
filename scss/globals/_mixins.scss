@@ -1,0 +1,217 @@
+/*!
+ * # papoGen 0.0.1 - Mixins
+ */
+
+
+/*** Global ***/
+
+@mixin animation($value) {
+    animation: $value;
+    -webkit-animation: $value;
+    -moz-animation: $value;
+    -ms-animation: $value;
+}
+
+@mixin backface-visibility($value) {
+    backface-visibility: $value;
+    -webkit-backface-visibility: $value;
+    -moz-backface-visibility: $value;
+}
+
+@mixin box-shadow($value: none) {
+    box-shadow: $value;
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+}
+
+@mixin border-h($left: none, $right: none) {
+    border-left: $left;
+    border-right: $right;
+}
+
+@mixin border-v($top: none, $bottom: none) {
+    border-top: $top;
+    border-bottom: $bottom;
+}
+
+@mixin display($value) {
+    @if ($value==flex) {
+        display: $value;
+        display: -webkit-box;
+        display: -ms-flexbox;
+    }
+    @else if ($value==inline-flex) {
+        display: $value !important;
+        display: -webkit-inline-box !important;
+        display: -ms-inline-flexbox !important;
+    }
+}
+
+@mixin flex-align($value: stretch) {
+    align-items: $value;
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+}
+
+@mixin flex-direction($value: column) {
+    flex-direction: $value;
+    -webkit-flex-direction: $value;
+    -moz-flex-direction: $value;
+    -ms-flex-direction: $value;
+}
+
+@mixin flex-wrap($value: wrap) {
+    flex-wrap: $value;
+    -webkit-flex-wrap: $value;
+    -moz-flex-wrap: $value;
+    -ms-flex-wrap: $value;
+}
+
+@mixin font-smoothing($value) {
+    font-smoothing: $value;
+    -webkit-font-smoothing: $value;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin hyphens($value: auto) {
+    hyphens: $value;
+    -webkit-hyphens: $value;
+    -moz-hyphens: $value;
+    -ms-hyphens: $value;
+}
+
+@mixin margin-h($value: 0rem) {
+    margin-left: $value;
+    margin-right: $value;
+}
+
+@mixin margin-v($value: 0rem) {
+    margin-top: $value;
+    margin-bottom: $value;
+}
+
+@mixin padding-h($value: 0rem) {
+    padding-left: $value;
+    padding-right: $value;
+}
+
+@mixin padding-v($value: 0rem) {
+    padding-top: $value;
+    padding-bottom: $value;
+}
+
+@mixin position-h($value: 0rem) {
+    left: $value;
+    right: $value;
+}
+
+@mixin position-v($value: 0rem) {
+    top: $value;
+    bottom: $value;
+}
+
+@mixin transform($value) {
+    transform: $value;
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    -o-transform: $value;
+}
+
+@mixin transition($value) {
+    transition: $value;
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
+}
+
+@mixin transition-3($value1, $value2, $value3) {
+    transition: $value1, $value2, $value3;
+    -webkit-transition: $value1, $value2, $value3;
+    -moz-transition: $value1, $value2, $value3;
+    -ms-transition: $value1, $value2, $value3;
+    -o-transition: $value1, $value2, $value3;
+}
+
+@mixin user-select($value: none) {
+    user-select: $value;
+    -webkit-user-select: $value;
+    -moz-user-select: $value;
+    -ms-user-select: $value;
+}
+
+
+/*** RWD Design ***/
+
+
+/*
+ * - Breakpoint1: For all devices (xs / sm / md / lg / xl)
+ * - Breakpoint2: For smaller devices (xs / sm / md)
+ */
+
+@mixin breakpoint1($point) {
+    @if ($point==xs) {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if ($point==sm) {
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+    @else if ($point==md) {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if ($point==lg) {
+        @media only screen and (min-width: 1200px) and (max-width: 1919px) {
+            @content;
+        }
+    }
+    @else if ($point==xl) {
+        @media only screen and (min-width: 1920px) {
+            @content;
+        }
+    }
+}
+
+@mixin breakpoint2($point) {
+    @if ($point==xs) {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if ($point==sm) {
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+    @else if ($point==md) {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+
+/*** htext ***/
+
+@mixin htext-default {
+    font-family: $font-family;
+    line-height: 1.28571429em;
+    margin: calc(2rem - 0.14285714em) 0em 1rem;
+    font-weight: bold;
+    padding: 0em;
+}
+
+
+/*** Icon ***/
+
+@mixin icon-font($style: normal, $variant: normal, $weight: normal) {
+    font-style: $style;
+    font-variant: $variant;
+    font-weight: $weight;
+}

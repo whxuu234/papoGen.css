@@ -1,0 +1,201 @@
+/*!
+ * # papoGen 0.0.1 - Divider
+ * - Prefix: divider
+ */
+
+
+/*** Divider ***/
+
+.divider {
+    @include user-select(none);
+    color: rgba(0, 0, 0, 0.85);
+    font: {
+        size: 1rem;
+        weight: bold;
+    }
+    height: 0rem;
+    letter-spacing: 0.05rem;
+    line-height: 1;
+    margin: 1rem 0rem;
+    text-transform: uppercase;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &:not(.divider-h):not(.divider-v) {
+        @include border-v(1px solid rgba(34, 36, 38, 0.15), 1px solid rgba(255, 255, 255, 0.1));
+    }
+    /* Allow text in divider with icon */
+    >.icon {
+        font-size: 1rem;
+        height: 1rem;
+        margin: 0rem;
+        vertical-align: middle;
+    }
+}
+
+
+/* Allow divider between each column row */
+
+.grid>.col+.divider,
+.grid>.row>.col+.divider {
+    left: auto;
+}
+
+
+/*** Types ***/
+
+
+/** Types: Horizontal **/
+
+.divider.divider-h {
+    display: table;
+    white-space: nowrap;
+    height: auto;
+    margin: 0rem;
+    line-height: 1;
+    text-align: center;
+    &:before,
+    &:after {
+        background-repeat: no-repeat;
+        content: '';
+        display: table-cell;
+        position: relative;
+        top: 50%;
+        width: 50%;
+    }
+    &:before {
+        background-position: right 1rem top 50%;
+    }
+    &:after {
+        background-position: left 1rem top 50%;
+    }
+}
+
+
+/** Types: Vertical **/
+
+.divider.divider-v {
+    @include transform(translateX(-50%));
+    height: 50%;
+    line-height: 0rem;
+    margin: 0rem;
+    padding: 0rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: auto;
+    z-index: 2;
+    &:before,
+    &:after {
+        @include border-h(1px solid rgba(34, 36, 38, 0.15), 1px solid rgba(255, 255, 255, 0.1));
+        content: '';
+        height: calc(100% - 1rem);
+        position: absolute;
+        left: 50%;
+        width: 0%;
+        z-index: 3;
+    }
+    &:before {
+        top: -100%;
+    }
+    &:after {
+        top: auto;
+        bottom: 0rem;
+    }
+}
+
+
+/* RWD */
+
+@include breakpoint1(xs) {
+    .grid.stackable .divider.divider-v,
+    .grid .stackable.row .divider.divider-v {
+        @include transform(none);
+        display: table;
+        height: auto;
+        line-height: 1;
+        margin: 0rem;
+        overflow: hidden;
+        text-align: center;
+        position: static;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+        &:before,
+        &:after {
+            @include border-h;
+            background-repeat: no-repeat;
+            content: '';
+            display: table-cell;
+            position: static;
+            left: 0;
+            position: relative;
+            top: 50%;
+            width: 50%;
+        }
+        &:before {
+            background-position: right 1em top 50%;
+        }
+        &:after {
+            background-position: left 1em top 50%;
+        }
+    }
+}
+
+
+/** Variations **/
+
+
+/* Variations: Cleared */
+
+.divider.divider-cleared {
+    clear: both;
+}
+
+
+/* Variations: Compact */
+
+.divider.divider-compact {
+    margin: 0rem;
+}
+
+
+/* Variations: Hidden */
+
+.divider.divider-hidden {
+    border-color: transparent !important;
+    &:before,
+    &:after {
+        display: none;
+    }
+}
+
+
+/* Variations: Inverted */
+
+.divider.divider-inverted {
+    &,
+    &.divider-h,
+    &.divider-v {
+        color: $white;
+    }
+    &,
+    &:before,
+    &.after {
+        border: {
+            top-color: rgba(34, 36, 38, 0.15) !important;
+            left-color: rgba(34, 36, 38, 0.15) !important;
+            bottom-color: rgba(255, 255, 255, 0.15) !important;
+            right-color: rgba(255, 255, 255, 0.15) !important;
+        }
+    }
+}
+
+
+/* Variations: Section */
+
+.divider.divider-section {
+    @include margin-v(2rem);
+}
+
+
+/** Overrides **/

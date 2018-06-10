@@ -1,29 +1,32 @@
 # papoGen.css
-CSS template for papoGen.
 
-# Compile 
+This repository is implement own CSS UI style for papoGen.
 
-* global
+---
+## Compilation
 
-```
-# install sass on your develop env.
-[sudo] npm install -g sass
+* Global
+    ```bash
+    # Install Sass on your develop env.
+    $ [sudo] npm install -g sass
+    # Run the compile script.
+    $ ./scss.sh
+    ```
+* Local
+    ```bash
+    # Build
+    $ npm run build
+    # Generate
+    $ npm run gen
+    ```
 
-# then run the compile script.
-./scss.sh
-```
+---
+## Testing
 
-* local
-
-```
-# build
-npm run build
-
-# generate
-npm run gen
-```
-
-# Test 
-
-* Open the `app.html` under `test/` by your browser
+* Open the `docs/index.html` by your browser
     * Mostly recommend using `google-chrome`
+
+---
+## Authors
+
+* [Yung-Sheng Lu](https://github.com/yungshenglu)

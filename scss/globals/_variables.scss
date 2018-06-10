@@ -1,0 +1,141 @@
+/*!
+ * # papoGen 0.0.1 - Variables
+ */
+
+
+/*** Positions ***/
+
+$align-self-order: flex-start,
+center,
+flex-end;
+$aligned-order: top,
+middle,
+bottom;
+$flex-aligned-order: start,
+center,
+end;
+$float-order: left,
+right;
+$text-align-order: left,
+center,
+right;
+$position-order: top,
+bottom,
+left,
+right;
+
+/*** Size ***/
+
+$size-order: mini,
+tiny,
+small,
+big,
+large,
+huge,
+massive;
+
+/*** Colors ***/
+
+$primary: #2185D0 !important;
+$secondary: #1B1C1D !important;
+$link: #4183C4;
+$link-hover: #1e70bf;
+$red: #DB2828 !important;
+$orange: #F2711C !important;
+$yellow: #FBBD08 !important;
+$olive: #B5CC18 !important;
+$green: #21BA45 !important;
+$teal: #00B5AD !important;
+$blue: #2185D0 !important;
+$violet: #6435C9 !important;
+$purple: #A333C8 !important;
+$pink: #E03997 !important;
+$brown: #A5673F !important;
+$grey: #767676 !important;
+$black: #1B1C1D !important;
+$white: #FFFFFF !important;
+$color-order: (red: $red, orange: $orange, yellow: $yellow, olive: $olive, green: $green, teal: $teal, blue: $blue, violet: $violet, purple: $purple, pink: $pink, brown: $brown, grey: $grey, black: $black, white: $white);
+$inv_red: #FF695E !important;
+$inv_orange: #FF851B !important;
+$inv_yellow: #FFE21F !important;
+$inv_olive: #D9E778 !important;
+$inv_green: #2ECC40 !important;
+$inv_teal: #6DFFFF !important;
+$inv_blue: #54C8FF !important;
+$inv_violet: #A291FB !important;
+$inv_purple: #DC73FF !important;
+$inv_pink: #FF8EDF !important;
+$inv_brown: #D67C1C !important;
+$inv_grey: #DCDDDE !important;
+$inv_black: #545454 !important;
+$inv_color-order: (inv_red: $inv_red, inv_orange: $inv_orange, inv_yellow: $inv_yellow, inv_olive: $inv_olive, inv_green: $inv_green, inv_teal: $inv_teal, inv_blue: $inv_blue, inv_violet: $inv_violet, inv_purple: $inv_purple, inv_pink: $inv_pink, inv_brown: $inv_brown, inv_grey: $inv_grey, inv_black: $inv_black);
+
+/*** Font ***/
+
+$import-fonts: true !default;
+$font-url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext' !default;
+$font-name: 'Quicksand' !default;
+$font-family: $font-name,
+'Helvetica Neue',
+Arial,
+Helvetica,
+sans-serif !default;
+$h1-size: 2rem;
+$h2-size: 1.71428571rem;
+$h3-size: 1.28571429rem;
+$h4-size: 1.07142857rem;
+$h5-size: 1rem;
+
+/*** Icon ***/
+
+$icons-path: '../icons' !default;
+$icons-style: normal;
+$icons-weight: normal;
+$icons-variant: normal;
+
+/*** RWD ***/
+
+
+/* Definition
+ * - Mobile (576px - 767px): xs
+ * - Tablet (768px - 991px): sm
+ * - Computer (992px - 1199px): md
+ * - Large Monitor (1200px - 1919px): lg
+ * - Widescreen (1920px -): xl
+ */
+
+$RWD: xs,
+sm,
+md,
+lg,
+xl;
+$RWD-container-width: 723px,
+933px,
+1127px;
+$RWD-container-width-inc: 2rem,
+3rem,
+5rem;
+
+/*** Container ***/
+
+$container-font-size: 1.14285714rem;
+
+/*** Icon ***/
+
+$icon-font-size: 0.4rem,
+0.5rem,
+0.75rem,
+1.5rem,
+2rem,
+4rem,
+8rem;
+
+/*** List ***/
+
+$list-font-size:0.78571429rem,
+0.85714286rem,
+0.92857143rem,
+1.14285714em,
+1.28571429em,
+1.42857143em,
+1.71428571em;
