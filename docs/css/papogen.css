@@ -611,6 +611,7 @@ body {
  * # papoGen 0.0.1 - Button
  * - Prefix: btn
  */
+/* Types */
 .btn {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -618,7 +619,12 @@ body {
   margin: 0;
   text-align: center;
   opacity: 0.75;
-  cursor: pointer; }
+  cursor: pointer;
+  width: fit-content;
+  height: auto;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem; }
   .btn:hover {
     opacity: 0.95; }
   .btn:active {
@@ -627,123 +633,118 @@ body {
     outline: 0;
     opacity: 0.95; }
 
-.active {
-  opacity: 1;
-  cursor: initial; }
-  .active:hover {
-    opacity: 1; }
-  .active:focus {
-    opacity: 1; }
+.btn.default, .btn.basic {
+  color: #5E5E5E;
+  background: #5E5E5E;
+  border-color: #5E5E5E; }
 
-.disable {
-  opacity: 0.4;
-  cursor: initial; }
-  .disable:hover {
-    opacity: 0.4; }
-  .disable:focus {
-    opacity: 0.4; }
-
-.primary {
-  color: #1E84D4;
-  background: #1E84D4;
-  border-color: #1E84D4; }
-
-.secondary {
-  color: #404040;
-  background: #404040;
-  border-color: #404040; }
-
-.positive {
-  color: #49C468;
-  background: #49C468;
-  border-color: #49C468; }
-
-.negative {
-  color: #E65050;
-  background: #E65050;
-  border-color: #E65050; }
-
-.light, .basic {
-  color: #C9C9C9;
-  background: #C9C9C9;
-  border-color: #C9C9C9; }
-
-.grey {
-  color: #ADADAD;
-  background: #ADADAD;
-  border-color: #ADADAD; }
-
-.black {
-  color: #333333;
-  background: #333333;
-  border-color: #333333; }
-
-.orange {
-  color: #FE9A76;
-  background: #FE9A76;
-  border-color: #FE9A76; }
-
-.line {
+.btn.basic {
   border-style: solid;
   border-width: 0.1rem;
   background: #FFFFFF; }
 
-.fill, .basic {
-  border-style: none;
-  color: #FFFFFF; }
-
-.small {
-  width: 4rem;
-  height: 1.5rem;
-  border-radius: 0.2rem;
-  font-size: 0.1rem; }
-
-.medium, .basic {
-  width: 6rem;
-  height: 2.1rem;
-  border-radius: 0.3rem;
-  font-size: 0.5rem; }
-
-.large {
-  width: 7rem;
-  height: 3rem;
-  border-radius: 0.35rem;
-  font-size: 0.9rem; }
-
-.fit {
-  width: fit-content;
-  height: auto; }
-
-.basic {
-  color: #2E2E2E; }
-
+/* Groups */
 .buttons {
   display: flex; }
 
-.horizontal {
+.buttons.horizontal {
   flex-direction: row; }
 
-.vertical {
+.buttons.vertical {
   flex-direction: column; }
 
-.down {
+.btn.down {
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
 
-.up {
+.btn.up {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; }
 
-.right {
+.btn.right {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
 
-.left {
+.btn.left {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
 
-.center {
+.btn.center {
   border-radius: 0; }
+
+/* States */
+.btn.active {
+  opacity: 1;
+  cursor: initial; }
+  .btn.active:hover {
+    opacity: 1; }
+  .btn.active:focus {
+    opacity: 1; }
+
+.btn.disable {
+  opacity: 0.4;
+  cursor: initial; }
+  .btn.disable:hover {
+    opacity: 0.4; }
+  .btn.disable:focus {
+    opacity: 0.4; }
+
+/* Variations */
+.btn.primary {
+  color: #1E84D4;
+  background: #1E84D4;
+  border-color: #1E84D4; }
+
+.btn.secondary {
+  color: #404040;
+  background: #404040;
+  border-color: #404040; }
+
+.btn.positive {
+  color: #49C468;
+  background: #49C468;
+  border-color: #49C468; }
+
+.btn.negative {
+  color: #E65050;
+  background: #E65050;
+  border-color: #E65050; }
+
+.btn.grey {
+  color: #ADADAD;
+  background: #ADADAD;
+  border-color: #ADADAD; }
+
+.btn.black {
+  color: #333333;
+  background: #333333;
+  border-color: #333333; }
+
+.btn.orange {
+  color: #FE9A76;
+  background: #FE9A76;
+  border-color: #FE9A76; }
+
+.btn.fill {
+  border-style: none;
+  color: #FFFFFF; }
+
+.btn.line {
+  border-style: solid;
+  border-width: 0.1rem;
+  background: #FFFFFF; }
+
+.btn.small {
+  font-size: 0.5rem;
+  padding: 0.1rem 1rem; }
+
+.btn.medium {
+  font-size: 1rem;
+  padding: 0.5rem 2rem; }
+
+.btn.large {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem; }
 
 /*!
  * # papoGen 0.0.1 - Divider
@@ -2187,7 +2188,7 @@ i.icon.battery.full:before {
 i.icon.battery.high:before {
   content: "\f241"; }
 
-i.icon.battery.medium:before, i.icon.battery.basic:before {
+i.icon.battery.medium:before {
   content: "\f242"; }
 
 i.icon.battery.low:before {
@@ -3011,7 +3012,7 @@ i.icon.whatsapp:before {
 i.icon.viacoin:before {
   content: "\f237"; }
 
-i.icon.medium:before, i.icon.basic:before {
+i.icon.medium:before {
   content: "\f23a"; }
 
 i.icon.y.combinator:before {
@@ -3895,6 +3896,131 @@ i.icon.times.rectangle-o:before {
  * # papoGen 0.0.1 - Input
  * - Prefix: input
  */
+/* default */
+.input > input {
+  flex: 1 0 auto;
+  border: 0.06rem #d4d4d4 solid;
+  padding: 0.46rem 0.7rem;
+  border-radius: 0.28rem;
+  font-size: 0.8rem;
+  font-family: Arial;
+  text-align: left;
+  outline: 0;
+  width: 13rem; }
+  .input > input::placeholder {
+    color: #d3d3d3;
+    opacity: 0.9; }
+
+/* color */
+.input.default > input:focus, .input.btn.basic > input:focus {
+  border-color: #8ea6b4; }
+
+.input > input:focus::placeholder {
+  color: #b1b1b1;
+  opacity: 0.95; }
+
+.input.red > input:focus {
+  border-color: #f67280; }
+
+.input > input:focus::placeholder {
+  color: #b1b1b1;
+  opacity: 0.95; }
+
+.input.green > input:focus {
+  border-color: #7dc383; }
+
+.input > input:focus::placeholder {
+  color: #b1b1b1;
+  opacity: 0.95; }
+
+.input.yellow > input:focus {
+  border-color: #fadc6d; }
+
+.input > input:focus::placeholder {
+  color: #b1b1b1;
+  opacity: 0.95; }
+
+.input.blue > input:focus {
+  border-color: #85b7d9; }
+
+.input > input:focus::placeholder {
+  color: #b1b1b1;
+  opacity: 0.95; }
+
+/* size */
+.input.short > input {
+  width: 9rem; }
+
+.input.medium > input {
+  width: 13rem; }
+
+.input.long > input {
+  width: 16rem; }
+
+/* size */
+.input.small > input {
+  width: 9rem;
+  height: 1rem;
+  font-size: 0.8rem;
+  padding-left: 0.7rem; }
+
+.input.big > input {
+  width: 13rem;
+  height: 1.5rem;
+  font-size: 1.2rem;
+  padding-left: 1rem; }
+
+.input.huge > input {
+  width: 16rem;
+  height: 2.5rem;
+  font-size: 1.6rem;
+  padding-left: 1.25rem; }
+
+/* focus */
+.input.focus.default > input, .input.focus.btn.basic > input {
+  border-color: #8ea6b4; }
+
+.input.focus.red > input {
+  border-color: #f67280; }
+
+.input.focus.green > input {
+  border-color: #7dc383; }
+
+.input.focus.yellow > input {
+  border-color: #fadc6d; }
+
+.input.focus.blue > input {
+  border-color: #85b7d9; }
+
+/* disabled */
+.input.disabled > input {
+  pointer-events: none; }
+
+.input.disabled {
+  opacity: 0.55; }
+
+/* error */
+.input.error > input {
+  border-color: #f67280;
+  opacity: 0.75;
+  background-color: rgba(239, 123, 123, 0.2); }
+  .input.error > input::placeholder {
+    color: #f67280;
+    opacity: 0.65; }
+  .input.error > input:focus::placeholder {
+    color: #f67280;
+    opacity: 0.9; }
+  .input.error > input:focus {
+    border-color: #f67280 !important; }
+
+/* transparent */
+.input.transparent > input {
+  border: none; }
+
+/* fluid */
+.input.fluid {
+  display: flex; }
+
 /*!
  * # papoGen 0.0.1 - Label
  * - Prefix: label
@@ -3914,10 +4040,10 @@ i.icon.times.rectangle-o:before {
   .label:hover {
     opacity: 1; }
 
-.circular {
+.image.circular {
   border-radius: 0; }
 
-.image {
+.image.label {
   height: 100%;
   width: 100%;
   float: left;
