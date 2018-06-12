@@ -12,13 +12,23 @@
 
 // format: <size> <position> <color> <frame> btn
 // ex: normal (center) grey line btn
-// !-- body
+
+
+/* Types */
+
+// default
 .btn {
     @include unable_select;
     margin: 0;
     text-align: center;
     opacity: 0.75;
     cursor: pointer;
+    width: fit-content;
+    height: auto;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    border-radius: 0.4rem;
+
     &:hover {
         opacity: 0.95;
     }
@@ -31,7 +41,57 @@
     }
 }
 
-// !-- state
+.btn.default {
+    color       : #5E5E5E;
+    background  : #5E5E5E;
+    border-color: #5E5E5E;
+}
+
+// labeled >> inherit
+
+// icon >> inherit
+
+// basic
+.btn.basic {
+    @extend .default;
+    border-style: solid;
+    border-width: 0.1rem;
+    background: #FFFFFF;
+}
+
+
+/* Groups */
+
+.buttons {
+    display: flex;
+}
+
+// group direction
+$direction: ( horizontal: row, vertical: column);
+@each $type, $var in $direction {
+    .buttons.#{$type} {
+        flex-direction: $var;
+    }
+}
+
+// grouped button position
+$position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
+@each $type, $attr in $position {
+    .btn.#{$type} {
+        @if ($type=='center') {
+            border-radius: 0;
+        }
+        @else {
+            border-#{nth($attr, 1)}-radius: 0;
+            border-#{nth($attr, 2)}-radius: 0;
+        }
+    }
+}
+
+
+/* States */
+
+// activate, disabled
 $state: ( active: 1, disable: 0.4, );
 @each $type, $val in $state {
     .btn.#{$type} {
@@ -46,8 +106,11 @@ $state: ( active: 1, disable: 0.4, );
     }
 }
 
-// !-- color
-$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, light: #C9C9C9, grey: #ADADAD, black: #333333, orange: #FE9A76);
+
+/* Variations */
+
+// color
+$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, grey: #ADADAD, black: #333333, orange: #FE9A76);
 @each $type, $col in $bg_col {
   .btn.#{$type} {
     color       : $col;
@@ -56,8 +119,8 @@ $bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E
   }
 }
 
-// !-- frame
-$frame: ( line: solid, fill: none);
+// frame or fill
+$frame: (fill: none, line: solid);
 @each $type, $val in $frame {
     .btn.#{$type} {
         border-style: $val;
@@ -71,7 +134,7 @@ $frame: ( line: solid, fill: none);
     }
 }
 
-// !-- size
+// size
 $size: ( small: (4rem, 1.5rem, 0.2rem, 0.1rem), medium: (6rem, 2.1rem, 0.3rem, 0.5rem), large: (7rem, 3rem, 0.35rem, 0.9rem));
 @each $type, $attr in $size {
     .btn.#{$type} {
@@ -79,43 +142,7 @@ $size: ( small: (4rem, 1.5rem, 0.2rem, 0.1rem), medium: (6rem, 2.1rem, 0.3rem, 0
         height: nth($attr, 2);
         border-radius: nth($attr, 3);
         font-size: nth($attr, 4);
+        padding: 0rem;
     }
 }
 
-.btn.fit {
-    width: fit-content;
-    height: auto;
-}
-
-// !-- extend
-.btn.basic {
-    @extend .medium;
-    @extend .fill;
-    @extend .light;
-    color: #2E2E2E;
-}
-
-// !-- group buttons
-.buttons {
-    display: flex;
-}
-
-$direction: ( horizontal: row, vertical: column);
-@each $type, $var in $direction {
-    .buttons.#{$type} {
-        flex-direction: $var;
-    }
-}
-
-$position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
-@each $type, $attr in $position {
-    .btn.#{$type} {
-        @if ($type=='center') {
-            border-radius: 0;
-        }
-        @else {
-            border-#{nth($attr, 1)}-radius: 0;
-            border-#{nth($attr, 2)}-radius: 0;
-        }
-    }
-}
