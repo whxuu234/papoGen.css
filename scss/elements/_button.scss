@@ -34,7 +34,7 @@
 // !-- state
 $state: ( active: 1, disable: 0.4, );
 @each $type, $val in $state {
-    .#{$type} {
+    .btn.#{$type} {
         opacity: $val;
         cursor: initial;
         &:hover {
@@ -49,7 +49,7 @@ $state: ( active: 1, disable: 0.4, );
 // !-- color
 $bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, light: #C9C9C9, grey: #ADADAD, black: #333333, orange: #FE9A76);
 @each $type, $col in $bg_col {
-  .#{$type} {
+  .btn.#{$type} {
     color       : $col;
     background  : $col;
     border-color: $col;
@@ -59,7 +59,7 @@ $bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E
 // !-- frame
 $frame: ( line: solid, fill: none);
 @each $type, $val in $frame {
-    .#{$type} {
+    .btn.#{$type} {
         border-style: $val;
         @if ($type=='line') {
             border-width: 0.1rem;
@@ -74,7 +74,7 @@ $frame: ( line: solid, fill: none);
 // !-- size
 $size: ( small: (4rem, 1.5rem, 0.2rem, 0.1rem), medium: (6rem, 2.1rem, 0.3rem, 0.5rem), large: (7rem, 3rem, 0.35rem, 0.9rem));
 @each $type, $attr in $size {
-    .#{$type} {
+    .btn.#{$type} {
         width: nth($attr, 1);
         height: nth($attr, 2);
         border-radius: nth($attr, 3);
@@ -82,13 +82,13 @@ $size: ( small: (4rem, 1.5rem, 0.2rem, 0.1rem), medium: (6rem, 2.1rem, 0.3rem, 0
     }
 }
 
-.fit {
+.btn.fit {
     width: fit-content;
     height: auto;
 }
 
 // !-- extend
-.basic {
+.btn.basic {
     @extend .medium;
     @extend .fill;
     @extend .light;
@@ -102,14 +102,14 @@ $size: ( small: (4rem, 1.5rem, 0.2rem, 0.1rem), medium: (6rem, 2.1rem, 0.3rem, 0
 
 $direction: ( horizontal: row, vertical: column);
 @each $type, $var in $direction {
-    .#{$type} {
+    .buttons.#{$type} {
         flex-direction: $var;
     }
 }
 
 $position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
 @each $type, $attr in $position {
-    .#{$type} {
+    .btn.#{$type} {
         @if ($type=='center') {
             border-radius: 0;
         }
