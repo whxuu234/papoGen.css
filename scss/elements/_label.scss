@@ -3,8 +3,11 @@
  * - Prefix: label
  */
 
-@import "./_button.scss";
+@import "../globals/_variables.scss";
 
+/* Types */
+
+// label
 .label {
   margin: 0;
   text-align: center;
@@ -23,10 +26,7 @@
   }
 }
 
-.image.circular {
-  border-radius: 0;
-}
-
+// image
 .image.label {
   height: 100%;
   width: 100%;
@@ -35,9 +35,56 @@
   border-bottom-left-radius: 0.5rem;
 }
 
+/* Content */
+// detail
 .detail {
 
 }
+
+/* Variations */
+// circular
+.circular.label {
+  border-radius: 0;
+}
+// basic
+
+// color
+@each $type, $col in $color-order {
+  .label.#{$type} {
+    color: $col;
+    background: $col;
+    border-color: $col;
+  }
+}
+
+// frame or fill
+$frame: (fill: none, line: solid);
+@each $type, $val in $frame {
+  .label.#{$type} {
+    border-style: $val;
+    @if ($type == 'line') {
+      border-width: 0.1rem;
+      background: $white;
+    }
+    @else {
+      color: $white;
+    }
+  }
+}
+
+// size
+$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.5rem, 1rem, 2.5rem));
+@each $type, $attr in $size {
+  .btn.#{$type} {
+    font-size: nth($attr, 1);
+    padding: nth($attr, 2) nth($attr, 3);
+  }
+}
+
+/* Groups */
+
+
+
 
 
 

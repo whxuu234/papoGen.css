@@ -611,6 +611,25 @@ body {
  * # papoGen 0.0.1 - Button
  * - Prefix: btn
  */
+/*!
+ * # papoGen 0.0.1 - Variables
+ */
+/*** Positions ***/
+/*** Size ***/
+/*** Colors ***/
+/*** Font ***/
+/*** Icon ***/
+/*** RWD ***/
+/* Definition
+ * - Mobile (576px - 767px): xs
+ * - Tablet (768px - 991px): sm
+ * - Computer (992px - 1199px): md
+ * - Large Monitor (1200px - 1919px): lg
+ * - Widescreen (1920px -): xl
+ */
+/*** Container ***/
+/*** Icon ***/
+/*** List ***/
 /* Types */
 .btn {
   -webkit-user-select: none;
@@ -690,40 +709,75 @@ body {
     opacity: 0.4; }
 
 /* Variations */
-.btn.primary {
-  color: #1E84D4;
-  background: #1E84D4;
-  border-color: #1E84D4; }
-
-.btn.secondary {
-  color: #404040;
-  background: #404040;
-  border-color: #404040; }
-
-.btn.positive {
-  color: #49C468;
-  background: #49C468;
-  border-color: #49C468; }
-
-.btn.negative {
-  color: #E65050;
-  background: #E65050;
-  border-color: #E65050; }
-
-.btn.grey {
-  color: #ADADAD;
-  background: #ADADAD;
-  border-color: #ADADAD; }
-
-.btn.black {
-  color: #333333;
-  background: #333333;
-  border-color: #333333; }
+.btn.red {
+  color: #DB2828 !important;
+  background: #DB2828 !important;
+  border-color: #DB2828 !important; }
 
 .btn.orange {
-  color: #FE9A76;
-  background: #FE9A76;
-  border-color: #FE9A76; }
+  color: #F2711C !important;
+  background: #F2711C !important;
+  border-color: #F2711C !important; }
+
+.btn.yellow {
+  color: #FBBD08 !important;
+  background: #FBBD08 !important;
+  border-color: #FBBD08 !important; }
+
+.btn.olive {
+  color: #B5CC18 !important;
+  background: #B5CC18 !important;
+  border-color: #B5CC18 !important; }
+
+.btn.green {
+  color: #21BA45 !important;
+  background: #21BA45 !important;
+  border-color: #21BA45 !important; }
+
+.btn.teal {
+  color: #00B5AD !important;
+  background: #00B5AD !important;
+  border-color: #00B5AD !important; }
+
+.btn.blue {
+  color: #2185D0 !important;
+  background: #2185D0 !important;
+  border-color: #2185D0 !important; }
+
+.btn.violet {
+  color: #6435C9 !important;
+  background: #6435C9 !important;
+  border-color: #6435C9 !important; }
+
+.btn.purple {
+  color: #A333C8 !important;
+  background: #A333C8 !important;
+  border-color: #A333C8 !important; }
+
+.btn.pink {
+  color: #E03997 !important;
+  background: #E03997 !important;
+  border-color: #E03997 !important; }
+
+.btn.brown {
+  color: #A5673F !important;
+  background: #A5673F !important;
+  border-color: #A5673F !important; }
+
+.btn.grey {
+  color: #767676 !important;
+  background: #767676 !important;
+  border-color: #767676 !important; }
+
+.btn.black {
+  color: #1B1C1D !important;
+  background: #1B1C1D !important;
+  border-color: #1B1C1D !important; }
+
+.btn.white {
+  color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border-color: #FFFFFF !important; }
 
 .btn.fill {
   border-style: none;
@@ -3951,144 +4005,25 @@ i.icon.times.rectangle-o:before {
  * - Prefix: label
  */
 /*!
- * # papoGen 0.0.1 - Button
- * - Prefix: btn
+ * # papoGen 0.0.1 - Variables
  */
+/*** Positions ***/
+/*** Size ***/
+/*** Colors ***/
+/*** Font ***/
+/*** Icon ***/
+/*** RWD ***/
+/* Definition
+ * - Mobile (576px - 767px): xs
+ * - Tablet (768px - 991px): sm
+ * - Computer (992px - 1199px): md
+ * - Large Monitor (1200px - 1919px): lg
+ * - Widescreen (1920px -): xl
+ */
+/*** Container ***/
+/*** Icon ***/
+/*** List ***/
 /* Types */
-.btn {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  margin: 0;
-  text-align: center;
-  opacity: 0.75;
-  cursor: pointer;
-  width: fit-content;
-  height: auto;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  border-radius: 0.5rem; }
-  .btn:hover {
-    opacity: 0.95; }
-  .btn:active {
-    outline: none; }
-  .btn:focus {
-    outline: 0;
-    opacity: 0.95; }
-
-.btn.default, .btn.basic {
-  color: #5E5E5E;
-  background: #5E5E5E;
-  border-color: #5E5E5E; }
-
-.btn.basic {
-  border-style: solid;
-  border-width: 0.1rem;
-  background: #FFFFFF; }
-
-/* Groups */
-.buttons {
-  display: flex; }
-
-.buttons.horizontal {
-  flex-direction: row; }
-
-.buttons.vertical {
-  flex-direction: column; }
-
-.btn.down {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0; }
-
-.btn.up {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0; }
-
-.btn.right {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0; }
-
-.btn.left {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0; }
-
-.btn.center {
-  border-radius: 0; }
-
-/* States */
-.btn.active {
-  opacity: 1;
-  cursor: initial; }
-  .btn.active:hover {
-    opacity: 1; }
-  .btn.active:focus {
-    opacity: 1; }
-
-.btn.disable {
-  opacity: 0.4;
-  cursor: initial; }
-  .btn.disable:hover {
-    opacity: 0.4; }
-  .btn.disable:focus {
-    opacity: 0.4; }
-
-/* Variations */
-.btn.primary {
-  color: #1E84D4;
-  background: #1E84D4;
-  border-color: #1E84D4; }
-
-.btn.secondary {
-  color: #404040;
-  background: #404040;
-  border-color: #404040; }
-
-.btn.positive {
-  color: #49C468;
-  background: #49C468;
-  border-color: #49C468; }
-
-.btn.negative {
-  color: #E65050;
-  background: #E65050;
-  border-color: #E65050; }
-
-.btn.grey {
-  color: #ADADAD;
-  background: #ADADAD;
-  border-color: #ADADAD; }
-
-.btn.black {
-  color: #333333;
-  background: #333333;
-  border-color: #333333; }
-
-.btn.orange {
-  color: #FE9A76;
-  background: #FE9A76;
-  border-color: #FE9A76; }
-
-.btn.fill {
-  border-style: none;
-  color: #FFFFFF; }
-
-.btn.line {
-  border-style: solid;
-  border-width: 0.1rem;
-  background: #FFFFFF; }
-
-.btn.small {
-  font-size: 0.5rem;
-  padding: 0.1rem 1rem; }
-
-.btn.medium {
-  font-size: 1rem;
-  padding: 0.5rem 2rem; }
-
-.btn.large {
-  font-size: 1.5rem;
-  padding: 1rem 2.5rem; }
-
 .label {
   margin: 0;
   text-align: center;
@@ -4104,9 +4039,6 @@ i.icon.times.rectangle-o:before {
   .label:hover {
     opacity: 1; }
 
-.image.circular {
-  border-radius: 0; }
-
 .image.label {
   height: 100%;
   width: 100%;
@@ -4114,6 +4046,103 @@ i.icon.times.rectangle-o:before {
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem; }
 
+/* Content */
+/* Variations */
+.circular.label {
+  border-radius: 0; }
+
+.label.red {
+  color: #DB2828 !important;
+  background: #DB2828 !important;
+  border-color: #DB2828 !important; }
+
+.label.orange {
+  color: #F2711C !important;
+  background: #F2711C !important;
+  border-color: #F2711C !important; }
+
+.label.yellow {
+  color: #FBBD08 !important;
+  background: #FBBD08 !important;
+  border-color: #FBBD08 !important; }
+
+.label.olive {
+  color: #B5CC18 !important;
+  background: #B5CC18 !important;
+  border-color: #B5CC18 !important; }
+
+.label.green {
+  color: #21BA45 !important;
+  background: #21BA45 !important;
+  border-color: #21BA45 !important; }
+
+.label.teal {
+  color: #00B5AD !important;
+  background: #00B5AD !important;
+  border-color: #00B5AD !important; }
+
+.label.blue {
+  color: #2185D0 !important;
+  background: #2185D0 !important;
+  border-color: #2185D0 !important; }
+
+.label.violet {
+  color: #6435C9 !important;
+  background: #6435C9 !important;
+  border-color: #6435C9 !important; }
+
+.label.purple {
+  color: #A333C8 !important;
+  background: #A333C8 !important;
+  border-color: #A333C8 !important; }
+
+.label.pink {
+  color: #E03997 !important;
+  background: #E03997 !important;
+  border-color: #E03997 !important; }
+
+.label.brown {
+  color: #A5673F !important;
+  background: #A5673F !important;
+  border-color: #A5673F !important; }
+
+.label.grey {
+  color: #767676 !important;
+  background: #767676 !important;
+  border-color: #767676 !important; }
+
+.label.black {
+  color: #1B1C1D !important;
+  background: #1B1C1D !important;
+  border-color: #1B1C1D !important; }
+
+.label.white {
+  color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border-color: #FFFFFF !important; }
+
+.label.fill {
+  border-style: none;
+  color: #FFFFFF !important; }
+
+.label.line {
+  border-style: solid;
+  border-width: 0.1rem;
+  background: #FFFFFF !important; }
+
+.btn.small {
+  font-size: 0.5rem;
+  padding: 0.1rem 1rem; }
+
+.btn.medium {
+  font-size: 1rem;
+  padding: 0.5rem 2rem; }
+
+.btn.large {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem; }
+
+/* Groups */
 /*!
  * # papoGen 0.0.1 - List
  * - Prefix: list

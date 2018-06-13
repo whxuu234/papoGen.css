@@ -3,6 +3,8 @@
  * - Prefix: btn
  */
 
+@import "../globals/_variables.scss";
+
 // global mixins
 @mixin unable_select {
     -webkit-user-select: none;
@@ -110,8 +112,8 @@ $state: ( active: 1, disable: 0.4, );
 /* Variations */
 
 // color
-$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, grey: #ADADAD, black: #333333, orange: #FE9A76);
-@each $type, $col in $bg_col {
+//$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, grey: #ADADAD, black: #333333, orange: #FE9A76);
+@each $type, $col in $color-order {
   .btn.#{$type} {
     color       : $col;
     background  : $col;
