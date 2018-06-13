@@ -6,7 +6,6 @@
 
 /*** Grid ***/
 
-// ok
 .grid {
     @include display(flex);
     @include flex-align;
@@ -54,7 +53,6 @@
 
 /** Content: Columns **/
 
-// ok
 .grid {
     >.col:not(.row),
     >.row>.col {
@@ -62,7 +60,7 @@
         display: inline-block;
         position: relative;
         vertical-align: top;
-        width: 100% / 16;
+        width: (100% / 16);
     }
     >* {
         @include padding-h(1rem);
@@ -79,7 +77,6 @@
 
 /** Content: Rows **/
 
-// ok
 .grid>.row {
     @include display(flex);
     @include flex-align;
@@ -110,7 +107,6 @@
 
 /* Remove border on last horizontal section */
 
-// ok
 .grid>.row,
 .grid {
     >.col:last-child {

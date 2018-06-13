@@ -36,14 +36,14 @@
 
 @mixin display($value) {
     @if ($value==flex) {
-        display: $value;
         display: -webkit-box;
         display: -ms-flexbox;
+        display: $value;
     }
     @else if ($value==inline-flex) {
-        display: $value !important;
         display: -webkit-inline-box !important;
         display: -ms-inline-flexbox !important;
+        display: $value !important;
     }
 }
 
