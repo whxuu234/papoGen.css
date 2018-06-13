@@ -24,15 +24,21 @@
   &:hover {
     opacity: 1;
   }
-}
 
-// image
-.image.label {
-  height: 100%;
-  width: 100%;
-  float: left;
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  img {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+
+    // height, width of image depends on (font-size + 2*padding) * 14px
+    // margin-right depends on label right padding (rem)
+  }
+
+  i {
+    margin: 0rem 0rem 0rem 1rem;
+  }
 }
 
 /* Content */
@@ -75,10 +81,26 @@ $frame: (fill: none, line: solid);
 // size
 $size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.5rem, 1rem, 2.5rem));
 @each $type, $attr in $size {
-  .btn.#{$type} {
+  .label.#{$type} {
     font-size: nth($attr, 1);
     padding: nth($attr, 2) nth($attr, 3);
+
+    img {
+      width: nth($attr, 1)*2;
+      height: nth($attr, 1)*2;
+    }
+
+    i {
+      margin: 0rem 0rem 0rem nth($attr, 1);
+    }
   }
+}
+
+// image
+.image.label {
+  display: flex;
+  align-items: center;
+  padding: 0rem 1rem 0rem 0rem;
 }
 
 /* Groups */

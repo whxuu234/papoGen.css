@@ -651,6 +651,8 @@ body {
   .btn:focus {
     outline: 0;
     opacity: 0.95; }
+  .btn i {
+    margin: 0rem 0rem 0rem 1rem; }
 
 .btn.default, .btn.basic {
   color: #5E5E5E;
@@ -791,14 +793,20 @@ body {
 .btn.small {
   font-size: 0.5rem;
   padding: 0.1rem 1rem; }
+  .btn.small i {
+    margin: 0rem 0rem 0rem 0.5rem; }
 
 .btn.medium {
   font-size: 1rem;
   padding: 0.5rem 2rem; }
+  .btn.medium i {
+    margin: 0rem 0rem 0rem 1rem; }
 
 .btn.large {
   font-size: 1.5rem;
   padding: 1rem 2.5rem; }
+  .btn.large i {
+    margin: 0rem 0rem 0rem 1.5rem; }
 
 /*!
  * # papoGen 0.0.1 - Divider
@@ -4038,13 +4046,14 @@ i.icon.times.rectangle-o:before {
   vertical-align: middle; }
   .label:hover {
     opacity: 1; }
-
-.image.label {
-  height: 100%;
-  width: 100%;
-  float: left;
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem; }
+  .label img {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem; }
+  .label i {
+    margin: 0rem 0rem 0rem 1rem; }
 
 /* Content */
 /* Variations */
@@ -4130,17 +4139,37 @@ i.icon.times.rectangle-o:before {
   border-width: 0.1rem;
   background: #FFFFFF !important; }
 
-.btn.small {
+.label.small {
   font-size: 0.5rem;
   padding: 0.1rem 1rem; }
+  .label.small img {
+    width: 1rem;
+    height: 1rem; }
+  .label.small i {
+    margin: 0rem 0rem 0rem 0.5rem; }
 
-.btn.medium {
+.label.medium {
   font-size: 1rem;
   padding: 0.5rem 2rem; }
+  .label.medium img {
+    width: 2rem;
+    height: 2rem; }
+  .label.medium i {
+    margin: 0rem 0rem 0rem 1rem; }
 
-.btn.large {
+.label.large {
   font-size: 1.5rem;
   padding: 1rem 2.5rem; }
+  .label.large img {
+    width: 3rem;
+    height: 3rem; }
+  .label.large i {
+    margin: 0rem 0rem 0rem 1.5rem; }
+
+.image.label {
+  display: flex;
+  align-items: center;
+  padding: 0rem 1rem 0rem 0rem; }
 
 /* Groups */
 /*!
