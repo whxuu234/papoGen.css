@@ -6,33 +6,21 @@
  /*** Types ***/
  
  /** Types:Page **/
- @mixin font_setting($size: 3rem){
+ @mixin font_setting(){
 color:black;
 cursor:auto;
 font:{
 family:monospace;
-size:$size;
 weight:bold;
 }
 }
 
-.first-header{
-@include font_setting(3em);
+.header{
+  @include font_setting();
 }
-.second-header{
-@include font_setting(2.5em);
-}
-.third-header{
-@include font_setting(2em);
-}
-.fourth-header{
-@include font_setting(1.5em);
-}
-.fifth-header{
-@include font_setting(1em);
-}
+
 /** Types:icon **/
-@mixin font_setting($size: 3rem,$color){
+@mixin font_setting($size,$color){
    color:$color;
    cursor:auto;
    font:{
@@ -41,19 +29,16 @@ weight:bold;
   weight:bold;
    }
  }
-.icon{
-font-size:4rem;
+.header{
 text-align:center;
+width:fit-content;
 }
-.first-header{
-@include font_setting(1.5rem,black);
+.content{
+@include font_setting(2rem,black);
 margin-top:-.5rem;
-text-align:center;
 }
-.second-header{
+.sub{
 @include font_setting(1rem,rgba(#cccccc,.7));
-margin-top:-1.2rem;
-text-align:center;
 }
 
 /** Types:SubHeader **/
