@@ -3,6 +3,8 @@
  * - Prefix: btn
  */
 
+@import "../globals/_variables.scss";
+
 // global mixins
 @mixin unable_select {
     -webkit-user-select: none;
@@ -25,9 +27,9 @@
     cursor: pointer;
     width: fit-content;
     height: auto;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    border-radius: 0.4rem;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
 
     &:hover {
         opacity: 0.95;
@@ -38,6 +40,10 @@
     &:focus {
         outline: 0;
         opacity: 0.95;
+    }
+
+    i {
+      margin: 0rem 0rem 0rem 1rem;
     }
 }
 
@@ -110,8 +116,8 @@ $state: ( active: 1, disable: 0.4, );
 /* Variations */
 
 // color
-$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, grey: #ADADAD, black: #333333, orange: #FE9A76);
-@each $type, $col in $bg_col {
+//$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, grey: #ADADAD, black: #333333, orange: #FE9A76);
+@each $type, $col in $color-order {
   .btn.#{$type} {
     color       : $col;
     background  : $col;
@@ -124,7 +130,7 @@ $frame: (fill: none, line: solid);
 @each $type, $val in $frame {
     .btn.#{$type} {
         border-style: $val;
-        @if ($type=='line') {
+        @if ($type == 'line') {
             border-width: 0.1rem;
             background: #FFFFFF;
         }
@@ -135,14 +141,15 @@ $frame: (fill: none, line: solid);
 }
 
 // size
-$size: ( small: (4rem, 1.5rem, 0.2rem, 0.1rem), medium: (6rem, 2.1rem, 0.3rem, 0.5rem), large: (7rem, 3rem, 0.35rem, 0.9rem));
+$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.5rem, 1rem, 2.5rem));
 @each $type, $attr in $size {
     .btn.#{$type} {
-        width: nth($attr, 1);
-        height: nth($attr, 2);
-        border-radius: nth($attr, 3);
-        font-size: nth($attr, 4);
-        padding: 0rem;
+        font-size: nth($attr, 1);
+        padding: nth($attr, 2) nth($attr, 3);
+
+        i {
+            margin: 0rem 0rem 0rem nth($attr, 1);
+        }
     }
 }
 

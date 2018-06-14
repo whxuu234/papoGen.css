@@ -3,39 +3,110 @@
  * - Prefix: label
  */
 
+@import "../globals/_variables.scss";
+
+/* Types */
+
+// label
 .label {
   margin: 0;
   text-align: center;
   opacity: 0.9;
   cursor: pointer;
   width: fit-content;
-  height: 2.1rem;
-  font-size: 0.5rem;
-  border-radius: 0.3rem;
+  height: auto;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
-  line-height: 2.1rem;
 
   &:hover {
     opacity: 1;
   }
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+
+    // height, width of image depends on (font-size + 2*padding) * 14px
+    // margin-right depends on label right padding (rem)
+  }
+
+  i {
+    margin: 0rem 0rem 0rem 1rem;
+  }
 }
 
-.circular {
-  border-radius: 0;
-}
-
-.image {
-  height: 100%;
-  width: 100%;
-  float: left;
-  border-top-left-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
-}
-
+/* Content */
+// detail
 .detail {
 
 }
+
+/* Variations */
+// circular
+.circular.label {
+  border-radius: 0;
+}
+// basic
+
+// color
+@each $type, $col in $color-order {
+  .label.#{$type} {
+    color: $col;
+    background: $col;
+    border-color: $col;
+  }
+}
+
+// frame or fill
+$frame: (fill: none, line: solid);
+@each $type, $val in $frame {
+  .label.#{$type} {
+    border-style: $val;
+    @if ($type == 'line') {
+      border-width: 0.1rem;
+      background: $white;
+    }
+    @else {
+      color: $white;
+    }
+  }
+}
+
+// size
+$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.5rem, 1rem, 2.5rem));
+@each $type, $attr in $size {
+  .label.#{$type} {
+    font-size: nth($attr, 1);
+    padding: nth($attr, 2) nth($attr, 3);
+
+    img {
+      width: nth($attr, 1)*2;
+      height: nth($attr, 1)*2;
+    }
+
+    i {
+      margin: 0rem 0rem 0rem nth($attr, 1);
+    }
+  }
+}
+
+// image
+.image.label {
+  display: flex;
+  align-items: center;
+  padding: 0rem 1rem 0rem 0rem;
+}
+
+/* Groups */
+
+
+
 
 
 

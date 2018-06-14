@@ -11,7 +11,6 @@
 // button
 
 function inherit () {
-
   for (let type of ['buttons', 'labels']) {
     for (let i = 0; i < $(`.${type}`).length; i++) {
       let curr = $(`.${type}`)[i]
