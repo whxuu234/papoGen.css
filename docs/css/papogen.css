@@ -4051,7 +4051,8 @@ i.icon.times.rectangle-o:before {
     height: 2rem;
     float: left;
     border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem; }
+    border-bottom-left-radius: 0.5rem;
+    margin-right: 1rem; }
   .label i {
     margin: 0rem 0rem 0rem 1rem; }
 
@@ -4144,7 +4145,8 @@ i.icon.times.rectangle-o:before {
   padding: 0.1rem 1rem; }
   .label.small img {
     width: 1rem;
-    height: 1rem; }
+    height: 1rem;
+    margin-right: 0.5rem; }
   .label.small i {
     margin: 0rem 0rem 0rem 0.5rem; }
 
@@ -4153,7 +4155,8 @@ i.icon.times.rectangle-o:before {
   padding: 0.5rem 2rem; }
   .label.medium img {
     width: 2rem;
-    height: 2rem; }
+    height: 2rem;
+    margin-right: 1rem; }
   .label.medium i {
     margin: 0rem 0rem 0rem 1rem; }
 
@@ -4162,7 +4165,8 @@ i.icon.times.rectangle-o:before {
   padding: 1rem 2.5rem; }
   .label.large img {
     width: 3rem;
-    height: 3rem; }
+    height: 3rem;
+    margin-right: 1.5rem; }
   .label.large i {
     margin: 0rem 0rem 0rem 1.5rem; }
 
