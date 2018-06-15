@@ -62,7 +62,7 @@ ul.list {
         padding-left: 1.25rem;
     }
     /* Bulleted horizontal */
-    .horizontal.bulleted {
+    .list-h.list-bulleted {
         margin-left: 0rem;
         li {
             margin-left: 1.75rem;
@@ -79,7 +79,7 @@ ul.list {
     }
 }
 
-.list.bulleted {
+.list.list-bulleted {
     margin-left: 1.25rem;
     >.item,
     .list>.item {
@@ -105,7 +105,7 @@ ul.list {
         padding-left: 1.25rem;
     }
     /* Bulleted horizontal*/
-    .horizontal {
+    .list-h {
         margin-left: 0rem;
         >.item {
             margin-left: 1.75rem;
@@ -140,13 +140,13 @@ ol.list {
         }
     }
     /* Ordered inverted */
-    &.inverted {
+    &.list-inverted {
         li:before {
             color: rgba(255, 255, 255, 0.7);
         }
     }
     /* Ordered horizontal */
-    &.horizontal {
+    &.list-h {
         margin-left: 0rem;
         li:before {
             margin: 0rem 0.5rem 0rem 0rem;
@@ -176,7 +176,7 @@ ol.list {
     }
 }
 
-.list.ordered {
+.list.list-ordered {
     &,
     .list {
         counter-reset: ordered;
@@ -191,13 +191,13 @@ ol.list {
         }
     }
     /* Ordered inverted */
-    &.inverted {
+    &.list-inverted {
         li:before {
             color: rgba(255, 255, 255, 0.7);
         }
     }
     /* Ordered horizontal */
-    &.horizontal {
+    &.list-h {
         margin-left: 0rem;
         >.item,
         .list>.item {
@@ -445,7 +445,7 @@ ul.list {
 
 /** Variations: Horizontal **/
 
-.list.horizontal {
+.list.list-h {
     display: inline-block;
     font-size: 0rem;
     &:not(.celled)>.item:first-child {
@@ -490,13 +490,10 @@ ul.list {
 
 /** Content: Link **/
 
-.list.link {
-    a.item,
-<<<<<<< HEAD
-    .item a:not(){
-=======
+.list.list-link {
+    a.item, 
     .item a {
->>>>>>> upstream/master
+
         @include transition(0.1s color ease);
         color: rgba(0, 0, 0, 0.4);
         &:hover {
@@ -515,7 +512,7 @@ ul.list {
         }
     }
     /* Link inverted */
-    .inverted {
+    .list-inverted {
         a.item,
         .item a {
             color: rgba(255, 255, 255, 0.5);
@@ -537,7 +534,7 @@ ul.list {
 
 /** Variations: Inverted **/
 
-.list.inverted {
+.list.list-inverted {
     >a.item,
     .list>a.item {
         color: rgba(255, 255, 255, 0.9);
@@ -568,7 +565,7 @@ ul.list {
 
 /** Variations: Selection **/
 
-.list.selection {
+.list.list-selection {
     >.item,
     .list>.item {
         @include transition-3(0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease);
@@ -591,7 +588,7 @@ ul.list {
         }
     }
     /* Selection inverted */
-    .inverted {
+    .list-inverted {
         >.item {
             background: transparent;
             color: rgba(255, 255, 255, 0.5);
@@ -607,20 +604,20 @@ ul.list {
         }
     }
     /* Selection celled / divided */
-    .celled,
-    .selection {
+    .list-celled,
+    .list-selection {
         >.item,
         .list>.item {
             border-radius: 0rem;
         }
     }
     /* Selection fitted */
-    .fitted {
+    .list-fitted {
         >.item,
         .list>.item {
             @include margin-h(-0.5rem);
         }
-        &:not(.selection) {
+        &:not(.list-selection) {
             >.item,
             .list>.item {
                 @include padding-h(0rem);
@@ -632,8 +629,8 @@ ul.list {
 
 /** Varitations: Relaxed **/
 
-.list.relaxed {
-    &:not(.horizontal)>.item {
+.list.list-relaxed {
+    &:not(.list-h)>.item {
         &:not(:first-child) {
             padding-top: 0.42857143rem;
         }
@@ -641,7 +638,7 @@ ul.list {
             padding-bottom: 0.42857143rem;
         }
     }
-    &.horizontal {
+    &.list-h {
         >.item,
         .list>.item {
             &:not(:first-child) {
@@ -657,8 +654,8 @@ ul.list {
 
 /** Variations: Extra-relaxed **/
 
-.list.exrelaxed {
-     :not(.horizontal)>.item {
+.list.list-exrelaxed {
+     :not(.list-h)>.item {
         &:not(:first-child) {
             padding-top: 0.85714286rem;
         }
@@ -666,7 +663,7 @@ ul.list {
             padding-bottom: 0.85714286rem;
         }
     }
-    &.horizontal {
+    &.list-h {
         >.item,
         .list>.item {
             &:not(:first-child) {
@@ -682,7 +679,7 @@ ul.list {
 
 /** Variations: Divided ***/
 
-.divided.list {
+.list.list-divided {
     >.item {
         border-top: 1px solid rgba(34, 36, 38, 0.15);
     }
@@ -697,22 +694,22 @@ ul.list {
         border-top: none;
     }
     /* Sublist */
-    &:not(.horizontal) .list>.item:first-child {
+    &:not(.list-h) .list>.item:first-child {
         border-top-width: 1px;
     }
     /* Divided bulleted */
-    &.bulleted {
-        &:not(.horizontal),
+    &.list-bulleted {
+        &:not(.list-h),
         .list {
             margin-left: 0rem;
             padding-left: 0rem;
         }
-        >.item:not(.horizontal) {
+        >.item:not(.list-horizontal) {
             padding-left: 1.25rem;
         }
     }
     /* Divided ordered */
-    .ordered {
+    .list-ordered {
         margin-left: 0rem;
         >.item,
         .list>.item {
@@ -727,7 +724,7 @@ ul.list {
         }
     }
     /* Divided selection */
-    .selection {
+    .list-selection {
         >.item,
         .list>.item {
             border-radius: 0rem;
@@ -735,7 +732,7 @@ ul.list {
         }
     }
     /* Divided horizontal */
-    .horizontal {
+    .list-h {
         margin-left: 0rem;
         >.item {
             border: {
@@ -756,10 +753,10 @@ ul.list {
         }
     }
     /* Divided inverted */
-    .inverted {
+    .list-inverted {
         >.item,
         >.list,
-        &.horizontal>.item {
+        &.list-h>.item {
             border-color: rgba(255, 255, 255, 0.1);
         }
     }
@@ -768,7 +765,7 @@ ul.list {
 
 /** Varitations: Celled **/
 
-.list.celled {
+.list.list-celled {
     >.item,
     >.list {
         @include padding-h(0.5rem);
@@ -792,7 +789,7 @@ ul.list {
         border-top-width: 0rem;
     }
     /* Celled bulleted */
-    &.bulleted {
+    &.list-bulleted {
         margin-left: 0rem;
         >.item,
         .list>.item {
@@ -804,7 +801,7 @@ ul.list {
         }
     }
     /* Celled ordered */
-    &.ordered {
+    &.list-ordered {
         margin-left: 0rem;
         >.item,
         .list>.item {
@@ -816,7 +813,7 @@ ul.list {
         }
     }
     /* Celled horizontal */
-    &.horizontal {
+    &.list-h {
         margin-left: 0rem;
         >.item,
         .list>.item {
@@ -836,12 +833,12 @@ ul.list {
         }
     }
     /* Celled inverted */
-    &.inverted {
+    &.list-inverted {
         >.item,
         >.list {
             border-color: 1px solid rgba(255, 255, 255, 0.1);
         }
-        &.horizontal {
+        &.list-h {
             >.item,
             .list>.item {
                 border-color: 1px solid rgba(255, 255, 255, 0.1);
@@ -856,7 +853,7 @@ ul.list {
 @each $item in $size-order {
     .list.#{$item} {
         font-size: nth($list-font-size, index($size-order, $item));
-        &.horizontal {
+        &.list-h {
             >.item,
             .list>.item {
                 font-size: nth($list-font-size, index($size-order, $item));
@@ -872,8 +869,8 @@ ul.list {
 /** Content Variations: Vertically Aligned **/
 
 @each $item in $aligned-order {
-    .list[class*="aligned-#{$item}"],
-    .list [class*="aligned-#{$item}"] {
+    .list[class*="list-aligned-#{$item}"],
+    .list [class*="list-aligned-#{$item}"] {
         .content,
         .image {
             vertical-align: $item !important;
@@ -885,19 +882,19 @@ ul.list {
 /** Content Variations: Floated **/
 
 .list {
-    &[class*="left floated"] {
+    &[class*="list-floated-left"] {
         float: left;
     }
-    &[class*="right floated"] {
+    &[class*="list-floated-right"] {
         float: right;
     }
     >.item,
     .list>.item {
-        &[class*="left floated"] {
+        &[class*="list-floated-left"] {
             float: left;
             margin: 0rem 1rem 0rem 0rem;
         }
-        &[class*="right floated"] {
+        &[class*="list-floated-right"] {
             float: right;
             margin: 0rem 0rem 0rem 1rem;
         }

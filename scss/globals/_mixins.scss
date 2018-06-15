@@ -6,22 +6,22 @@
 /*** Global ***/
 
 @mixin animation($value) {
-    animation: $value;
     -webkit-animation: $value;
     -moz-animation: $value;
     -ms-animation: $value;
+    animation: $value;
 }
 
 @mixin backface-visibility($value) {
-    backface-visibility: $value;
     -webkit-backface-visibility: $value;
     -moz-backface-visibility: $value;
+    backface-visibility: $value;
 }
 
 @mixin box-shadow($value: none) {
-    box-shadow: $value;
     -webkit-box-shadow: $value;
     -moz-box-shadow: $value;
+    box-shadow: $value;
 }
 
 @mixin border-h($left: none, $right: none) {
@@ -36,35 +36,35 @@
 
 @mixin display($value) {
     @if ($value==flex) {
-        display: $value;
         display: -webkit-box;
         display: -ms-flexbox;
+        display: $value;
     }
     @else if ($value==inline-flex) {
-        display: $value !important;
         display: -webkit-inline-box !important;
         display: -ms-inline-flexbox !important;
+        display: $value !important;
     }
 }
 
 @mixin flex-align($value: stretch) {
-    align-items: $value;
     -webkit-box-align: $value;
     -ms-flex-align: $value;
+    align-items: $value;
 }
 
 @mixin flex-direction($value: column) {
-    flex-direction: $value;
     -webkit-flex-direction: $value;
     -moz-flex-direction: $value;
     -ms-flex-direction: $value;
+    flex-direction: $value;
 }
 
 @mixin flex-wrap($value: wrap) {
-    flex-wrap: $value;
     -webkit-flex-wrap: $value;
     -moz-flex-wrap: $value;
     -ms-flex-wrap: $value;
+    flex-wrap: $value;
 }
 
 @mixin font-smoothing($value) {
@@ -74,10 +74,10 @@
 }
 
 @mixin hyphens($value: auto) {
-    hyphens: $value;
     -webkit-hyphens: $value;
     -moz-hyphens: $value;
     -ms-hyphens: $value;
+    hyphens: $value;
 }
 
 @mixin margin-h($value: 0rem) {
@@ -111,34 +111,34 @@
 }
 
 @mixin transform($value) {
-    transform: $value;
     -webkit-transform: $value;
     -moz-transform: $value;
     -ms-transform: $value;
     -o-transform: $value;
+    transform: $value;
 }
 
 @mixin transition($value) {
-    transition: $value;
     -webkit-transition: $value;
     -moz-transition: $value;
     -ms-transition: $value;
     -o-transition: $value;
+    transition: $value;
 }
 
 @mixin transition-3($value1, $value2, $value3) {
-    transition: $value1, $value2, $value3;
     -webkit-transition: $value1, $value2, $value3;
     -moz-transition: $value1, $value2, $value3;
     -ms-transition: $value1, $value2, $value3;
     -o-transition: $value1, $value2, $value3;
+    transition: $value1, $value2, $value3;
 }
 
 @mixin user-select($value: none) {
-    user-select: $value;
     -webkit-user-select: $value;
     -moz-user-select: $value;
     -ms-user-select: $value;
+    user-select: $value;
 }
 
 
