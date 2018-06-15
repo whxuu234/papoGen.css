@@ -10,7 +10,6 @@
 // label
 .label {
   margin: 0.25rem 0.25rem;
-  text-align: center;
   opacity: 0.9;
   cursor: pointer;
   width: fit-content;
@@ -25,6 +24,7 @@
     opacity: 1;
   }
 
+  // image
   img {
     width: 2rem;
     height: 2rem;
@@ -37,6 +37,7 @@
     // margin-right depends on label right padding (rem)
   }
 
+  // icon
   i {
     margin: 0rem 0rem 0rem 1rem;
   }
@@ -46,10 +47,16 @@
   }
 }
 
-/* Content */
-// detail
-.detail {
+// horizontal
+.label.horizontal {
+  display: inline;
+}
 
+/* Content */
+.label {
+  .detail {
+     margin: 0rem 0rem 0rem 1rem;
+  }
 }
 
 /* Variations */
@@ -104,6 +111,10 @@ $size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 1rem), large: (1.
 
     i.left {
       margin: 0rem nth($attr, 1) 0rem 0rem;
+    }
+
+    .detail {
+      margin: 0rem 0rem 0rem nth($attr, 1);
     }
   }
 }
