@@ -5445,6 +5445,26 @@ i.icon.times.rectangle-o:before {
   width: 51rem;
 }
 
+/** Variations:Centered **/
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/** Variations:Vertically aligned **/
+.top {
+  vertical-align: text-top;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.bottom {
+  vertical-align: text-bottom;
+}
+
 /*!
  * # papoGen 0.0.1 - Input
  * - Prefix: input

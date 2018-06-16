@@ -70,3 +70,24 @@ width:42rem;
 width:51rem;
 }
 
+/** Variations:Centered **/
+.center{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+/** Variations:Vertically aligned **/
+@mixin aligned($p){
+  vertical-align:$p;
+}
+.top{
+@include aligned(text-top);
+}
+.middle{
+@include aligned(middle);
+}
+
+.bottom{
+@include aligned(text-bottom);
+}
