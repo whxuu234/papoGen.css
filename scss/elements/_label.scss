@@ -9,14 +9,13 @@
 
 // label
 .label {
-  margin: 0;
-  text-align: center;
+  margin: 0.25rem 0.25rem;
   opacity: 0.9;
   cursor: pointer;
   width: fit-content;
   height: auto;
   font-size: 1rem;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
@@ -25,26 +24,39 @@
     opacity: 1;
   }
 
+  // image
   img {
     width: 2rem;
     height: 2rem;
     float: left;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
+    margin-right: 1rem;
 
     // height, width of image depends on (font-size + 2*padding) * 14px
     // margin-right depends on label right padding (rem)
   }
 
+  // icon
   i {
     margin: 0rem 0rem 0rem 1rem;
   }
+
+  i.left {
+    margin: 0rem 1rem 0rem 0rem;
+  }
+}
+
+// horizontal
+.label.horizontal {
+  display: inline;
 }
 
 /* Content */
-// detail
-.detail {
-
+.label {
+  .detail {
+     margin: 0rem 0rem 0rem 1rem;
+  }
 }
 
 /* Variations */
@@ -52,7 +64,9 @@
 .circular.label {
   border-radius: 0;
 }
+
 // basic
+
 
 // color
 @each $type, $col in $color-order {
@@ -79,7 +93,7 @@ $frame: (fill: none, line: solid);
 }
 
 // size
-$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.5rem, 1rem, 2.5rem));
+$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 1rem), large: (1.5rem, 1rem, 2rem));
 @each $type, $attr in $size {
   .label.#{$type} {
     font-size: nth($attr, 1);
@@ -88,9 +102,18 @@ $size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.
     img {
       width: nth($attr, 1)*2;
       height: nth($attr, 1)*2;
+      margin-right: nth($attr, 1);
     }
 
     i {
+      margin: 0rem 0rem 0rem nth($attr, 1);
+    }
+
+    i.left {
+      margin: 0rem nth($attr, 1) 0rem 0rem;
+    }
+
+    .detail {
       margin: 0rem 0rem 0rem nth($attr, 1);
     }
   }
@@ -104,6 +127,12 @@ $size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.
 }
 
 /* Groups */
+.labels {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
 
 
 

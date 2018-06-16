@@ -5650,16 +5650,16 @@ i.icon.times.rectangle-o:before {
 /*** List ***/
 /* Types */
 .label {
-  margin: 0;
-  text-align: center;
+  margin: 0.25rem 0.25rem;
   opacity: 0.9;
   cursor: pointer;
   width: fit-content;
   height: auto;
   font-size: 1rem;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   text-align: center;
+<<<<<<< HEAD
   vertical-align: middle;
 }
 .label:hover {
@@ -5675,8 +5675,30 @@ i.icon.times.rectangle-o:before {
 .label i {
   margin: 0rem 0rem 0rem 1rem;
 }
+=======
+  vertical-align: middle; }
+  .label:hover {
+    opacity: 1; }
+  .label img {
+    width: 2rem;
+    height: 2rem;
+    float: left;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    margin-right: 1rem; }
+  .label i {
+    margin: 0rem 0rem 0rem 1rem; }
+  .label i.left {
+    margin: 0rem 1rem 0rem 0rem; }
+
+.label.horizontal {
+  display: inline; }
+>>>>>>> upstream/master
 
 /* Content */
+.label .detail {
+  margin: 0rem 0rem 0rem 1rem; }
+
 /* Variations */
 .circular.label {
   border-radius: 0;
@@ -5779,6 +5801,7 @@ i.icon.times.rectangle-o:before {
 
 .label.small {
   font-size: 0.5rem;
+<<<<<<< HEAD
   padding: 0.1rem 1rem;
 }
 .label.small img {
@@ -5812,6 +5835,47 @@ i.icon.times.rectangle-o:before {
 .label.large i {
   margin: 0rem 0rem 0rem 1.5rem;
 }
+=======
+  padding: 0.1rem 1rem; }
+  .label.small img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem; }
+  .label.small i {
+    margin: 0rem 0rem 0rem 0.5rem; }
+  .label.small i.left {
+    margin: 0rem 0.5rem 0rem 0rem; }
+  .label.small .detail {
+    margin: 0rem 0rem 0rem 0.5rem; }
+
+.label.medium {
+  font-size: 1rem;
+  padding: 0.5rem 1rem; }
+  .label.medium img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem; }
+  .label.medium i {
+    margin: 0rem 0rem 0rem 1rem; }
+  .label.medium i.left {
+    margin: 0rem 1rem 0rem 0rem; }
+  .label.medium .detail {
+    margin: 0rem 0rem 0rem 1rem; }
+
+.label.large {
+  font-size: 1.5rem;
+  padding: 1rem 2rem; }
+  .label.large img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1.5rem; }
+  .label.large i {
+    margin: 0rem 0rem 0rem 1.5rem; }
+  .label.large i.left {
+    margin: 0rem 1.5rem 0rem 0rem; }
+  .label.large .detail {
+    margin: 0rem 0rem 0rem 1.5rem; }
+>>>>>>> upstream/master
 
 .image.label {
   display: flex;
@@ -5820,6 +5884,11 @@ i.icon.times.rectangle-o:before {
 }
 
 /* Groups */
+.labels {
+  display: flex;
+  align-items: center;
+  flex-direction: row; }
+
 /*!
  * # papoGen 0.0.1 - Section
  * - Prefix: section
