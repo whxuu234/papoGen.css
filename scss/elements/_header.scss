@@ -3,62 +3,19 @@
  * - Prefix: hdr
  */
 /*!
- /*** Types ***/
+
+/*** Types ***/
  
- /** Types:Page **/
+@import "../globals/_variables.scss";
+
  @mixin font_setting(){
-color:black;
 cursor:auto;
 font:{
 family:monospace;
 weight:bold;
 }
 }
-
-.header{
-  @include font_setting();
-}
-
-/** Types:icon **/
-@mixin font_setting($size,$color){
-   color:$color;
-   cursor:auto;
-   font:{
-   family:monospace;
-   size:$size;
-  weight:bold;
-   }
- }
-.header{
-text-align:center;
-width:fit-content;
-}
-.content{
-@include font_setting(2rem,black);
-margin-top:-.5rem;
-}
-.sub{
-@include font_setting(1rem,rgba(#cccccc,.7));
-}
-
-/** Types:SubHeader **/
-
-@mixin font_setting($size: 3rem,$color){
-   color:$color;
-   cursor:auto;
-    font:{
-   family:monospace;
-  size:$size;
-   weight:bold;
-  }
-}
-@mixin image_setting($size,$radius){
-border-radius:$radius;
-  width:$size;
-    height:auto;
-    margin-right:.6rem;
-  }
- @mixin block(){
+ @mixin block(){//release float
  &::after{
   visibility:hidden;
   display:block;
@@ -67,227 +24,139 @@ border-radius:$radius;
    clear:both;
     height:0;
       }
-   }
- .m {
-   @include image_setting(3rem,50%);
-         float:left; 
-        }
-    .container1{
-    .m-header{
-   @include font_setting(1.5rem,black);
-    margin:{
-    top:.9rem;
-    bottom:-1.2rem;
     }
-       }
-      .m-subheader{
-      @include font_setting(1.5rem,rgba(115, 115, 115, 0.9));
-      }
-      @include block;
-      
-    }
+/** Types:Page **/
 
-      .el {
-   @include image_setting(3rem,50%);
-         float:left; 
-        }
-    .container2{
-    .el-header{
-   @include font_setting(1.5rem,black);
-    margin:{
-    top:.9rem;
-    bottom:-1.2rem;
-    }
-        }
-      .el-subheader{
-      @include font_setting(1.5rem,rgba(115, 115, 115, 0.9));
-      }
-      @include block;
-    }
- .e {
-   @include image_setting(3rem,50%);
-         float:left; 
-        }
-    .container3{
-    .e-header{
-   @include font_setting(1.5rem,black);
-    margin:{
-    top:.9rem;
-    bottom:-1.2rem;
-    }
-        }
-      .e-subheader{
-      @include font_setting(1.5rem,rgba(115, 115, 115, 0.9));
-      }
-      @include block;
-    }
+.header{
+  @include font_setting;
+}
 
+/** Types:icon **/
+@mixin cs{  // color、size setting
+font:{
+size:1rem;
+color:rgba(#cccccc,.7);
+}
+}
+.header{
+  @include font_setting;
+}
+.center{
+text-align:center;
+width:fit-content;
+}
+.sub{
+@include font_setting;
+}
+.sub.icon{
+@include cs;
+}
+/** Types:SubHeader **/
+.ih{//img/icon for header
+float:left;
+}
+@mixin cs{
+font:{
+size:1.5rem;
+color:rgba(115,115,115,.9);
+}
+}
+.header{
+  @include font_setting;
+}
+.header.img{
+font-size:1.5rem;
+    margin:{
+    top:.9rem;
+    bottom:-1.2rem;
+    }
+}
+
+.sub.img{
+@include cs;
+@include block;
+}
 
 /*** Content ***/
 
 /** Content:SubHeader **/
-@mixin font_setting($size: 3rem,$color){
-color:$color;
-cursor:auto;
+@mixin cs{  // color、size setting
 font:{
-family:monospace;
-size:$size;
-weight:bold;
+size:1rem;
+color:rgba(#cccccc,.7);
 }
 }
-.H1{
-@include font_setting(3rem,black);
+.header{
+  @include font_setting;
 }
-.sub1{
-@include font_setting(0.92rem,rgba(#737373,.9));
-margin-top:-0.92rem;
+.sub{
+@include font_setting;
 }
-.H2{
-@include font_setting(2.5rem,black);
-}
-.sub2{
-@include font_setting(0.92rem,rgba(#737373,.9));
-margin-top:-0.76rem;
-}
-.H3{
-@include font_setting(2rem,black);
-}
-.sub3{
-@include font_setting(0.8rem,rgba(#737373,.9));
-margin-top:-0.62rem;
-}
-.H4{
-@include font_setting(1.5rem,black);
-}
-.sub4{
-@include font_setting(0.8rem,rgba(#737373,.9));
-margin-top:-0.56rem;
-}
-.H5{
-@include font_setting(1rem,black);
-}
-.sub5{
-@include font_setting(0.76rem,rgba(#737373,.9));
-margin-top:-0.4rem;
+.sub.cons{
+@include cs;
 }
 /** Content:Image **/
-@mixin font_setting($size: 3rem,$color){
-   color:$color;
-   cursor:auto;
-   font:{
-   family:monospace;
-   size:$size;
-  weight:bold;
-   }
-}
-@mixin image_setting($size,$radius){
-  border-radius:$radius;
-  width:$size;
-  height:auto; 
-}
-@mixin block(){
-&::after{
-  visibility:hidden;
-display:block;
-font-size:0;
-content:"";
-clear:both;
-height:0;
+@mixin cs{  // color、size setting
+font:{
+size:1rem;
+color:rgba(#737373,.9);
 }
 }
-.image {
-  @include image_setting(50px,0);
-  float:left; 
-}
-.image-header{
-@include font_setting(2rem,black);
-@include block;
-}
-.picture{
-@include image_setting(40px,50%);
+.ih{//img/icon for header
 float:left;
 }
-.picture-header{
-@include font_setting(2rem,black);
+.header{
+  @include font_setting;
+}
+.header.ci{
 @include block;
 }
-.plugin{
-@include image_setting(50px,0);
-float:left;
+.sub{
+@include font_setting;
 }
-.container{
-.plugin-header{
-@include font_setting(2rem,black);
-}
-.plugin-subheader{
-@include font_setting(10.5px,rgba(#737373,.9));
-margin-top:-3px;
-}
+
+.sub.ci{
+@include cs;
 @include block;
 }
 /** Content:Icon **/
-@mixin font_setting($size: 3rem,$color){
-color:$color;
-  cursor:auto;
-   font:{
-  family:monospace;
-  size:$size;
-  weight:bold;
-  }
- }
-  @mixin block(){
-  &::after{
-  visibility:hidden;
-   display:block;
-font-size:0;
- content:"";
- clear:both;
- height:0;
- }
+@mixin cs{  // color、size setting
+font:{
+size:1.8rem;
+color:rgba(#737373,.9);
 }
-.icon1{
-font-size:3rem;
+}
+.ih{//img/icon for header
 float:left;
 }
-.i1-header{
- @include font_setting(2rem,black);
- @include block;
+.header{
+  @include font_setting;
+}
+.sub{
+@include font_setting;
+}
+.header.nos{//icon header position for no subheaders
  padding:{
  top:0.5rem;
  left:3rem;
  }
+ @include block;
  }
- .icon2{
- font-size:3rem;
- float:left;
- margin-right:.8rem;
- }
- .container{
-.i2-header{
-@include font_setting(2rem,black);
+ 
+.header.subs{//icon header position for having subheaders
  margin:{
  top:-.3rem;
  bottom:-1.5rem;
  } 
    }
- .i2-subheader{
-   @include font_setting(1.8rem,rgba(#737373,.9));
-     }
+ .sub.cons{
+   @include cs;
   @include block;
- }
+}
 
 /*** Variations ***/
 
 /** Variations:Dividing **/
-@mixin font_setting($size: 3rem,$color){
-   color:$color;
-   cursor:auto;
-   font:{
-   family:monospace;
-   size:$size;
-  weight:bold;
-   }
-}
 @mixin divider-setting{
   border:{
   style:solid;
@@ -302,28 +171,12 @@ float:left;
   
 }
 
-.divide-header {
-  @include font_setting(1rem,black);
-  @include divider-setting;
-}
 /** Variations:Block **/
-@mixin font_setting($size: 3rem,$color){
-   color:$color;
-   cursor:auto;
-   font:{
-   family:monospace;
-   size:$size;
-  weight:bold;
-   }
-}
 @mixin border_setting{
    padding:1rem 1rem 1rem 1.5rem;
    background:rgba(#e6e6e6,.7);
    border-radius:4px;
 }
-
-
-.content-header {
-  @include font_setting(2rem,black);
+.header.block{
   @include border_setting; 
 }
