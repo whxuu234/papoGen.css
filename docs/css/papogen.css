@@ -15872,6 +15872,76 @@ i.icon.times.rectangle-o:before {
  * # papoGen 0.0.1 - Accordion
  * - Prefix: accordion
  */
+/*** Types ***/
+/** Types:accordion **/
+.i {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  float: left;
+}
+
+.accordion {
+  float: left;
+  width: 50%;
+  padding: 0 1em;
+}
+
+.tab {
+  position: relative;
+  width: fit-content;
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.lab {
+  position: relative;
+  display: block;
+  padding: 0 0 0 1em;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.lab::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: max-height 0.35s;
+  -o-transition: max-height 0.35s;
+  transition: max-height 0.35s;
+}
+
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
+  -webkit-transition: max-height 0.35s;
+  -o-transition: max-height 0.35s;
+  transition: max-height 0.35s;
+}
+
+/* :checked */
+input:checked ~ .tab-content {
+  max-height: 10em;
+}
+
+/* Icon */
+input[type=checkbox]:checked + i {
+  transform: rotate(90deg);
+}
+
 /*!
  * # papoGen 0.0.1 - Breadcrumb
  * - Prefix: bread
