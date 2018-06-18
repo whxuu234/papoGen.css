@@ -44,6 +44,7 @@
     &:before {
       content: "";
       border: 0.1rem solid dimgrey;
+      opacity: 0;
       position: absolute;
       border-top: none;
       border-right: none;
