@@ -13576,41 +13576,44 @@ ul.list {
   <label for = "ex" text = "click"></label>
 </div>
 */
-.checkbox input[type="checkbox"] {
-  visibility: hidden; }
-.checkbox label {
-  width: 1rem;
-  height: 1rem;
-  line-height: 1rem;
-  cursor: pointer;
-  white-space: nowrap;
-  background: lightgrey;
-  color: dimgrey;
-  display: block;
-  border-width: 0.05rem;
-  border-color: darkgrey;
-  border-radius: 0.15rem; }
-  .checkbox label:before {
-    content: "";
-    border: 0.1rem solid dimgrey;
-    position: absolute;
-    border-top: none;
-    border-right: none;
-    transform: rotate(-45deg);
-    width: 0.6rem;
-    height: 0.4rem;
-    top: 1.16rem;
-    left: 2.9rem; }
-  .checkbox label:after {
-    content: attr(text);
-    position: absolute;
-    margin-left: 1.3rem;
-    top: 0.93rem; }
-  .checkbox label:hover {
-    color: black;
-    border-color: dimgrey; }
-  .checkbox label input[type="checkbox"]:checked + label:before {
+.checkbox {
+  position: relative; }
+  .checkbox input[type="checkbox"] {
+    visibility: hidden; }
+  .checkbox input[type="checkbox"]:checked + label:before {
     opacity: 1; }
+  .checkbox label {
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    background: lightgrey;
+    color: dimgrey;
+    display: block;
+    border-style: solid;
+    border-width: 0.05rem;
+    border-color: darkgrey;
+    border-radius: 0.15rem; }
+    .checkbox label:before {
+      content: "";
+      border: 0.1rem solid dimgrey;
+      position: absolute;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      width: 0.6rem;
+      height: 0.4rem;
+      top: 1.16rem;
+      left: 0.2rem; }
+    .checkbox label:after {
+      content: attr(text);
+      position: absolute;
+      margin-left: 1.3rem;
+      top: 0.93rem; }
+    .checkbox label:hover {
+      color: black;
+      border-color: dimgrey; }
 
 /*!
  * # papoGen 0.0.1 - Dropdown
