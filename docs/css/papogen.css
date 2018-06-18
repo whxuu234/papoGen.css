@@ -15889,7 +15889,6 @@ i.icon.times.rectangle-o:before {
 .tab {
   position: relative;
   width: fit-content;
-  color: black;
   font-family: monospace;
   font-weight: bold;
 }
@@ -15924,7 +15923,6 @@ input {
 .tab-content {
   max-height: 0;
   overflow: hidden;
-  color: black;
   font-family: monospace;
   font-weight: bold;
   -webkit-transition: max-height 0.35s;
@@ -15940,6 +15938,65 @@ input:checked ~ .tab-content {
 /* Icon */
 input[type=checkbox]:checked + i {
   transform: rotate(90deg);
+}
+
+/** Types:Styled **/
+.tabs {
+  position: relative;
+  width: fit-content;
+  font-family: monospace;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: -1px;
+  color: rgba(115, 115, 115, 0.7);
+}
+.tabs:hover {
+  color: black;
+}
+
+.top {
+  border-radius: 5px 5px 0 0;
+}
+
+.bottom {
+  border-radius: 0 0 5px 5px;
+}
+
+/*** Variations ***/
+/** Variations:Fluid **/
+.accordion.fluid {
+  float: left;
+  width: inherit;
+  height: inherit;
+  padding: 0 1em;
+}
+
+/** Variations:Inverted **/
+.accordion.inverted {
+  float: left;
+  width: 50%;
+  padding: 0 1em;
+  background: black;
+}
+
+.tabi {
+  position: relative;
+  width: fit-content;
+  font-family: monospace;
+  font-weight: bold;
+  font-color: white;
+}
+
+.tab-contenti {
+  max-height: 0;
+  overflow: hidden;
+  font-family: monospace;
+  font-weight: bold;
+  color: white;
+  -webkit-transition: max-height 0.35s;
+  -o-transition: max-height 0.35s;
+  transition: max-height 0.35s;
 }
 
 /*!
