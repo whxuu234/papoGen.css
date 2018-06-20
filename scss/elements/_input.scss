@@ -3,17 +3,25 @@
  * - Prefix: input
  */
 $width: (
+  default: 9rem,
   short: 9rem,
   medium: 13rem,
   long: 16rem
 );
 
 $size: (
+  default: (9rem, 1rem, 0.8rem, 0.7rem),
   small: (9rem, 1rem, 0.8rem, 0.7rem),
   big: (13rem, 1.5rem, 1.2rem, 1.0rem),
   huge: (16rem, 2.5rem, 1.6rem, 1.25rem)
 );
 
+$icon-size: (
+  default: (0.8rem, 0.55rem, 0.5rem),
+  small: (0.8rem, 0.55rem, 0.5rem),
+  big: (1.2rem, 0.56rem, 0.7rem),
+  huge: (1.6rem, 0.9rem, 0.89rem)
+);
 
 $colors: (
   default: #8ea6b4,
@@ -24,6 +32,9 @@ $colors: (
 );
 
 /* default */
+.input {
+  position: relative;
+}
 .input > input {
   flex: 1 0 auto;
   border: 0.06rem #d4d4d4 solid;
@@ -111,4 +122,24 @@ $colors: (
 /* fluid */
 .input.fluid {
   display: flex;
+}
+
+/* icon */
+.icon.input > input {
+  padding-left: 2em;
+}
+
+.icon.input > i {
+  display: inline-block;
+  position: absolute;
+  font-size: 0.8rem;
+  padding: 0.55rem 0.5rem;
+  color: #a3a3a3;
+}
+
+@each $type, $attr in $icon-size {
+  .icon.input.#{$type} > i {
+    font-size: nth($attr, 1);
+    padding: nth($attr, 2)  nth($attr, 3);
+  }
 }
