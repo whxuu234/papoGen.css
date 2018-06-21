@@ -13,6 +13,8 @@
 </div>
 */
 
+@import "../globals/_mixins.scss";
+
 // normal checkbox
 .checkbox {
   position: relative;
@@ -26,6 +28,7 @@
   }
 
   label {
+    @include user-select;
     width: 1rem;
     height: 1rem;
     line-height: 1rem;
@@ -40,6 +43,8 @@
     border-width: 0.05rem;
     border-color: darkgrey;
     border-radius: 0.15rem;
+
+    user-select: none;
 
     &:before {
       content: "";

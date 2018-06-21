@@ -8,8 +8,7 @@
  */
 //require('../js/state');
 
-// button
-
+// inherit parent class and replace child class
 function inherit () {
   for (let type of ['buttons', 'labels']) {
     for (let i = 0; i < $(`.${type}`).length; i++) {
@@ -30,6 +29,17 @@ function inherit () {
   }
 }
 
+// bind label and input without using 'for' attr
+function bindInputLabel() {
+  $('input[type = "checkbox"]').next('label').on('click', function(event){
+    event.stopPropagation()
+    event.stopImmediatePropagation()
+    let curr = $(this).prev('input[type = "checkbox"]')
+    curr.prop('checked', (curr.prop('checked'))? false : true)
+  })
+}
+
 $(document).ready(() => {
   inherit()
+  bindInputLabel()
 })
