@@ -4,13 +4,7 @@
  */
 
 @import "../globals/_variables.scss";
-
-// global mixins
-@mixin unable_select {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
+@import "../globals/_mixins.scss";
 
 // format: <size> <position> <color> <frame> btn
 // ex: normal (center) grey line btn
@@ -20,7 +14,7 @@
 
 // default
 .btn {
-    @include unable_select;
+    @include user_select;
     margin: 0;
     text-align: center;
     opacity: 0.75;
