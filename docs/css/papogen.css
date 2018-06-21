@@ -892,13 +892,13 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .btn.fill {
   border-style: none;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 .btn.line {
   border-style: solid;
   border-width: 0.1rem;
-  background: #FFFFFF;
+  background: #FFFFFF !important;
 }
 
 .btn.small {
@@ -15892,21 +15892,19 @@ i.icon.times.rectangle-o:before {
   font-family: monospace;
   font-weight: bold;
 }
-
-input {
+.tab input {
   position: absolute;
   opacity: 0;
   z-index: -1;
 }
-
-.lab {
+.tab label {
   position: relative;
   display: block;
   padding: 0 0 0 1em;
   line-height: 1.6;
   cursor: pointer;
 }
-.lab::after {
+.tab label::after {
   position: absolute;
   right: 0;
   top: 0;
@@ -16011,6 +16009,60 @@ input[type=checkbox]:checked + i {
  * # papoGen 0.0.1 - Checkbox
  * - Prefix: checkbox
  */
+/* Types */
+/*
+<div class = "checkbox">
+  <input type = "checkbox" id = "ex">
+  <label for = "ex" text = "click"></label>
+</div>
+*/
+.checkbox {
+  position: relative;
+}
+.checkbox input[type=checkbox] {
+  visibility: hidden;
+}
+.checkbox input[type=checkbox]:checked + label:before {
+  opacity: 1;
+}
+.checkbox label {
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  background: lightgrey;
+  color: dimgrey;
+  display: block;
+  border-style: solid;
+  border-width: 0.05rem;
+  border-color: darkgrey;
+  border-radius: 0.15rem;
+}
+.checkbox label:before {
+  content: "";
+  border: 0.1rem solid dimgrey;
+  opacity: 0;
+  position: absolute;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  width: 0.6rem;
+  height: 0.4rem;
+  top: 1.16rem;
+  left: 0.2rem;
+}
+.checkbox label:after {
+  content: attr(text);
+  position: absolute;
+  margin-left: 1.3rem;
+  top: 0.93rem;
+}
+.checkbox label:hover {
+  color: black;
+  border-color: dimgrey;
+}
+
 /*!
  * # papoGen 0.0.1 - Dropdown
  * - Prefix: dropdown

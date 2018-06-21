@@ -132,10 +132,10 @@ $frame: (fill: none, line: solid);
         border-style: $val;
         @if ($type == 'line') {
             border-width: 0.1rem;
-            background: #FFFFFF;
+            background: $white;
         }
         @else {
-            color: #FFFFFF;
+            color: $white;
         }
     }
 }
