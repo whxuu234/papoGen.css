@@ -63,7 +63,7 @@ $inv_blue: #45AAF2 !important;
 $inv_navy: #4B7BEC !important;
 $inv_purple: #A55EEA !important;
 $inv_pink: #FD79A8 !important;
-$inv-brown: #FA983A !important;
+$inv_brown: #FA983A !important;
 $inv_grey: #D1D8E0 !important;
 $inv_black: #545454 !important;
 $inv_color-order: (inv_red: $inv_red, inv_orange: $inv_orange, inv_yellow: $inv_yellow, inv_green: $inv_green, inv_teal: $inv_teal, inv_blue: $inv_blue, inv_navy: $inv_navy, inv_purple: $inv_purple, inv_pink: $inv_pink, inv_brown: $inv_brown, inv_grey: $inv_grey, inv_black: $inv_black);
@@ -136,3 +136,24 @@ $list-font-size:0.78571429rem,
 1.28571429em,
 1.42857143em,
 1.71428571em;
+
+/*** Statistic ***/
+
+$statistic-value-size: 1.5rem,
+2rem,
+3rem,
+4rem,
+5rem,
+6rem;
+$statistic-value-h-size: 1.5rem,
+2rem,
+2rem,
+3rem,
+4rem,
+5rem;
+$statistic-text-size: 1rem,
+1rem,
+1rem,
+2rem,
+2.5rem,
+2.5rem;

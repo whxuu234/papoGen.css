@@ -47,6 +47,12 @@
     }
 }
 
+@mixin flex($value) {
+    -webkit-box-flex: $value;
+    -ms-flex: $value $value auto;
+    flex: $value $value auto;
+}
+
 @mixin flex-align($value: stretch) {
     -webkit-box-align: $value;
     -ms-flex-align: $value;
@@ -132,6 +138,14 @@
     -ms-transition: $value1, $value2, $value3;
     -o-transition: $value1, $value2, $value3;
     transition: $value1, $value2, $value3;
+}
+
+@mixin transition-4($value1, $value2, $value3, $value4) {
+    -webkit-transition: $value1, $value2, $value3, $value4;
+    -moz-transition: $value1, $value2, $value3, $value4;
+    -ms-transition: $value1, $value2, $value3, $value4;
+    -o-transition: $value1, $value2, $value3, $value4;
+    transition: $value1, $value2, $value3, $value4;
 }
 
 @mixin user-select($value: none) {
