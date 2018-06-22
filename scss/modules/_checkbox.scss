@@ -31,50 +31,68 @@
         visibility: hidden;
         width: 1rem;
     }
-    input[type="checkbox"]:checked+label:before {
-        opacity: 1;
+    input[type="checkbox"]:checked+label {
+        &:after {
+            z-index: 0;
+        }
+        &:before {
+            border-color: #add1ff;
+        }
     }
     label {
         @include user-select;
-        cursor: auto;
+        cursor: pointer;
         line-height: 1rem;
         outline: none;
         position: relative;
         display: block;
-        padding-left: 1.8em;
+        padding-left: 1.3rem;
         white-space: nowrap;
+        color: rgba(0,0,0, 0.87);
         &:before {
-            background: lightgrey;
+            content: '';
+            cursor: pointer;
             border-style: solid;
             border-width: 0.05rem;
-            border-color: darkgrey;
+            background: #FFFFFF;
+            border-color: #d4d4d5;
             border-radius: 0.15rem;
-            color: dimgrey;
-            content: '';
+            width: 1rem;
             height: 1rem;
             position: absolute;
             top: 0rem;
             left: 0rem;
-            width: 1rem;
-            border: 0.1rem solid dimgrey;
-            border-top: none;
-            border-right: none;
-            transform: rotate(-45deg);
-            z-index: 3;
+            z-index: 0;
         }
         &:after {
-            //content: attr(text);
-            height: 1rem;
-            //margin-left: 1.3rem;
+            content: '';
+            height: 0.6rem;
+            width: 0.4rem;
             position: absolute;
-            top: 0rem;
-            left: 0rem;
-            text-align: center;
-            width: 1rem;
+            right: 2.59rem;
+            top: 0.13rem;
+            border: 0.1rem solid rgba(0,0,0, 0.87);
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+            z-index: -1;
         }
         &:hover {
-            color: black;
-            border-color: dimgrey;
+            color: rgba(0,0,0, 0.78);
+            &:before {
+                border-color: #b2b2b3;
+            }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
