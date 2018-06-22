@@ -13649,47 +13649,52 @@ ul.list {
     visibility: hidden;
     width: 1rem; }
   .checkbox input[type="checkbox"]:checked + label:after {
-    opacity: 1; }
+    z-index: 0; }
+  .checkbox input[type="checkbox"]:checked + label:before {
+    background: #add1ff; }
   .checkbox label {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    cursor: auto;
+    cursor: pointer;
     line-height: 1rem;
     outline: none;
     position: relative;
     display: block;
     padding-left: 1.3rem;
-    white-space: nowrap; }
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.87); }
     .checkbox label:before {
       content: '';
-      background: lightgrey;
+      cursor: pointer;
       border-style: solid;
       border-width: 0.05rem;
-      border-color: darkgrey;
+      background: #FFFFFF;
+      border-color: #d4d4d5;
       border-radius: 0.15rem;
-      color: dimgrey;
       width: 1rem;
       height: 1rem;
       position: absolute;
       top: 0rem;
       left: 0rem;
-      z-index: 3; }
+      z-index: 0; }
     .checkbox label:after {
       content: '';
       height: 0.6rem;
       width: 0.4rem;
       position: absolute;
-      right: 2.58rem;
-      top: 0.12rem;
-      border: 0.1rem solid dimgrey;
+      right: 2.59rem;
+      top: 0.13rem;
+      border: 0.1rem solid rgba(0, 0, 0, 0.87);
       border-top: none;
-      border-right: none;
-      transform: rotate(-45deg); }
+      border-left: none;
+      transform: rotate(45deg);
+      z-index: -1; }
     .checkbox label:hover {
-      color: black;
-      border-color: dimgrey; }
+      color: rgba(0, 0, 0, 0.78); }
+      .checkbox label:hover:before {
+        background: #b2b2b3; }
 
 /*!
  * # papoGen 0.0.1 - Dropdown
