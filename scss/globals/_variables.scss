@@ -36,55 +36,52 @@ massive;
 
 /*** Colors ***/
 
-$primary: #2185D0 !important;
+$primary: #2D98DA !important;
 $secondary: #1B1C1D !important;
-$link: #4183C4;
-$link-hover: #1e70bf;
-$red: #DB2828 !important;
-$orange: #F2711C !important;
-$yellow: #FBBD08 !important;
-$olive: #B5CC18 !important;
-$green: #21BA45 !important;
-$teal: #00B5AD !important;
-$blue: #2185D0 !important;
-$violet: #6435C9 !important;
-$purple: #A333C8 !important;
-$pink: #E03997 !important;
-$brown: #A5673F !important;
-$grey: #767676 !important;
+$link: #2D98DA;
+$link-hover: #45AAF2;
+$red: #EB3B5A !important;
+$orange: #FA8231 !important;
+$yellow: #F7B731 !important;
+$green: #20BF6B !important;
+$teal: #0FB9B1 !important;
+$blue: #2D98DA !important;
+$navy: #3867D6 !important;
+$purple: #8854d0 !important;
+$pink: #E84393 !important;
+$brown: #E58E26 !important;
+$grey: #A5b1C2 !important;
 $black: #1B1C1D !important;
 $white: #FFFFFF !important;
-$color-order: (red: $red, orange: $orange, yellow: $yellow, olive: $olive, green: $green, teal: $teal, blue: $blue, violet: $violet, purple: $purple, pink: $pink, brown: $brown, grey: $grey, black: $black, white: $white);
-$inv_red: #FF695E !important;
-$inv_orange: #FF851B !important;
-$inv_yellow: #FFE21F !important;
-$inv_olive: #D9E778 !important;
-$inv_green: #2ECC40 !important;
-$inv_teal: #6DFFFF !important;
-$inv_blue: #54C8FF !important;
-$inv_violet: #A291FB !important;
-$inv_purple: #DC73FF !important;
-$inv_pink: #FF8EDF !important;
-$inv_brown: #D67C1C !important;
-$inv_grey: #DCDDDE !important;
+$color-order: (red: $red, orange: $orange, yellow: $yellow, green: $green, teal: $teal, blue: $blue, navy: $navy, purple: $purple, pink: $pink, brown: $brown, grey: $grey, black: $black, white: $white);
+$inv_red: #FC5C65 !important;
+$inv_orange: #FD9644 !important;
+$inv_yellow: #FED330 !important;
+$inv_green: #26DE81 !important;
+$inv_teal: #2BCBBA !important;
+$inv_blue: #45AAF2 !important;
+$inv_navy: #4B7BEC !important;
+$inv_purple: #A55EEA !important;
+$inv_pink: #FD79A8 !important;
+$inv-brown: #FA983A !important;
+$inv_grey: #D1D8E0 !important;
 $inv_black: #545454 !important;
-$inv_color-order: (inv_red: $inv_red, inv_orange: $inv_orange, inv_yellow: $inv_yellow, inv_olive: $inv_olive, inv_green: $inv_green, inv_teal: $inv_teal, inv_blue: $inv_blue, inv_violet: $inv_violet, inv_purple: $inv_purple, inv_pink: $inv_pink, inv_brown: $inv_brown, inv_grey: $inv_grey, inv_black: $inv_black);
+$inv_color-order: (inv_red: $inv_red, inv_orange: $inv_orange, inv_yellow: $inv_yellow, inv_green: $inv_green, inv_teal: $inv_teal, inv_blue: $inv_blue, inv_navy: $inv_navy, inv_purple: $inv_purple, inv_pink: $inv_pink, inv_brown: $inv_brown, inv_grey: $inv_grey, inv_black: $inv_black);
 
 /*** Font ***/
 
 $import-fonts: true !default;
 $font-url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext' !default;
-$font-name: 'Quicksand' !default;
+$font-name: 'Quicksand';
 $font-family: $font-name,
-'Helvetica Neue',
-Arial,
-Helvetica,
 sans-serif !default;
-$h1-size: 2rem;
-$h2-size: 1.71428571rem;
-$h3-size: 1.28571429rem;
-$h4-size: 1.07142857rem;
-$h5-size: 1rem;
+$h1-size: 2.5rem;
+$h2-size: 2rem;
+$h3-size: 1.75rem;
+$h4-size: 1.5rem;
+$h5-size: 1.25rem;
+$h6-size: 1rem;
+$p-size: 1rem;
 
 /*** Icon ***/
 
