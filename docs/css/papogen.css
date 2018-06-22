@@ -13651,7 +13651,7 @@ ul.list {
   .checkbox input[type="checkbox"]:checked + label:after {
     z-index: 0; }
   .checkbox input[type="checkbox"]:checked + label:before {
-    background: #add1ff; }
+    border-color: #add1ff; }
   .checkbox label {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -13694,7 +13694,7 @@ ul.list {
     .checkbox label:hover {
       color: rgba(0, 0, 0, 0.78); }
       .checkbox label:hover:before {
-        background: #b2b2b3; }
+        border-color: #b2b2b3; }
 
 /*!
  * # papoGen 0.0.1 - Dropdown
