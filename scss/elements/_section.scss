@@ -72,7 +72,7 @@
         display: none;
     }
     /* Add additional page */
-    &.tall {
+    &.section-stacked-tall {
         &:before,
         &:after {
             bottom: 0rem;
@@ -93,7 +93,7 @@
 /** Types: Piled **/
 
 .section.section-piled,
-.section.section-pileds {
+.sections.section-piled {
     box-shadow: '';
     margin: 3rem 0rem;
     z-index: auto;
@@ -278,71 +278,70 @@
     &.section-attached {
         @include position-v(0rem);
         border: 1px solid #D4D4D5;
-        border-top: none;
         border-radius: 0rem;
         box-shadow: none;
         margin: 0rem -1px;
         width: calc(100% + 2px);
         max-width: calc(100% + 2px);
-        &:not(.message) {
-            border-top: none;
-        }
         &.section-inverted {
             border-color: #555555;
         }
         /* Label */
-        >.attached-top.label {
+        >.label.label-attached-top {
             border-top-left-radius: 0rem;
             border-top-right-radius: 0rem;
         }
-        >.attached-bottom.label {
+        >.label.label-attached-bottom {
             border-bottom-left-radius: 0rem;
             border-bottom-right-radius: 0rem;
         }
-    }
-    /* Top attached */
-    &.attached-top {
-        @include margin-v(0rem);
-        @include position-v(0rem);
-        border-radius: 0.28571429rem 0.28571429rem 0rem 0rem;
-        margin-top: 1rem;
-        &:first-child {
-            margin-top: 0rem;
-        }
-        &.section-piled {
+        /* Top attached */
+        &.section-attached-top {
             @include margin-v(0rem);
-            margin-top: 3rem;
+            @include position-v(0rem);
+            border-radius: 0.2857rem 0.2857rem 0rem 0rem;
+            margin-top: 1rem;
             &:first-child {
                 margin-top: 0rem;
             }
+            &.section-piled {
+                @include margin-v(0rem);
+                margin-top: 3rem;
+                &:first-child {
+                    margin-top: 0rem;
+                }
+            }
+            /* Label */
+            >.label.label-attached-bottom {
+                border-bottom-left-radius: 0rem;
+                border-bottom-right-radius: 0rem;
+            }
         }
-        /* Label */
-        >.attached-bottom.label {
-            border-bottom-left-radius: 0rem;
-            border-bottom-right-radius: 0rem;
-        }
-    }
-    /* Bottom attached */
-    &.attached-bottom {
-        @include margin-v(0rem);
-        @include position-v(0rem);
-        border-radius: 0em 0em 0.28571429rem 0.28571429rem;
-        box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
-        margin-bottom: 1rem;
-        &:last-child {
-            margin-bottom: 0rem;
-        }
-        &.section-piled {
+        /* Bottom attached */
+        &.section-attached-bottom {
             @include margin-v(0rem);
-            margin-bottom: 3rem;
+            @include position-v(0rem);
+            border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+            box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
+            margin-bottom: 1rem;
             &:last-child {
                 margin-bottom: 0rem;
             }
+            &.section-piled {
+                @include margin-v(0rem);
+                margin-bottom: 3rem;
+                &:last-child {
+                    margin-bottom: 0rem;
+                }
+            }
+            /* Label */
+            >.label.label-attached-top {
+                border-top-left-radius: 0rem;
+                border-top-right-radius: 0rem;
+            }
         }
-        /* Label */
-        >.attached-top.label {
-            border-top-left-radius: 0rem;
-            border-top-right-radius: 0rem;
+        +.section-attached:not(.section-attached-top) {
+            border-top: none;
         }
     }
 }
@@ -422,13 +421,13 @@
 
 @each $index,
 $value in $color-order {
-    .section.#{$index} {
+    .section.section-#{$index} {
         &:not(.section-inverted) {
-            border-top: 2px solid $value !important;
+            border-top: 2px solid $value;
         }
         &.section-inverted {
-            background-color: $value !important;
-            color: $white !important;
+            background-color: $value;
+            color: $white;
         }
     }
 }
@@ -462,7 +461,7 @@ $value in $color-order {
 
 .section {
     @each $item in $float-order {
-        &.floated-#{$item} {
+        &.section-floated-#{$item} {
             float: $item;
             margin-right: 1rem;
         }
@@ -474,7 +473,7 @@ $value in $color-order {
 
 .section {
     @each $item in $text-align-order {
-        &.aligned-#{$item} {
+        &.section-aligned-#{$item} {
             text-align: $item;
         }
     }
