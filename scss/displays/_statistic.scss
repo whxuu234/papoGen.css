@@ -2,3 +2,327 @@
  * # papoGen 0.0.1 - Statistic
  * - Prefix: stat
  */
+
+
+/*** Statistic ***/
+
+.statistic {
+    @include flex-direction;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    margin: 1rem 0rem;
+    max-width: auto;
+    &:first-child {
+        margin-top: 0rem;
+    }
+    &:last-child {
+        margin-bottom: 0rem;
+    }
+    +.statistic {
+        margin: 0rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+/*** Types ***/
+
+
+/** Types: Statictic Group **/
+
+.statistics {
+    @include flex-wrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    >.statistic {
+        @include flex-direction;
+        -webkit-box-direction: normal;
+        -webkit-box-flex: 0;
+        -webkit-box-orient: vertical;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        margin: 0rem 1.5rem 2rem;
+        max-width: auto;
+    }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 1rem -1.5rem -2rem;
+    /* Clearing */
+    &:after {
+        clear: both;
+        content: ' ';
+        display: block;
+        height: 0rem;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    &:first-child {
+        margin-top: 0rem;
+    }
+    &:last-child {
+        margin-bottom: 0rem;
+    }
+}
+
+
+/*** Content ***/
+
+
+/** Content: value **/
+
+.statistics .statistic,
+.statistic {
+    >.statistic-value {
+        color: $black;
+        font: {
+            family: $font-family;
+            height: 1rem;
+            size: 4rem;
+            weight: normal;
+        }
+        text: {
+            align: center;
+            transform: uppercase;
+        }
+        /* Text Value */
+        &.statistic-text {
+            font-weight: bold;
+            line-height: 1rem;
+            min-height: 2rem;
+            text-align: center;
+            +.statistic-label {
+                text-align: center;
+            }
+        }
+        /* Image Value */
+        img {
+            max-height: 3rem;
+            vertical-align: baseline;
+        }
+        /* Icon Value */
+        .icon {
+            margin: 0rem;
+            opacity: 1;
+            width: auto;
+        }
+    }
+}
+
+
+/** Content: Label **/
+
+.statistics .statistic,
+.statistic {
+    >.statistic-label {
+        color: rgba(0, 0, 0, 0.87);
+        font: {
+            family: $font-family;
+            size: 1rem;
+            weight: bold;
+        }
+        text: {
+            align: center;
+            transform: uppercase;
+        }
+        /* Top Label */
+        ~.statistic-value {
+            margin-top: 0rem;
+        }
+    }
+    /* Bottom Label */
+    >.statistic-value~.statistic-label {
+        margin-top: 0rem;
+    }
+}
+
+
+/*** Variations ***/
+
+
+/** Variations: Count **/
+
+@for $num from 1 to 10 {
+    .statistics.statistics-#{$num} {
+        margin: 0rem 0rem -2rem;
+        .statistic {
+            min-width: (100% / (11 - $num));
+            margin: 0rem 0rem 2rem;
+        }
+    }
+}
+
+
+/** Types: Horizontal **/
+
+.statistic.statistic-h {
+    &.statistic {
+        @include flex-align(center);
+        @include flex-direction(row);
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+        >.statistic-label {
+            display: inline-block;
+            margin: 0rem;
+            margin-bottom: 0.75rem;
+            vertical-align: middle;
+        }
+        >.statistic-value {
+            display: inline-block;
+            vertical-align: middle;
+            &.statistic-text {
+                min-height: 0rem !important;
+            }
+            .icon {
+                width: 1.18rem;
+            }
+        }
+    }
+    &.statistics {
+        @include flex-direction;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        margin: 0rem;
+        max-width: none;
+        >.statistic {
+            >.statistic-label {
+                display: inline-block;
+                margin: 0rem;
+                margin-bottom: 0.75rem;
+                vertical-align: middle;
+            }
+            >.statistic-value {
+                display: inline-block;
+                vertical-align: middle;
+                &.statistic-text {
+                    min-height: 0rem !important;
+                }
+                .icon {
+                    width: 1.18rem;
+                }
+            }
+        }
+        .statistic {
+            @include flex-align(center);
+            @include flex-direction(row);
+            -webkit-box-direction: normal;
+            -webkit-box-orient: horizontal;
+            margin: 1rem 0rem;
+            max-width: none;
+        }
+    }
+}
+
+
+/** Variations: Colored **/
+
+@each $index,
+$value in $color-order {
+    @if $value !=$white or $value !=$black {
+        .statistics {
+            &.statistic-#{$index} .statistic,
+            .statistic-#{$index} {
+                .statistic-value {
+                    color: $value;
+                }
+            }
+        }
+        .statistic-#{$index}>.value {
+            color: $value;
+        }
+    }
+}
+
+
+/* Variations: Inverted */
+
+.statistics.statistic-inverted .statistic> {
+    .statistic-label {
+        color: $inv_black;
+    }
+    .statistic-value {
+        color: $white;
+    }
+}
+
+.statistic.statistic-inverted {
+    &.statistic-label {
+        color: $inv_black;
+    }
+    &.statistic-value {
+        color: $white;
+    }
+}
+
+@each $index,
+$value in $inv_color-order {
+    @if $value !=$black {
+        .statistics {
+            &.statistic-inverted-#{$index} .statistic,
+            .statistic-inverted-#{$index}.statistic {
+                >.statistic-value {
+                    color: $value;
+                }
+            }
+        }
+        .statistic.statistic-inverted-#{$index}>.statistic-value {
+            color: $value;
+        }
+    }
+}
+
+
+/** Variations: Floated **/
+
+.statistic.statistic-floated {
+    &:last-child {
+        margin-bottom: 0rem;
+    }
+    @each $item in $float-order {
+        &.statistic-floated-#{$item} {
+            float: $item;
+            @if $item==left {
+                margin: 0rem 2rem 1rem 0rem;
+            }
+            @if $item==right {
+                margin: 0rem 0rem 1rem 2rem;
+            }
+        }
+    }
+}
+
+
+/** Variations: Size **/
+
+@each $item in $size-order {
+    @if ($item==mini or $item==tiny or $item==small or $item==large or $item==huge or $item==massiv) {
+        .statistics.statistics-#{$item} .statistic,
+        .statistic.statistics-#{$item} {
+            >.statistics-value {
+                font-size: nth($statistic-value-size, index($size-order, $item)) !important;
+                &.statistics-text {
+                    font-size: nth($statistic-text-size, index($size-order, $item)) !important;
+                }
+            }
+        }
+        .statistics.statistics-#{$item}.statistic-h .statistic,
+        .statistic.statistics-#{$item}.statistic-h {
+            >.statistics-value {
+                font-size: nth($statistic-value-h-size, index($size-order, $item)) !important;
+            }
+        }
+    }
+}
+
+
+/** Overrides **/

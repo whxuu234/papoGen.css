@@ -18,7 +18,7 @@
     line-height: 1;
     margin: 1rem 0rem;
     text-transform: uppercase;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
     &:not(.divider-h) {
         @include border-v(1px solid rgba(34, 36, 38, 0.15), 1px solid rgba(255, 255, 255, 0.1));
     }
@@ -38,26 +38,33 @@
 /** Types: Horizontal **/
 
 .divider.divider-h {
-    display: table;
-    white-space: nowrap;
     height: auto;
-    margin: 0rem;
     line-height: 1;
+    margin: '';
+    overflow: hidden;
+    position: relative;
     text-align: center;
+    white-space: nowrap;
     &:before,
     &:after {
-        background-repeat: no-repeat;
+        border: {
+            top: 1px solid rgba(0, 0, 0, 0.1);
+            bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
         content: '';
-        display: table-cell;
-        position: relative;
+        height: 0;
+        position: absolute;
         top: 50%;
         width: 50%;
+        z-index: 3;
     }
     &:before {
-        background-position: right 1rem top 50%;
+        //background-position: right 1rem top 50%;
+        margin-left: calc(-50% - 1rem);
     }
     &:after {
-        background-position: left 1rem top 50%;
+        //background-position: left 1rem top 50%;
+        margin-left: 1rem;
     }
 }
 
@@ -99,10 +106,10 @@
     }
     &,
     &:before,
-    &.after {
+    &:after {
         border: {
-            top-color: rgba(34, 36, 38, 0.15) !important;
-            left-color: rgba(34, 36, 38, 0.15) !important;
+            top-color: rgba(0, 0, 0, 0.15) !important;
+            left-color: rgba(0, 0, 0, 0.15) !important;
             bottom-color: rgba(255, 255, 255, 0.15) !important;
             right-color: rgba(255, 255, 255, 0.15) !important;
         }

@@ -41,7 +41,11 @@ h2,
 h3,
 h4,
 h5 {
-    @include htext-default;
+    font-family: $font-family;
+    font-weight: bold;
+    line-height: 1.28571429rem;
+    margin: calc(2rem - 0.14285714em) 0rem 1rem;
+    padding: 0rem;
     &:first-child {
         margin-top: 0rem;
     }
@@ -134,7 +138,10 @@ body {
         border-radius: 0px;
     }
     &::-webkit-scrollbar-thumb {
-        @include transition(color 0.2s ease);
+        -o-transition: color 0.2s ease;
+        -moz-transition: color 0.2s ease;
+        -webkit-transition: color 0.2s ease;
+        transition: color 0.2s ease;
         background: rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         cursor: pointer;

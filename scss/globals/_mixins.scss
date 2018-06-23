@@ -47,6 +47,12 @@
     }
 }
 
+@mixin flex($value) {
+    -webkit-box-flex: $value;
+    -ms-flex: $value $value auto;
+    flex: $value $value auto;
+}
+
 @mixin flex-align($value: stretch) {
     -webkit-box-align: $value;
     -ms-flex-align: $value;
@@ -134,6 +140,14 @@
     transition: $value1, $value2, $value3;
 }
 
+@mixin transition-4($value1, $value2, $value3, $value4) {
+    -webkit-transition: $value1, $value2, $value3, $value4;
+    -moz-transition: $value1, $value2, $value3, $value4;
+    -ms-transition: $value1, $value2, $value3, $value4;
+    -o-transition: $value1, $value2, $value3, $value4;
+    transition: $value1, $value2, $value3, $value4;
+}
+
 @mixin user-select($value: none) {
     -webkit-user-select: $value;
     -moz-user-select: $value;
@@ -194,17 +208,6 @@
             @content;
         }
     }
-}
-
-
-/*** htext ***/
-
-@mixin htext-default {
-    font-family: $font-family;
-    line-height: 1.28571429em;
-    margin: calc(2rem - 0.14285714em) 0em 1rem;
-    font-weight: bold;
-    padding: 0em;
 }
 
 
