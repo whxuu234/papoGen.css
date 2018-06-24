@@ -2,3 +2,181 @@
  * # papoGen 0.0.1 - Header
  * - Prefix: hdr
  */
+/*!
+
+/*** Types ***/
+ 
+@import "../globals/_variables.scss";
+
+ @mixin font_setting(){
+cursor:auto;
+font:{
+family:monospace;
+weight:bold;
+}
+}
+ @mixin block(){//release float
+ &::after{
+  visibility:hidden;
+  display:block;
+    font-size:0;
+  content:"";
+   clear:both;
+    height:0;
+      }
+    }
+/** Types:Page **/
+
+.header{
+  @include font_setting;
+}
+
+/** Types:icon **/
+@mixin cs{  // color、size setting
+font:{
+size:1rem;
+color:rgba(#cccccc,.7);
+}
+}
+.header{
+  @include font_setting;
+}
+.center{
+text-align:center;
+width:fit-content;
+}
+.sub{
+@include font_setting;
+}
+.sub.icon{
+@include cs;
+}
+/** Types:SubHeader **/
+.ih{//img/icon for header
+float:left;
+}
+@mixin cs{
+font:{
+size:1.5rem;
+color:rgba(115,115,115,.9);
+}
+}
+.header{
+  @include font_setting;
+}
+.header.img{
+font-size:1.5rem;
+    margin:{
+    top:.9rem;
+    bottom:-1.2rem;
+    }
+}
+
+.sub.img{
+@include cs;
+@include block;
+}
+
+/*** Content ***/
+
+/** Content:SubHeader **/
+@mixin cs{  // color、size setting
+font:{
+size:1rem;
+color:rgba(#cccccc,.7);
+}
+}
+.header{
+  @include font_setting;
+}
+.sub{
+@include font_setting;
+}
+.sub.cons{
+@include cs;
+}
+/** Content:Image **/
+@mixin cs{  // color、size setting
+font:{
+size:1rem;
+color:rgba(#737373,.9);
+}
+}
+.ih{//img/icon for header
+float:left;
+}
+.header{
+  @include font_setting;
+}
+.header.ci{
+@include block;
+}
+.sub{
+@include font_setting;
+}
+
+.sub.ci{
+@include cs;
+@include block;
+}
+/** Content:Icon **/
+@mixin cs{  // color、size setting
+font:{
+size:1.8rem;
+color:rgba(#737373,.9);
+}
+}
+.ih{//img/icon for header
+float:left;
+}
+.header{
+  @include font_setting;
+}
+.sub{
+@include font_setting;
+}
+.header.nos{//icon header position for no subheaders
+ padding:{
+ top:0.5rem;
+ left:3rem;
+ }
+ @include block;
+ }
+ 
+.header.subs{//icon header position for having subheaders
+ margin:{
+ top:-.3rem;
+ bottom:-1.5rem;
+ } 
+   }
+ .sub.cons{
+   @include cs;
+  @include block;
+}
+
+/*** Variations ***/
+
+/** Variations:Dividing **/
+@mixin divider-setting{
+  border:{
+  style:solid;
+  top:0;
+  left:0;
+  right:0;
+  width:1px;
+  color:rgba(#cccccc,.7);
+}
+  padding-bottom:5px;
+  margin-bottom:5px;
+  
+}
+
+/** Variations:Block **/
+@mixin border_setting{
+   padding:1rem 1rem 1rem 1.5rem;
+   background:rgba(#e6e6e6,.7);
+   border-radius:4px;
+}
+.header.block{
+  @include border_setting; 
+}

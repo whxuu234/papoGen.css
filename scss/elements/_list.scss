@@ -491,8 +491,9 @@ ul.list {
 /** Content: Link **/
 
 .list.list-link {
-    a.item,
+    a.item, 
     .item a {
+
         @include transition(0.1s color ease);
         color: rgba(0, 0, 0, 0.4);
         &:hover {
