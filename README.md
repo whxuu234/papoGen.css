@@ -27,6 +27,10 @@ This repository is implement own CSS UI style for papoGen.
     * Mostly recommend using `google-chrome`
 
 ---
-## Authors
+## Developers
 
 * [Yung-Sheng Lu](https://github.com/yungshenglu)
+* [abvesa](https://github.com/abvesa)
+* [whxuu234](https://github.com/whxuu234)
+* [HexRabbit](https://github.com/HexRabbit)
+* [kevinbird61](https://github.com/kevinbird61)
