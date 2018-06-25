@@ -52,12 +52,11 @@ i.icon {
 
 i.icon {
     line-height: 1;
-    &.active,
-    &.emphasized,
-    &.hover {
+    &:active,
+    &:hover {
         opacity: 1 !important;
     }
-    &.disabled {
+    &:disabled {
         opacity: 0.45 !important;
     }
 }
@@ -69,12 +68,12 @@ i.icon {
 /** Variations: Circular **/
 
 i.icon.icon-circular {
-    border-radius: 500rem !important;
-    box-shadow: 0rem 0rem 0rem 0.1rem rgba(0, 0, 0, 0.1) inset;
-    height: 2rem !important;
+    border-radius: 500em !important;
+    box-shadow: 0rem 0rem 0rem 0.25rem rgba(0, 0, 0, 0.1) inset;
+    height: 2em !important;
     line-height: 1 !important;
-    padding: 0.5rem !important;
-    width: 2rem !important;
+    padding: 0.5em !important;
+    width: 2em !important;
     &.icon-inverted {
         border: none;
         box-shadow: none;
@@ -104,14 +103,14 @@ i.icon.icon-link {
 
 /** Variations: Squared **/
 
-i.icon.squared {
+i.icon.icon-squared {
     box-shadow: 0rem 0rem 0rem 0.1rem rgba(0, 0, 0, 0.1) inset;
     height: 2rem;
     line-height: 1;
     padding: 0.5rem 0.41rem !important;
     vertical-align: baseline;
     width: 2rem;
-    &.inverted {
+    &.icon-inverted {
         border: none;
         box-shadow: none;
     }
@@ -135,7 +134,7 @@ i.icon.icon-inverted {
 @each $index,
 $value in $color-order {
     @if ($value !=$white) {
-        i.icon.#{$index} {
+        i.icon.icon-#{$index} {
             color: $value !important;
             &.icon-inverted {
                 color: #{$index} !important;
@@ -153,7 +152,7 @@ $value in $color-order {
 /* Variations: Size */
 
 @each $item in $size-order {
-    i.icon.#{$item} {
+    i.icon.icon-#{$item} {
         font-size: nth($icon-font-size, index($size-order, $item));
         @if ($item==big or $item==large or $item==huge or $item==massive) {
             vertical-align: middle;

@@ -2,181 +2,330 @@
  * # papoGen 0.0.1 - Header
  * - Prefix: hdr
  */
-/*!
 
-/*** Types ***/
- 
-@import "../globals/_variables.scss";
 
- @mixin font_setting(){
-cursor:auto;
-font:{
-family:monospace;
-weight:bold;
-}
-}
- @mixin block(){//release float
- &::after{
-  visibility:hidden;
-  display:block;
-    font-size:0;
-  content:"";
-   clear:both;
-    height:0;
-      }
+/*** Header ***/
+
+.hdr {
+    border: none;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: $font-family;
+    font-weight: $h-font-weight;
+    line-height: $h-line-height;
+    margin: calc(2rem - 0.165rem) 0rem 1rem;
+    padding: 0rem;
+    text-transform: none;
+    &:first-child {
+        margin-top: -0.165rem;
     }
-/** Types:Page **/
-
-.header{
-  @include font_setting;
-}
-
-/** Types:icon **/
-@mixin cs{  // color、size setting
-font:{
-size:1rem;
-color:rgba(#cccccc,.7);
-}
-}
-.header{
-  @include font_setting;
-}
-.center{
-text-align:center;
-width:fit-content;
-}
-.sub{
-@include font_setting;
-}
-.sub.icon{
-@include cs;
-}
-/** Types:SubHeader **/
-.ih{//img/icon for header
-float:left;
-}
-@mixin cs{
-font:{
-size:1.5rem;
-color:rgba(115,115,115,.9);
-}
-}
-.header{
-  @include font_setting;
-}
-.header.img{
-font-size:1.5rem;
-    margin:{
-    top:.9rem;
-    bottom:-1.2rem;
+    &:last-child {
+        margin-bottom: 0rem;
+    }
+    /* Position */
+    +p {
+        margin-top: 0rem;
+    }
+    /* Coupling with label */
+    .label {
+        font-size: '';
+        margin-left: 0.5rem;
+        vertical-align: middle;
+    }
+    /* Default size */
+    &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+        font-size: 1.25;
     }
 }
 
-.sub.img{
-@include cs;
-@include block;
+
+/* Size of each level header */
+
+@each $index,
+$value in $h-size-order {
+    #{$index}.hdr {
+        font-size: $value !important;
+        .hdr-sub {
+            font: {
+                size: map-get($h-sub-size-order, $index) !important;
+                weight: $h-sub-font-weight;
+            }
+        }
+    }
+    .hdr-sub {
+        font-weight: $h-sub-font-weight;
+    }
 }
+
 
 /*** Content ***/
 
-/** Content:SubHeader **/
-@mixin cs{  // color、size setting
-font:{
-size:1rem;
-color:rgba(#cccccc,.7);
-}
-}
-.header{
-  @include font_setting;
-}
-.sub{
-@include font_setting;
-}
-.sub.cons{
-@include cs;
-}
-/** Content:Image **/
-@mixin cs{  // color、size setting
-font:{
-size:1rem;
-color:rgba(#737373,.9);
-}
-}
-.ih{//img/icon for header
-float:left;
-}
-.header{
-  @include font_setting;
-}
-.header.ci{
-@include block;
-}
-.sub{
-@include font_setting;
+
+/** Image **/
+
+.hdr> {
+    img,
+    .img:not(.icon) {
+        display: inline-block;
+        height: auto;
+        margin-top: 0.14285714em;
+        vertical-align: middle;
+        width: 2.5em;
+        &:only-child {
+            margin-right: 0.75rem;
+        }
+    }
 }
 
-.sub.ci{
-@include cs;
-@include block;
+
+/** Icon **/
+
+.hdr {
+    >.icon {
+        display: table-cell;
+        font-size: 1.5em;
+        opacity: 1;
+        padding-top: 0.165rem;
+        vertical-align: middle;
+    }
+    /* With Text Node */
+    .icon:only-child {
+        display: inline-block;
+        margin-right: 0.75rem;
+        padding: 0rem;
+    }
 }
-/** Content:Icon **/
-@mixin cs{  // color、size setting
-font:{
-size:1.8rem;
-color:rgba(#737373,.9);
+
+
+/** Subheader **/
+
+.hdr .hdr-sub {
+    color: rgba(0, 0, 0, 0.6);
+    display: block;
+    font: {
+        size: 1rem;
+        weight: $h-sub-font-weight;
+    }
+    line-height: $h-sub-line-height;
+    margin: 0rem;
+    padding: 0rem;
 }
+
+
+/** Content **/
+
+.hdr {
+    .hdr-content {
+        display: inline-block;
+        vertical-align: top;
+    }
+    /* After Image */
+    >img,
+    >.img {
+        +.hdr-content {
+            padding-left: 0.75rem;
+            vertical-align: middle;
+        }
+    }
+    /* After Icon */
+    >.icon+.hdr-content {
+        display: table-cell;
+        padding-left: 0.75rem;
+        vertical-align: middle;
+    }
 }
-.ih{//img/icon for header
-float:left;
+
+
+/*** Types ***/
+
+
+/** Types: Icon Headers **/
+
+.hdr.hdr-icon {
+    display: inline-block;
+    margin: 2rem 0rem 1rem;
+    text-align: center;
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0rem;
+        visibility: hidden;
+    }
+    &:first-child {
+        margin-top: 0rem;
+    }
+    &.hdr-block .icon {
+        margin-bottom: 0rem;
+    }
+    &.hdr-aligned {
+        @include margin-h(auto);
+        display: block;
+    }
+    .hdr-content {
+        display: block;
+        padding: 0em;
+    }
+    i.icon {
+        display: block;
+        float: none;
+        font-size: 3em;
+        height: auto;
+        line-height: 1;
+        margin: 0rem auto 0.5rem;
+        opacity: 1;
+        padding: 0rem;
+        width: auto;
+        &.icon-circular {
+            font-size: 2em;
+        }
+        &.icon-squared {
+            font-size: 2em;
+        }
+    }
 }
-.header{
-  @include font_setting;
-}
-.sub{
-@include font_setting;
-}
-.header.nos{//icon header position for no subheaders
- padding:{
- top:0.5rem;
- left:3rem;
- }
- @include block;
- }
- 
-.header.subs{//icon header position for having subheaders
- margin:{
- top:-.3rem;
- bottom:-1.5rem;
- } 
-   }
- .sub.cons{
-   @include cs;
-  @include block;
-}
+
 
 /*** Variations ***/
 
-/** Variations:Dividing **/
-@mixin divider-setting{
-  border:{
-  style:solid;
-  top:0;
-  left:0;
-  right:0;
-  width:1px;
-  color:rgba(#cccccc,.7);
-}
-  padding-bottom:5px;
-  margin-bottom:5px;
-  
+
+/** Variations: Divided **/
+
+.hdr.hdr-divided {
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    padding-bottom: 0.21428571rem;
+    &.hdr-inverted {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    .hdr-sub {
+        padding-bottom: 0.21428571rem;
+    }
+    i.icon {
+        margin-bottom: 0rem;
+    }
 }
 
-/** Variations:Block **/
-@mixin border_setting{
-   padding:1rem 1rem 1rem 1.5rem;
-   background:rgba(#e6e6e6,.7);
-   border-radius:4px;
+
+/** Variarions: Block **/
+
+.hdr.hdr-block {
+    background: #F0F0F0;
+    border: 1px solid #D4D4D5;
+    border-radius: 0.28571429rem;
+    box-shadow: none;
+    padding: 0.78571429rem 1rem;
+    &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+        font-size: 1rem;
+    }
 }
-.header.block{
-  @include border_setting; 
+
+
+/** Variations: Colored **/
+
+@each $index,
+$value in $color-order {
+    @if $value !=$black {
+        .hdr.hdr-#{$index} {
+            color: $value;
+            &a:hover {
+                color: map-get($inv_color-order, $index);
+            }
+            &.hdr-divided {
+                border-bottom: 2px solid $value;
+            }
+            &.hdr-inverted {
+                color: map-get($inv_color-order, $index);
+                &a:hover {
+                    color: $value;
+                }
+            }
+        }
+    }
 }
+
+
+/** Variations: Inverted **/
+
+.hdr.hdr-inverted {
+    color: $white;
+    .hdr-sub {
+        color: $white;
+        opacity: 0.8;
+    }
+    &.hdr-attached {
+        background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+        background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+        border-color: transparent;
+        box-shadow: none;
+    }
+    &.hdr-block {
+        background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+        background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+        border-bottom: none;
+        box-shadow: none;
+    }
+}
+
+
+/** Variations: Aligned **/
+
+@each $item in $text-align-order {
+    .hdr.hdr-aligned-#{$item} {
+        text-align: $item;
+    }
+}
+
+.hdr.hdr-aligned-justified {
+    text-align: justify;
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+
+/** Variations: Attached **/
+
+.hdr.hdr-attached {
+    @include margin-h(-1px);
+    background: $white;
+    box-shadow: none;
+    border: 1px solid $inv_grey;
+    padding: 0.78571429rem 1rem;
+    /* Default size */
+    &:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+        font-size: 1rem;
+    }
+    &:not(.hdr-attached-top):not(.hdr-attached-bottom) {
+        @include margin-v(0rem);
+        border-top: none;
+        border-radius: 0rem;
+    }
+    &.hdr-attached-top {
+        border-radius: 0.28571429rem 0.28571429rem 0rem 0rem;
+        margin-bottom: 0rem;
+    }
+    &.hdr-attached-bottom {
+        border-top: none;
+        border-radius: 0rem 0rem 0.28571429rem 0.28571429rem;
+        margin-top: 0rem;
+    }
+    /* Block */
+    &.hdr-block {
+        background: $grey;
+    }
+}
+
+
+/** Variations: Floated **/
+
+@each $item in $float-order {
+    .hdr.hdr-floated-#{$item} {
+        float: $item;
+        margin-top: 0rem;
+        margin-#{$item}: 0.5rem;
+    }
+}
+
+
+/** Overrides **/
