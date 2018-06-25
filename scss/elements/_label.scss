@@ -9,141 +9,124 @@
 
 // label
 .label {
-  margin: 0.25rem 0.25rem;
-  opacity: 0.9;
-  cursor: pointer;
-  width: fit-content;
-  height: auto;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  vertical-align: middle;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  // image
-  img {
-    width: 2rem;
-    height: 2rem;
-    float: left;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    margin-right: 1rem;
-
-    // height, width of image depends on (font-size + 2*padding) * 14px
-    // margin-right depends on label right padding (rem)
-  }
-
-  // icon
-  i {
-    margin: 0rem 0rem 0rem 1rem;
-  }
-
-  i.left {
-    margin: 0rem 1rem 0rem 0rem;
-  }
+    margin: 0.25rem 0.25rem;
+    opacity: 0.9;
+    cursor: pointer;
+    width: fit-content;
+    height: auto;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    &:hover {
+        opacity: 1;
+    }
+    // image
+    img {
+        width: 2rem;
+        height: 2rem;
+        float: left;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        margin-right: 1rem;
+        // height, width of image depends on (font-size + 2*padding) * 14px
+        // margin-right depends on label right padding (rem)
+    }
+    // icon
+    i {
+        margin: 0rem 0rem 0rem 1rem;
+    }
+    i.left {
+        margin: 0rem 1rem 0rem 0rem;
+    }
 }
 
 // horizontal
 .label.horizontal {
-  display: inline;
+    display: inline;
 }
+
 
 /* Content */
+
 .label {
-  .detail {
-     margin: 0rem 0rem 0rem 1rem;
-  }
+    .detail {
+        margin: 0rem 0rem 0rem 1rem;
+    }
 }
 
+
 /* Variations */
+
 // circular
 .circular.label {
-  border-radius: 0;
+    border-radius: 0;
 }
 
 // basic
-
-
 // color
-@each $type, $col in $color-order {
-  .label.#{$type} {
-    color: $col;
-    background: $col;
-    border-color: $col;
-  }
+@each $type,
+$col in $color-order {
+    .label.#{$type} {
+        color: $col;
+        background: $col;
+        border-color: $col;
+    }
 }
 
 // frame or fill
 $frame: (fill: none, line: solid);
-@each $type, $val in $frame {
-  .label.#{$type} {
-    border-style: $val;
-    @if ($type == 'line') {
-      border-width: 0.1rem;
-      background: $white;
+@each $type,
+$val in $frame {
+    .label.#{$type} {
+        border-style: $val;
+        @if ($type=='line') {
+            border-width: 0.1rem;
+            background: $white;
+        }
+        @else {
+            color: $white;
+        }
     }
-    @else {
-      color: $white;
-    }
-  }
 }
 
 // size
 $size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 1rem), large: (1.5rem, 1rem, 2rem));
-@each $type, $attr in $size {
-  .label.#{$type} {
-    font-size: nth($attr, 1);
-    padding: nth($attr, 2) nth($attr, 3);
-
-    img {
-      width: nth($attr, 1)*2;
-      height: nth($attr, 1)*2;
-      margin-right: nth($attr, 1);
+@each $type,
+$attr in $size {
+    .label.#{$type} {
+        font-size: nth($attr, 1);
+        padding: nth($attr, 2) nth($attr, 3);
+        img {
+            width: nth($attr, 1)*2;
+            height: nth($attr, 1)*2;
+            margin-right: nth($attr, 1);
+        }
+        i {
+            margin: 0rem 0rem 0rem nth($attr, 1);
+        }
+        i.left {
+            margin: 0rem nth($attr, 1) 0rem 0rem;
+        }
+        .detail {
+            margin: 0rem 0rem 0rem nth($attr, 1);
+        }
     }
-
-    i {
-      margin: 0rem 0rem 0rem nth($attr, 1);
-    }
-
-    i.left {
-      margin: 0rem nth($attr, 1) 0rem 0rem;
-    }
-
-    .detail {
-      margin: 0rem 0rem 0rem nth($attr, 1);
-    }
-  }
 }
 
 // image
 .image.label {
-  display: flex;
-  align-items: center;
-  padding: 0rem 1rem 0rem 0rem;
+    display: flex;
+    align-items: center;
+    padding: 0rem 1rem 0rem 0rem;
 }
+
 
 /* Groups */
+
 .labels {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
