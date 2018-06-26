@@ -42,27 +42,8 @@ ul.list ul,
 
 ul.list {
     margin-left: 1.25rem;
-    li {
-        position: relative;
-        &:before {
-            @include user-select;
-            color: rgba(0, 0, 0, 0.87);
-            content: '•';
-            font-weight: normal;
-            margin-left: -1.25rem;
-            opacity: 1;
-            pointer-events: none;
-            position: absolute;
-            top: auto;
-            left: auto;
-            vertical-align: top;
-        }
-    }
-    ul {
-        padding-left: 1.25rem;
-    }
     /* Bulleted horizontal */
-    .list-h.list-bulleted {
+    &.list-h.list-bulleted {
         margin-left: 0rem;
         li {
             margin-left: 1.75rem;
@@ -77,18 +58,56 @@ ul.list {
             }
         }
     }
+    li {
+        position: relative;
+        &:before {
+            @include user-select;
+            color: rgba(0, 0, 0, 0.87);
+            content: '•';
+            font-weight: 500;
+            margin-left: -1.25rem;
+            opacity: 1;
+            pointer-events: none;
+            position: absolute;
+            top: auto;
+            left: auto;
+            vertical-align: top;
+        }
+    }
+    ul {
+        padding-left: 1.25rem;
+    }
 }
 
 .list.list-bulleted {
     margin-left: 1.25rem;
+    /* Bulleted horizontal*/
+    &.list-h {
+        margin-left: 0rem;
+        >.item {
+            margin-left: 2rem;
+            &:first-child {
+                margin-left: 0rem;
+                &::before {
+                    display: none;
+                }
+            }
+            &::before {
+                color: rgba(0, 0, 0, 0.87);
+            }
+        }
+    }
     >.item,
     .list>.item {
         position: relative;
         &:before {
             @include user-select;
-            color: inherit;
+            color: $black !important;
             content: '•';
-            font-weight: normal;
+            font: {
+                size: 1.3rem;
+                weight: 500;
+            }
             margin-left: -1.25rem;
             opacity: 1;
             pointer-events: none;
@@ -104,40 +123,24 @@ ul.list {
     .list {
         padding-left: 1.25rem;
     }
-    /* Bulleted horizontal*/
-    .list-h {
-        margin-left: 0rem;
-        >.item {
-            margin-left: 1.75rem;
-            &:first-child {
-                margin-left: 0rem;
-                &::before {
-                    display: none;
-                }
-            }
-            &::before {
-                color: rgba(0, 0, 0, 0.87);
-            }
-        }
-    }
 }
 
 
 /** Types: Ordered **/
 
 ol.list {
-    &,
-    ol {
-        counter-reset: ordered;
-        list-style-type: none;
-        margin-left: 1.25rem;
-    }
     /* Child lists */
     ol {
         margin-left: 1rem;
-        &:before {
+        li:before {
             margin-left: -2rem;
         }
+    }
+    &,
+    ol.list {
+        counter-reset: ordered;
+        list-style-type: none;
+        margin-left: 1.25rem;
     }
     /* Ordered inverted */
     &.list-inverted {
@@ -172,6 +175,7 @@ ol.list {
         }
         &[value]:before {
             content: attr(value);
+            margin-left: -1.25rem;
         }
     }
 }
@@ -182,13 +186,6 @@ ol.list {
         counter-reset: ordered;
         list-style-type: none;
         margin-left: 1.25rem;
-    }
-    /* Child lists */
-    .list {
-        margin-left: 1rem;
-        &:before {
-            margin-left: -2rem;
-        }
     }
     /* Ordered inverted */
     &.list-inverted {
@@ -224,6 +221,13 @@ ol.list {
             left: auto;
             text-align: right;
             vertical-align: middle;
+        }
+    }
+    /* Child lists */
+    .list {
+        margin-left: 1rem;
+        >.item:before {
+            margin-left: -2rem;
         }
     }
     /* Value */
@@ -362,7 +366,7 @@ ul.list {
 
 .list>.item,
 .list .list>.item {
-    >.content {
+    >.item-content {
         line-height: 1.14285714rem;
         >.list {
             margin-left: 0rem;
@@ -371,14 +375,14 @@ ul.list {
     }
     >.image,
     >.icon {
-        +.content {
+        +.item-content {
             display: table-cell;
             padding: 0rem 0rem 0rem 0.5rem;
             vertical-align: top;
         }
     }
     >img.image {
-        +.content {
+        +.item-content {
             display: inline-block;
         }
     }
@@ -389,12 +393,12 @@ ul.list {
 
 .list>.item,
 .list .list>.item {
-    .header {
+    .item-hdr {
         color: rgba(0, 0, 0, 0.87);
         display: block;
         font: {
             family: $font-family;
-            weight: bold;
+            weight: 500;
         }
         margin: 0rem;
     }
@@ -405,7 +409,7 @@ ul.list {
 
 .list>.item,
 .list .list>.item {
-    .detail {
+    .item-detail {
         color: rgba(0, 0, 0, 0.7);
         display: block;
     }
@@ -419,7 +423,7 @@ ul.list {
     a {
         cursor: pointer;
         /* Link in header */
-        &.header {
+        &.item-hdr {
             cursor: pointer;
             color: $link !important;
         }
@@ -448,14 +452,14 @@ ul.list {
 .list.list-h {
     display: inline-block;
     font-size: 0rem;
-    &:not(.celled)>.item:first-child {
+    &:not(.list-celled)>.item:first-child {
         margin-left: 0rem !important;
         padding-left: 0rem !important;
     }
     >.item,
     .list>.item {
         font-size: 1rem;
-        >.content,
+        >.item-content,
         >.image,
         >i.icon {
             vertical-align: middle;
@@ -468,14 +472,14 @@ ul.list {
         /* Padding on all elements */
         &:first-child,
         &:last-child {
-            padding-top: 0.21428571rem;
-            padding-bottom: 0.21428571rem;
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
         }
         >i.icon {
             margin: 0rem;
             padding: 0rem 0.25rem 0rem 0rem;
             &,
-            &+.content {
+            &+.item-content {
                 display: inline-block;
                 float: none;
             }
@@ -491,9 +495,8 @@ ul.list {
 /** Content: Link **/
 
 .list.list-link {
-    a.item, 
+    a.item,
     .item a {
-
         @include transition(0.1s color ease);
         color: rgba(0, 0, 0, 0.4);
         &:hover {
@@ -548,8 +551,11 @@ ul.list {
     }
     >.item,
     .list>.item {
-        color: rgba(255, 255, 255, 0.9);
-        .detail {
+        &,
+        .item-hdr {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .item-detail {
             color: rgba(255, 255, 255, 0.7);
         }
     }
@@ -704,7 +710,7 @@ ul.list {
             margin-left: 0rem;
             padding-left: 0rem;
         }
-        >.item:not(.list-horizontal) {
+        >.item:not(.list-h) {
             padding-left: 1.25rem;
         }
     }
@@ -851,7 +857,7 @@ ul.list {
 /** Variations: Size **/
 
 @each $item in $size-order {
-    .list.#{$item} {
+    .list.list-#{$item} {
         font-size: nth($list-font-size, index($size-order, $item));
         &.list-h {
             >.item,
@@ -871,7 +877,7 @@ ul.list {
 @each $item in $aligned-order {
     .list[class*="list-aligned-#{$item}"],
     .list [class*="list-aligned-#{$item}"] {
-        .content,
+        .item-content,
         .image {
             vertical-align: $item !important;
         }
