@@ -199,3 +199,23 @@ $alert-error-border: #E0B4B4;
 $alert-success-bg: #FCFFF5;
 $alert-positive-bg:$alert-success-bg;
 $alert-success-border: #A3C293;
+$alert-state-bg-order: (info: $alert-info-bg, warning: $alert-warning-bg, positive: $alert-positive-bg, negative: $alert-negative-bg);
+$alert-state-border-order: (info: $alert-info-border, warning: $alert-warning-border, positive: $alert-success-border, negative: $alert-error-border);
+$alert-state-content-color: (info: $inv_teal, warning: $inv_brown, positive: $inv_green, negative: $inv_red);
+$alert-state-hdr-color: (info: $teal, warning: $brown, positive: $green, negative: $red);
+
+/*** Table ***/
+
+$table-warning-bg: #FFFAF3;
+$table-warning-bg-hover: #FFF4E4;
+$table-warning-shadow: #C9BA9B;
+$table-positive-bg: #FCFFF5;
+$table-positive-bg-hover: #F7FFE6;
+$table-positive-shadow: #A3C293;
+$table-negative-bg: #FFF6F6;
+$table-negative-bg-hover: #FFE7E7;
+$table-negative-shadow: #E0B4B4;
+$table-state-bg-order:(warning: $table-warning-bg, positive: $table-positive-bg, negative: $table-negative-bg);
+$table-state-bg-hover-order:(warning: $table-warning-bg-hover, positive: $table-positive-bg-hover, negative: $table-negative-bg-hover);
+$table-state-shadow-order: (warning: $table-warning-shadow, positive: $table-positive-shadow, negative: $table-negative-shadow);
+$table-state-content-color: (warning: $brown, positive: $green, negative: $red);

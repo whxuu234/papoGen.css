@@ -569,9 +569,9 @@ ul.list {
 }
 
 
-/** Variations: Selection **/
+/** Variations: Selectable **/
 
-.list.list-selection {
+.list.list-selectable {
     >.item,
     .list>.item {
         @include transition-3(0.1s color ease, 0.1s padding-left ease, 0.1s background-color ease);
@@ -611,7 +611,7 @@ ul.list {
     }
     /* Selection celled / divided */
     .list-celled,
-    .list-selection {
+    .list-selectable {
         >.item,
         .list>.item {
             border-radius: 0rem;
@@ -623,7 +623,7 @@ ul.list {
         .list>.item {
             @include margin-h(-0.5rem);
         }
-        &:not(.list-selection) {
+        &:not(.list-selectable) {
             >.item,
             .list>.item {
                 @include padding-h(0rem);
@@ -730,7 +730,7 @@ ul.list {
         }
     }
     /* Divided selection */
-    .list-selection {
+    .list-selectable {
         >.item,
         .list>.item {
             border-radius: 0rem;

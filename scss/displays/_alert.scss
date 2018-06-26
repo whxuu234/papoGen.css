@@ -202,71 +202,20 @@
 }
 
 
-/** Variations: Info **/
+/** Variations: Information / Warning / Positive / Negative **/
 
-.alert.alert-info {
-    @extend .alert.alert-icon;
-    background-color: $alert-info-bg !important;
-    box-shadow: 0px 0px 0px 1px $alert-info-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-    color: $inv_teal;
-    &.alert-attached {
-        box-shadow: 0px 0px 0px 1px $alert-info-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-    }
-    .alert-hdr {
-        color: $teal;
-    }
-}
-
-
-/** Variations: Warning **/
-
-.alert.alert-warning {
-    @extend .alert.alert-icon;
-    background-color: $alert-warning-bg !important;
-    box-shadow: 0px 0px 0px 1px $alert-warning-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-    color: $inv-brown;
-    &.alert-attached {
-        box-shadow: 0px 0px 0px 1px $alert-warning-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-    }
-    .alert-hdr {
-        color: $brown;
-    }
-}
-
-
-/** Variations: Negative/Error **/
-
-.alert {
-    &.alert-negative,
-    &.alert-error {
+@each $index,
+$value in $alert-state-bg-order {
+    .alert.alert-#{$index} {
         @extend .alert.alert-icon;
-        background-color: $alert-error-bg !important;
-        box-shadow: 0px 0px 0px 1px $alert-error-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-        color: $inv_red;
+        background-color: $value !important;
+        box-shadow: 0px 0px 0px 1px map-get($alert-state-border-order, $index) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        color: map-get($alert-state-content-color, $index) !important;
         &.alert-attached {
-            box-shadow: 0px 0px 0px 1px $alert-error-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+            box-shadow: 0px 0px 0px 1px map-get($alert-state-border-order, $index) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
         }
         .alert-hdr {
-            color: $red;
-        }
-    }
-}
-
-
-/** Variations: Positive/Success **/
-
-.alert {
-    &.alert-positive,
-    &.alert-success {
-        @extend .alert.alert-icon;
-        background-color: $alert-success-bg !important;
-        box-shadow: 0px 0px 0px 1px $alert-success-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-        color: $inv_green;
-        &.alert-attached {
-            box-shadow: 0px 0px 0px 1px $alert-success-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-        }
-        .alert-hdr {
-            color: $green;
+            color: map-get($alert-state-hdr-color, $index) !important;
         }
     }
 }
