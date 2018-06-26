@@ -87,18 +87,21 @@
         color: $black;
         font: {
             family: $font-family;
-            height: 1rem;
             size: 4rem;
             weight: normal;
         }
+        line-height: 1em;
         text: {
             align: center;
             transform: uppercase;
         }
         /* Text Value */
         &.statistic-text {
-            font-weight: bold;
-            line-height: 1rem;
+            font: {
+                size: 2em;
+                weight: 500;
+            }
+            line-height: 1em;
             min-height: 2rem;
             text-align: center;
             +.statistic-label {
@@ -125,11 +128,11 @@
 .statistics .statistic,
 .statistic {
     >.statistic-label {
-        color: rgba(0, 0, 0, 0.87);
+        color: rgba(0, 0, 0, 0.4);
         font: {
             family: $font-family;
             size: 1rem;
-            weight: bold;
+            weight: 300;
         }
         text: {
             align: center;
@@ -142,7 +145,7 @@
     }
     /* Bottom Label */
     >.statistic-value~.statistic-label {
-        margin-top: 0rem;
+        margin-top: 0.25rem;
     }
 }
 
@@ -165,7 +168,7 @@
 
 /** Types: Horizontal **/
 
-.statistic.statistic-h {
+.statistic-h {
     &.statistic {
         @include flex-align(center);
         @include flex-direction(row);
@@ -246,21 +249,24 @@ $value in $color-order {
 
 /* Variations: Inverted */
 
-.statistics.statistic-inverted .statistic> {
-    .statistic-label {
-        color: $inv_black;
+.statistic-inverted {
+    &.statistic> {
+        .statistic-label {
+            color: $inv_grey;
+        }
+        .statistic-value {
+            color: $white;
+        }
     }
-    .statistic-value {
-        color: $white;
-    }
-}
-
-.statistic.statistic-inverted {
-    &.statistic-label {
-        color: $inv_black;
-    }
-    &.statistic-value {
-        color: $white;
+    &.statistics {
+        .statistic> {
+            .statistic-label {
+                color: $inv_grey;
+            }
+            .statistic-value {
+                color: $white;
+            }
+        }
     }
 }
 
@@ -270,13 +276,21 @@ $value in $inv_color-order {
         .statistics {
             &.statistic-inverted-#{$index} .statistic,
             .statistic-inverted-#{$index}.statistic {
+                >.statistic-label {
+                    color: $inv_grey;
+                }
                 >.statistic-value {
                     color: $value;
                 }
             }
         }
-        .statistic.statistic-inverted-#{$index}>.statistic-value {
-            color: $value;
+        .statistic.statistic-inverted-#{$index} {
+            >.statistic-label {
+                color: $inv_grey;
+            }
+            >.statistic-value {
+                color: $value;
+            }
         }
     }
 }
@@ -284,19 +298,17 @@ $value in $inv_color-order {
 
 /** Variations: Floated **/
 
-.statistic.statistic-floated {
-    &:last-child {
-        margin-bottom: 0rem;
-    }
-    @each $item in $float-order {
-        &.statistic-floated-#{$item} {
-            float: $item;
-            @if $item==left {
-                margin: 0rem 2rem 1rem 0rem;
-            }
-            @if $item==right {
-                margin: 0rem 0rem 1rem 2rem;
-            }
+@each $item in $float-order {
+    .statistic.statistic-floated-#{$item} {
+        float: $item;
+        @if $item==left {
+            margin: 0rem 2rem 1rem 0rem;
+        }
+        @if $item==right {
+            margin: 0rem 0rem 1rem 2rem;
+        }
+        &:last-child {
+            margin-bottom: 0rem;
         }
     }
 }
@@ -305,21 +317,19 @@ $value in $inv_color-order {
 /** Variations: Size **/
 
 @each $item in $size-order {
-    @if ($item==mini or $item==tiny or $item==small or $item==large or $item==huge or $item==massiv) {
-        .statistics.statistics-#{$item} .statistic,
-        .statistic.statistics-#{$item} {
-            >.statistics-value {
-                font-size: nth($statistic-value-size, index($size-order, $item)) !important;
-                &.statistics-text {
-                    font-size: nth($statistic-text-size, index($size-order, $item)) !important;
-                }
+    .statistics.statistic-#{$item} .statistic,
+    .statistic.statistic-#{$item} {
+        >.statistic-value {
+            font-size: nth($statistic-value-size, index($size-order, $item)) !important;
+            &.statistic-text {
+                font-size: nth($statistic-text-size, index($size-order, $item)) !important;
             }
         }
-        .statistics.statistics-#{$item}.statistic-h .statistic,
-        .statistic.statistics-#{$item}.statistic-h {
-            >.statistics-value {
-                font-size: nth($statistic-value-h-size, index($size-order, $item)) !important;
-            }
+    }
+    .statistics.statistic-#{$item}.statistic-h .statistic,
+    .statistic.statistic-#{$item}.statistic-h {
+        >.statistic-value {
+            font-size: nth($statistic-value-h-size, index($size-order, $item)) !important;
         }
     }
 }
