@@ -8,7 +8,7 @@
 
 .alert {
     @include transition-4(opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease);
-    background: $inv_grey;
+    background: $bg_grey !important;
     border-radius: 0.28571429rem;
     box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0.87);
@@ -25,10 +25,10 @@
         margin-bottom: 0rem;
     }
     /* First and Last Element */
-    > :first-child {
+    >:first-child {
         margin-top: 0rem;
     }
-    > :last-child {
+    >:last-child {
         margin-bottom: 0rem;
     }
     >.icon {
@@ -47,11 +47,12 @@
             }
         }
     }
-    /* Header */
-    .header {
+    /* Alert Header */
+    .alert-hdr {
         display: block;
         font: {
             family: $font-family;
+            size: 1.15em;
             weight: bold;
         }
         margin: -0.14285714rem 0rem 0rem 0rem;
@@ -89,34 +90,32 @@
 
 /** Types: List Alert **/
 
-.alert .list {
-    &:not() {
-        list-style-position: inside;
-        margin: 0.5rem 0rem 0rem;
-        opacity: 0.85;
+.alert .alert-list {
+    list-style-position: inside;
+    opacity: 0.85;
+    margin: 0.5rem 0rem 0rem;
+    padding: 0rem;
+    text-align: left;
+    &:first-child {
+        margin-top: 0rem;
+    }
+    &:last-child {
+        margin-bottom: 0rem;
+    }
+    li {
+        list-style-type: none;
+        margin: 0rem 0rem 0.3rem 1rem;
+        position: relative;
         padding: 0rem;
-        text-align: left;
-        &:first-child {
-            margin-top: 0rem;
+        &:before {
+            content: '•';
+            height: 100%;
+            position: absolute;
+            left: -1rem;
+            vertical-align: baseline;
         }
         &:last-child {
             margin-bottom: 0rem;
-        }
-        li {
-            list-style-type: none;
-            margin: 0rem 0rem 0.3rem 1rem;
-            position: relative;
-            padding: 0rem;
-            &:before {
-                content: '•';
-                height: 100%;
-                position: absolute;
-                left: -1rem;
-                vertical-align: baseline;
-            }
-            &:last-child {
-                margin-bottom: 0rem;
-            }
         }
     }
 }
@@ -125,55 +124,29 @@
 /** Types: Icon Alert **/
 
 .alert.alert-icon {
-    @include flex-align(center);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: table;
     width: 100%;
     >.alert-content {
-        @include flex(1);
-        display: block;
+        display: table-cell;
         vertical-align: middle;
+        width: 100%;
     }
     >.icon:not(.close) {
-        @include flex(0);
-        display: block;
-        font-size: 3rem;
+        font-size: 1.5em;
         line-height: 1;
         opacity: 0.8;
         vertical-align: middle;
         width: auto;
     }
     .icon {
-        &:not(.close)+.content {
-            padding-left: 0rem;
+        &:not(.close)+.alert-content {
+            padding-top: 0.2rem;
+            padding-left: 0.75rem;
         }
-        &.circular {
-            width: 1eem;
+        &.icon-circular {
+            width: 1rem;
         }
     }
-}
-
-
-/*** States ***/
-
-
-/** States: Visible **/
-
-.alert.alert-visible.alert-visible.alert-visible.alert-visible {
-    display: block;
-    &.alert-icon {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-    }
-}
-
-
-/** States: Hidden **/
-
-.alert.alert-hidden.alert-hidden.alert-hidden.alert-hidden {
-    display: none;
 }
 
 
@@ -182,25 +155,29 @@
 
 /** Variations: Attached **/
 
-.alert.alert-attached {
-    @include margin-h(-1px);
-    border-radius: 0.28571429rem 0.28571429rem 0rem 0rem;
-    box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset;
-    margin-bottom: -1px;
-    &.alert-icon {
-        width: auto;
+.alert {
+    &.alert-attached,
+    &.alert-attached-top {
+        @include margin-h(-1px);
+        border-radius: 0.28571429rem 0.28571429rem 0rem 0rem;
+        box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset;
+        margin-bottom: -1px;
+        &.alert-icon {
+            width: auto;
+        }
     }
     &.alert-attached-bottom {
+        @include margin-h(-1px);
         border-radius: 0rem 0rem 0.28571429rem 0.28571429rem;
         box-shadow: 0rem 0rem 0rem 1px rgba(34, 36, 38, 0.15) inset, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
         margin-top: -1px;
-        &:not(:last-child) {
+        &:last-child {
             margin-bottom: 1rem;
         }
     }
 }
 
-.attached+.alert.alert-attached:not(.alert-attached-top):not(.alert-attached-bottom) {
+.alert-attached+.alert.alert-attached:not(.alert-attached-top):not(.alert-attached-bottom) {
     border-radius: 0rem;
     margin-top: -1px;
 }
@@ -218,9 +195,9 @@
 }
 
 
-/** Variations: Floating **/
+/** Variations: Floated **/
 
-.alert.alert-floating {
+.alert.alert-floated {
     box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 }
 
@@ -228,13 +205,14 @@
 /** Variations: Info **/
 
 .alert.alert-info {
-    background-color: #FFFAF3;
-    box-shadow: 0px 0px 0px 1px #A9D5DE inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    @extend .alert.alert-icon;
+    background-color: $alert-info-bg !important;
+    box-shadow: 0px 0px 0px 1px $alert-info-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
     color: $inv_teal;
-    &.attached {
-        box-shadow: 0px 0px 0px 1px #A9D5DE inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    &.alert-attached {
+        box-shadow: 0px 0px 0px 1px $alert-info-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
     }
-    .header {
+    .alert-hdr {
         color: $teal;
     }
 }
@@ -243,14 +221,15 @@
 /** Variations: Warning **/
 
 .alert.alert-warning {
-    background-color: #FFFAF3;
-    box-shadow: 0px 0px 0px 1px #C9BA9B inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-    color: $inv-orange;
+    @extend .alert.alert-icon;
+    background-color: $alert-warning-bg !important;
+    box-shadow: 0px 0px 0px 1px $alert-warning-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    color: $inv-brown;
     &.alert-attached {
-        box-shadow: 0px 0px 0px 1px #C9BA9B inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        box-shadow: 0px 0px 0px 1px $alert-warning-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
     }
-    .header {
-        color: $orange
+    .alert-hdr {
+        color: $brown;
     }
 }
 
@@ -260,13 +239,14 @@
 .alert {
     &.alert-negative,
     &.alert-error {
-        background-color: #FFF6F6;
-        box-shadow: 0px 0px 0px 1px #E0B4B4 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        @extend .alert.alert-icon;
+        background-color: $alert-error-bg !important;
+        box-shadow: 0px 0px 0px 1px $alert-error-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
         color: $inv_red;
-        &.attached {
-            box-shadow: 0px 0px 0px 1px #E0B4B4 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        &.alert-attached {
+            box-shadow: 0px 0px 0px 1px $alert-error-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
         }
-        .header {
+        .alert-hdr {
             color: $red;
         }
     }
@@ -278,13 +258,14 @@
 .alert {
     &.alert-positive,
     &.alert-success {
-        background-color: #FCFFF5;
-        box-shadow: 0px 0px 0px 1px #A3C293 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        @extend .alert.alert-icon;
+        background-color: $alert-success-bg !important;
+        box-shadow: 0px 0px 0px 1px $alert-success-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
         color: $inv_green;
-        &.attached {
-            box-shadow: 0px 0px 0px 1px #A3C293 inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        &.alert-attached {
+            box-shadow: 0px 0px 0px 1px $alert-success-border inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
         }
-        .haeder {
+        .alert-hdr {
             color: $green;
         }
     }
@@ -295,23 +276,19 @@
 
 @each $index,
 $value in $color-order {
-    @if $value !=$grey and $value !=$black {
-        .alert.alert-#{$index} {
-            background-color: #FFE8E6;
-            color: $value;
-            box-shadow: 0px 0px 0px 1px $value inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
-            .header {
-                // FIX
-                color: $value
-            }
+    .alert.alert-#{$index} {
+        background-color: map-get($bg_color-order, $index) !important;
+        color: $value !important;
+        box-shadow: 0px 0px 0px 1px $value inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
+        .alert-hdr {
+            color: $value !important;
         }
     }
 }
 
 .alert {
-    &.alert-black,
     &.alert-inverted {
-        background-color: $black;
+        background-color: $black !important;
         color: rgba(255, 255, 255, 0.9);
     }
 }
