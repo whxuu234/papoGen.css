@@ -9,7 +9,7 @@
 .alert {
     @include transition-4(opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease);
     background: $bg_grey !important;
-    border-radius: 0.28571429rem;
+    border-radius: 0.2rem;
     box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
     color: rgba(0, 0, 0, 0.87);
     font-size: 1rem;
@@ -158,19 +158,19 @@
 .alert {
     &.alert-attached,
     &.alert-attached-top {
-        @include margin-h(-1px);
-        border-radius: 0.28571429rem 0.28571429rem 0rem 0rem;
+        border-radius: 0.2rem 0.2rem 0rem 0rem;
         box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset;
         margin-bottom: -1px;
+        @include margin-h(-1px);
         &.alert-icon {
             width: auto;
         }
     }
     &.alert-attached-bottom {
-        @include margin-h(-1px);
-        border-radius: 0rem 0rem 0.28571429rem 0.28571429rem;
+        border-radius: 0rem 0rem 0.2rem 0.2rem;
         box-shadow: 0rem 0rem 0rem 1px rgba(34, 36, 38, 0.15) inset, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
         margin-top: -1px;
+        @include margin-h(-1px);
         &:last-child {
             margin-bottom: 1rem;
         }

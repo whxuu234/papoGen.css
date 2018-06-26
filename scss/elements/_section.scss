@@ -9,7 +9,7 @@
 .section {
     background: #FFFFFF;
     border: 1px solid rgba(34, 36, 38, 0.15);
-    border-radius: 0.28571429rem;
+    border-radius: 0.2rem;
     box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
     position: relative;
     margin: 1rem 0rem;
@@ -45,90 +45,6 @@
 .section.section-raised,
 .sections.section-raised {
     box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
-}
-
-
-/** Types: Stacked **/
-
-.section.section-stacked {
-    padding-bottom: 1.4rem;
-}
-
-.section.section-stacked,
-.sections.section-stacked {
-    &:before,
-    &:after {
-        background: rgba(0, 0, 0, 0.03);
-        border-top: 1px solid rgba(34, 36, 38, 0.15);
-        content: '';
-        height: 6px;
-        position: absolute;
-        bottom: -3px;
-        left: 0%;
-        width: 100%;
-        visibility: visible;
-    }
-    &:before {
-        display: none;
-    }
-    /* Add additional page */
-    &.section-stacked-tall {
-        &:before,
-        &:after {
-            bottom: 0rem;
-            display: block;
-        }
-    }
-    /* Section inverted */
-    &.section-inverted {
-        &:before,
-        &:after {
-            background-color: rgba(0, 0, 0, 0.03);
-            border-top: 1px solid rgba(34, 36, 38, 0.35);
-        }
-    }
-}
-
-
-/** Types: Piled **/
-
-.section.section-piled,
-.sections.section-piled {
-    box-shadow: '';
-    margin: 3rem 0rem;
-    z-index: auto;
-    &:before,
-    &:after {
-        background-color: $white;
-        border: 1px solid rgba(34, 36, 38, 0.15);
-        box-shadow: '';
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        left: 0rem;
-        width: 100%;
-        visibility: visible;
-    }
-    &:before {
-        @include transform(rotate(-1.2deg));
-        top: 0;
-        z-index: -2;
-    }
-    &:after {
-        @include transform(rotate(1.2deg));
-        top: 0;
-        z-index: -1;
-    }
-}
-
-.section.section-piled {
-    &:first-child {
-        margin-top: 0rem;
-    }
-    &:last-child {
-        margin-bottom: 0rem;
-    }
 }
 
 
@@ -304,13 +220,6 @@
             &:first-child {
                 margin-top: 0rem;
             }
-            &.section-piled {
-                @include margin-v(0rem);
-                margin-top: 3rem;
-                &:first-child {
-                    margin-top: 0rem;
-                }
-            }
             /* Label */
             >.label.label-attached-bottom {
                 border-bottom-left-radius: 0rem;
@@ -326,13 +235,6 @@
             margin-bottom: 1rem;
             &:last-child {
                 margin-bottom: 0rem;
-            }
-            &.section-piled {
-                @include margin-v(0rem);
-                margin-bottom: 3rem;
-                &:last-child {
-                    margin-bottom: 0rem;
-                }
             }
             /* Label */
             >.label.label-attached-top {
@@ -423,6 +325,7 @@
 $value in $color-order {
     .section.section-#{$index} {
         &:not(.section-inverted) {
+            background: map-get($bg_color-order, $index);
             border-top: 2px solid $value;
         }
         &.section-inverted {
@@ -430,17 +333,6 @@ $value in $color-order {
             color: $white;
         }
     }
-}
-
-
-/** Variations: Circular **/
-
-.section.section-circular {
-    border-radius: 500rem;
-    display: table-cell;
-    padding: 2rem;
-    text-align: center;
-    vertical-align: middle;
 }
 
 
@@ -491,7 +383,7 @@ $value in $color-order {
     &.table {
         background: $white;
         border: 1px solid rgba(34, 36, 38, 0.15);
-        box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+        box-shadow: 0px 1px 1px 0 rgba(34, 36, 38, 0.15);
     }
 }
 

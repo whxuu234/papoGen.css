@@ -49,7 +49,7 @@ $blue: #2D98DA;
 $navy: #3867D6;
 $purple: #8854d0;
 $pink: #E84393;
-$brown: #E58E26;
+$brown: #CC8E35;
 $grey: #A5b1C2;
 $black: #1B1C1D;
 $white: #FFFFFF;
@@ -63,7 +63,7 @@ $inv_blue: #45AAF2;
 $inv_navy: #4B7BEC;
 $inv_purple: #A55EEA;
 $inv_pink: #FD79A8;
-$inv_brown: #FA983A;
+$inv_brown: #FFB142;
 $inv_grey: #D1D8E0;
 $inv_black: #545454;
 $inv_color-order: (red: $inv_red, orange: $inv_orange, yellow: $inv_yellow, green: $inv_green, teal: $inv_teal, blue: $inv_blue, navy: $inv_navy, purple: $inv_purple, pink: $inv_pink, brown: $inv_brown, grey: $inv_grey, black: $inv_black);
@@ -201,7 +201,7 @@ $alert-positive-bg:$alert-success-bg;
 $alert-success-border: #A3C293;
 $alert-state-bg-order: (info: $alert-info-bg, warning: $alert-warning-bg, positive: $alert-positive-bg, negative: $alert-negative-bg);
 $alert-state-border-order: (info: $alert-info-border, warning: $alert-warning-border, positive: $alert-success-border, negative: $alert-error-border);
-$alert-state-content-color: (info: $inv_teal, warning: $inv_brown, positive: $inv_green, negative: $inv_red);
+$alert-state-content-color: (info: $teal, warning: $brown, positive: $green, negative: $red);
 $alert-state-hdr-color: (info: $teal, warning: $brown, positive: $green, negative: $red);
 
 /*** Table ***/

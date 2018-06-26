@@ -5,10 +5,8 @@
 
 @import "../globals/_variables.scss";
 @import "../globals/_mixins.scss";
-
 // format: <size> <position> <color> <frame> btn
 // ex: normal (center) grey line btn
-
 
 /* Types */
 
@@ -24,7 +22,6 @@
     font-size: 1rem;
     padding: 0.5rem 2rem;
     border-radius: 0.5rem;
-
     &:hover {
         opacity: 0.95;
     }
@@ -35,22 +32,19 @@
         outline: 0;
         opacity: 0.95;
     }
-
     i {
-      margin: 0rem 0rem 0rem 1rem;
+        margin: 0rem 0rem 0rem 1rem;
     }
 }
 
 .btn.default {
-    color       : #5E5E5E;
-    background  : #5E5E5E;
+    color: #5E5E5E;
+    background: #5E5E5E;
     border-color: #5E5E5E;
 }
 
 // labeled >> inherit
-
 // icon >> inherit
-
 // basic
 .btn.basic {
     @extend .default;
@@ -68,7 +62,8 @@
 
 // group direction
 $direction: ( horizontal: row, vertical: column);
-@each $type, $var in $direction {
+@each $type,
+$var in $direction {
     .buttons.#{$type} {
         flex-direction: $var;
     }
@@ -76,7 +71,8 @@ $direction: ( horizontal: row, vertical: column);
 
 // grouped button position
 $position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
-@each $type, $attr in $position {
+@each $type,
+$attr in $position {
     .btn.#{$type} {
         @if ($type=='center') {
             border-radius: 0;
@@ -93,7 +89,8 @@ $position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'
 
 // activate, disabled
 $state: ( active: 1, disable: 0.4, );
-@each $type, $val in $state {
+@each $type,
+$val in $state {
     .btn.#{$type} {
         opacity: $val;
         cursor: initial;
@@ -111,20 +108,22 @@ $state: ( active: 1, disable: 0.4, );
 
 // color
 //$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, grey: #ADADAD, black: #333333, orange: #FE9A76);
-@each $type, $col in $color-order {
-  .btn.#{$type} {
-    color       : $col;
-    background  : $col;
-    border-color: $col;
-  }
+@each $type,
+$col in $color-order {
+    .btn.#{$type} {
+        color: $col;
+        background: $col;
+        border-color: $col;
+    }
 }
 
 // frame or fill
 $frame: (fill: none, line: solid);
-@each $type, $val in $frame {
+@each $type,
+$val in $frame {
     .btn.#{$type} {
         border-style: $val;
-        @if ($type == 'line') {
+        @if ($type=='line') {
             border-width: 0.1rem;
             background: $white;
         }
@@ -136,14 +135,13 @@ $frame: (fill: none, line: solid);
 
 // size
 $size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.5rem, 1rem, 2.5rem));
-@each $type, $attr in $size {
+@each $type,
+$attr in $size {
     .btn.#{$type} {
         font-size: nth($attr, 1);
         padding: nth($attr, 2) nth($attr, 3);
-
         i {
             margin: 0rem 0rem 0rem nth($attr, 1);
         }
     }
 }
-
