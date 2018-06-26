@@ -1326,12 +1326,12 @@ i.icon {
   font-style: normal;
   font-weight: normal;
   margin: 0rem 0.25rem 0rem 0rem;
-  height: 1rem;
+  height: 1em;
   text-align: center;
   text-decoration: inherit;
   opacity: 1;
   speak: none;
-  width: 1.18rem; }
+  width: 1.25em; }
   i.icon:before {
     background: none !important; }
 
@@ -1348,7 +1348,7 @@ i.icon {
 /** Variations: Circular **/
 i.icon.icon-circular {
   border-radius: 500em !important;
-  box-shadow: 0rem 0rem 0rem 0.25rem rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0rem 0rem 0rem 0.1rem rgba(0, 0, 0, 0.1) inset;
   height: 2em !important;
   line-height: 1 !important;
   padding: 0.5em !important;
@@ -1389,7 +1389,7 @@ i.icon.icon-squared {
 /** Variations: Inverted **/
 i.icon.icon-inverted {
   color: #FFFFFF; }
-  i.icon.icon-inverted.icon-bordered, i.icon.icon-inverted.icon-circular {
+  i.icon.icon-inverted.icon-squared, i.icon.icon-inverted.icon-circular {
     background-color: #1B1C1D !important;
     color: #FFFFFF !important; }
 
@@ -1397,123 +1397,131 @@ i.icon.icon-inverted {
 i.icon.icon-red {
   color: #EB3B5A !important; }
   i.icon.icon-red.icon-inverted {
-    color: red !important; }
-    i.icon.icon-red.icon-inverted.icon-bordered, i.icon.icon-red.icon-inverted.icon-circular {
+    color: #FC5C65 !important; }
+    i.icon.icon-red.icon-inverted.icon-squared, i.icon.icon-red.icon-inverted.icon-circular {
       background-color: #EB3B5A !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-orange {
   color: #FA8231 !important; }
   i.icon.icon-orange.icon-inverted {
-    color: orange !important; }
-    i.icon.icon-orange.icon-inverted.icon-bordered, i.icon.icon-orange.icon-inverted.icon-circular {
+    color: #FD9644 !important; }
+    i.icon.icon-orange.icon-inverted.icon-squared, i.icon.icon-orange.icon-inverted.icon-circular {
       background-color: #FA8231 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-yellow {
   color: #F7B731 !important; }
   i.icon.icon-yellow.icon-inverted {
-    color: yellow !important; }
-    i.icon.icon-yellow.icon-inverted.icon-bordered, i.icon.icon-yellow.icon-inverted.icon-circular {
+    color: #FED330 !important; }
+    i.icon.icon-yellow.icon-inverted.icon-squared, i.icon.icon-yellow.icon-inverted.icon-circular {
       background-color: #F7B731 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-green {
   color: #20BF6B !important; }
   i.icon.icon-green.icon-inverted {
-    color: green !important; }
-    i.icon.icon-green.icon-inverted.icon-bordered, i.icon.icon-green.icon-inverted.icon-circular {
+    color: #26DE81 !important; }
+    i.icon.icon-green.icon-inverted.icon-squared, i.icon.icon-green.icon-inverted.icon-circular {
       background-color: #20BF6B !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-teal {
   color: #0FB9B1 !important; }
   i.icon.icon-teal.icon-inverted {
-    color: teal !important; }
-    i.icon.icon-teal.icon-inverted.icon-bordered, i.icon.icon-teal.icon-inverted.icon-circular {
+    color: #2BCBBA !important; }
+    i.icon.icon-teal.icon-inverted.icon-squared, i.icon.icon-teal.icon-inverted.icon-circular {
       background-color: #0FB9B1 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-blue {
   color: #2D98DA !important; }
   i.icon.icon-blue.icon-inverted {
-    color: blue !important; }
-    i.icon.icon-blue.icon-inverted.icon-bordered, i.icon.icon-blue.icon-inverted.icon-circular {
+    color: #45AAF2 !important; }
+    i.icon.icon-blue.icon-inverted.icon-squared, i.icon.icon-blue.icon-inverted.icon-circular {
       background-color: #2D98DA !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-navy {
   color: #3867D6 !important; }
   i.icon.icon-navy.icon-inverted {
-    color: navy !important; }
-    i.icon.icon-navy.icon-inverted.icon-bordered, i.icon.icon-navy.icon-inverted.icon-circular {
+    color: #4B7BEC !important; }
+    i.icon.icon-navy.icon-inverted.icon-squared, i.icon.icon-navy.icon-inverted.icon-circular {
       background-color: #3867D6 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-purple {
   color: #8854d0 !important; }
   i.icon.icon-purple.icon-inverted {
-    color: purple !important; }
-    i.icon.icon-purple.icon-inverted.icon-bordered, i.icon.icon-purple.icon-inverted.icon-circular {
+    color: #A55EEA !important; }
+    i.icon.icon-purple.icon-inverted.icon-squared, i.icon.icon-purple.icon-inverted.icon-circular {
       background-color: #8854d0 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-pink {
   color: #E84393 !important; }
   i.icon.icon-pink.icon-inverted {
-    color: pink !important; }
-    i.icon.icon-pink.icon-inverted.icon-bordered, i.icon.icon-pink.icon-inverted.icon-circular {
+    color: #FD79A8 !important; }
+    i.icon.icon-pink.icon-inverted.icon-squared, i.icon.icon-pink.icon-inverted.icon-circular {
       background-color: #E84393 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-brown {
   color: #E58E26 !important; }
   i.icon.icon-brown.icon-inverted {
-    color: brown !important; }
-    i.icon.icon-brown.icon-inverted.icon-bordered, i.icon.icon-brown.icon-inverted.icon-circular {
+    color: #FA983A !important; }
+    i.icon.icon-brown.icon-inverted.icon-squared, i.icon.icon-brown.icon-inverted.icon-circular {
       background-color: #E58E26 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-grey {
   color: #A5b1C2 !important; }
   i.icon.icon-grey.icon-inverted {
-    color: grey !important; }
-    i.icon.icon-grey.icon-inverted.icon-bordered, i.icon.icon-grey.icon-inverted.icon-circular {
+    color: #D1D8E0 !important; }
+    i.icon.icon-grey.icon-inverted.icon-squared, i.icon.icon-grey.icon-inverted.icon-circular {
       background-color: #A5b1C2 !important;
       color: #FFFFFF !important; }
 
 i.icon.icon-black {
   color: #1B1C1D !important; }
   i.icon.icon-black.icon-inverted {
-    color: black !important; }
-    i.icon.icon-black.icon-inverted.icon-bordered, i.icon.icon-black.icon-inverted.icon-circular {
+    color: #545454 !important; }
+    i.icon.icon-black.icon-inverted.icon-squared, i.icon.icon-black.icon-inverted.icon-circular {
       background-color: #1B1C1D !important;
+      color: #FFFFFF !important; }
+
+i.icon.icon-white {
+  color: #FFFFFF !important; }
+  i.icon.icon-white.icon-inverted {
+    color: !important; }
+    i.icon.icon-white.icon-inverted.icon-squared, i.icon.icon-white.icon-inverted.icon-circular {
+      background-color: #FFFFFF !important;
       color: #FFFFFF !important; }
 
 /* Variations: Size */
 i.icon.icon-mini {
-  font-size: 0.4rem; }
+  font-size: 0.75em; }
 
 i.icon.icon-tiny {
-  font-size: 0.5rem; }
+  font-size: 1em; }
 
 i.icon.icon-small {
-  font-size: 0.75rem; }
+  font-size: 1.25em; }
 
 i.icon.icon-big {
-  font-size: 1.5rem;
+  font-size: 2em;
   vertical-align: middle; }
 
 i.icon.icon-large {
-  font-size: 2rem;
+  font-size: 4em;
   vertical-align: middle; }
 
 i.icon.icon-huge {
-  font-size: 4rem;
+  font-size: 6em;
   vertical-align: middle; }
 
 i.icon.icon-massive {
-  font-size: 8rem;
+  font-size: 8em;
   vertical-align: middle; }
 
 /*** Plugin: Font Awesome 4.7.0 ***/
