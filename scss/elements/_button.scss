@@ -89,14 +89,14 @@ $position: ( down: ('top-left', 'top-right', 'top'), up: ('bottom-left', 'bottom
     // grouped button position
     @each $type, $attr in $position {
         .btn.#{$type} {
+            margin: 0rem;
+
             @if ($type=='center') {
                 border-radius: 0;
-                margin: 0rem;
             }
             @else {
                 border-#{nth($attr, 1)}-radius: 0;
                 border-#{nth($attr, 2)}-radius: 0;
-                margin-#{nth($attr, 3)}: 0rem;
             }
         }
     }
