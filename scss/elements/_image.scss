@@ -12,15 +12,16 @@
     max-width: 100%;
     position: relative;
     vertical-align: middle;
-    &img {
-        display: block;
-    }
     svg,
     img {
         display: block;
         height: auto;
         max-width: 100%;
     }
+}
+
+img.img {
+    display: block;
 }
 
 
@@ -129,8 +130,7 @@
 
 /** Variations: Floated **/
 
-.img-floated {
-    &,
+.img {
     &.img-floated-left {
         &:last-child {
             margin-bottom: 0rem;
@@ -143,6 +143,9 @@
         }
     }
     &.img-floated-right {
+        &:last-child {
+            margin-bottom: 0rem;
+        }
         &.img,
         &.imgs {
             float: right;
@@ -159,7 +162,8 @@
 .img-centered {
     &.img,
     &.imgs {
-        @include margin-h(auto);
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

@@ -5769,13 +5769,14 @@ i.icon.youtube.square {
   max-width: 100%;
   position: relative;
   vertical-align: middle; }
-  .imgimg {
-    display: block; }
   .img svg,
   .img img {
     display: block;
     height: auto;
     max-width: 100%; }
+
+img.img {
+  display: block; }
 
 /*** Variations ***/
 /** Variations: Inline **/
@@ -5860,13 +5861,15 @@ i.icon.youtube.square {
     margin-right: 0.5em; }
 
 /** Variations: Floated **/
-.img-floated:last-child, .img-floated.img-floated-left:last-child {
+.img.img-floated-left:last-child {
   margin-bottom: 0rem; }
-.img-floated.img, .img-floated.imgs, .img-floated.img-floated-left.img, .img-floated.img-floated-left.imgs {
+.img.img-floated-left.img, .img.img-floated-left.imgs {
   float: left;
   margin-right: 1rem;
   margin-bottom: 1rem; }
-.img-floated.img-floated-right.img, .img-floated.img-floated-right.imgs {
+.img.img-floated-right:last-child {
+  margin-bottom: 0rem; }
+.img.img-floated-right.img, .img.img-floated-right.imgs {
   float: right;
   margin-right: 0rem;
   margin-bottom: 1rem;
