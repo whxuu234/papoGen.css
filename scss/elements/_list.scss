@@ -341,7 +341,7 @@ ul.list {
 
 .list>.item,
 .list .list>.item {
-    >.image {
+    >.img {
         background-color: transparent;
         display: table-cell;
         margin: 0rem;
@@ -356,7 +356,7 @@ ul.list {
             vertical-align: top;
         }
     }
-    >img.image {
+    >img.img {
         display: inline-block;
     }
 }
@@ -373,7 +373,7 @@ ul.list {
             padding-left: 0rem;
         }
     }
-    >.image,
+    >.img,
     >.icon {
         +.item-content {
             display: table-cell;
@@ -381,7 +381,7 @@ ul.list {
             vertical-align: top;
         }
     }
-    >img.image {
+    >img.img {
         +.item-content {
             display: inline-block;
         }
@@ -460,7 +460,7 @@ ul.list {
     .list>.item {
         font-size: 1rem;
         >.item-content,
-        >.image,
+        >.img,
         >i.icon {
             vertical-align: middle;
         }
@@ -878,7 +878,7 @@ ul.list {
     .list[class*="list-aligned-#{$item}"],
     .list [class*="list-aligned-#{$item}"] {
         .item-content,
-        .image {
+        .img {
             vertical-align: $item !important;
         }
     }
@@ -888,19 +888,19 @@ ul.list {
 /** Content Variations: Floated **/
 
 .list {
-    &[class*="list-floated-left"] {
+    &.list-floated-left {
         float: left;
     }
-    &[class*="list-floated-right"] {
+    &.list-floated-right {
         float: right;
     }
     >.item,
     .list>.item {
-        &[class*="list-floated-left"] {
+        .list-floated-left {
             float: left;
             margin: 0rem 1rem 0rem 0rem;
         }
-        &[class*="list-floated-right"] {
+        .list-floated-right {
             float: right;
             margin: 0rem 0rem 0rem 1rem;
         }
