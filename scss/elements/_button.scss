@@ -23,6 +23,10 @@
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     border-width: 0.1rem;
+    border-style: solid;
+    background: #C4C4C4;
+    border-color: #C4C4C4;
+
     &:hover {
         opacity: 0.95;
     }
@@ -43,14 +47,14 @@
             margin-#{$val}: 1rem;
         }
     }
-
-    background: #C4C4C4;
 }
 
-.btn.default {
-    color: #5E5E5E;
-    background: #5E5E5E;
-    border-color: #5E5E5E;
+@each $name, $val in (primary: $primary, secondary: $secondary, negative: $red, positive: $green) {
+    .btn.#{$name} {
+        color: $white;
+        background: $val;
+        border-color: $val;
+    }
 }
 
 // labeled
@@ -73,13 +77,6 @@
       border-top-left-radius: 0rem;
       border-bottom-left-radius: 0rem;
     }
-}
-
-// basic
-.btn.basic {
-    @extend .default;
-    border-style: solid;
-    background: #FFFFFF;
 }
 
 /* Groups */
@@ -137,27 +134,18 @@ $val in $state {
 /* Variations */
 
 // color
-//$bg_col: ( primary: #1E84D4, secondary: #404040, positive: #49C468, negative: #E65050, grey: #ADADAD, black: #333333, orange: #FE9A76);
 @each $type,
 $col in $color-order {
-    .btn.#{$type} {
+    .btn.basic.#{$type} {
+        background: #FFFFFF;
         color: $col;
-        background: $col;
         border-color: $col;
     }
-}
 
-// frame or fill
-$frame: (fill: none, line: solid);
-@each $type, $val in $frame {
     .btn.#{$type} {
-        border-style: $val;
-        @if ($type=='line') {
-            background: $white;
-        }
-        @else {
-            color: $white;
-        }
+        color: $white;
+        background: $col;
+        border-color: $col;
     }
 }
 
