@@ -683,16 +683,18 @@ body {
   border-color: #5E5E5E; }
 
 .btn.labeled {
+  margin: 0;
   padding: 0;
   display: flex;
+  align-items: center;
   opacity: 1;
   background: #FFFFFF; }
   .btn.labeled .btn {
-    margin: 0.25rem 0rem;
+    margin: 0;
     border-top-right-radius: 0rem;
     border-bottom-right-radius: 0rem; }
   .btn.labeled .label {
-    margin: 0.25rem 0rem;
+    margin: 0;
     border-top-left-radius: 0rem;
     border-bottom-left-radius: 0rem; }
 
