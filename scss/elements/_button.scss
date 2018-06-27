@@ -60,12 +60,16 @@
     background: #FFFFFF;
 
     .btn {
-      margin: 0rem;
+      margin: 0.25rem 0rem;
+      border-top-right-radius: 0rem;
+      border-bottom-right-radius: 0rem;
     }
 
     .label {
-      margin: 0rem;
+      margin: 0.25rem 0rem;
       // line-height: 1.4285rem;
+      border-top-left-radius: 0rem;
+      border-bottom-left-radius: 0rem;
     }
 }
 
@@ -77,11 +81,25 @@
     background: #FFFFFF;
 }
 
-
 /* Groups */
-
+$position: ( down: ('top-left', 'top-right', 'top'), up: ('bottom-left', 'bottom-right', 'bottom'), right: ('top-left', 'bottom-left', 'left'), left: ('top-right', 'bottom-right', 'right'), center: (0));
 .buttons {
     display: flex;
+
+    // grouped button position
+    @each $type, $attr in $position {
+        .btn.#{$type} {
+            @if ($type=='center') {
+                border-radius: 0;
+                margin: 0rem;
+            }
+            @else {
+                border-#{nth($attr, 1)}-radius: 0;
+                border-#{nth($attr, 2)}-radius: 0;
+                margin-#{nth($attr, 3)}: 0rem;
+            }
+        }
+    }
 }
 
 // group direction
@@ -92,22 +110,6 @@ $var in $direction {
         flex-direction: $var;
     }
 }
-
-// grouped button position
-$position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
-@each $type,
-$attr in $position {
-    .btn.#{$type} {
-        @if ($type=='center') {
-            border-radius: 0;
-        }
-        @else {
-            border-#{nth($attr, 1)}-radius: 0;
-            border-#{nth($attr, 2)}-radius: 0;
-        }
-    }
-}
-
 
 /* States */
 
