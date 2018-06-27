@@ -22,6 +22,7 @@
     font-size: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+    border-width: 0.1rem;
     &:hover {
         opacity: 0.95;
     }
@@ -78,7 +79,6 @@
 .btn.basic {
     @extend .default;
     border-style: solid;
-    border-width: 0.1rem;
     background: #FFFFFF;
 }
 
@@ -149,7 +149,6 @@ $frame: (fill: none, line: solid);
     .btn.#{$type} {
         border-style: $val;
         @if ($type=='line') {
-            border-width: 0.1rem;
             background: $white;
         }
         @else {
