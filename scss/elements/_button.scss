@@ -13,15 +13,16 @@
 // default
 .btn {
     @include user_select;
-    margin: 0;
+    margin: 0.25rem 0.25rem;
     text-align: center;
     opacity: 0.75;
     cursor: pointer;
     width: fit-content;
     height: auto;
     font-size: 1rem;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+    border-width: 0.1rem;
     &:hover {
         opacity: 0.95;
     }
@@ -32,9 +33,18 @@
         outline: 0;
         opacity: 0.95;
     }
-    i {
-        margin: 0rem 0rem 0rem 1rem;
+
+    // icon
+    i.icon{
+        margin: 0;
     }
+    @each $pos, $val in (right: left, left: right) {
+        i.icon.#{$pos} {
+            margin-#{$val}: 1rem;
+        }
+    }
+
+    background: #C4C4C4;
 }
 
 .btn.default {
@@ -43,21 +53,58 @@
     border-color: #5E5E5E;
 }
 
-// labeled >> inherit
-// icon >> inherit
+// labeled
+.btn.labeled {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    background: #FFFFFF;
+
+    .btn {
+      margin: 0;
+      border-top-right-radius: 0rem;
+      border-bottom-right-radius: 0rem;
+    }
+
+    .label {
+      margin: 0;
+      border-top-left-radius: 0rem;
+      border-bottom-left-radius: 0rem;
+    }
+}
+
 // basic
 .btn.basic {
     @extend .default;
     border-style: solid;
-    border-width: 0.1rem;
     background: #FFFFFF;
 }
 
-
 /* Groups */
-
+$position: ( down: ('top-left', 'top-right', 'top'), up: ('bottom-left', 'bottom-right', 'bottom'), right: ('top-left', 'bottom-left', 'left'), left: ('top-right', 'bottom-right', 'right'), center: (0));
 .buttons {
+    width: fit-content;
     display: flex;
+    margin: 0;
+    padding: 0;
+
+    // grouped button position
+    @each $type, $attr in $position {
+        .btn.#{$type} {
+            width: auto;
+            margin: 0;
+
+            @if ($type=='center') {
+                border-radius: 0;
+            }
+            @else {
+                border-#{nth($attr, 1)}-radius: 0;
+                border-#{nth($attr, 2)}-radius: 0;
+            }
+        }
+    }
 }
 
 // group direction
@@ -68,22 +115,6 @@ $var in $direction {
         flex-direction: $var;
     }
 }
-
-// grouped button position
-$position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
-@each $type,
-$attr in $position {
-    .btn.#{$type} {
-        @if ($type=='center') {
-            border-radius: 0;
-        }
-        @else {
-            border-#{nth($attr, 1)}-radius: 0;
-            border-#{nth($attr, 2)}-radius: 0;
-        }
-    }
-}
-
 
 /* States */
 
@@ -103,7 +134,6 @@ $val in $state {
     }
 }
 
-
 /* Variations */
 
 // color
@@ -119,12 +149,10 @@ $col in $color-order {
 
 // frame or fill
 $frame: (fill: none, line: solid);
-@each $type,
-$val in $frame {
+@each $type, $val in $frame {
     .btn.#{$type} {
         border-style: $val;
         @if ($type=='line') {
-            border-width: 0.1rem;
             background: $white;
         }
         @else {
@@ -134,14 +162,19 @@ $val in $frame {
 }
 
 // size
-$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 2rem), large: (1.5rem, 1rem, 2.5rem));
-@each $type,
-$attr in $size {
+$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 1.5rem), large: (1.5rem, 1rem, 2.5rem));
+@each $type, $attr in $size {
     .btn.#{$type} {
         font-size: nth($attr, 1);
         padding: nth($attr, 2) nth($attr, 3);
-        i {
-            margin: 0rem 0rem 0rem nth($attr, 1);
+    }
+
+    @each $pos, $val in (right: left, left: right) {
+        .btn.#{$type} {
+            i.icon.#{$pos} {
+                margin: 0;
+                margin-#{$val}: nth($attr, 1);
+            }
         }
     }
 }
