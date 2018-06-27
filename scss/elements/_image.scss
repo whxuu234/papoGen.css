@@ -4,128 +4,200 @@
  */
 
 
-/*** Types  ***/
+/*** Image ***/
 
-
-/** Types:image  **/
-
-.image {
-    max-width: inherit;
-    max-height: inherit;
-}
-
-
-/*** Variations  ***/
-
-
-/** Variations:Fluid  **/
-
-.fluid {
-    width: inherit;
-    height: inherit;
-}
-
-
-/*** Variations  ***/
-
-
-/** Variations:Rounded **/
-
-.rounded {
-    border-radius: .8rem;
-}
-
-
-/** Variations:Bordered **/
-
-.bordered {
-    border-style: groove;
-    padding: 3rem;
-}
-
-
-/** Variations:Floated **/
-
-@mixin block() {
-    &::after {
-        visibility: hidden;
+.img {
+    background-color: transparent;
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    vertical-align: middle;
+    &img {
         display: block;
-        font-size: 0;
-        content: "";
-        clear: both;
-        height: 0;
+    }
+    svg,
+    img {
+        display: block;
+        height: auto;
+        max-width: 100%;
     }
 }
 
-.leftfloated {
-    float: left;
-    @include block;
-}
 
-.rightfloated {
-    float: right;
-    @include block;
-}
+/*** Variations ***/
 
 
-/** Variations:Size **/
+/** Variations: Inline **/
 
-.Mini {
-    width: 2rem;
-}
-
-.Tiny {
-    width: 4rem;
-}
-
-.Small {
-    width: 8rem;
-}
-
-.Medium {
-    width: 16rem;
-}
-
-.Large {
-    width: 24rem;
-}
-
-.Big {
-    width: 32rem;
-}
-
-.Huge {
-    width: 42rem;
-}
-
-.Massive {
-    width: 51rem;
+.img-inline.img {
+    &,
+    img,
+    svg {
+        display: inline-block;
+    }
 }
 
 
-/** Variations:Centered **/
+/** Variations: Vertical Alignement **/
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+@each $item in $aligned-order {
+    .imgs.img-aligned-#{$item} .img {
+        display: inline-block;
+        vertical-align: $item;
+    }
+    .img.img-aligned-#{$item} {
+        &,
+        img,
+        svg {
+            display: inline-block;
+            vertical-align: $item;
+        }
+    }
 }
 
 
-/** Variations:Vertically aligned **/
+/** Variations: Rounded **/
 
-@mixin aligned($p) {
-    vertical-align: $p;
+.img-rounded {
+    &.img,
+    &.img>*,
+    &.imgs .img>* {
+        border-radius: 0.3rem;
+    }
 }
 
-.top {
-    @include aligned(text-top);
+
+/** Variations: Fluid **/
+
+.img-fluid {
+    &.img,
+    &.imgs {
+        &,
+        img,
+        svg {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
 }
 
-.middle {
-    @include aligned(middle);
+
+/** Variations: Avatar **/
+
+.img-avatar {
+    &.img {
+        &,
+        img,
+        svg {
+            border-radius: 500rem;
+            display: inline-block;
+            height: 2rem;
+            margin-right: 0.25rem;
+            width: 2rem;
+        }
+    }
+    &.imgs {
+        .img,
+        img,
+        svg {
+            border-radius: 500rem;
+            display: inline-block;
+            height: 2rem;
+            margin-right: 0.25rem;
+            width: 2rem;
+        }
+    }
 }
 
-.bottom {
-    @include aligned(text-bottom);
+
+/** Variations: Spaced **/
+
+.img.img-spaced {
+    @include margin-h(0.5rem);
+    display: inline-block !important;
+    &.img-spaced-left {
+        margin-left: 0.5em;
+        margin-right: 0em;
+    }
+    &.img-spaced-right {
+        margin-left: 0em;
+        margin-right: 0.5em;
+    }
 }
+
+
+/** Variations: Floated **/
+
+.img-floated {
+    &,
+    &.img-floated-left {
+        &:last-child {
+            margin-bottom: 0rem;
+        }
+        &.img,
+        &.imgs {
+            float: left;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+    &.img-floated-right {
+        &.img,
+        &.imgs {
+            float: right;
+            margin-right: 0rem;
+            margin-bottom: 1rem;
+            margin-left: 1rem;
+        }
+    }
+}
+
+
+/** Variations: Centered **/
+
+.img-centered {
+    &.img,
+    &.imgs {
+        @include margin-h(auto);
+    }
+}
+
+
+/** Variations: Size **/
+
+@each $item in $size-order {
+    .img-#{$item} {
+        &.img {
+            width: nth($img-width, index($size-order, $item));
+            height: auto;
+            font-size: nth($list-font-size, index($size-order, $item));
+        }
+        &.imgs {
+            .img,
+            img,
+            svg {
+                width: nth($img-width, index($size-order, $item));
+                height: auto;
+                font-size: nth($list-font-size, index($size-order, $item));
+            }
+        }
+    }
+}
+
+
+/*** Groups ***/
+
+.imgs {
+    font-size: 0rem;
+    margin: 0rem -0.25rem 0rem;
+    .img,
+    img,
+    svg {
+        display: inline-block;
+        margin: 0rem 0.25rem 0.5rem;
+    }
+}
+
+
+/** Overrides **/

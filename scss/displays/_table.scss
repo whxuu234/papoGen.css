@@ -12,7 +12,7 @@
     border: {
         collapse: separate;
         spacing: 0rem;
-        radius: 0.28571429rem;
+        radius: 0.2rem;
     }
     box-shadow: none;
     color: rgba(0, 0, 0, 0.87);
@@ -45,7 +45,7 @@
                 style: none;
                 weight: bold;
             }
-            padding: 0.92857143rem 0.78571429rem;
+            padding: 0.9rem 0.7rem;
             text: {
                 align: inherit;
                 transform: none;
@@ -59,13 +59,13 @@
             &:first-child {
                 >th {
                     &:first-child {
-                        border-radius: 0.28571429rem 0rem 0rem 0rem;
+                        border-radius: 0.2rem 0rem 0rem 0rem;
                     }
                     &:last-child {
-                        border-radius: 0rem 0.28571429rem 0rem 0rem;
+                        border-radius: 0rem 0.2rem 0rem 0rem;
                     }
                     &:only-child {
-                        border-radius: 0.28571429rem 0.28571429rem 0rem 0rem;
+                        border-radius: 0.2rem 0.2rem 0rem 0rem;
                     }
                 }
             }
@@ -96,13 +96,13 @@
             }
             &:first-child>th {
                 &:first-child {
-                    border-radius: 0rem 0rem 0rem 0.28571429rem;
+                    border-radius: 0rem 0rem 0rem 0.2rem;
                 }
                 &:last-child {
-                    border-radius: 0rem 0rem 0.28571429rem 0rem;
+                    border-radius: 0rem 0rem 0.2rem 0rem;
                 }
                 &:only-child {
-                    border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+                    border-radius: 0em 0em 0.2rem 0.2rem;
                 }
             }
         }
@@ -118,7 +118,7 @@
     }
     /* Table Cells */
     td {
-        padding: 0.78571429rem 0.78571429rem;
+        padding: 0.7rem 0.7rem;
         text-align: inherit;
     }
 }
@@ -391,14 +391,14 @@
     /* Attached Top */
     &.table-attached-top {
         @include position-v;
-        border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+        border-radius: 0.2rem 0.2rem 0em 0em;
         margin-top: 1rem;
         margin-bottom: 0rem;
     }
     /* Attached Bottom */
     &.table-attached-bottom {
         @include position-v;
-        border-radius: 0rem 0rem 0.28571429rem 0.28571429rem;
+        border-radius: 0rem 0rem 0.2rem 0.2rem;
         box-shadow: none, none;
         margin-bottom: 1rem;
         margin-top: 0rem;

@@ -1,0 +1,95 @@
+/*!
+ * # papoGen 0.0.1 - Timeline
+ * - Prefix: timeline
+ */
+
+
+/*** Timeline ***/
+
+.timeline {
+    @include box-sizing(border-box);
+    color: $black;
+    font-weight: 300;
+    line-height: 1.5;
+    list-style: none;
+    margin: 0rem;
+    padding: 0rem;
+    /* Timeline Item */
+    .timeline-item {
+        list-style: none;
+        margin: 0rem;
+        padding: 0rem 0rem 1.25rem;
+        position: relative;
+        &:last-child {
+            padding: 0rem;
+            .timeline-tail {
+                display: none;
+            }
+            .timeline-content {
+                min-height: 20px;
+            }
+        }
+        /* Item Head */
+        .timeline-head {
+            background-color: $white;
+            border: 2px solid $grey;
+            border-radius: 100px;
+            height: 11px;
+            position: absolute;
+            width: 11px;
+        }
+        /* Item Tail */
+        .timeline-tail {
+            border-left: 2px solid $inv_grey;
+            height: 100%;
+            position: absolute;
+            left: 4.45px;
+            top: 0.75rem;
+        }
+        /* Item Content */
+        .timeline-content {
+            padding: 0rem 0rem 0rem 1.5rem;
+            position: relative;
+            top: -5px;
+        }
+    }
+}
+
+
+/** Variations: Colored **/
+
+@each $index,
+$value in $color-order {
+    .timeline.timeline-#{$index} {
+        .timeline-item>.timeline-head {
+            border-color: $value !important;
+            color: $value !important;
+        }
+    }
+}
+
+@each $index,
+$value in $color-order {
+    .timeline-item.timeline-#{$index}>.timeline-head {
+        border-color: $value !important;
+        color: $value !important;
+    }
+}
+
+
+/** Variations: Inverted **/
+
+.timeline.timeline-inverted {
+    .timeline-item {
+        color: $white !important;
+        /* Item Head */
+        .timeline-head {
+            background-color: $black !important;
+            border: 2px solid $inv_grey;
+        }
+        /* Item Tail */
+        .timeline-tail {
+            border-left: 2px solid $grey;
+        }
+    }
+}
