@@ -6221,7 +6221,8 @@ img.img {
   vertical-align: middle;
   background: #C4C4C4;
   border-width: 0.1rem;
-  border-style: solid; }
+  border-style: solid;
+  border-color: #C4C4C4; }
   .label:hover {
     opacity: 1; }
   .label img {
