@@ -662,6 +662,7 @@ body {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  border-width: 0.1rem;
   background: #C4C4C4; }
   .btn:hover {
     opacity: 0.95; }
@@ -700,12 +701,16 @@ body {
 
 .btn.basic {
   border-style: solid;
-  border-width: 0.1rem;
   background: #FFFFFF; }
 
 /* Groups */
 .buttons {
-  display: flex; }
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  opacity: 1;
+  background: #FFFFFF; }
   .buttons .btn.down {
     margin: 0rem;
     border-top-left-radius: 0;
@@ -821,7 +826,6 @@ body {
 
 .btn.line {
   border-style: solid;
-  border-width: 0.1rem;
   background: #FFFFFF; }
 
 .btn.small {
@@ -6215,7 +6219,9 @@ img.img {
   border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
-  background: #C4C4C4; }
+  background: #C4C4C4;
+  border-width: 0.1rem;
+  border-style: solid; }
   .label:hover {
     opacity: 1; }
   .label img {
