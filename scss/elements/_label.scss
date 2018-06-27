@@ -19,6 +19,8 @@
     border-radius: 0.5rem;
     text-align: center;
     vertical-align: middle;
+    background: #C4C4C4;
+
     &:hover {
         opacity: 1;
     }
@@ -35,10 +37,13 @@
     }
     // icon
     i {
-        margin: 0rem 0rem 0rem 1rem;
+       margin: 0rem;
     }
-    i.left {
-        margin: 0rem 1rem 0rem 0rem;
+
+    @each $pos, $val in (right: left, left: right) {
+        i.#{$pos} {
+            margin-#{$val}: 1rem;
+        }
     }
 }
 
@@ -124,9 +129,35 @@ $attr in $size {
 
 
 /* Groups */
-
 .labels {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
+
+$position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
+@each $type,
+$attr in $position {
+    .label.#{$type} {
+        @if ($type=='center') {
+            border-radius: 0;
+        }
+        @else {
+            border-#{nth($attr, 1)}-radius: 0;
+            border-#{nth($attr, 2)}-radius: 0;
+        }
+    }
+
+    @each $pos, $val in (right: left, left: right) {
+        .label.#{$type} {
+            i.#{$pos} {
+                margin: 0rem;
+                margin-#{$val}: 1rem;
+            }
+        }
+    }
+}
+
+
+
+
