@@ -40,7 +40,7 @@ function bindInputLabel() {
 }
 
 // parent selector for .label
-function parentSelect() {
+function labelStyle() {
   $('.label:has(.detail)').css('border', 'none')
   $('.label:has(.detail)').css('padding', '0rem 0rem 0rem 0.6rem')
   $('.image.label:has(.detail)').css('padding', '0rem 0rem 0rem 0rem')
@@ -49,4 +49,5 @@ function parentSelect() {
 $(document).ready(() => {
   inherit()
   bindInputLabel()
+  labelStyle()
 })
