@@ -15,7 +15,7 @@
     width: fit-content;
     height: auto;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 0.5rem;
     text-align: center;
     vertical-align: middle;
@@ -34,7 +34,7 @@
         float: left;
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
-        margin-right: 1rem;
+        margin-right: 0.6rem;
         // height, width of image depends on (font-size + 2*padding) * 14px
         // margin-right depends on label right padding (rem)
     }
@@ -45,7 +45,7 @@
 
     @each $pos, $val in (right: left, left: right) {
         i.icon.#{$pos} {
-            margin-#{$val}: 1rem;
+            margin-#{$val}: 0.6rem;
         }
     }
 }
@@ -60,7 +60,7 @@
 
 .label {
     .detail {
-        margin: 0rem 0rem 0rem 1rem;
+        margin: 0rem 0rem 0rem 0.6rem;
     }
 }
 
