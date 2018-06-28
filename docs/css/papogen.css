@@ -6334,11 +6334,9 @@ img.img {
 .image.label {
   padding: 0rem 0.6rem 0rem 0rem;
   border: none;
-  display: table;
   line-height: 2rem; }
   .image.label .detail {
-    padding: 0rem 0.6rem;
-    display: table-cell; }
+    padding: 0rem 0.6rem; }
 
 /* Variations */
 .circular.label {
