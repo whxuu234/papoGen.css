@@ -39,6 +39,12 @@ function bindInputLabel() {
   })
 }
 
+// parent selector for .label
+function parentSelect() {
+  $('.label:has(.detail)').css('border', 'none')
+  $('.label:has(.detail)').css('padding', '0rem 0rem 0rem 0.6rem')
+}
+
 $(document).ready(() => {
   inherit()
   bindInputLabel()

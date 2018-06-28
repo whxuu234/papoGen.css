@@ -6330,8 +6330,6 @@ img.img {
   vertical-align: middle;
   background: darkgrey;
   color: #FFFFFF; }
-  .label .detail:parent {
-    border: none; }
 
 .image.label {
   padding: 0rem 0.6rem 0rem 0rem;
@@ -6427,14 +6425,15 @@ img.img {
     width: 1rem;
     height: 1rem;
     margin-right: 0.3rem; }
-    .label.small img:parent {
-      line-height: 1rem; }
   .label.small i {
     margin: 0rem 0rem 0rem 0.3rem; }
   .label.small i.left {
     margin: 0rem 0.3rem 0rem 0rem; }
   .label.small .detail {
     margin: 0rem 0rem 0rem 0.3rem; }
+
+.label.image {
+  line-height: 1rem; }
 
 .label.medium {
   font-size: 1rem;
@@ -6443,14 +6442,15 @@ img.img {
     width: 2rem;
     height: 2rem;
     margin-right: 0.6rem; }
-    .label.medium img:parent {
-      line-height: 2rem; }
   .label.medium i {
     margin: 0rem 0rem 0rem 0.6rem; }
   .label.medium i.left {
     margin: 0rem 0.6rem 0rem 0rem; }
   .label.medium .detail {
     margin: 0rem 0rem 0rem 0.6rem; }
+
+.label.image {
+  line-height: 2rem; }
 
 .label.large {
   font-size: 1.5rem;
@@ -6459,14 +6459,15 @@ img.img {
     width: 3rem;
     height: 3rem;
     margin-right: 0.4rem; }
-    .label.large img:parent {
-      line-height: 3rem; }
   .label.large i {
     margin: 0rem 0rem 0rem 0.4rem; }
   .label.large i.left {
     margin: 0rem 0.4rem 0rem 0rem; }
   .label.large .detail {
     margin: 0rem 0rem 0rem 0.4rem; }
+
+.label.image {
+  line-height: 3rem; }
 
 /* Groups */
 .labels {

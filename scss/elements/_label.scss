@@ -37,8 +37,6 @@
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
         margin-right: 0.6rem;
-        // height, width of image depends on (font-size + 2*padding) * 14px
-        // margin-right depends on label right padding (rem)
     }
     // icon
     i {
@@ -71,10 +69,6 @@
 
         background: darkgrey;
         color: $white;
-
-        &:parent {
-           border: none;
-        }
     }
 }
 
@@ -141,10 +135,6 @@ $attr in $size {
             width: nth($attr, 4)*2;
             height: nth($attr, 4)*2;
             margin-right: nth($attr, 1);
-
-            &:parent {
-                line-height: nth($attr, 4)*2;
-            }
         }
         i {
             margin: 0rem 0rem 0rem nth($attr, 1);
@@ -156,6 +146,10 @@ $attr in $size {
             margin: 0rem 0rem 0rem nth($attr, 1);
 
         }
+    }
+
+    .label.image {
+        line-height: nth($attr, 4)*2;
     }
 }
 
