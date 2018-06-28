@@ -24,8 +24,8 @@
     border-radius: 0.5rem;
     border-width: 0.1rem;
     border-style: solid;
-    background: #C4C4C4;
-    border-color: #C4C4C4;
+    background: #D4D4D4;
+    border-color: #D4D4D4;
 
     &:hover {
         opacity: 0.95;
@@ -44,7 +44,7 @@
     }
     @each $pos, $val in (right: left, left: right) {
         i.icon.#{$pos} {
-            margin-#{$val}: 1rem;
+            margin-#{$val}: 0.5rem;
         }
     }
 }
@@ -156,10 +156,10 @@ $col in $color-order {
 }
 
 // size
-$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 1.5rem), large: (1.5rem, 1rem, 2.5rem));
+$size: ( small: (0.5rem, 0.25rem, 0.8rem, 0.5rem), medium: (0.5rem, 0.5rem, 1rem, 1rem), large: (1rem, 1rem, 1.2rem, 1.5rem));
 @each $type, $attr in $size {
     .btn.#{$type} {
-        font-size: nth($attr, 1);
+        font-size: nth($attr, 4);
         padding: nth($attr, 2) nth($attr, 3);
     }
 
