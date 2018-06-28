@@ -6310,7 +6310,7 @@ img.img {
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
     margin-right: 0.6rem; }
-  .label i {
+  .label i.icon {
     cursor: pointer;
     margin: 0rem; }
   .label i.icon.right {
@@ -6431,7 +6431,8 @@ img.img {
     margin: 0rem 0rem 0rem 0.3rem; }
 
 .label.small.image {
-  line-height: 1rem; }
+  line-height: 1rem;
+  padding: 0rem; }
 
 .label.medium {
   font-size: 1rem;
@@ -6448,7 +6449,8 @@ img.img {
     margin: 0rem 0rem 0rem 0.6rem; }
 
 .label.medium.image {
-  line-height: 2rem; }
+  line-height: 2rem;
+  padding: 0rem; }
 
 .label.large {
   font-size: 1.5rem;
@@ -6465,7 +6467,8 @@ img.img {
     margin: 0rem 0rem 0rem 0.4rem; }
 
 .label.large.image {
-  line-height: 3rem; }
+  line-height: 3rem;
+  padding: 0rem; }
 
 /* Groups */
 .labels {
