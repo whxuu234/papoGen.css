@@ -26,6 +26,7 @@
     border-style: solid;
     background: #D4D4D4;
     border-color: #D4D4D4;
+    display: inline-block;
 
     &:hover {
         opacity: 0.95;
@@ -91,6 +92,7 @@ $position: ( down: ('top-left', 'top-right', 'top'), up: ('bottom-left', 'bottom
 .buttons {
     width: fit-content;
     display: flex;
+    text-align: center;
     margin: 0;
     padding: 0;
 

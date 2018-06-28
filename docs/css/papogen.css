@@ -665,7 +665,8 @@ body {
   border-width: 0.1rem;
   border-style: solid;
   background: #D4D4D4;
-  border-color: #D4D4D4; }
+  border-color: #D4D4D4;
+  display: inline-block; }
   .btn:hover {
     opacity: 0.95; }
   .btn:active {
@@ -724,6 +725,7 @@ body {
 .buttons {
   width: fit-content;
   display: flex;
+  text-align: center;
   margin: 0;
   padding: 0; }
   .buttons .btn.down {
