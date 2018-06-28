@@ -144,11 +144,10 @@ $attr in $size {
         }
         .detail {
             margin: 0rem 0rem 0rem nth($attr, 1);
-
         }
     }
 
-    .label.image {
+    .label.#{$type}.image {
         line-height: nth($attr, 4)*2;
     }
 }

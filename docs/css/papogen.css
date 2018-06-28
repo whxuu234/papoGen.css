@@ -6432,7 +6432,7 @@ img.img {
   .label.small .detail {
     margin: 0rem 0rem 0rem 0.3rem; }
 
-.label.image {
+.label.small.image {
   line-height: 1rem; }
 
 .label.medium {
@@ -6449,7 +6449,7 @@ img.img {
   .label.medium .detail {
     margin: 0rem 0rem 0rem 0.6rem; }
 
-.label.image {
+.label.medium.image {
   line-height: 2rem; }
 
 .label.large {
@@ -6466,7 +6466,7 @@ img.img {
   .label.large .detail {
     margin: 0rem 0rem 0rem 0.4rem; }
 
-.label.image {
+.label.large.image {
   line-height: 3rem; }
 
 /* Groups */
