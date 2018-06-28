@@ -11,7 +11,6 @@
 .label {
     margin: 0.25rem 0.25rem;
     opacity: 0.9;
-    cursor: pointer;
     width: fit-content;
     height: auto;
     font-size: 1rem;
@@ -29,6 +28,7 @@
     }
     // image
     img {
+        cursor: pointer;
         width: 2rem;
         height: 2rem;
         float: left;
@@ -40,6 +40,7 @@
     }
     // icon
     i {
+       cursor: pointer;
        margin: 0rem;
     }
 
@@ -61,6 +62,15 @@
 .label {
     .detail {
         margin: 0rem 0rem 0rem 0.6rem;
+        padding: 0rem 0.6rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+
+        vertical-align: middle;
+
+        background: darkgrey;
+        color: $white;
+
     }
 }
 
@@ -112,8 +122,8 @@ $attr in $size {
         font-size: nth($attr, 4);
         padding: nth($attr, 2) nth($attr, 3);
         img {
-            width: nth($attr, 1)*2;
-            height: nth($attr, 1)*2;
+            width: nth($attr, 4)*2;
+            height: nth($attr, 4)*2;
             margin-right: nth($attr, 1);
         }
         i {
@@ -124,6 +134,7 @@ $attr in $size {
         }
         .detail {
             margin: 0rem 0rem 0rem nth($attr, 1);
+
         }
     }
 }
@@ -132,7 +143,8 @@ $attr in $size {
 .image.label {
     display: flex;
     align-items: center;
-    padding: 0rem 1rem 0rem 0rem;
+    padding: 0rem 0.6rem 0rem 0rem;
+    border: none;
 }
 
 
