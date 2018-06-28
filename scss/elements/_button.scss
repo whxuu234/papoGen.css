@@ -79,6 +79,7 @@
     }
 
     .label {
+      padding: 0.6rem 0.8rem;
       margin: 0;
       border-top-left-radius: 0rem;
       border-bottom-left-radius: 0rem;
@@ -140,10 +141,8 @@ $val in $state {
 /* Variations */
 
 // color
-@each $type,
-$col in $color-order {
+@each $type, $col in $color-order {
     .btn.basic.#{$type} {
-        background: #FFFFFF;
         color: $col;
         border-color: $col;
     }
