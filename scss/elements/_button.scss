@@ -20,7 +20,7 @@
     width: fit-content;
     height: auto;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 0.5rem;
     border-width: 0.1rem;
     border-style: solid;
@@ -44,7 +44,7 @@
     }
     @each $pos, $val in (right: left, left: right) {
         i.icon.#{$pos} {
-            margin-#{$val}: 0.5rem;
+            margin-#{$val}: 0.6rem;
         }
     }
 }
@@ -156,7 +156,11 @@ $col in $color-order {
 }
 
 // size
-$size: ( small: (0.5rem, 0.25rem, 0.8rem, 0.5rem), medium: (0.5rem, 0.5rem, 1rem, 1rem), large: (1rem, 1rem, 1.2rem, 1.5rem));
+$size: (
+    small: (0.3rem, 0.3rem, 0.5rem, 0.5rem),
+    medium: (0.6rem, 0.6rem, 0.8rem, 1rem),
+    large: (0.4rem, 1rem, 1.1rem, 1.5rem)
+);
 @each $type, $attr in $size {
     .btn.#{$type} {
         font-size: nth($attr, 4);
