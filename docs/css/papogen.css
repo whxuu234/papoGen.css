@@ -6291,7 +6291,7 @@ img.img {
   width: fit-content;
   height: auto;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
@@ -6307,20 +6307,20 @@ img.img {
     float: left;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
-    margin-right: 1rem; }
+    margin-right: 0.6rem; }
   .label i {
     margin: 0rem; }
   .label i.icon.right {
-    margin-left: 1rem; }
+    margin-left: 0.6rem; }
   .label i.icon.left {
-    margin-right: 1rem; }
+    margin-right: 0.6rem; }
 
 .label.horizontal {
   display: inline; }
 
 /* Content */
 .label .detail {
-  margin: 0rem 0rem 0rem 1rem; }
+  margin: 0rem 0rem 0rem 0.6rem; }
 
 /* Variations */
 .circular.label {
