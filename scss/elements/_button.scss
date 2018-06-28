@@ -143,6 +143,7 @@ $val in $state {
 // color
 @each $type, $col in $color-order {
     .btn.basic.#{$type} {
+        background: $col;
         color: $col;
         border-color: $col;
     }

@@ -19,7 +19,7 @@
     text-align: center;
     vertical-align: middle;
     align-items: center;
-    display: flex;
+    display: inline-flex;
     background: #D4D4D4;
     border-width: 0.1rem;
     border-style: solid;
@@ -86,9 +86,6 @@
 /* Variations */
 
 // circular
-.circular.label {
-    border-radius: 0;
-}
 
 // basic
 .label.basic {
@@ -98,6 +95,7 @@
 // color
 @each $type, $col in $color-order {
     .label.basic.#{$type} {
+        background: $white;
         color: $col;
         border-color: $col;
     }

@@ -776,6 +776,7 @@ body {
 
 /* Variations */
 .btn.basic.red {
+  background: #EB3B5A;
   color: #EB3B5A;
   border-color: #EB3B5A; }
 
@@ -785,6 +786,7 @@ body {
   border-color: #EB3B5A; }
 
 .btn.basic.orange {
+  background: #FA8231;
   color: #FA8231;
   border-color: #FA8231; }
 
@@ -794,6 +796,7 @@ body {
   border-color: #FA8231; }
 
 .btn.basic.yellow {
+  background: #F7B731;
   color: #F7B731;
   border-color: #F7B731; }
 
@@ -803,6 +806,7 @@ body {
   border-color: #F7B731; }
 
 .btn.basic.green {
+  background: #20BF6B;
   color: #20BF6B;
   border-color: #20BF6B; }
 
@@ -812,6 +816,7 @@ body {
   border-color: #20BF6B; }
 
 .btn.basic.teal {
+  background: #0FB9B1;
   color: #0FB9B1;
   border-color: #0FB9B1; }
 
@@ -821,6 +826,7 @@ body {
   border-color: #0FB9B1; }
 
 .btn.basic.blue {
+  background: #2D98DA;
   color: #2D98DA;
   border-color: #2D98DA; }
 
@@ -830,6 +836,7 @@ body {
   border-color: #2D98DA; }
 
 .btn.basic.navy {
+  background: #3867D6;
   color: #3867D6;
   border-color: #3867D6; }
 
@@ -839,6 +846,7 @@ body {
   border-color: #3867D6; }
 
 .btn.basic.purple {
+  background: #8854d0;
   color: #8854d0;
   border-color: #8854d0; }
 
@@ -848,6 +856,7 @@ body {
   border-color: #8854d0; }
 
 .btn.basic.pink {
+  background: #E84393;
   color: #E84393;
   border-color: #E84393; }
 
@@ -857,6 +866,7 @@ body {
   border-color: #E84393; }
 
 .btn.basic.brown {
+  background: #CC8E35;
   color: #CC8E35;
   border-color: #CC8E35; }
 
@@ -866,6 +876,7 @@ body {
   border-color: #CC8E35; }
 
 .btn.basic.grey {
+  background: #A5b1C2;
   color: #A5b1C2;
   border-color: #A5b1C2; }
 
@@ -875,6 +886,7 @@ body {
   border-color: #A5b1C2; }
 
 .btn.basic.black {
+  background: #1B1C1D;
   color: #1B1C1D;
   border-color: #1B1C1D; }
 
@@ -884,6 +896,7 @@ body {
   border-color: #1B1C1D; }
 
 .btn.basic.white {
+  background: #FFFFFF;
   color: #FFFFFF;
   border-color: #FFFFFF; }
 
@@ -6283,7 +6296,7 @@ img.img {
   text-align: center;
   vertical-align: middle;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   background: #D4D4D4;
   border-width: 0.1rem;
   border-style: solid;
@@ -6327,13 +6340,11 @@ img.img {
     padding: 0rem 0.6rem; }
 
 /* Variations */
-.circular.label {
-  border-radius: 0; }
-
 .label.basic {
   background: #FFFFFF; }
 
 .label.basic.red {
+  background: #FFFFFF;
   color: #EB3B5A;
   border-color: #EB3B5A; }
 
@@ -6343,6 +6354,7 @@ img.img {
   border-color: #EB3B5A; }
 
 .label.basic.orange {
+  background: #FFFFFF;
   color: #FA8231;
   border-color: #FA8231; }
 
@@ -6352,6 +6364,7 @@ img.img {
   border-color: #FA8231; }
 
 .label.basic.yellow {
+  background: #FFFFFF;
   color: #F7B731;
   border-color: #F7B731; }
 
@@ -6361,6 +6374,7 @@ img.img {
   border-color: #F7B731; }
 
 .label.basic.green {
+  background: #FFFFFF;
   color: #20BF6B;
   border-color: #20BF6B; }
 
@@ -6370,6 +6384,7 @@ img.img {
   border-color: #20BF6B; }
 
 .label.basic.teal {
+  background: #FFFFFF;
   color: #0FB9B1;
   border-color: #0FB9B1; }
 
@@ -6379,6 +6394,7 @@ img.img {
   border-color: #0FB9B1; }
 
 .label.basic.blue {
+  background: #FFFFFF;
   color: #2D98DA;
   border-color: #2D98DA; }
 
@@ -6388,6 +6404,7 @@ img.img {
   border-color: #2D98DA; }
 
 .label.basic.navy {
+  background: #FFFFFF;
   color: #3867D6;
   border-color: #3867D6; }
 
@@ -6397,6 +6414,7 @@ img.img {
   border-color: #3867D6; }
 
 .label.basic.purple {
+  background: #FFFFFF;
   color: #8854d0;
   border-color: #8854d0; }
 
@@ -6406,6 +6424,7 @@ img.img {
   border-color: #8854d0; }
 
 .label.basic.pink {
+  background: #FFFFFF;
   color: #E84393;
   border-color: #E84393; }
 
@@ -6415,6 +6434,7 @@ img.img {
   border-color: #E84393; }
 
 .label.basic.brown {
+  background: #FFFFFF;
   color: #CC8E35;
   border-color: #CC8E35; }
 
@@ -6424,6 +6444,7 @@ img.img {
   border-color: #CC8E35; }
 
 .label.basic.grey {
+  background: #FFFFFF;
   color: #A5b1C2;
   border-color: #A5b1C2; }
 
@@ -6433,6 +6454,7 @@ img.img {
   border-color: #A5b1C2; }
 
 .label.basic.black {
+  background: #FFFFFF;
   color: #1B1C1D;
   border-color: #1B1C1D; }
 
@@ -6442,6 +6464,7 @@ img.img {
   border-color: #1B1C1D; }
 
 .label.basic.white {
+  background: #FFFFFF;
   color: #FFFFFF;
   border-color: #FFFFFF; }
 
