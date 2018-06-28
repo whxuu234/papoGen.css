@@ -9,25 +9,27 @@ $sizes: (
   huge: 1.4rem
 );
 
+.breadcrumb {
+  font-family: 'Cabin', sans-serif;
+  margin: 0.3em 0;
+}
+
 @each $name, $size in $sizes {
   .breadcrumb.#{$name} {
-    font-family: 'Cabin', sans-serif;
     font-size: $size;
   }
 }
 
-.breadcrumb > a.section {
+.breadcrumb > a.block {
   text-decoration: none;
   cursor : pointer;
   color: #4183c4;
   display: inline;
-  margin: 0.3em;
 }
 
-.breadcrumb > div.section {
+.breadcrumb > div.block {
   color: #000000;
   display: inline;
-  margin: 0.3em;
 }
 
 .breadcrumb > i.divider,
@@ -36,11 +38,14 @@ $sizes: (
   display: inline;
   font-size: 0.9em;
   opacity: 0.8;
+  margin: 0 0.3em;
 }
 
 
-.breadcrumb > .section.active {
+.breadcrumb > .block.active {
   color: #000000;
+  font-weight: 600;
+  opacity: 0.85;
   & > a {
     color: #4183c4;
     text-decoration: none;
