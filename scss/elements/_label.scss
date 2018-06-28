@@ -39,7 +39,7 @@
         margin-right: 0.6rem;
     }
     // icon
-    i {
+    i.icon {
        cursor: pointer;
        margin: 0rem;
     }
@@ -147,6 +147,7 @@ $attr in $size {
 
     .label.#{$type}.image {
         line-height: nth($attr, 4)*2;
+        padding: 0rem;
     }
 }
 
