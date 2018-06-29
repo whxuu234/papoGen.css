@@ -11,34 +11,43 @@
 .label {
     margin: 0.25rem 0.25rem;
     opacity: 0.9;
-    cursor: pointer;
     width: fit-content;
     height: auto;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 0.5rem;
     text-align: center;
     vertical-align: middle;
+    align-items: center;
+    display: inline-flex;
+    background: #D4D4D4;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-color: #D4D4D4;
+
     &:hover {
         opacity: 1;
     }
     // image
     img {
+        cursor: pointer;
         width: 2rem;
         height: 2rem;
         float: left;
         border-top-left-radius: 0.5rem;
         border-bottom-left-radius: 0.5rem;
-        margin-right: 1rem;
-        // height, width of image depends on (font-size + 2*padding) * 14px
-        // margin-right depends on label right padding (rem)
+        margin-right: 0.6rem;
     }
     // icon
-    i {
-        margin: 0rem 0rem 0rem 1rem;
+    i.icon {
+       cursor: pointer;
+       margin: 0rem;
     }
-    i.left {
-        margin: 0rem 1rem 0rem 0rem;
+
+    @each $pos, $val in (right: left, left: right) {
+        i.icon.#{$pos} {
+            margin-#{$val}: 0.6rem;
+        }
     }
 }
 
@@ -49,10 +58,27 @@
 
 
 /* Content */
-
 .label {
     .detail {
-        margin: 0rem 0rem 0rem 1rem;
+        margin: 0rem 0rem 0rem 0.6rem;
+        padding: 0.4rem 0.6rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+
+        vertical-align: middle;
+
+        background: darkgrey;
+        color: $white;
+    }
+}
+
+.image.label {
+    padding: 0rem 0.6rem 0rem 0rem;
+    border: none;
+    line-height: 2rem;
+
+    .detail {
+        padding: 0rem 0.6rem;
     }
 }
 
@@ -60,47 +86,42 @@
 /* Variations */
 
 // circular
-.circular.label {
-    border-radius: 0;
-}
 
 // basic
+.label.basic {
+    background: $white;
+}
+
 // color
-@each $type,
-$col in $color-order {
-    .label.#{$type} {
+@each $type, $col in $color-order {
+    .label.basic.#{$type} {
+        background: $white;
         color: $col;
+        border-color: $col;
+    }
+
+    .label.#{$type} {
+        color: $white;
         background: $col;
         border-color: $col;
     }
 }
 
-// frame or fill
-$frame: (fill: none, line: solid);
-@each $type,
-$val in $frame {
-    .label.#{$type} {
-        border-style: $val;
-        @if ($type=='line') {
-            border-width: 0.1rem;
-            background: $white;
-        }
-        @else {
-            color: $white;
-        }
-    }
-}
-
 // size
-$size: ( small: (0.5rem, 0.1rem, 1rem), medium: (1rem, 0.5rem, 1rem), large: (1.5rem, 1rem, 2rem));
+
+$size: (
+    small: (0.3rem, 0.1rem, 0.3rem, 0.5rem),
+    medium: (0.6rem, 0.3rem, 0.6rem, 1rem),
+    large: (0.4rem, 0.8rem, 1.2rem, 1.5rem)
+);
 @each $type,
 $attr in $size {
     .label.#{$type} {
-        font-size: nth($attr, 1);
+        font-size: nth($attr, 4);
         padding: nth($attr, 2) nth($attr, 3);
         img {
-            width: nth($attr, 1)*2;
-            height: nth($attr, 1)*2;
+            width: nth($attr, 4)*2;
+            height: nth($attr, 4)*2;
             margin-right: nth($attr, 1);
         }
         i {
@@ -113,20 +134,36 @@ $attr in $size {
             margin: 0rem 0rem 0rem nth($attr, 1);
         }
     }
+
+    .label.#{$type}.image {
+        line-height: nth($attr, 4)*2;
+        padding: 0rem;
+    }
 }
 
-// image
-.image.label {
-    display: flex;
-    align-items: center;
-    padding: 0rem 1rem 0rem 0rem;
-}
 
 
 /* Groups */
-
 .labels {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
+
+$position: ( down: ('top-left', 'top-right'), up: ('bottom-left', 'bottom-right'), right: ('top-left', 'bottom-left'), left: ('top-right', 'bottom-right'), center: (0));
+@each $type,
+$attr in $position {
+    .label.#{$type} {
+        @if ($type=='center') {
+            border-radius: 0;
+        }
+        @else {
+            border-#{nth($attr, 1)}-radius: 0;
+            border-#{nth($attr, 2)}-radius: 0;
+        }
+    }
+}
+
+
+
+

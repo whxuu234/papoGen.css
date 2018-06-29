@@ -2,47 +2,47 @@
  * # papoGen 0.0.1 - Breadcrumb
  * - Prefix: bread
  */
-$sizes: (
-  small: 0.8rem,
-  medium: 1rem,
-  big: 1.2rem,
-  huge: 1.4rem
-);
 
-@each $name, $size in $sizes {
-  .breadcrumb.#{$name} {
+$sizes: ( small: 0.8rem, medium: 1rem, big: 1.2rem, huge: 1.4rem);
+.breadcrumb {
     font-family: 'Cabin', sans-serif;
-    font-size: $size;
-  }
+    margin: 0.3em 0;
 }
 
-.breadcrumb > a.section {
-  text-decoration: none;
-  cursor : pointer;
-  color: #4183c4;
-  display: inline;
-  margin: 0.3em;
+@each $name,
+$size in $sizes {
+    .breadcrumb.#{$name} {
+        font-size: $size;
+    }
 }
 
-.breadcrumb > div.section {
-  color: #000000;
-  display: inline;
-  margin: 0.3em;
-}
-
-.breadcrumb > i.divider,
-.breadcrumb > div.divider {
-  color: #c0c0c0;
-  display: inline;
-  font-size: 0.9em;
-  opacity: 0.8;
-}
-
-
-.breadcrumb > .section.active {
-  color: #000000;
-  & > a {
-    color: #4183c4;
+.breadcrumb>a.block {
     text-decoration: none;
-  }
+    cursor: pointer;
+    color: #4183c4;
+    display: inline;
+}
+
+.breadcrumb>div.block {
+    color: #000000;
+    display: inline;
+}
+
+.breadcrumb>i.divider,
+.breadcrumb>div.divider {
+    color: #c0c0c0;
+    display: inline;
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin: 0 0.3em;
+}
+
+.breadcrumb>.block.active {
+    color: #000000;
+    font-weight: 600;
+    opacity: 0.85;
+    &>a {
+        color: #4183c4;
+        text-decoration: none;
+    }
 }

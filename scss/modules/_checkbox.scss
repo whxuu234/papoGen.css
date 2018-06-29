@@ -6,14 +6,6 @@
 
 /* Types */
 
-
-/*
-<div class = "checkbox">
-  <input type = "checkbox" id = "ex">
-  <label for = "ex" text = "click"></label>
-</div>
-*/
-
 // normal checkbox
 .checkbox {
     min-height: 1rem;
@@ -48,7 +40,7 @@
         display: block;
         padding-left: 1.3rem;
         white-space: nowrap;
-        color: rgba(0,0,0, 0.87);
+        color: rgba(0, 0, 0, 0.87);
         &:before {
             content: '';
             cursor: pointer;
@@ -71,28 +63,17 @@
             position: absolute;
             right: 2.59rem;
             top: 0.13rem;
-            border: 0.1rem solid rgba(0,0,0, 0.87);
+            border: 0.1rem solid rgba(0, 0, 0, 0.87);
             border-top: none;
             border-left: none;
             transform: rotate(45deg);
             z-index: -1;
         }
         &:hover {
-            color: rgba(0,0,0, 0.78);
+            color: rgba(0, 0, 0, 0.78);
             &:before {
                 border-color: #b2b2b3;
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
