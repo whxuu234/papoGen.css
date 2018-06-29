@@ -527,7 +527,7 @@ ul.list {
         .item {
             color: rgba(255, 255, 255, 0.5);
             &.active,
-            &.active a:not() {
+            &.active a:not(&) {
                 color: $white;
             }
         }
@@ -560,7 +560,7 @@ ul.list {
         }
     }
     /* Inverted link */
-    .item a:not() {
+    .item a:not(&) {
         color: rgba(255, 255, 255, 0.9) !important;
         &:hover {
             color: $link-hover !important;
